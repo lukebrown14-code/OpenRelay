@@ -11,6 +11,7 @@
 //   --label     results directory name (required)
 //   --agent     agent to use (default: build)
 //   --timeout   per-run timeout in seconds (default 300)
+//   --filtering tool-output filtering mode passed to the plugin via OPENRELAY_FILTERING (off|on, default off)
 //   --dry-run   skip opencode, validate harness mechanics only
 
 import { spawnSync, spawn } from "node:child_process"
@@ -46,6 +47,8 @@ if (!args.fixture || !args.model || !args.label) {
 const runs = parseInt(args.runs ?? "3", 10)
 const timeoutSec = parseInt(args.timeout ?? "300", 10)
 const agent = args.agent ?? "build"
+const filtering = args.filtering ?? "off"
+if (filtering !== "off" && filtering !== "on") fail(`--filtering must be "off" or "on", got: ${filtering}`)
 
 const fixtures = args.fixture === "all"
   ? fs.readdirSync(FIXTURES_DIR).filter((d) => !d.startsWith("."))
@@ -54,12 +57,15 @@ for (const f of fixtures) {
   if (!fs.existsSync(path.join(FIXTURES_DIR, f))) fail(`unknown fixture: ${f}`)
 }
 
-function runOpencode(cwd, model, agentName, prompt, timeoutMs) {
+function runOpencode(cwd, model, agentName, prompt, timeoutMs, filtering) {
   return new Promise((resolve) => {
     const child = spawn(
       "opencode",
       ["run", "-m", model, "--agent", agentName, "--auto", "--format", "json", prompt],
-      { cwd, env: process.env },
+      // OpenCode consults PWD for project resolution and waits if inherited stdin
+      // remains open, so both must describe a headless child process explicitly.
+      // OPENRELAY_FILTERING opts the plugin's Stage 2 tool-output filter in or out.
+      { cwd, env: { ...process.env, PWD: cwd, OPENRELAY_FILTERING: filtering }, stdio: ["ignore", "pipe", "pipe"] },
     )
     let stdout = ""
     let stderr = ""
@@ -126,7 +132,7 @@ async function main() {
       if (args.dryRun) {
         oc.code = 0
       } else {
-        oc = await runOpencode(workspace, args.model, agent, taskMd, timeoutSec * 1000)
+        oc = await runOpencode(workspace, args.model, agent, taskMd, timeoutSec * 1000, filtering)
       }
       const durationMs = Date.now() - startMs
       const endedAt = new Date().toISOString()
@@ -150,6 +156,7 @@ async function main() {
         run: i,
         model: args.model,
         agent,
+        filtering,
         dryRun: Boolean(args.dryRun),
         startedAt,
         endedAt,

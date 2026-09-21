@@ -1,13 +1,33 @@
-# token-efficient plugin (Stage 1: Baseline & Observability)
+# token-efficient plugin (Stage 1: Baseline & Observability, Stage 2: Tool-Output Filtering)
 
-Implements the Stage 1 telemetry foundation from `token-efficient-architecture.md`.
+Implements the Stage 1 telemetry foundation and Stage 2 deterministic tool-output filtering
+from `token-efficient-architecture.md` / `docs/stage2-tool-output-filtering.md`.
 Registered globally in `~/.config/opencode/opencode.jsonc`:
 
 ```jsonc
-"plugin": [["./plugins/token-efficient/index.ts", { "telemetry": { "enabled": true } }]]
+"plugin": [["./plugins/token-efficient/index.ts", { "telemetry": { "enabled": true }, "filtering": { "enabled": false } }]]
 ```
 
-Options: `telemetry.enabled` (default true), `telemetry.dir` (default `~/.local/share/opencode/token-efficient`).
+Options:
+- `telemetry.enabled` (default true), `telemetry.dir` (default `~/.local/share/opencode/token-efficient`)
+- `filtering.enabled` (default **false**), `filtering.minBytes` (default 4096),
+  `filtering.retention.ttlHours` (24) / `maxBytesPerResult` (10 MiB) / `maxBytesPerSession` (50 MiB).
+- Env override `OPENRELAY_FILTERING=on|off` wins over `filtering.enabled` (used by the benchmark runner).
+- Filtering is off until the Stage 2 A/B benchmark passes (see AGENTS.md rules).
+
+## Filtering (Stage 2)
+
+- `tool.execute.after` rewrites recognized **bash** output only: tests (vitest/jest/mocha/
+  pytest/node --test/bun test/npm-style test scripts), typecheck (`tsc`/pyright/mypy),
+  lint (eslint/biome/ruff/golangci-lint), builds (npm/bun/pnpm/yarn build, cargo/go builds).
+  Versioned reasons (`vitest:v1`, `tsc:v1`, …). Unknown, short (<minBytes), or
+  uncertain-to-parse output passes through unchanged. Raw output is stashed exactly at
+  `~/.local/share/opencode/token-efficient/raw/<session>/<ref>` (0600/0700, 24h TTL, caps).
+- `openrelay_raw_output` custom tool recovers raw output: session-scoped refs,
+  `range`/`search` modes, ≤200 lines / 16 KiB per call, pagination metadata. Its own
+  output is never re-filtered.
+- Telemetry: `tool.filtered` (`reason`, `bytesBefore/After`, `ratio`, `omittedLines`, `ref`),
+  `tool.raw_recovered` (`ref`, `mode`, `bytesReturned`), per-task `filtering` totals.
 
 ## What it records
 
@@ -37,17 +57,23 @@ Tier classification (`lib/classify.ts`): `openai` → premium, `zai/zhipu/glm` �
 Normalized JSONL: `{ts, v, type, slug, session, task, data}` with types:
 `task.created`, `user.message`, `llm.call`, `assistant.completed`, `model.switch`,
 `tool.call`, `file.read`, `file.edited`, `verification`, `message.error`,
-`session.error`, `task.idle`.
+`session.error`, `task.idle`, `tool.filtered`, `tool.raw_recovered`.
 
 Telemetry never throws into the host: every hook body is defensive and failures are swallowed.
 
 ## Layout
 
 ```
-index.ts                      plugin entry (hooks wiring)
+index.ts                      plugin entry (hooks wiring, filter hook, tool registration)
 lib/ids.ts                    task IDs, slugs, hashing
 lib/store.ts                  storage: event JSONL, task state files, session map
 lib/classify.ts               model tier classification
+lib/filtering/config.ts       filtering options/defaults, env override
+lib/filtering/classify.ts     command classification → versioned filter reasons
+lib/filtering/parsers.ts      per-family evidence extraction (versioned)
+lib/filtering/raw-store.ts    bounded session-scoped raw output storage
+lib/filtering/filter.ts       filter orchestrator (gates, stash, telemetry)
+tools/raw-output.ts           openrelay_raw_output recovery tool
 telemetry/session-tracker.ts  per-session aggregation (tokens, switches, latency, outcomes)
 telemetry/tool-tracker.ts     tool metrics, files, verification detection
 ```

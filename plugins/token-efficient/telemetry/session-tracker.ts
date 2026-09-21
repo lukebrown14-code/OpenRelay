@@ -47,6 +47,7 @@ export class SessionTracker {
       tools: {},
       filesRead: [],
       filesEdited: [],
+      filtering: { calls: 0, bytesBefore: 0, bytesAfter: 0, recoveries: 0 },
       verifications: [],
       editTestCycles: 0,
       errors: [],
@@ -205,6 +206,26 @@ export class SessionTracker {
     const t = this.sessions.get(sessionID)
     if (!t) return
     mutate(t.task)
+    t.task.lastActivityAt = nowISO()
+    this.store.saveTask(t.task)
+  }
+
+  recordFiltered(sessionID: string, bytesBefore: number, bytesAfter: number): void {
+    const t = this.sessions.get(sessionID)
+    if (!t) return
+    const f = (t.task.filtering ??= { calls: 0, bytesBefore: 0, bytesAfter: 0, recoveries: 0 })
+    f.calls += 1
+    f.bytesBefore += bytesBefore
+    f.bytesAfter += bytesAfter
+    t.task.lastActivityAt = nowISO()
+    this.store.saveTask(t.task)
+  }
+
+  recordRecovered(sessionID: string): void {
+    const t = this.sessions.get(sessionID)
+    if (!t) return
+    const f = (t.task.filtering ??= { calls: 0, bytesBefore: 0, bytesAfter: 0, recoveries: 0 })
+    f.recoveries += 1
     t.task.lastActivityAt = nowISO()
     this.store.saveTask(t.task)
   }

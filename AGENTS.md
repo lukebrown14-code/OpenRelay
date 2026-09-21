@@ -33,5 +33,10 @@ Telemetry data lives in `~/.local/share/opencode/token-efficient/` (not in repo)
 
 - Stage 0 done (capability matrix; premium path = raw via ChatGPT OAuth/Codex backend).
 - Stage 1 built: telemetry plugin + benchmark harness. Exit criteria pending: actual A/A calibration runs; confirm GLM cache-token reporting across repeated runs.
+- Stage 2 done: verdict INCONCLUSIVE (turn overhead ate byte savings; `docs/stage2/stage2-report.md`).
+- Stage 2b done: verdict **PASS** — failure-card filtering + PASS-collapse + metadata.output
+  sanitation + full-log parsing: −72% input+cacheRead and 0 recovery calls on the noisy
+  fixture, 100% quality (`docs/stage2/stage2b-report.md`). Filtering still **off by default**;
+  enabling is a pending decision.
 - ChatGPT (premium tier) not yet authenticated (`opencode auth login` → ChatGPT OAuth).
-- Next stages: 2 (tool-output filtering), 3 (output discipline), 4 (Task Controller v1).
+- Next stages: 3 (output discipline), 4 (Task Controller v1).

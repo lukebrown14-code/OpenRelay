@@ -12,7 +12,7 @@
 import fs from "node:fs"
 import path from "node:path"
 import os from "node:os"
-import { fileURLToPath } from "node:url"
+import { fileURLToPath, pathToFileURL } from "node:url"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const RESULTS_DIR = path.join(__dirname, "results")
@@ -33,12 +33,15 @@ function loadRuns(label) {
   return runs
 }
 
-function loadTelemetry() {
+// Filtering metrics derive solely from `tool.filtered` / `tool.raw_recovered`
+// telemetry events (Stage 2), never from task JSONs.
+function loadTelemetry(dir = TELEMETRY_DIR, allowed = null) {
   const bySession = new Map()
-  if (!fs.existsSync(TELEMETRY_DIR)) return bySession
-  for (const file of fs.readdirSync(TELEMETRY_DIR)) {
+  const filtering = { calls: 0, before: 0, after: 0, recoveries: 0, byReason: {} }
+  if (!fs.existsSync(dir)) return { bySession, filtering }
+  for (const file of fs.readdirSync(dir)) {
     if (!file.endsWith(".jsonl")) continue
-    const lines = fs.readFileSync(path.join(TELEMETRY_DIR, file), "utf8").split("\n")
+    const lines = fs.readFileSync(path.join(dir, file), "utf8").split("\n")
     for (const line of lines) {
       if (!line.trim()) continue
       let e
@@ -67,6 +70,11 @@ function loadTelemetry() {
           verificationsFailed: 0,
           errors: 0,
           models: new Set(),
+          filteredCalls: 0,
+          filteredBytesBefore: 0,
+          filteredBytesAfter: 0,
+          recoveries: 0,
+          filteredReasons: new Set(),
         }
         bySession.set(e.session, m)
       }
@@ -102,10 +110,31 @@ function loadTelemetry() {
           m.verifications += 1
           if (d.verdict === "fail") m.verificationsFailed += 1
           break
+        case "tool.filtered": {
+          m.filteredCalls += 1
+          m.filteredBytesBefore += d.bytesBefore ?? 0
+          m.filteredBytesAfter += d.bytesAfter ?? 0
+          if (d.reason) m.filteredReasons.add(d.reason)
+          if (allowed && !allowed.has(e.session)) break
+          filtering.calls += 1
+          filtering.before += d.bytesBefore ?? 0
+          filtering.after += d.bytesAfter ?? 0
+          if (d.reason) {
+            const r = filtering.byReason[d.reason] ?? (filtering.byReason[d.reason] = { calls: 0, before: 0, after: 0 })
+            r.calls += 1
+            r.before += d.bytesBefore ?? 0
+            r.after += d.bytesAfter ?? 0
+          }
+          break
+        }
+        case "tool.raw_recovered":
+          m.recoveries += 1
+          if (!allowed || allowed.has(e.session)) filtering.recoveries += 1
+          break
       }
     }
   }
-  return bySession
+  return { bySession, filtering }
 }
 
 function metricsFor(run, telemetry) {
@@ -114,6 +143,7 @@ function metricsFor(run, telemetry) {
     verifyPass: run.verifyPass ? 1 : 0,
     durationSec: Math.round(run.durationMs / 100) / 10,
     tokensIn: t?.tokensIn ?? null,
+    tokensInPlusCache: t ? t.tokensIn + t.cacheRead : null,
     tokensOut: t?.tokensOut ?? null,
     cacheRead: t?.cacheRead ?? null,
     cost: t ? Math.round(t.cost * 1e6) / 1e6 : null,
@@ -124,6 +154,13 @@ function metricsFor(run, telemetry) {
     modelSwitches: t?.modelSwitches ?? null,
     verifications: t?.verifications ?? null,
     errors: t?.errors ?? null,
+    filteredCalls: t?.filteredCalls ?? null,
+    filteredBytesBefore: t?.filteredBytesBefore ?? null,
+    filteredBytesAfter: t?.filteredBytesAfter ?? null,
+    filteredSavedBytes: t ? t.filteredBytesBefore - t.filteredBytesAfter : null,
+    filteredRatio:
+      t && t.filteredBytesBefore > 0 ? Math.round((t.filteredBytesAfter / t.filteredBytesBefore) * 1e4) / 1e4 : null,
+    recoveries: t?.recoveries ?? null,
     hasTelemetry: Boolean(t),
   }
 }
@@ -143,17 +180,23 @@ function fmt(v) {
   return String(v)
 }
 
-function report(label, rows, runs) {
-  const keys = Object.keys(rows[0] ?? { verifyPass: 1 })
-  console.log(`\n=== ${label} (${runs.length} runs) ===`)
-  console.log(keys.join("\t"))
-  for (const r of rows) console.log(keys.map((k) => fmt(r[k])).join("\t"))
+function aggregate(rows) {
   const agg = {}
+  const keys = Object.keys(rows[0] ?? { verifyPass: 1 })
   for (const k of keys) {
     if (k === "hasTelemetry") continue
     const s = stats(rows.map((r) => r[k]))
     if (s) agg[k] = s
   }
+  return agg
+}
+
+function report(label, rows, runs) {
+  const keys = Object.keys(rows[0] ?? { verifyPass: 1 })
+  console.log(`\n=== ${label} (${runs.length} runs) ===`)
+  console.log(keys.join("\t"))
+  for (const r of rows) console.log(keys.map((k) => fmt(r[k])).join("\t"))
+  const agg = aggregate(rows)
   console.log("\nmetric\tmean\tsd\tCoV\tn")
   for (const [k, s] of Object.entries(agg)) {
     console.log(`${k}\t${fmt(Math.round(s.mean * 100) / 100)}\t${fmt(Math.round(s.sd * 100) / 100)}\t${s.cov === null ? "-" : fmt(Math.round(s.cov * 100) + "%")}\t${s.n}`)
@@ -179,28 +222,122 @@ function compare(labelA, aggA, labelB, aggB) {
   }
 }
 
+const KEY_METRICS = ["verifyPass", "llmCalls", "tokensIn", "tokensInPlusCache", "tokensOut", "durationSec", "filteredRatio", "filteredSavedBytes", "recoveries"]
+const NOISY_FIXTURE = "05-noisy-test-log"
+
+function groupByFixture(runs, rows) {
+  const groups = new Map()
+  for (let i = 0; i < runs.length; i++) {
+    const f = runs[i]._fixture
+    if (!groups.has(f)) groups.set(f, [])
+    groups.get(f).push(rows[i])
+  }
+  return groups
+}
+
+function meanOf(rows, key) {
+  const s = stats(rows.map((r) => r[key]))
+  return s ? s.mean : null
+}
+
+function comparePerFixture(labelA, groupsA, labelB, groupsB) {
+  console.log(`\n=== PER-FIXTURE COMPARISON: ${labelA} vs ${labelB} ===`)
+  for (const f of [...new Set([...groupsA.keys(), ...groupsB.keys()])]) {
+    const a = groupsA.get(f) ?? []
+    const b = groupsB.get(f) ?? []
+    console.log(`\n--- ${f} (A n=${a.length}, B n=${b.length}) ---`)
+    console.log("metric\tmeanA\tmeanB\tdelta%")
+    for (const k of KEY_METRICS) {
+      const ma = meanOf(a, k)
+      const mb = meanOf(b, k)
+      let delta = null
+      if (ma !== null && mb !== null && ma + mb !== 0) delta = ((ma - mb) / ((ma + mb) / 2)) * 100
+      console.log(`${k}\t${fmt(ma === null ? null : Math.round(ma * 100) / 100)}\t${fmt(mb === null ? null : Math.round(mb * 100) / 100)}\t${delta === null ? "-" : delta.toFixed(1) + "%"}`)
+    }
+  }
+}
+
+function stage2Gate(labelA, labelB, groupsA, groupsB, filtering) {
+  console.log(`\n=== STAGE 2 GATE NUMBERS (${labelA} vs ${labelB}; human judgment, no auto verdict) ===`)
+  const reduction = filtering.before > 0 ? ((filtering.before - filtering.after) / filtering.before) * 100 : null
+  console.log(
+    `targeted byte reduction (all tool.filtered events): ${reduction === null ? "n/a (no filtered events)" : reduction.toFixed(1) + "%"} (${filtering.before} -> ${filtering.after} bytes over ${filtering.calls} call(s))`,
+  )
+  console.log(`recovery calls (tool.raw_recovered): ${filtering.recoveries}`)
+  const a = groupsA.get(NOISY_FIXTURE) ?? []
+  const b = groupsB.get(NOISY_FIXTURE) ?? []
+  for (const key of ["llmCalls", "tokensIn", "tokensInPlusCache"]) {
+    const ta = meanOf(a, key)
+    const tb = meanOf(b, key)
+    const delta = ta !== null && tb !== null && ta !== 0 ? ((tb - ta) / ta) * 100 : null
+    console.log(
+      `noisy fixture (${NOISY_FIXTURE}) mean ${key}: A=${fmt(ta === null ? null : Math.round(ta))} B=${fmt(tb === null ? null : Math.round(tb))} delta=${delta === null ? "n/a" : delta.toFixed(1) + "%"}`,
+    )
+  }
+  const passRate = (rows) => (rows.length ? rows.filter((r) => r.verifyPass).length / rows.length : null)
+  console.log(
+    `verify pass rate: ${labelA} ${passRate(a) === null ? "n/a" : Math.round(passRate(a) * 100) + "%"} vs ${labelB} ${passRate(b) === null ? "n/a" : Math.round(passRate(b) * 100) + "%"} (noisy fixture)`,
+  )
+}
+
+function writeAnalysis(labelA, labelB, groupsA, groupsB, aggA, aggB, filtering) {
+  const perFixture = {}
+  const fixtures = new Set(groupsA.keys())
+  if (groupsB) for (const f of groupsB.keys()) fixtures.add(f)
+  for (const f of fixtures) {
+    const entry = { A: aggregate(groupsA.get(f) ?? []) }
+    if (labelB) entry.B = aggregate(groupsB.get(f) ?? [])
+    perFixture[f] = entry
+  }
+  const targetedByteReductionPct =
+    filtering.before > 0 ? Math.round(((filtering.before - filtering.after) / filtering.before) * 1e4) / 100 : null
+  const payload = {
+    generatedAt: new Date().toISOString(),
+    labelA,
+    labelB: labelB ?? null,
+    perFixture,
+    overall: labelB ? { A: aggA, B: aggB } : { A: aggA },
+    filtering: {
+      targetedByteReductionPct,
+      recoveryCalls: filtering.recoveries,
+      byReason: filtering.byReason,
+    },
+  }
+  fs.writeFileSync(
+    path.join(RESULTS_DIR, `analysis-${labelA}${labelB ? `-vs-${labelB}` : ""}.json`),
+    JSON.stringify(payload, null, 2),
+  )
+}
+
 function main() {
   const [labelA, labelB] = process.argv.slice(2)
   if (!labelA) {
     console.error("usage: node analyze.mjs <label> [labelB]")
     process.exit(1)
   }
-  const telemetry = loadTelemetry()
   const runsA = loadRuns(labelA)
+  const runsB = labelB ? loadRuns(labelB) : []
+  const allowed = new Set([...runsA, ...runsB].map((r) => r.sessionID).filter(Boolean))
+  const { bySession: telemetry, filtering } = loadTelemetry(TELEMETRY_DIR, allowed)
   const rowsA = runsA.map((r) => metricsFor(r, telemetry))
   const aggA = report(labelA, rowsA, runsA)
+  const groupsA = groupByFixture(runsA, rowsA)
 
+  let aggB = null
+  let groupsB = null
   if (labelB) {
-    const runsB = loadRuns(labelB)
     const rowsB = runsB.map((r) => metricsFor(r, telemetry))
-    const aggB = report(labelB, rowsB, runsB)
+    aggB = report(labelB, rowsB, runsB)
+    groupsB = groupByFixture(runsB, rowsB)
     compare(labelA, aggA, labelB, aggB)
+    comparePerFixture(labelA, groupsA, labelB, groupsB)
+    stage2Gate(labelA, labelB, groupsA, groupsB, filtering)
   }
 
-  fs.writeFileSync(
-    path.join(RESULTS_DIR, `analysis-${labelA}${labelB ? `-vs-${labelB}` : ""}.json`),
-    JSON.stringify({ generatedAt: new Date().toISOString(), labelA, labelB: labelB ?? null }, null, 2),
-  )
+  writeAnalysis(labelA, labelB, groupsA, groupsB, aggA, aggB, filtering)
 }
 
-main()
+// Run only when executed directly, so tests can import the functions above.
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main()
+
+export { loadRuns, loadTelemetry, metricsFor, comparePerFixture, stage2Gate, writeAnalysis }

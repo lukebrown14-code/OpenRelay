@@ -1,6 +1,7 @@
 # Benchmarks (Stage 1: corpus + A/A calibration harness)
 
-Four fixture classes with objective acceptance criteria (each `verify.js` exits 0 only
+Five fixtures (four Stage 1 classes + the Stage 2 `noisy` class) with objective
+acceptance criteria (each `verify.js` exits 0 only
 when the task is correctly completed; pristine fixtures always fail):
 
 | Fixture | Class | Objective check |
@@ -9,6 +10,7 @@ when the task is correctly completed; pristine fixtures always fail):
 | `fixtures/02-routine-bug` | routine bug | 7 slugify cases pass (lowercase bug) |
 | `fixtures/03-medium-feature` | medium feature | 7 behavioral checks on new `retry()` util (multi-file) |
 | `fixtures/04-difficult-debug` | difficult | 5 fake-clock checks on token bucket (fractional refill truncation bug) |
+| `fixtures/05-noisy-test-log` | noisy (Stage 2) | `npm test` emits a 3.6k-line seeded log with exactly one boundary failure; `verify.js` checks `formatBytes` unit boundaries |
 
 Reference solutions live in `solutions/` (outside the repos, so agents can't see them).
 Each fixture is a git repo with a pinned baseline commit; each run clones fresh.
@@ -23,7 +25,13 @@ node run.mjs --fixture 02-routine-bug --runs 3 --model zai-coding-plan/glm-5.3-f
 
 # all fixtures:
 node run.mjs --fixture all --runs 3 --model zai-coding-plan/glm-5.3-flash --label aa-glm-baseline
+
+# Stage 2 filtering experiment (B group; A group omits the flag):
+node run.mjs --fixture 05-noisy-test-log --runs 3 --model zai-coding-plan/glm-5.3-flash --label s2-filter-on --filtering on
 ```
+
+`--filtering off|on` (default `off`) sets `OPENRELAY_FILTERING` in the opencode
+child env and is recorded in each `run.json`.
 
 Each run: fresh clone → `opencode run -m <model> --auto --format json "<TASK.md>"` →
 `node verify.js` → record `run.json` (+ captured opencode output). `--auto` approves
@@ -48,4 +56,4 @@ INCONCLUSIVE → do not add complexity.
 
 - [x] repeated runs can be compared (run.json + telemetry join by sessionID)
 - [ ] metrics stable enough to identify meaningful changes — requires actual A/A runs
-- [x] success criteria objective for most benchmark tasks (4/4 fixtures have deterministic verify.js)
+- [x] success criteria objective for most benchmark tasks (5/5 fixtures have deterministic verify.js)

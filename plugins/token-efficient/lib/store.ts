@@ -22,6 +22,7 @@ export type TaskState = {
   tools: Record<string, { calls: number; errors: number; ms: number; bytes: number }>
   filesRead: string[]
   filesEdited: string[]
+  filtering?: { calls: number; bytesBefore: number; bytesAfter: number; recoveries: number }
   verifications: Array<{ cmd: string; verdict: string; exitCode: number | null; at: string; durationMs: number | null }>
   editTestCycles: number
   errors: Array<{ at: string; message: string }>
