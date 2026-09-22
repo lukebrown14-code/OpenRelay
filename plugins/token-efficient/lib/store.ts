@@ -39,7 +39,7 @@ export class Store {
   readonly worktree: string
   readonly directory: string
 
-  constructor(worktree: string, directory: string, overrideDir?: string) {
+  constructor(worktree: string, directory: string, overrideDir?: string, readonly runtime?: { channel?: string; buildID?: string }) {
     this.worktree = worktree
     this.directory = directory
     this.slug = slugFor(worktree)
@@ -59,6 +59,7 @@ export class Store {
     const line = JSON.stringify({
       ts: new Date().toISOString(),
       v: 1,
+      runtime: this.runtime,
       type,
       slug: this.slug,
       session: sessionID,

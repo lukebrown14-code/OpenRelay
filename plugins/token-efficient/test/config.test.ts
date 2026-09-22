@@ -4,6 +4,7 @@ import type { FilteringConfig, FilteringOptions } from "../lib/filtering/config"
 
 const DEFAULTS: FilteringConfig = {
   enabled: false,
+  previewSafe: false,
   minBytes: 4096,
   ttlMs: 24 * 60 * 60 * 1000,
   maxBytesPerResult: 10 * 1024 * 1024,

@@ -2,7 +2,11 @@
 
 Implements the Stage 1 telemetry foundation and Stage 2 deterministic tool-output filtering
 from `token-efficient-architecture.md` / `docs/stage2-tool-output-filtering.md`.
-Registered globally in `~/.config/opencode/opencode.jsonc`:
+For project trials use the frozen `opencode-relay` launcher; use `opencode-relay-dev`
+for live development. See [project trial setup](../../docs/project-trials.md).
+The installer removes the old global symlink/registration after backing it up.
+
+Manual plugin registration (do not combine with the launchers):
 
 ```jsonc
 "plugin": [["./plugins/token-efficient/index.ts", { "telemetry": { "enabled": true }, "filtering": { "enabled": false } }]]
@@ -13,9 +17,15 @@ Options:
 - `filtering.enabled` (default **false**), `filtering.minBytes` (default 4096),
   `filtering.retention.ttlHours` (24) / `maxBytesPerResult` (10 MiB) / `maxBytesPerSession` (50 MiB).
 - Env override `OPENRELAY_FILTERING=on|off` wins over `filtering.enabled` (used by the benchmark runner).
-- Filtering is off until the Stage 2 A/B benchmark passes (see AGENTS.md rules).
+- `filtering.previewSafe` (default false for compatibility) selects the conservative
+  TAP-only preview; channel launchers set it true. Broader historical filtering is not
+  enabled by the daily launcher.
+- `runtime.channel` / `runtime.buildID` label telemetry. Raw logs and cleanup follow
+  `telemetry.dir` under its `raw/` subdirectory rather than sharing a fixed global store.
+- The plugin default stays off. The explicit project-trial launchers enable the
+  conservative preview without claiming it has passed the revised efficiency gates.
 
-## Filtering (Stage 2)
+## Historical filtering (Stage 2; `previewSafe: false`)
 
 - `tool.execute.after` rewrites recognized **bash** output only: tests (vitest/jest/mocha/
   pytest/node --test/bun test/npm-style test scripts), typecheck (`tsc`/pyright/mypy),
@@ -85,3 +95,5 @@ telemetry/tool-tracker.ts     tool metrics, files, verification detection
   accounting across repeated runs (Stage 1 open item).
 - Premium-path (ChatGPT subscription) token/cost semantics differ (cost is zeroed
   upstream); proxy accounting remains a design requirement.
+
+(End of file - total 97 lines)

@@ -50,14 +50,14 @@ beforeAll(async () => {
       sessionID: "ses-probe",
       config: cfg(),
       store,
-      rawDir: tmpDir(),
+      rawDir: path.join(store.root, "raw"),
     })
   } catch (err) {
     console.warn("[filter.test] filterToolOutput rejected during probe:", err)
     probe = null
   }
   if (probe) {
-    seamDir = findFileUnder(store.root, probe.ref)
+    seamDir = findFileUnder(store.root, probe.ref) ? path.join(store.root, "raw") : null
     if (!seamDir) {
       console.warn(
         "[filter.test] filterToolOutput does not write raw output under Store.root; disk-dependent assertions are skipped"

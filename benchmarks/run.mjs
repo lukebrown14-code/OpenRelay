@@ -18,6 +18,7 @@ import { spawnSync, spawn } from "node:child_process"
 import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+import { defaultRoot, launchSpec } from "../scripts/relay-runtime.mjs"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const FIXTURES_DIR = path.join(__dirname, "fixtures")
@@ -44,6 +45,9 @@ const args = parseArgs(process.argv)
 if (!args.fixture || !args.model || !args.label) {
   fail("required: --fixture <name|all> --model <provider/model> --label <label>")
 }
+if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(args.label)) fail("label must be a simple directory name")
+const telemetryDir = path.join(defaultRoot(), "data", "benchmarks", args.label)
+const repo = path.resolve(__dirname, "..")
 const runs = parseInt(args.runs ?? "3", 10)
 const timeoutSec = parseInt(args.timeout ?? "300", 10)
 const agent = args.agent ?? "build"
@@ -58,6 +62,8 @@ for (const f of fixtures) {
 }
 
 function runOpencode(cwd, model, agentName, prompt, timeoutMs, filtering) {
+  const spec = launchSpec({ channel: "benchmark", repo, dataDir: telemetryDir, cwd,
+    env: { ...process.env, OPENRELAY_FILTERING: filtering } })
   return new Promise((resolve) => {
     const child = spawn(
       "opencode",
@@ -65,7 +71,7 @@ function runOpencode(cwd, model, agentName, prompt, timeoutMs, filtering) {
       // OpenCode consults PWD for project resolution and waits if inherited stdin
       // remains open, so both must describe a headless child process explicitly.
       // OPENRELAY_FILTERING opts the plugin's Stage 2 tool-output filter in or out.
-      { cwd, env: { ...process.env, PWD: cwd, OPENRELAY_FILTERING: filtering }, stdio: ["ignore", "pipe", "pipe"] },
+      { cwd, env: spec.env, stdio: ["ignore", "pipe", "pipe"] },
     )
     let stdout = ""
     let stderr = ""
@@ -151,6 +157,8 @@ async function main() {
       const changed = spawnSync("git", ["-C", workspace, "status", "--porcelain"], { encoding: "utf8" }).stdout.trim()
 
       const record = {
+        telemetryDir,
+        runtime: { channel: "benchmark", previewSafe: process.env.OPENRELAY_PREVIEW_SAFE !== "off" },
         fixture,
         label: args.label,
         run: i,
@@ -182,3 +190,4 @@ async function main() {
 }
 
 main().catch((e) => fail(e.stack))
+

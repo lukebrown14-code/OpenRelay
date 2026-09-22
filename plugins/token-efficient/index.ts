@@ -1,4 +1,5 @@
 import type { Plugin } from "@opencode-ai/plugin"
+import path from "node:path"
 import { Store } from "./lib/store"
 import { SessionTracker } from "./telemetry/session-tracker"
 import { ToolTracker } from "./telemetry/tool-tracker"
@@ -15,23 +16,26 @@ export type TokenEfficientOptions = {
     dir?: string
   }
   filtering?: FilteringOptions
+  runtime?: { channel?: string; buildID?: string }
 }
 
 const plugin: Plugin = async (input, options) => {
   const opts = (options ?? {}) as TokenEfficientOptions
   if (opts.telemetry?.enabled === false) return {}
 
-  const store = new Store(input.worktree, input.directory, opts.telemetry?.dir)
+  const store = new Store(input.worktree, input.directory, opts.telemetry?.dir, opts.runtime)
   const sessions = new SessionTracker(store)
   const tools = new ToolTracker(store, sessions)
   const filtering = resolveFilteringConfig(opts.filtering, process.env.OPENRELAY_FILTERING)
   const canary = canaryEnabled()
+  const rawDir = path.join(store.root, "raw")
   try {
-    sweepExpired({ ttlMs: filtering.ttlMs })
+    sweepExpired({ dir: rawDir, ttlMs: filtering.ttlMs })
+    store.event("plugin.loaded", { filtering: filtering.enabled, previewSafe: filtering.previewSafe, rawDir })
   } catch {}
 
   const rawOutputTool = openrelayRawOutputTool({
-    load: ({ sessionID, ref }) => loadRawOutput({ sessionID, ref }),
+    load: ({ sessionID, ref }) => loadRawOutput({ sessionID, ref, dir: rawDir, ttlMs: filtering.ttlMs }),
     onRecovered: (info) => {
       try {
         store.event(
@@ -94,6 +98,7 @@ const plugin: Plugin = async (input, options) => {
               sessionID: evt.sessionID,
               config: filtering,
               store,
+              rawDir,
               metadata,
             })
             if (outcome) {

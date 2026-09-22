@@ -1,5 +1,7 @@
 export interface FilteringOptions {
   enabled?: boolean
+  /** Conservative project-trial profile; legacy benchmark behavior stays opt-in. */
+  previewSafe?: boolean
   minBytes?: number
   retention?: {
     ttlHours?: number
@@ -10,6 +12,7 @@ export interface FilteringOptions {
 
 export interface FilteringConfig {
   enabled: boolean
+  previewSafe: boolean
   minBytes: number
   ttlMs: number
   maxBytesPerResult: number
@@ -18,6 +21,7 @@ export interface FilteringConfig {
 
 export const DEFAULT_FILTERING: FilteringConfig = {
   enabled: false,
+  previewSafe: false,
   minBytes: 4096,
   ttlMs: 24 * 60 * 60 * 1000,
   maxBytesPerResult: 10 * 1024 * 1024,
@@ -33,6 +37,7 @@ export function resolveFilteringConfig(opts: FilteringOptions | null | undefined
     envValue === "on" ? true : envValue === "off" ? false : typeof opts?.enabled === "boolean" ? opts.enabled : false
   return {
     enabled,
+    previewSafe: opts?.previewSafe === true,
     minBytes: positiveInt(opts?.minBytes, DEFAULT_FILTERING.minBytes),
     ttlMs: positiveInt(opts?.retention?.ttlHours, DEFAULT_FILTERING.ttlMs / (60 * 60 * 1000)) * 60 * 60 * 1000,
     maxBytesPerResult: positiveInt(opts?.retention?.maxBytesPerResult, DEFAULT_FILTERING.maxBytesPerResult),

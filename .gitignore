@@ -1,5 +1,3 @@
+.DS_Store
 node_modules/
 benchmarks/results/
-analysis-*.json
-.DS_Store
-*.log

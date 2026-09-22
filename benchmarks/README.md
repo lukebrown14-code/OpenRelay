@@ -57,3 +57,5 @@ INCONCLUSIVE → do not add complexity.
 - [x] repeated runs can be compared (run.json + telemetry join by sessionID)
 - [ ] metrics stable enough to identify meaningful changes — requires actual A/A runs
 - [x] success criteria objective for most benchmark tasks (5/5 fixtures have deterministic verify.js)
+
+(End of file - total 59 lines)

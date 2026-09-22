@@ -1571,29 +1571,68 @@ This is an early "mother lode" hypothesis.
 
 ## Stage 3 --- Output Discipline
 
-**Effort:** S\
-**Expected savings:** Medium--high\
+**Effort:** S
+**Expected savings:** Medium--high
 **Expected risk:** Low
 
-Test whether GLM can operate with minimal conversational output:
+Test whether GLM can operate with minimal conversational output. Grounded in Stage 2
+findings: assistant prose compounds --- every output token is re-read (cached) on every
+subsequent turn; cacheRead is ~78% of billable context. Discipline targets both the
+direct output tokens and the accumulated-context tail.
+
+Detailed spec: `stage3/stage3-plan.md`.
+
+### Implementation
+
+-   Add `lib/discipline.ts` (plugin): a versioned rules block `discipline:v1` appended to
+    the system prompt via `experimental.chat.system.transform` (Stage 0-verified hook;
+    mutates the outgoing request only, never persisted history).
+-   Rules v1 (deterministic text, stable telemetry dimension):
+    1.  When tools are needed, call them without a prose preamble (narration removal,
+        not forced tool usage).
+    2.  Never restate file contents, command output, or diffs in prose.
+    3.  No progress narration unless a step fails or blocks (then <=1 line).
+    4.  Final response <=5 lines: files changed, verification command + verdict, anomalies.
+-   Env gate `OPENRELAY_DISCIPLINE=on|off` (wins over config `discipline.enabled: false`
+    default), mirroring the Stage 2 `OPENRELAY_FILTERING` pattern.
+-   `run.mjs --discipline off|on` --- env passthrough + recorded in `run.json`.
+-   Analyzer: 2x2 factorial mode (4 labels) --- per-lever main effects and interaction for
+    tokensOut, tokensInPlusCache, tokensTotal (input + cacheRead + output), llmCalls,
+    durationSec, verifyPass.
+-   Non-goals: no small-model pinning changes, no logit-level control, no persisted
+    message rewriting (`chat.message` injection rejected: pollutes history).
+
+### Experiment
+
+2x2 factorial, 5 fixtures x 3 runs per cell (60 runs, ~2--4 h GLM quota). All cells run
+fresh in one window (reusing `s2b-on` as the filtering-only cell was considered and
+rejected --- temporal drift). Filtering stays off-by-default in shipped config; arms
+activate it via env only.
 
 ``` text
-A: verbose explanation + edits
-B: concise/tool-first behavior + edits
+s3-base : filtering off + discipline off
+s3-filt : filtering on  + discipline off
+s3-disc : filtering off + discipline on
+s3-both : filtering on  + discipline on
 ```
 
-Measure:
+### PASS gate (pre-registered, per lever)
 
--   output tokens;
--   input tokens caused by conversation accumulation;
--   success;
--   rework;
--   latency.
+-   Quality: 100% verify success and 100% telemetry joins, all four arms.
+-   Discipline hypothesis gate: >=25% mean tokensOut reduction (mechanism metric)
+    outside variance.
+-   Discipline economic metric: tokensTotal = input + cacheRead + output over the whole
+    task --- must not regress; change explicitly reported and drives the enable decision.
+-   No turn-count regression: s3-disc and s3-both must not systematically increase
+    llmCalls (Stage 2 lesson: omitted info can force recovery turns that erase savings).
+-   Filtering main effect: replicates Stage 2b (sanity check, >=20% tokensInPlusCache on
+    fixture 05).
+-   No destructive interaction: s3-both tokensInPlusCache <= s3-filt (discipline must not
+    erode the filtering win); no rework/error/latency regression outside the noise floor.
+-   Verdicts are per-lever: each of discipline/filtering PASSes or fails independently;
+    enabling either by default requires its own PASS. INCONCLUSIVE (savings inside noise)
+    --- keep off, remove unvalidated complexity.
 
-Prefer concise progress reporting when it does not reduce usability or
-quality.
-
-------------------------------------------------------------------------
 
 ## Stage 4 --- Task Controller v1
 
@@ -1883,432 +1922,5 @@ Initial ranking:
   Tool-output filtering                    S--M               Very high                2
   Output discipline                           S         High for effort                3
   GLM-first deterministic routing             M               Very high                4
-  Progressive deterministic context           M                    High                5
-  Structured handoffs/project memory          M            Medium--high                6
-  ChatGPT Premium escalation tuning                     M                    High                7
-  Aider-inspired repo map                     L           Unknown--high   8, conditional
-  Free context agents                         M                 Unknown   9, conditional
-  Advanced semantic/routing systems       L--XL                 Unknown             Last
 
-This ordering is a hypothesis. Benchmark results can change it.
-
-------------------------------------------------------------------------
-
-# 17. Security, Privacy, and Integrity
-
-## 17.1 Trust boundaries
-
-Treat repository contents as untrusted data with respect to controller
-instructions.
-
-A source file may contain text such as:
-
-``` text
-IGNORE ALL PREVIOUS INSTRUCTIONS...
-```
-
-That text is repository content, not policy.
-
-Context packets must preserve explicit role boundaries.
-
-## 17.2 Free-model boundary
-
-Conceptually:
-
-``` text
-repository content
-      ↓
-free model
-      ↓
-UNTRUSTED DERIVED SUMMARY
-      ↓
-provenance / validation
-      ↓
-GLM or ChatGPT Premium
-```
-
-Never let free-model output silently modify:
-
--   routing policy;
--   permissions;
--   system instructions;
--   verification requirements;
--   trusted project rules.
-
-## 17.3 Secrets
-
-The plugin should avoid deliberately sending:
-
--   `.env`;
--   credentials;
--   private keys;
--   tokens;
--   known secret files
-
-to free endpoints and should respect OpenCode/provider secret-handling
-mechanisms.
-
-## 17.4 Distribution
-
-Before public distribution, verify current:
-
--   OpenCode license;
--   GLM plan/API terms;
--   ChatGPT/ChatGPT Premium authentication and automation terms;
--   OpenRouter/provider terms.
-
-Personal-use feasibility must not be assumed to imply redistributable
-integration rights.
-
-------------------------------------------------------------------------
-
-# 18. Configuration Sketch
-
-The exact schema depends on Stage 0 findings, but target semantics could
-resemble:
-
-``` yaml
-token_efficiency:
-  mode: auto
-
-routing:
-  default_model: glm
-  premium_model: chatgpt_subscription
-  max_glm_failed_cycles: 2
-  expand_context_before_escalation: true
-
-context:
-  default_level: normal
-  exact_source_on_demand: true
-  tool_output_filtering: true
-  repo_map:
-    enabled: false
-
-memory:
-  agents_file: AGENTS.md
-  codebase_dir: .codebase
-  task_dir: .tasks
-  selective_injection: true
-
-free_agents:
-  enabled: false
-  allow_source_code: false
-
-verification:
-  formatter: auto
-  lint: auto
-  typecheck: auto
-  tests: auto
-
-telemetry:
-  enabled: true
-  record_raw_prompts: false
-```
-
-Configuration should be explicit and conservative.
-
-------------------------------------------------------------------------
-
-# 19. Suggested Internal Module Boundaries
-
-Do not over-abstract before Stage 0, but a likely plugin layout is:
-
-``` text
-src/
-├── controller/
-│   ├── task-controller.ts
-│   ├── routing.ts
-│   ├── escalation.ts
-│   └── task-state.ts
-│
-├── context/
-│   ├── context-engine.ts
-│   ├── levels.ts
-│   ├── packet-builder.ts
-│   ├── retrieval/
-│   │   ├── git.ts
-│   │   ├── ripgrep.ts
-│   │   └── lsp.ts
-│   ├── filtering/
-│   │   ├── tests.ts
-│   │   ├── compiler.ts
-│   │   └── generic.ts
-│   └── repo-map/              # later/conditional
-│
-├── memory/
-│   ├── project-memory.ts
-│   ├── task-memory.ts
-│   ├── provenance.ts
-│   └── staleness.ts
-│
-├── handoff/
-│   ├── chatgpt-to-glm.ts
-│   └── glm-to-chatgpt.ts
-│
-├── verification/
-│   ├── runner.ts
-│   └── policy.ts
-│
-├── telemetry/
-│   ├── events.ts
-│   ├── metrics.ts
-│   └── storage.ts
-│
-├── security/
-│   ├── trust.ts
-│   └── free-agent-policy.ts
-│
-└── plugin.ts
-```
-
-Adapt this to OpenCode's actual plugin architecture rather than forcing
-OpenCode to fit this shape.
-
-------------------------------------------------------------------------
-
-# 20. Event Model
-
-A simple internal event stream will make observability easier:
-
-``` text
-task.created
-task.classified
-context.requested
-context.retrieved
-context.expanded
-model.started
-model.completed
-tool.started
-tool.completed
-tool.filtered
-verification.started
-verification.failed
-verification.passed
-task.retried
-task.escalated
-handoff.created
-review.finding
-task.completed
-```
-
-Each event should include a task/run ID and timestamps. Token metadata
-should be attached when available.
-
-This provides one place to measure the system without coupling telemetry
-to every subsystem.
-
-------------------------------------------------------------------------
-
-# 21. Testing Strategy
-
-Testing should occur at three levels.
-
-## 21.1 Unit tests
-
-Test deterministic behavior thoroughly:
-
--   routing rules;
--   escalation counters;
--   context-level transitions;
--   log filters;
--   packet section boundaries;
--   memory selection;
--   provenance/staleness logic;
--   configuration;
--   secret/path exclusion;
--   event emission.
-
-For log filters, maintain fixtures from real compiler/test/lint output.
-
-Assertions should verify that critical evidence is retained.
-
-## 21.2 Integration tests
-
-Test against OpenCode's actual extension surface:
-
--   model selection;
--   tool interception;
--   packet augmentation;
--   token metadata capture;
--   command overrides;
--   task persistence;
--   model handoffs;
--   verification loop.
-
-Use small fixture repositories.
-
-## 21.3 End-to-end benchmark tests
-
-Run representative real coding tasks repeatedly.
-
-A benchmark record should contain:
-
-``` text
-task_id
-repository revision
-user prompt
-configuration
-model versions/routes
-acceptance criteria
-hidden/objective tests
-run metrics
-outcome
-```
-
-Pin repository revisions so comparisons are meaningful.
-
-------------------------------------------------------------------------
-
-# 22. Quality Guardrails
-
-Token savings must never be declared successful solely because a token
-number decreased.
-
-An optimization fails if it causes a material increase in:
-
--   incorrect implementations;
--   regressions;
--   retries;
--   human correction;
--   failed hidden tests;
--   unnecessary ChatGPT Premium escalations.
-
-The system should favor:
-
-``` text
-12k tokens + first-pass success
-```
-
-over:
-
-``` text
-7k tokens
-+ two retries
-+ ChatGPT Premium escalation
-+ regression
-```
-
-if the former produces more useful work per scarce token and lower total
-effort.
-
-------------------------------------------------------------------------
-
-# 23. Stop Conditions
-
-The project should have explicit reasons **not** to build more.
-
-Stop adding context sophistication when:
-
--   native retrieval + filtering already achieves most savings;
--   repo mapping does not beat the noise floor;
--   free preprocessing does not improve downstream scarce-token
-    efficiency;
--   semantic memory causes more staleness/rework than it saves;
--   routing sophistication does not outperform deterministic rules;
--   maintenance cost exceeds measured token/quality benefit.
-
-The desired result is not the most sophisticated orchestration system.
-
-The desired result is the **smallest system that captures most of the
-available efficiency**.
-
-------------------------------------------------------------------------
-
-# 24. First Build Sequence
-
-An implementation agent should execute the project in this order:
-
-1.  Inspect current OpenCode source/docs and produce the Stage 0
-    capability matrix.
-2.  Confirm GLM, ChatGPT Premium/ChatGPT, OpenRouter, plugin hooks, tool hooks,
-    and usage telemetry paths.
-3.  Produce a minimal plugin skeleton without changing OpenCode core.
-4.  Implement task/run IDs and the event/telemetry foundation.
-5.  Build benchmark fixtures and perform A/A calibration.
-6.  Implement deterministic tool-output filtering and benchmark it.
-7.  Implement output-discipline configuration and benchmark it.
-8.  Implement Task Controller v1 with GLM default and explicit ChatGPT Premium
-    overrides.
-9.  Implement Context Engine v1 using only Git, rg, LSP, targeted reads,
-    and native OpenCode facilities.
-10. Implement adaptive context levels and context expansion.
-11. Implement Shared Project Memory with task-ID directories.
-12. Implement structured ChatGPT Premium↔GLM handoffs.
-13. Implement verification-driven retry/escalation.
-14. Tune ChatGPT Premium planning/review/escalation using benchmarks.
-15. Review telemetry to decide whether repository exploration remains a
-    material bottleneck.
-16. Only then prototype the Aider-inspired repo map.
-17. Keep it only if repeated benchmarks PASS.
-18. Only then experiment with OpenRouter free context agents.
-19. Keep them only if downstream efficiency improves without
-    privacy/integrity problems.
-20. Stop when additional complexity no longer produces measurable gains.
-
-Do not skip directly to the cleverest components.
-
-------------------------------------------------------------------------
-
-# 25. Definition of a Successful Initial System
-
-The first genuinely successful version does **not** need repo mapping or
-free agents.
-
-A strong v1 can simply provide:
-
-``` text
-OpenCode
-    +
-GLM for routine work
-    +
-ChatGPT Premium leadership for complex work
-    +
-ChatGPT Premium escalation/plan/review
-    +
-progressive deterministic context
-    +
-tool-output filtering
-    +
-verification gates
-    +
-structured task memory/handoffs
-    +
-good telemetry
-```
-
-It should demonstrate, on repeated benchmark tasks, that compared with
-the baseline it:
-
--   preserves task success;
--   reduces scarce premium-model consumption;
--   reduces unnecessary context/tool output;
--   routes routine work to GLM;
--   escalates difficult reasoning to ChatGPT Premium when justified;
--   maintains or improves code quality;
--   does not require a maintained OpenCode fork.
-
-If that system captures most of the available gains, stop there.
-
-------------------------------------------------------------------------
-
-# 26. Final Design Principles
-
-1.  **OpenCode is the harness; do not rebuild it.**
-2.  **GLM is the workhorse; ChatGPT Premium is the premium reasoning tier.**
-3.  **Deterministic tools before model exploration.**
-4.  **Context is selected, not accumulated blindly.**
-5.  **Exact source remains recoverable.**
-6.  **Tool output is filtered before it consumes model context.**
-7.  **Models exchange structured state, not full transcripts.**
-8.  **Project memory is selective, provenance-aware, and small.**
-9.  **Aider-inspired mapping is conditional on measured need.**
-10. **Free models are optional, privacy-sensitive, and untrusted.**
-11. **Verification determines success; models do not self-certify.**
-12. **Complex tasks are led by ChatGPT Premium; escalation from GLM is evidence-driven.**
-13. **Measure A/A noise before claiming improvements.**
-14. **PASS/FAIL/INCONCLUSIVE governs every optimization.**
-15. **INCONCLUSIVE means do not add complexity.**
-16. **Optimize useful completed work per scarce token, not raw token
-    count.**
-17. **The simplest architecture that captures most gains is the
-    target.**
+(Output capped at 50 KB. Showing lines 1-1885. Use offset=1886 to continue.)

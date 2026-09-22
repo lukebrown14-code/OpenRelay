@@ -65,3 +65,5 @@ FAIL on any task-success regression or lost critical evidence. Mark the experime
 - Stage 2 does not filter read/search/LSP results, arbitrary shell output, or use model-based summarization.
 - Plugin/config changes require restarting persistent OpenCode sessions.
 - After a PASS, enable filtering by default, document Stage 2 as complete, and retain raw/off mode for regression comparisons.
+
+(End of file - total 67 lines)

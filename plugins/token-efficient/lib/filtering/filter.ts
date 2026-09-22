@@ -5,6 +5,7 @@ import type { FilteringConfig } from "./config"
 import { parseOutput } from "./parsers"
 import type { Evidence, FailureCard } from "./parsers"
 import { rawStoreRoot, saveRawOutput } from "./raw-store"
+import { previewSource, previewView } from "./preview"
 
 export interface FilterOutcome {
   filtered: string
@@ -156,6 +157,20 @@ export function filterToolOutput(input: FilterToolOutputInput): Promise<FilterOu
       if (!cls) return null
 
       const exit = exitFromMetadata(input.metadata)
+      if (config.previewSafe) {
+        const source = previewSource(input.metadata, input.output, config.maxBytesPerResult)
+        if (source === null) return null
+        const view = previewView(source, input.command, exit)
+        // Include the reference overhead when deciding whether this is actually shorter.
+        if (!view || Buffer.byteLength(view) + 256 >= bytesBefore) return null
+        const ref = saveRawOutput({ sessionID, content: source, dir: input.rawDir ?? rawStoreRoot(),
+          maxBytesPerResult: config.maxBytesPerResult, maxBytesPerSession: config.maxBytesPerSession })
+        if (!ref) return null
+        const hostPointer = input.output.split("\n").find(l => l.includes("Full output saved to:"))
+        const filtered = `${view}\n[full output: openrelay_raw_output ref=${ref}]${hostPointer ? `\n${hostPointer}` : ""}`
+        if (Buffer.byteLength(filtered) >= bytesBefore) return null
+        return finish(input, "node-test:v2", bytesBefore, filtered, Math.max(0, lineCount(source) - lineCount(view)), ref)
+      }
       if (cls.compound && (cls.unknownParts ?? 0) > 0 && exit !== 0) return null
 
       const full = resolveFullLog(input.metadata, input.output, config.maxBytesPerResult)

@@ -74,7 +74,7 @@ export function saveRawOutput(args: {
   }
 }
 
-export function loadRawOutput(args: { sessionID: string; ref: string; dir?: string }): string | null {
+export function loadRawOutput(args: { sessionID: string; ref: string; dir?: string; ttlMs?: number }): string | null {
   try {
     if (typeof args?.sessionID !== "string" || args.sessionID === "") return null
     if (typeof args?.ref !== "string" || !REF_RE.test(args.ref)) return null
@@ -82,7 +82,7 @@ export function loadRawOutput(args: { sessionID: string; ref: string; dir?: stri
     const file = path.join(sessionDir(root, args.sessionID), args.ref)
     const st = fs.statSync(file)
     if (!st.isFile()) return null
-    if (Date.now() - st.mtimeMs > DEFAULT_FILTERING.ttlMs) return null
+    if (Date.now() - st.mtimeMs > cap(args.ttlMs, DEFAULT_FILTERING.ttlMs)) return null
     return fs.readFileSync(file, "utf8")
   } catch {
     return null
@@ -96,14 +96,19 @@ export function sweepExpired(args: { dir?: string; ttlMs: number }): void {
     const cutoff = Date.now() - ttl
     for (const sess of listDir(root)) {
       const sdir = path.join(root, sess)
+      if (!fs.lstatSync(sdir).isDirectory()) continue
+      let total = 0
       for (const name of listDir(sdir)) {
         if (name === TOTAL_FILE) continue
         const file = path.join(sdir, name)
         try {
           const st = fs.statSync(file)
           if (st.isFile() && st.mtimeMs < cutoff) fs.rmSync(file, { force: true })
+          else if (st.isFile()) total += st.size
         } catch {}
       }
+      if (total > 0) fs.writeFileSync(path.join(sdir, TOTAL_FILE), String(total), { mode: 0o600 })
+      else fs.rmSync(path.join(sdir, TOTAL_FILE), { force: true })
       try {
         fs.rmdirSync(sdir)
       } catch {}

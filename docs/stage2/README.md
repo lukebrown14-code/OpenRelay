@@ -8,4 +8,3 @@
 Status: Stage 2b **PASSED** its pre-registered gate (−72% input+cacheRead on the noisy
 fixture, 0 recovery calls, 99% byte reduction). Filtering remains **disabled by default**;
 enabling is a separate decision.
-
