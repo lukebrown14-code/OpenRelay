@@ -1,0 +1,1 @@
+export function renderOrders(host,orders){host.replaceChildren(); for(const order of orders){const row=document.createElement('div'); row.dataset.orderId=order.id; row.innerHTML=`<span class="status">${order.status}</span>`; host.append(row)}}

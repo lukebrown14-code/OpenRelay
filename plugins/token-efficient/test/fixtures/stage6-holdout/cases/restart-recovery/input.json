@@ -1,0 +1,8 @@
+{
+ "resumeSession": "ses-old",
+ "readHandoff": {
+  "taskID": "task-restart",
+  "handoffID": "ho-restart"
+ },
+ "expectWorkflowID": "wf-restart"
+}

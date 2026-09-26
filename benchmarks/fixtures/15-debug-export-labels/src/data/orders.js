@@ -1,0 +1,1 @@
+export const orders=[{id:'A1',priority:'P1',status:'open',region:'North, East'},{id:'A2',priority:'P2',status:'closed',region:'West'},{id:'A3',priority:'P3',status:'open',region:'South'},{id:'A4',priority:'P4',status:'closed',region:'East'}]

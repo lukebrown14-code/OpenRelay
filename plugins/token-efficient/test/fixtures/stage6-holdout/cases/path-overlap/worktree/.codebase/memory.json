@@ -1,0 +1,43 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-holdout",
+ "notes": {
+  "n-tel": {
+   "schemaVersion": 1,
+   "noteID": "n-tel",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/telemetry.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "sourceDigests": {
+    "src/telemetry.ts": "9f22917cbd0f117c1bf03b329333687c84ddc0cb3b6d362c3bdd89b2c644afee"
+   },
+   "__content": ""
+  },
+  "n-pay": {
+   "schemaVersion": 1,
+   "noteID": "n-pay",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/payments.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "sourceDigests": {
+    "src/payments.ts": "0a4633e337046742a8868d5da93e1a495b03b3da83adafd0bd9c6f07253b4b8d"
+   },
+   "__content": ""
+  }
+ },
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-conflict",
+ "taskID": "task-conflict",
+ "workflowID": "wf-conflict",
+ "sourceSession": "ses-cf",
+ "direction": "workhorse->workhorse",
+ "objective": "Make retry count configurable",
+ "constraints": [
+  {
+   "text": "default must not change",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "config test passes",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

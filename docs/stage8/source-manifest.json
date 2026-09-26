@@ -1,0 +1,1322 @@
+{
+  "schemaVersion": 1,
+  "snapshotRoot": "benchmarks/results/stage8-snapshots",
+  "repositories": [
+    {
+      "name": "openrelay",
+      "root": "/Users/luke/src/OpenRelay",
+      "head": "814a0d5a609f87da04fbec54af58ca5afe466f87",
+      "dirtyPaths": [
+        "GENTS.md",
+        "README.md",
+        "benchmarks/README.md",
+        "benchmarks/analyze-21.mjs",
+        "benchmarks/analyze-21.test.mjs",
+        "benchmarks/analyze-stage6.mjs",
+        "benchmarks/analyze-stage6.test.mjs",
+        "benchmarks/analyze-stage7.mjs",
+        "benchmarks/analyze-stage7.test.mjs",
+        "benchmarks/analyze.mjs",
+        "benchmarks/analyze.test.mjs",
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/audit-stage8.mjs",
+        "benchmarks/coverage-heldout-tasks.json",
+        "benchmarks/coverage-heldout.mjs",
+        "benchmarks/coverage-prototype.mjs",
+        "benchmarks/coverage-prototype.test.mjs",
+        "benchmarks/coverage-v2-holdout.json",
+        "benchmarks/coverage-v2.mjs",
+        "benchmarks/coverage-v2.test.mjs",
+        "benchmarks/coverage-v4-validation.json",
+        "benchmarks/coverage-v4.mjs",
+        "benchmarks/evaluate-coverage-v2.mjs",
+        "benchmarks/evaluate-coverage-v4.mjs",
+        "benchmarks/fixtures/06-ui-status-indicator/",
+        "benchmarks/fixtures/07-ui-viewport-clip/",
+        "benchmarks/fixtures/08-ui-state-handling/",
+        "benchmarks/fixtures/09-ui-shared-style/",
+        "benchmarks/fixtures/10-git-missing-changes/",
+        "benchmarks/fixtures/11-git-merge-conflict/",
+        "benchmarks/fixtures/12-git-recover-commit/",
+        "benchmarks/fixtures/13-git-separate-work/",
+        "benchmarks/fixtures/14-ui-dismiss-strip/",
+        "benchmarks/fixtures/15-debug-export-labels/",
+        "benchmarks/fixtures/16-ui-overlay-leak/",
+        "benchmarks/fixtures/17-python-rust-migration/",
+        "benchmarks/fixtures/18-cross-file-api-change/",
+        "benchmarks/fixtures/19-repository-refactor/",
+        "benchmarks/fixtures/20-frontend-backend-feature/",
+        "benchmarks/fixtures/21-dependency-upgrade/",
+        "benchmarks/fixtures/22-plan-config-compat/",
+        "benchmarks/fixtures/23-failed-pipeline-diag/",
+        "benchmarks/fixtures/24-memory-search-followup/",
+        "benchmarks/fixtures/25-control-explicit-edit/",
+        "benchmarks/fixtures/26-control-named-module/",
+        "benchmarks/fixtures/27-duration-format/",
+        "benchmarks/fixtures/28-ledger-diagnosis/",
+        "benchmarks/fixtures/29-config-compat/",
+        "benchmarks/freeze-stage8-task-corpus.mjs",
+        "benchmarks/freeze-stage8.mjs",
+        "benchmarks/gen-stage6-fixtures.mjs",
+        "benchmarks/lib/",
+        "benchmarks/make-coverage-snapshot.mjs",
+        "benchmarks/measurement.test.mjs",
+        "benchmarks/relay-runtime.test.mjs",
+        "benchmarks/run-21-confirm.mjs",
+        "benchmarks/run-stage6.mjs",
+        "benchmarks/run-stage7-batch.mjs",
+        "benchmarks/run-stage7.mjs",
+        "benchmarks/run.mjs",
+        "benchmarks/solutions/14-ui-dismiss-strip/",
+        "benchmarks/solutions/15-debug-export-labels/",
+        "benchmarks/solutions/16-ui-overlay-leak/",
+        "benchmarks/solutions/17-python-rust-migration/",
+        "benchmarks/solutions/18-cross-file-api-change/",
+        "benchmarks/solutions/19-repository-refactor/",
+        "benchmarks/solutions/20-frontend-backend-feature/",
+        "benchmarks/solutions/21-dependency-upgrade/",
+        "benchmarks/solutions/22-plan-config-compat/",
+        "benchmarks/solutions/23-failed-pipeline-diag/",
+        "benchmarks/solutions/24-memory-search-followup/",
+        "benchmarks/solutions/25-control-explicit-edit/",
+        "benchmarks/solutions/26-control-named-module/",
+        "benchmarks/solutions/27-duration-format/",
+        "benchmarks/solutions/28-ledger-diagnosis/",
+        "benchmarks/solutions/29-config-compat/",
+        "benchmarks/stage7-policy.test.mjs",
+        "benchmarks/stage8-tasks.mjs",
+        "benchmarks/stage8-tasks/",
+        "benchmarks/validate-stage5.mjs",
+        "benchmarks/validate-stage6.mjs",
+        "bun.lock",
+        "docs/stage4/",
+        "docs/stage5/",
+        "docs/stage6/",
+        "docs/stage7/",
+        "docs/stage8/",
+        "package-lock.json",
+        "package.json",
+        "plugins/token-efficient/README.md",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/announce.ts",
+        "plugins/token-efficient/lib/assemble/",
+        "plugins/token-efficient/lib/context/",
+        "plugins/token-efficient/lib/controller/",
+        "plugins/token-efficient/lib/handoff/",
+        "plugins/token-efficient/lib/ids.ts",
+        "plugins/token-efficient/lib/memory/",
+        "plugins/token-efficient/lib/store.ts",
+        "plugins/token-efficient/scripts/",
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/test/announce.test.ts",
+        "plugins/token-efficient/test/assemble.test.ts",
+        "plugins/token-efficient/test/bun-test.d.ts",
+        "plugins/token-efficient/test/context.test.ts",
+        "plugins/token-efficient/test/controller.test.ts",
+        "plugins/token-efficient/test/fixtures/stage6-holdout/",
+        "plugins/token-efficient/test/handoff-session.test.ts",
+        "plugins/token-efficient/test/measurement.test.ts",
+        "plugins/token-efficient/test/memory-provenance.test.ts",
+        "plugins/token-efficient/test/memory-store.test.ts",
+        "plugins/token-efficient/test/session-tracker-restore.test.ts",
+        "plugins/token-efficient/test/tui.test.ts",
+        "plugins/token-efficient/tools/handoff.ts",
+        "plugins/token-efficient/tsconfig.json",
+        "plugins/token-efficient/tui.tsx",
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs",
+        "scripts/release-daily.mjs",
+        "scripts/stage6-smoke.mjs"
+      ],
+      "includeRules": [
+        "plugins/token-efficient/**/*.{ts,tsx}",
+        "plugins/token-efficient/tsconfig.json",
+        "scripts/**/*.mjs",
+        "benchmarks/*.mjs",
+        "benchmarks/lib/**/*.mjs",
+        "docs/token-efficient-architecture.md",
+        "AGENTS.md",
+        "package.json"
+      ],
+      "excludeRules": [
+        "plugins/token-efficient/test/fixtures/",
+        "benchmarks/fixtures/",
+        "benchmarks/results/",
+        ".env*",
+        "node_modules/",
+        "all non-allowlisted files"
+      ],
+      "fileCount": 108,
+      "totalBytes": 670869,
+      "treeSha256": "b86639221b00fcd1806a3976a47278b393666866f29ddeaedd3b14c6fe47cac8",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "bytes": 13874,
+          "sha256": "38d5cf976c3557d6817f83fa3344680b2d294239b3e6f61cc1af7361105d50fb"
+        },
+        {
+          "path": "benchmarks/analyze-21.mjs",
+          "bytes": 7330,
+          "sha256": "65f0037b2ba4a62b5a9331afa2c187350b0fdfa53ff4cef09a71116df095cf25"
+        },
+        {
+          "path": "benchmarks/analyze-21.test.mjs",
+          "bytes": 1918,
+          "sha256": "0a0323614b63bca10a79fbb28c303afc3f2a16a46b658866c552ed90eb60a4a6"
+        },
+        {
+          "path": "benchmarks/analyze-stage6.mjs",
+          "bytes": 7016,
+          "sha256": "16d8446f6c14cf17d6ef2fcf651d6bd8d4ffef4cc7d8794595e26ab2e71bd5c9"
+        },
+        {
+          "path": "benchmarks/analyze-stage6.test.mjs",
+          "bytes": 2035,
+          "sha256": "964a20436a6fedf16190ad4eed4c1876c3ce796918239e2b91cdaaa3df50c83f"
+        },
+        {
+          "path": "benchmarks/analyze-stage7.mjs",
+          "bytes": 3832,
+          "sha256": "eef8fba6ceb926a2ed58f7b101c4bfa6af15a64dd7b1ea3443a2c6bb098707a0"
+        },
+        {
+          "path": "benchmarks/analyze-stage7.test.mjs",
+          "bytes": 1067,
+          "sha256": "869a43a699af37536e7662119c0cf96675ac16aa6bd7b02a36285afdca3e3fd2"
+        },
+        {
+          "path": "benchmarks/analyze.mjs",
+          "bytes": 29542,
+          "sha256": "ed73a1e07aee28796bdb967786c039fff192cff1d35f18fbd52b21062f62bd52"
+        },
+        {
+          "path": "benchmarks/analyze.test.mjs",
+          "bytes": 7103,
+          "sha256": "4733efde20c690bca2b6f533acf34f2a31956a78c3ec3df29702999c21476333"
+        },
+        {
+          "path": "benchmarks/audit-stage5.mjs",
+          "bytes": 13118,
+          "sha256": "d301af4c346d4b7ea3807c534dfa12e2dc375c61ddab27572de0b922e3bf2758"
+        },
+        {
+          "path": "benchmarks/audit-stage8.mjs",
+          "bytes": 7508,
+          "sha256": "2e014f99de6d4fb52c2ea23afdd7d82d01fe482b7f687c357e82169ef59d8231"
+        },
+        {
+          "path": "benchmarks/coverage-heldout.mjs",
+          "bytes": 4014,
+          "sha256": "4c24a8eab6e96e55a6ddbe8bfba71f622812a5c832aefa1d67ccc9f12f0ddd73"
+        },
+        {
+          "path": "benchmarks/coverage-prototype.mjs",
+          "bytes": 6289,
+          "sha256": "b89188c9523107fcf5b2f710059df9beb424ba45822883fb8a4d94c35e0b6252"
+        },
+        {
+          "path": "benchmarks/coverage-prototype.test.mjs",
+          "bytes": 2630,
+          "sha256": "893f8d613ae6fd780ab09c82d4a92d806e40d0e504736e8b5e8507aebeec2abc"
+        },
+        {
+          "path": "benchmarks/coverage-v2.mjs",
+          "bytes": 8122,
+          "sha256": "62760b10778f1cb767539ee4512ad3c0c914249f65499a036e61c501d1f8c7cf"
+        },
+        {
+          "path": "benchmarks/coverage-v2.test.mjs",
+          "bytes": 2683,
+          "sha256": "11c126e0f0c47c60c83e5d29bb771e98ecbab9f847a166cdde9f80458c15d571"
+        },
+        {
+          "path": "benchmarks/coverage-v4.mjs",
+          "bytes": 7673,
+          "sha256": "9723f81b69f4db0664559dd076fec98d4c32231cc0c1bb2f04b28687dfb95175"
+        },
+        {
+          "path": "benchmarks/evaluate-coverage-v2.mjs",
+          "bytes": 3971,
+          "sha256": "ceb4e57d0f8d618e618fe3d9867d78ab03afa751d1f57481d2633eed21814ebb"
+        },
+        {
+          "path": "benchmarks/evaluate-coverage-v4.mjs",
+          "bytes": 4868,
+          "sha256": "5692d32320921e0e2cb070f78f071fad51acfab83e910d95f5dc3551f8dbde34"
+        },
+        {
+          "path": "benchmarks/freeze-stage8-task-corpus.mjs",
+          "bytes": 1412,
+          "sha256": "56b55d9fcbbed1f5eb9c3096c3d343bea9fb134b995bb6f9369ad3466e769d78"
+        },
+        {
+          "path": "benchmarks/freeze-stage8.mjs",
+          "bytes": 4749,
+          "sha256": "8f8af9da0e1c19183ef708ee5ce5fdd05fcf95c68f6331425dea59685900c2c3"
+        },
+        {
+          "path": "benchmarks/gen-stage6-fixtures.mjs",
+          "bytes": 27558,
+          "sha256": "83ab0843300c0aa5d897398c51681225906f491f032aaad55f4e24fc91fd27cf"
+        },
+        {
+          "path": "benchmarks/lib/measurement.mjs",
+          "bytes": 3212,
+          "sha256": "3de6c2827cbe8b41b46e3145f89788da78e2de91c9155c7a81267f446c04a587"
+        },
+        {
+          "path": "benchmarks/lib/stage7-policy.mjs",
+          "bytes": 1156,
+          "sha256": "c6e38476fb4a7a01cd9d133234bd4a471f7b0d0678e3f31716f82b73a10d5dd2"
+        },
+        {
+          "path": "benchmarks/make-coverage-snapshot.mjs",
+          "bytes": 2766,
+          "sha256": "1eb77cc41a0ea470f5a9652df4a3d0b9e999c2aa629428b9aca00441b50ca9d5"
+        },
+        {
+          "path": "benchmarks/measurement.test.mjs",
+          "bytes": 4106,
+          "sha256": "b200665812746c8a629222efe3344b39d8e24f50317d712d0ac5d13e42960acd"
+        },
+        {
+          "path": "benchmarks/relay-runtime.test.mjs",
+          "bytes": 1888,
+          "sha256": "7591f36533f0481a3b7cdbe1111267c2f6d124aaa6c0804143d6c421d3c8e044"
+        },
+        {
+          "path": "benchmarks/run-21-confirm.mjs",
+          "bytes": 2536,
+          "sha256": "a5f64590ae302f3cb9cfca1dbf4bb39bdc02edb5f3a665f88baa1e60b5263434"
+        },
+        {
+          "path": "benchmarks/run-stage6.mjs",
+          "bytes": 8604,
+          "sha256": "05a29e24f3da31699388d0ae203fb7c08ab4d909e81795261bfac90c94be8cb9"
+        },
+        {
+          "path": "benchmarks/run-stage7-batch.mjs",
+          "bytes": 1561,
+          "sha256": "7882bf9c32bd7c88d782879ac17e55834f8e1038b7b512cb82d45caa00cdb2bc"
+        },
+        {
+          "path": "benchmarks/run-stage7.mjs",
+          "bytes": 11170,
+          "sha256": "53c584645ff1a48b9e8db771a84b6651df81d0aa9459e42d84c8e148bb6ab942"
+        },
+        {
+          "path": "benchmarks/run.mjs",
+          "bytes": 12895,
+          "sha256": "ebd04e07462f6b3188ecf45f1e40cbb13f49bb5ad4e65c8cb6e24788af33c4ff"
+        },
+        {
+          "path": "benchmarks/stage7-policy.test.mjs",
+          "bytes": 1567,
+          "sha256": "49fa526940d2436e541d79b6eb46bc5dd3ae79126eefdaa0d2955f0aa3c1f1cc"
+        },
+        {
+          "path": "benchmarks/stage8-tasks.mjs",
+          "bytes": 3069,
+          "sha256": "b236510dd0eb05886034a649767a4dc2581adc4312ac0852e1c45f7652eed7d5"
+        },
+        {
+          "path": "benchmarks/validate-stage5.mjs",
+          "bytes": 1688,
+          "sha256": "91063891a10428ae9a74f4c1def6db60f50df123f8f0ea49859354770f032577"
+        },
+        {
+          "path": "benchmarks/validate-stage6.mjs",
+          "bytes": 2469,
+          "sha256": "38f425013998afcff8e6d2c2753f4e0255988b5479027f8b41e3e1fdc0ccf7c5"
+        },
+        {
+          "path": "docs/token-efficient-architecture.md",
+          "bytes": 54035,
+          "sha256": "8c94286d0f410e47bedf99ac5c01c132191907641cfd947aa46c1be7dade6248"
+        },
+        {
+          "path": "package.json",
+          "bytes": 207,
+          "sha256": "8c023fae34ff418e519b14b4d95136a0ee397af46bba9c1de69aadf45213550e"
+        },
+        {
+          "path": "plugins/token-efficient/index.ts",
+          "bytes": 16631,
+          "sha256": "9a31387c586fb69e3b9a765eec4d870cee00e5b4f482c4aae99bedf444123f4a"
+        },
+        {
+          "path": "plugins/token-efficient/lib/announce.ts",
+          "bytes": 731,
+          "sha256": "0c9884d41965dfbaf4236d220ba39a722f1156feab57e98a15587e3bb1db9ff3"
+        },
+        {
+          "path": "plugins/token-efficient/lib/assemble/budgets.ts",
+          "bytes": 498,
+          "sha256": "19d2594557e5e4689a6bc43dbd12a0b5d8e0b0259b5a1fea20164c8e89bfdbcd"
+        },
+        {
+          "path": "plugins/token-efficient/lib/assemble/index.ts",
+          "bytes": 8658,
+          "sha256": "205b75f58d7e4dca4a1838f3318d1e6c78b043f6cfd0ed7bd4dd1b6b9177dd2b"
+        },
+        {
+          "path": "plugins/token-efficient/lib/canary.ts",
+          "bytes": 2911,
+          "sha256": "1becd13a321f291d7688a9092901336eb8e2a863ad51836154355d2924550c5e"
+        },
+        {
+          "path": "plugins/token-efficient/lib/classify.ts",
+          "bytes": 610,
+          "sha256": "c2c78de373bdf9cf2403afb5145c020e4f9e5a5b8b2c803e63befe08553f465c"
+        },
+        {
+          "path": "plugins/token-efficient/lib/context/capture.ts",
+          "bytes": 996,
+          "sha256": "59fc830d24b9a6e585f4cad537de05bdc103c13e34013373de8edbc3d4a4fd8c"
+        },
+        {
+          "path": "plugins/token-efficient/lib/context/config.ts",
+          "bytes": 1476,
+          "sha256": "6bc267c667feccd7c6c4e51fc2898d18ef8f5574079fbf6bc60a6b8a82340f2e"
+        },
+        {
+          "path": "plugins/token-efficient/lib/context/extract.ts",
+          "bytes": 2731,
+          "sha256": "7a3a86c9042faa391f3fb6afbc6ba22ce884dd65ec0cc636404a64a88e4752b0"
+        },
+        {
+          "path": "plugins/token-efficient/lib/context/index.ts",
+          "bytes": 4558,
+          "sha256": "b1264be881aee5d1172295c6ae2f95ae12787767e495ec8fdf00f61f41e36f49"
+        },
+        {
+          "path": "plugins/token-efficient/lib/context/packet.ts",
+          "bytes": 1595,
+          "sha256": "8a7e354ee1d4fab8dfd03c47b0406ce367c5c9488fef0c2aa549093c36eb1cb6"
+        },
+        {
+          "path": "plugins/token-efficient/lib/context/retrieve.ts",
+          "bytes": 15061,
+          "sha256": "12ca5574e5adccd6b60463c17d8b2623c6319da3fb360c6c1e9d3663312985c6"
+        },
+        {
+          "path": "plugins/token-efficient/lib/controller/checkpoint.ts",
+          "bytes": 671,
+          "sha256": "0fd753f1360625180313c289cc1524671dc48cd93a9ead62ff8c92273c5316fe"
+        },
+        {
+          "path": "plugins/token-efficient/lib/controller/config.ts",
+          "bytes": 2305,
+          "sha256": "48c011c82f22a697c689cf7d9d7c95c7f4da2e3ca23616679664f3ed8269f23c"
+        },
+        {
+          "path": "plugins/token-efficient/lib/controller/escalate.ts",
+          "bytes": 936,
+          "sha256": "b1f7361846aa67620bf184f6933fdad37d1a51310032f0a77cb268d132ed0f1c"
+        },
+        {
+          "path": "plugins/token-efficient/lib/controller/models.ts",
+          "bytes": 1626,
+          "sha256": "2fd92b95c631e07b4c5285fd0bb9b321789b202837d8adc468de33f0aa796085"
+        },
+        {
+          "path": "plugins/token-efficient/lib/controller/route.ts",
+          "bytes": 2440,
+          "sha256": "2b950656c4efbf6a1ccfa5dc6f706a72dd52144acd0681de170300e14ebad0d4"
+        },
+        {
+          "path": "plugins/token-efficient/lib/filtering/classify.ts",
+          "bytes": 4513,
+          "sha256": "4e5b4149a35ed2bb984b9bfbd48dcdb9a20858615f21ac7d2f2f919b327cc95a"
+        },
+        {
+          "path": "plugins/token-efficient/lib/filtering/config.ts",
+          "bytes": 1583,
+          "sha256": "6f2ee50900e561f3d19e10194fd4e637d0a7765578d6e464291de75cb4b659ba"
+        },
+        {
+          "path": "plugins/token-efficient/lib/filtering/filter.ts",
+          "bytes": 8407,
+          "sha256": "7021621135acb519c336e698ab7d4d3588d1a23919f36055734c0870d9a37200"
+        },
+        {
+          "path": "plugins/token-efficient/lib/filtering/parsers.ts",
+          "bytes": 12322,
+          "sha256": "353a3c04683f81503819022cd83651c3d604ee7ecddf6ceea1b5274641d33d35"
+        },
+        {
+          "path": "plugins/token-efficient/lib/filtering/preview.ts",
+          "bytes": 3738,
+          "sha256": "f2fe076a2c1ef0929379602fbab79830a080ba0a60c7e729c173e3b4457fbc24"
+        },
+        {
+          "path": "plugins/token-efficient/lib/filtering/raw-store.ts",
+          "bytes": 4014,
+          "sha256": "436ee5759e5b999527b4af440d5432ece7ed276418591721a855e3dd755357fc"
+        },
+        {
+          "path": "plugins/token-efficient/lib/handoff/builder.ts",
+          "bytes": 4215,
+          "sha256": "dbca1ab84f376fbd304e2a4702f5bbe95efedde184cd182a3cb792d017c65ba6"
+        },
+        {
+          "path": "plugins/token-efficient/lib/handoff/config.ts",
+          "bytes": 468,
+          "sha256": "9f0f2ab857c13e0318823befe12358ce36d204480a8956d40b7184eaee48419f"
+        },
+        {
+          "path": "plugins/token-efficient/lib/handoff/session.ts",
+          "bytes": 10844,
+          "sha256": "2953b3b69e2e1abb5f0ce118841730e736fbefcfdee47a8ad75e2bce022932d1"
+        },
+        {
+          "path": "plugins/token-efficient/lib/ids.ts",
+          "bytes": 1238,
+          "sha256": "dadd68526c80a7f1408bd400817eb9077e5ac987f8e854a0e81d0ae7eb76fc67"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/config.ts",
+          "bytes": 463,
+          "sha256": "f08a4488294b636b0e66fd268b992f967fff3a050787c93fc3574b82bf8de183"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/identity.ts",
+          "bytes": 1370,
+          "sha256": "a5a0e61afe5726ff368c9bec5ce78a92018fe7851868f87d8b86e81e54d56838"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/paths.ts",
+          "bytes": 2333,
+          "sha256": "4ecb2444d2f9d5fe2635471eb0526f591b95d4c008c8acb57146dffff2cf8a64"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/provenance.ts",
+          "bytes": 5281,
+          "sha256": "57d16f19f604fd919f69feb95304e0d43f15c1c26202024f3d1cc3df11000b07"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/schemas.ts",
+          "bytes": 13454,
+          "sha256": "944b1ecba5d4af724f10c4203ff10d345690f8c2fac1935532e7258bcc01260c"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/select.ts",
+          "bytes": 3683,
+          "sha256": "44e6d0db5801d94482a2ae556749de183d02c182f32344c2ea4878da1fda2946"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/store.ts",
+          "bytes": 14156,
+          "sha256": "7c4aa106b8813144d3df36129e00b0dda079ba9d71449304a10d871c4345a1d6"
+        },
+        {
+          "path": "plugins/token-efficient/lib/memory/types.ts",
+          "bytes": 2150,
+          "sha256": "88ee6cde48232b46046803b397b9809d585de0254f3a490c12701b8bdd72c336"
+        },
+        {
+          "path": "plugins/token-efficient/lib/store.ts",
+          "bytes": 5281,
+          "sha256": "72ca91003251b1ebfa9d8864adc66947459b229e690efecf1426c386d5ef7137"
+        },
+        {
+          "path": "plugins/token-efficient/scripts/score-stage6-holdout.ts",
+          "bytes": 10364,
+          "sha256": "17609b43da8071d32aaf49b5a8da31be2738c3e467a9ca728d079d022e42f851"
+        },
+        {
+          "path": "plugins/token-efficient/scripts/stage6-holdout.ts",
+          "bytes": 27323,
+          "sha256": "609f7c41e24c744719da6ca4b6fb6c8d86cb90f46b6512e3946952e734506f27"
+        },
+        {
+          "path": "plugins/token-efficient/telemetry/session-tracker.ts",
+          "bytes": 9097,
+          "sha256": "61cb6bff64408408896f5b42b4711053091b673eabb1831578e5178bce339381"
+        },
+        {
+          "path": "plugins/token-efficient/telemetry/tool-tracker.ts",
+          "bytes": 4101,
+          "sha256": "c15e64f36fcd04cff3e0d3a37147739bbd7149a066b597e04c8ac6278906a7bc"
+        },
+        {
+          "path": "plugins/token-efficient/test/announce.test.ts",
+          "bytes": 1235,
+          "sha256": "1d0a3699035e82d688272382f4b202b8d317461dbf0b3f62f4e86dec5a7d2186"
+        },
+        {
+          "path": "plugins/token-efficient/test/assemble.test.ts",
+          "bytes": 9239,
+          "sha256": "4dab8910ca98b23dd72fe2bc4d781f86b2eafc93f5855536a31e3093acc44ebf"
+        },
+        {
+          "path": "plugins/token-efficient/test/bun-test.d.ts",
+          "bytes": 1855,
+          "sha256": "9883494fb0251ea43bccf2f52bf3598832a52ca3f91e7e2b75db792a0f868b0c"
+        },
+        {
+          "path": "plugins/token-efficient/test/classify.test.ts",
+          "bytes": 3232,
+          "sha256": "fdc6d2ce8ebef9dc6b76dbc9c8414ab781f116a0f461fe69ac05e4ce16ce24e4"
+        },
+        {
+          "path": "plugins/token-efficient/test/config.test.ts",
+          "bytes": 4374,
+          "sha256": "eebb95ec2479cd55b7fe2b0a6171683d05112da0ab452fdc6de6a1fdbb0468e8"
+        },
+        {
+          "path": "plugins/token-efficient/test/context.test.ts",
+          "bytes": 18149,
+          "sha256": "759d234d52c939c92006a93bef5fc87df03a19f35ccf9c2943562192ff24494c"
+        },
+        {
+          "path": "plugins/token-efficient/test/controller.test.ts",
+          "bytes": 7690,
+          "sha256": "903e1335a611130214fd19ed42764e3a97910114e1e115cafad37ecb356baffa"
+        },
+        {
+          "path": "plugins/token-efficient/test/filter-reason.test.ts",
+          "bytes": 3955,
+          "sha256": "0471c51b41be7c68548dc180d6b15319daf61384e89939aab84b4d540f54002c"
+        },
+        {
+          "path": "plugins/token-efficient/test/filter.test.ts",
+          "bytes": 8397,
+          "sha256": "87eab13687d811f5a375d52ede6479e2105c96c39a33a5beeaa3450191875d59"
+        },
+        {
+          "path": "plugins/token-efficient/test/filter2b.test.ts",
+          "bytes": 7129,
+          "sha256": "f17b25a0d53142144c346a1a8279d4f2ba6bb9b8f3a21fae15dc28c57b94b1c6"
+        },
+        {
+          "path": "plugins/token-efficient/test/handoff-session.test.ts",
+          "bytes": 10182,
+          "sha256": "b532f23a086a148d17ba31b5dbb609aeb9b716162d2c94216f807103c45edd4a"
+        },
+        {
+          "path": "plugins/token-efficient/test/helpers.ts",
+          "bytes": 1699,
+          "sha256": "e1afe53ae7cfab34de6e2f48fe3a1791116bd11d10c07fff734e330a79883d31"
+        },
+        {
+          "path": "plugins/token-efficient/test/measurement.test.ts",
+          "bytes": 5220,
+          "sha256": "cd0dd8f607c25e90730b3fd9b02b73d6f73b5a755b744018593b5ae1483d7ee0"
+        },
+        {
+          "path": "plugins/token-efficient/test/memory-provenance.test.ts",
+          "bytes": 4715,
+          "sha256": "89d1158ba48afe02dd46785707a9087fe435acd1a5a3f2e672a0a7f1b9215789"
+        },
+        {
+          "path": "plugins/token-efficient/test/memory-store.test.ts",
+          "bytes": 7881,
+          "sha256": "5efeb8a93182ca27e85d585d16d44ab571325e438cf02e5911e9c5b2a755baa5"
+        },
+        {
+          "path": "plugins/token-efficient/test/parsers.test.ts",
+          "bytes": 15748,
+          "sha256": "a902211bdd3d8688fe75ed5fad73d932f8d0e492bb4832d1c998d7b9dc007b74"
+        },
+        {
+          "path": "plugins/token-efficient/test/preview.test.ts",
+          "bytes": 5260,
+          "sha256": "2974b8f9eb55be1b2bd4324617fefe8856c586bdabc1aa66867204f5936f731e"
+        },
+        {
+          "path": "plugins/token-efficient/test/raw-store.test.ts",
+          "bytes": 6648,
+          "sha256": "9a496a434d48a366c88727a170f78749ec602a29af2352dc4ac54c00c57d0909"
+        },
+        {
+          "path": "plugins/token-efficient/test/retrieveRaw.test.ts",
+          "bytes": 6745,
+          "sha256": "b6bd432fb63c584fe6e890c77b498cd272c48dc213be3389af0d6363e38e908c"
+        },
+        {
+          "path": "plugins/token-efficient/test/session-tracker-restore.test.ts",
+          "bytes": 3675,
+          "sha256": "a6f809d7e74508d0f3c6bf978bfc87cd9a9af688e06e3bda0adc8f89b04e5a76"
+        },
+        {
+          "path": "plugins/token-efficient/test/tui.test.ts",
+          "bytes": 1493,
+          "sha256": "9245aa112110e7f4e3a599d134a227c8b5e7506816695ff85db75a61323d49c6"
+        },
+        {
+          "path": "plugins/token-efficient/tools/handoff.ts",
+          "bytes": 5070,
+          "sha256": "0e21cd3cd2b5e1585c78cf276d5f1b82823016dd667e52f671f809e8551b6ad0"
+        },
+        {
+          "path": "plugins/token-efficient/tools/raw-output.ts",
+          "bytes": 6108,
+          "sha256": "3ac4a564aec4a7b337e63da4cc276ffc1c14b8ca0cf9994298da865497086245"
+        },
+        {
+          "path": "plugins/token-efficient/tsconfig.json",
+          "bytes": 362,
+          "sha256": "f9a915897835dc2733b3c54fc4f84fd29a3b42c5c905baf2df4c73d01859900b"
+        },
+        {
+          "path": "plugins/token-efficient/tui.tsx",
+          "bytes": 3958,
+          "sha256": "8d0d261ebac3e8aef92d40476878a58451cd5cc1e9e4067606ee0dfc95e22fb1"
+        },
+        {
+          "path": "scripts/relay-launcher.mjs",
+          "bytes": 2156,
+          "sha256": "7a985667e4a7b9e117cdc681f78c9366d26a600fb4c4c0e31e642a3d4f8aa732"
+        },
+        {
+          "path": "scripts/relay-runtime.mjs",
+          "bytes": 9528,
+          "sha256": "c6ba1fb052b637c44b322a8ab1f59e501a797a59b9b1176c4d8aa99836f91d5b"
+        },
+        {
+          "path": "scripts/relay.mjs",
+          "bytes": 292,
+          "sha256": "66164a1216dd59de6ade59832a55462dcefd83e3facd28abb9c7ab1de7fe2e56"
+        },
+        {
+          "path": "scripts/release-daily.mjs",
+          "bytes": 5257,
+          "sha256": "b596b420d058df3678f2cad5cb1adba5626153cb65d6091726e7d9db395c075b"
+        },
+        {
+          "path": "scripts/stage6-smoke.mjs",
+          "bytes": 7544,
+          "sha256": "080916db502ebb7b52551622271624d10441ca3a6fda2d4a491d85720b4320e2"
+        }
+      ]
+    },
+    {
+      "name": "delta",
+      "root": "/Users/luke/src/Delta",
+      "head": "37f689f839c546493ae1097212136d5e78024916",
+      "dirtyPaths": [
+        "onfig.toml"
+      ],
+      "includeRules": [
+        "delta/**/*.py",
+        "tests/*.py",
+        "PROJECT_SPEC.md",
+        "AGENTS.md",
+        "README.md",
+        "pyproject.toml"
+      ],
+      "excludeRules": [
+        "config.toml (modified)",
+        "tests/fixtures/",
+        "tests/__snapshots__/",
+        "docs/",
+        ".venv/",
+        "**/__pycache__/",
+        "runtime data and credentials",
+        "all non-allowlisted files"
+      ],
+      "fileCount": 119,
+      "totalBytes": 1054661,
+      "treeSha256": "0d4968677fad5b6a79e6903ae9c57c7f00299e628da7c71dc20cc5c1b4b5825d",
+      "files": [
+        {
+          "path": "AGENTS.md",
+          "bytes": 2756,
+          "sha256": "a6985bb77bfcc4ac1524098905a8ef15a7d11368837895c70856704a237576d1"
+        },
+        {
+          "path": "PROJECT_SPEC.md",
+          "bytes": 14487,
+          "sha256": "9090b3f48acca97304887840fc9d325ca137a62dee4341c1c22361522745a29e"
+        },
+        {
+          "path": "README.md",
+          "bytes": 9771,
+          "sha256": "d0a929244774f1fdbeeda7d8c30a6c9512e5f275d3287e3bac710172240bbecc"
+        },
+        {
+          "path": "delta/__init__.py",
+          "bytes": 22,
+          "sha256": "91447944015cec709e8aa7655f7e9d64e1e4508e7023a57fe3746911c0fc6fed"
+        },
+        {
+          "path": "delta/asset_metrics.py",
+          "bytes": 14200,
+          "sha256": "addac5c1613919a73976ddd45e4e684b82337607e17282f68ad50d168b7cf35a"
+        },
+        {
+          "path": "delta/brief.py",
+          "bytes": 6897,
+          "sha256": "29eae31a5c55d0377a7c32e35dfca3211ffca1a1ad88a711b7c256534a869822"
+        },
+        {
+          "path": "delta/chat.py",
+          "bytes": 9879,
+          "sha256": "7554d840fab2ae63776b8cfc005a152f3612a7547ab9c7404a51537655abbd38"
+        },
+        {
+          "path": "delta/core/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "delta/core/config.py",
+          "bytes": 6360,
+          "sha256": "18574a46a35f136e677119d218ca705038c74309b7ff37feb61b4ee500864957"
+        },
+        {
+          "path": "delta/core/db.py",
+          "bytes": 10071,
+          "sha256": "7f60e78af08e56fb67e43870167ba421a4e3a3a90b7cd9b5a18792bab7760068"
+        },
+        {
+          "path": "delta/core/events.py",
+          "bytes": 1367,
+          "sha256": "6d4b6a04af6d32b39129727dd98bd12831e7955f3030c401cad875337bdfdf78"
+        },
+        {
+          "path": "delta/core/http.py",
+          "bytes": 479,
+          "sha256": "d121c27207bbc873ecb7877a35f718a5529bc527e3b1039217e3c23b27414921"
+        },
+        {
+          "path": "delta/core/ids.py",
+          "bytes": 489,
+          "sha256": "34f81d5e494bc0ba6f59ab8a8681f49193a542e737b4c6a952311edad3b158d6"
+        },
+        {
+          "path": "delta/core/json.py",
+          "bytes": 462,
+          "sha256": "eb9cf6e7feada2d843b5db00e0f2c35c6b348846a1ca3e84bd260b725c6f0716"
+        },
+        {
+          "path": "delta/core/models.py",
+          "bytes": 2232,
+          "sha256": "b8b9daf61d7718731d5618c362cfb43662dac89a73497d3dc7d10272e17fe187"
+        },
+        {
+          "path": "delta/core/plugin.py",
+          "bytes": 6818,
+          "sha256": "d7d78811cbb3e512979fdd507864d1c37d4779c0f0a32389b32c680c2e24ff91"
+        },
+        {
+          "path": "delta/core/state.py",
+          "bytes": 1414,
+          "sha256": "17d22035495e639bb2f34d6256f066ee3e47990a613845d987672583616e3e02"
+        },
+        {
+          "path": "delta/core/time.py",
+          "bytes": 524,
+          "sha256": "7a4038eb6c2bf16183d6fda1a14f771a6363da5239780b12b7dd4a16594d5763"
+        },
+        {
+          "path": "delta/decisions.py",
+          "bytes": 12318,
+          "sha256": "238aaa0137366b08f17991f92f28255c3ca2136c24f91380d7f99036594ff397"
+        },
+        {
+          "path": "delta/evidence.py",
+          "bytes": 11123,
+          "sha256": "e827c0d75f9162e03f040d3c27100a2719d26972f9457c02dc12fc96f68419ae"
+        },
+        {
+          "path": "delta/extract.py",
+          "bytes": 5565,
+          "sha256": "e29e7e42c18b350da9b22307f854aa6ac7d67893e70c931a7dd7ce4bed7f2efd"
+        },
+        {
+          "path": "delta/llm/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "delta/llm/cache.py",
+          "bytes": 2078,
+          "sha256": "dd06c8e7d6f59728089a6d00cbbf73b5c41dbb25dc0d162bc7b93ec7902b1ebb"
+        },
+        {
+          "path": "delta/llm/catalog.py",
+          "bytes": 5726,
+          "sha256": "de3487fd9377026d54dd690034d817fc03fd0d20d90e80a833a83eb14cf41f4e"
+        },
+        {
+          "path": "delta/llm/client.py",
+          "bytes": 7418,
+          "sha256": "256c1dfdbe85ee412dfe34ae1ca72dcae09255b8f13faf9b77ca555c884e300d"
+        },
+        {
+          "path": "delta/llm/eval.py",
+          "bytes": 3599,
+          "sha256": "05c93fd85dc7d6ba479d59b34dae78a52ebf6004e0e7de5941ee2560d04706aa"
+        },
+        {
+          "path": "delta/llm/jev.py",
+          "bytes": 5276,
+          "sha256": "fccf4769b86779032cff03db151a874225b63d96dd9849f5d537c75b5aec2c8c"
+        },
+        {
+          "path": "delta/llm/json.py",
+          "bytes": 945,
+          "sha256": "e848021b5f4e79d20c23a45b4e9f0616edf4016e30937376e74b020b2af357ca"
+        },
+        {
+          "path": "delta/llm/providers.py",
+          "bytes": 16938,
+          "sha256": "1618170cd7a3a8a793eeb0875585d7ebc129beaa3526751909471414a6442446"
+        },
+        {
+          "path": "delta/llm/router.py",
+          "bytes": 1311,
+          "sha256": "7a30d92feefa2d613e3fd936217e2b826889a24057c06cc6a85f9836b6ad3525"
+        },
+        {
+          "path": "delta/llm/structured.py",
+          "bytes": 3582,
+          "sha256": "5beb271b7f480682a7e85ef24c484d8080b9d2dc4cc73d4428becfa7cf1c9fbd"
+        },
+        {
+          "path": "delta/plugins/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "delta/plugins/data/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "delta/plugins/data/asx_announcements.py",
+          "bytes": 6929,
+          "sha256": "364e5a622f44d3635ae294d140872169c42f1870f47c5c1dbb137d742f0c86da"
+        },
+        {
+          "path": "delta/plugins/data/rss.py",
+          "bytes": 5576,
+          "sha256": "87b9df46a5f7db4767a988ca335ea56781f23bd85264fc2b6395aa8d544744e0"
+        },
+        {
+          "path": "delta/plugins/data/sec_edgar.py",
+          "bytes": 10904,
+          "sha256": "793d1b1d68e6e54eaa67c216c1f63a3e456638081c16a99b81fecad012f303c3"
+        },
+        {
+          "path": "delta/plugins/data/yfinance.py",
+          "bytes": 3758,
+          "sha256": "e81b82e1962bcd763110628124e6769eb0861df5d0cae9c9e7f6644f25d800aa"
+        },
+        {
+          "path": "delta/plugins/data/yfinance_calendar.py",
+          "bytes": 3812,
+          "sha256": "0ffd6909fadc2d4e208fe41facf283f32d420fa7f976ecde1e288fa1562c4d38"
+        },
+        {
+          "path": "delta/plugins/markets/__init__.py",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "delta/plugins/markets/asx.py",
+          "bytes": 2138,
+          "sha256": "4a1e814ce81d5d5d4a8631670b46c48dab378b0f8f2b3a7861ad2d860f478c7a"
+        },
+        {
+          "path": "delta/plugins/markets/us.py",
+          "bytes": 1875,
+          "sha256": "2afa4015ac82039b457083bdc8514bd44fae3a90a53a49b2f5f2a2f973db9e7c"
+        },
+        {
+          "path": "delta/plugins/targets/__init__.py",
+          "bytes": 28,
+          "sha256": "45ff683603be44860600c3d0e53d519c5f1dda3ac27b1e7e2390a063fb65910d"
+        },
+        {
+          "path": "delta/plugins/targets/tickers.py",
+          "bytes": 3839,
+          "sha256": "7aa5c949878ea314344d41ed065b18f59eaa15da75d869ad3f35eb058d104018"
+        },
+        {
+          "path": "delta/quotes.py",
+          "bytes": 6161,
+          "sha256": "a525ce33079e881f45474c9db86d7504aee1d521a55f483563b601a715b6ba0a"
+        },
+        {
+          "path": "delta/reports.py",
+          "bytes": 11527,
+          "sha256": "e35005a62dbac0eb0754edd64c23896f2f9c9f2dd5665df781f693d146b9ea79"
+        },
+        {
+          "path": "delta/review.py",
+          "bytes": 9848,
+          "sha256": "67ec30e3565a4a6baac26bc5c3c3f62dda54bbc7a1c45f87369e48dd27d8c353"
+        },
+        {
+          "path": "delta/runtime.py",
+          "bytes": 9360,
+          "sha256": "6bb6e4f97d85ff6b2c9a157315c314bce9ed30f5370030e58ba12acafd6e3db5"
+        },
+        {
+          "path": "delta/sentiment.py",
+          "bytes": 8206,
+          "sha256": "53efbbb20b58e8ff42014709a186489d9c71bf48f2431be406dadb33e4de8827"
+        },
+        {
+          "path": "delta/services.py",
+          "bytes": 30950,
+          "sha256": "065bcb5c574b32bfaff41d97b9cbe710e1f5548d7b6d2ff5ceb4de4a8a3cbbca"
+        },
+        {
+          "path": "delta/targets.py",
+          "bytes": 2673,
+          "sha256": "2fd678249f18b9401720451aac6fa59cd9a26ca91c0ab02f1431412e67fbb0c1"
+        },
+        {
+          "path": "delta/theses.py",
+          "bytes": 16839,
+          "sha256": "f6c2b35af14ccbc4655b7708928298d127170025801fd1427d59f496b8fd6516"
+        },
+        {
+          "path": "delta/thesis_health.py",
+          "bytes": 4519,
+          "sha256": "86615ce4be97abfec051b4fbf7065fa4ae53011c250afea78e0126a84ffc24d0"
+        },
+        {
+          "path": "delta/thesis_summary.py",
+          "bytes": 4104,
+          "sha256": "42bfda4f0cadbd32ecea06c3b1b5d65667955ca79d157b82de2f432fed4906f3"
+        },
+        {
+          "path": "delta/tui/__init__.py",
+          "bytes": 36,
+          "sha256": "fd072f09e108045e58892b04d28534a5d543bceac2cbd9565a0ff9c7d05c0582"
+        },
+        {
+          "path": "delta/tui/app.py",
+          "bytes": 8352,
+          "sha256": "e6f6ded11e2030bf6d45db6252268927fed387f4fdc1ebdeb493780ded4c3979"
+        },
+        {
+          "path": "delta/tui/axes.py",
+          "bytes": 4832,
+          "sha256": "10e4fb85b87dcc6ce0e29b612b470520a75bfb787cfeb1598306d3152a57017d"
+        },
+        {
+          "path": "delta/tui/components.py",
+          "bytes": 8924,
+          "sha256": "a9c7b3b276dde41143620723e1aa6638e66b30b1e9be47c6d178b67d2c26752e"
+        },
+        {
+          "path": "delta/tui/screens/chat.py",
+          "bytes": 27736,
+          "sha256": "f1e99789ce7729ad37966c3d5db53513972154dc1347d5ea8e2acb60f18cfaff"
+        },
+        {
+          "path": "delta/tui/screens/config.py",
+          "bytes": 22013,
+          "sha256": "831452fb9938a3fc106d3f6351e0094bb602c28fd42e6a478448638b5b0c4004"
+        },
+        {
+          "path": "delta/tui/screens/data.py",
+          "bytes": 184,
+          "sha256": "faeb7177ef43cd1b084085966c948b5366c728a32002e8dc512adb7f36cdf92d"
+        },
+        {
+          "path": "delta/tui/screens/decisions.py",
+          "bytes": 22898,
+          "sha256": "0375b6440abbac5d1578529aca6a4da6caa4c879ef33d1bb5c603a4c923d42d8"
+        },
+        {
+          "path": "delta/tui/screens/help.py",
+          "bytes": 8419,
+          "sha256": "f1895eb67a38e85f7514bf1a8d65016be2920ff93fa63e9573e14c7173f9b78b"
+        },
+        {
+          "path": "delta/tui/screens/home.py",
+          "bytes": 43713,
+          "sha256": "48e8f2a696ba291e5572de9bb885bc53859b2ba2fc0405848f107d95f2477ccf"
+        },
+        {
+          "path": "delta/tui/screens/market_setup.py",
+          "bytes": 9809,
+          "sha256": "6b143c77e7958755662c9f8a41c170bd181f4a93b57db51e4340559afce0420a"
+        },
+        {
+          "path": "delta/tui/screens/model_picker.py",
+          "bytes": 10302,
+          "sha256": "dd50495106edabf6528f6e9c1db30bbe2403cb9f750dc87dcb7a8efad2b893fe"
+        },
+        {
+          "path": "delta/tui/screens/provider_picker.py",
+          "bytes": 9263,
+          "sha256": "2e0686c31abb78d387599955d71fffead21b7599bee99c0caa9e1dc0a5e8a8a5"
+        },
+        {
+          "path": "delta/tui/screens/reports.py",
+          "bytes": 186,
+          "sha256": "504b50791b558191395bcb3a6d522c536f0846afc2127fd93da7d88903ff970b"
+        },
+        {
+          "path": "delta/tui/screens/research.py",
+          "bytes": 54981,
+          "sha256": "b9c11ca69b16e5d36430aeedd15ea2afb5355c24195c6b2cd68e43326f7c4b46"
+        },
+        {
+          "path": "delta/tui/screens/research_state.py",
+          "bytes": 2110,
+          "sha256": "6a0bf1f93a9720260a34316bf1fdbdadb5c6efa89aab96a10da4b9b7f29ba7b3"
+        },
+        {
+          "path": "delta/tui/screens/research_viewer.py",
+          "bytes": 1424,
+          "sha256": "583c15cfa7ac5fb862a9258b21b8a90629db30861acd37b212d4e072a07c8e29"
+        },
+        {
+          "path": "delta/tui/screens/source_setup.py",
+          "bytes": 4422,
+          "sha256": "24944b67e95c3e11e1c107f98111261fce52be60d5bb7033edc3510d48aa5488"
+        },
+        {
+          "path": "delta/tui/screens/targets.py",
+          "bytes": 54679,
+          "sha256": "380ccd3dbb2c49284a4b611fe3567a450708c6288c6282430fbcef304d4c9717"
+        },
+        {
+          "path": "delta/tui/screens/theses.py",
+          "bytes": 38060,
+          "sha256": "778c30dcb4df82ec664b33e0bc7aa415f83eed33c8ac142bfb7a4070f97022d5"
+        },
+        {
+          "path": "delta/tui/screens/thesis_form.py",
+          "bytes": 5261,
+          "sha256": "bb3c0ce9e69e42c3c64d7f038951d57735b1e770be2d34f9961d2fd2ccab8537"
+        },
+        {
+          "path": "delta/tui/screens/thesis_panes.py",
+          "bytes": 1308,
+          "sha256": "baf8a33e3a5fec7d55ccd9b7a4b08ae96664c6996dc6846f608a3f9181bd5efb"
+        },
+        {
+          "path": "delta/tui/shell.py",
+          "bytes": 11873,
+          "sha256": "54b2d5bd6a329428836372e32a118f47fcd9936f9c091d856f855f5e46f42026"
+        },
+        {
+          "path": "delta/tui/theme.py",
+          "bytes": 3656,
+          "sha256": "2684eb14b60886d6c7cfb28d0d93de3b2e1ae454ac00c5cf625d61317f61e6e3"
+        },
+        {
+          "path": "delta/tui/widgets.py",
+          "bytes": 36668,
+          "sha256": "97c56984a588f68dc2d3631fb65457cdc9f5470c62eadef9640709e2f227e21a"
+        },
+        {
+          "path": "pyproject.toml",
+          "bytes": 1818,
+          "sha256": "6a80cc63ce4c633763b85265e87d13bd238dc5e54980792a3b59818c3af9e24d"
+        },
+        {
+          "path": "tests/conftest.py",
+          "bytes": 2702,
+          "sha256": "50b6f78f313ff0b6b39d46ed6d1bfe9e435bc062fcad604674b0592864480a3a"
+        },
+        {
+          "path": "tests/test_asset_metrics.py",
+          "bytes": 12764,
+          "sha256": "c66432efc9db4da17ba629fff53c0eafeefc65bd51517b8915ca6ddbcb7e419f"
+        },
+        {
+          "path": "tests/test_asx_announcements.py",
+          "bytes": 4886,
+          "sha256": "de998765365d9f982d063dc0d5aa63ab664d0cb8c07b72f79aa7199852ff9d91"
+        },
+        {
+          "path": "tests/test_asx_market.py",
+          "bytes": 2704,
+          "sha256": "91644450ee7b17271545b3e77d3ce64cc5e18287adffacf07974cd7d730ea877"
+        },
+        {
+          "path": "tests/test_brief.py",
+          "bytes": 5706,
+          "sha256": "ae8de26714a9a9718cf524b3776a8bb4cb731cbc5e4679d2851c90b5e8c162b4"
+        },
+        {
+          "path": "tests/test_catalog.py",
+          "bytes": 11106,
+          "sha256": "988fb4577c065073901d78dc5f90086dcd5b14e6c4ba93be43640aa8a6e55cb1"
+        },
+        {
+          "path": "tests/test_chart.py",
+          "bytes": 10505,
+          "sha256": "e25db9102916c6049f0ba0c983de9b249a10654b846882ee55cd9d7bfc6d9846"
+        },
+        {
+          "path": "tests/test_chart_axes.py",
+          "bytes": 4326,
+          "sha256": "072a90b5548a7038666e73130d43ed334ce8beb56bf2ee527f644cee59b4dacf"
+        },
+        {
+          "path": "tests/test_chat.py",
+          "bytes": 13155,
+          "sha256": "a9a9ff7b63986e2e2e90eba3d20d4836c7fb08153ab61176e365506201a07145"
+        },
+        {
+          "path": "tests/test_data_sources.py",
+          "bytes": 3819,
+          "sha256": "e45b4eff23e5b7631d9efb3f59bf984d02ef6edcc8d92906a0d9d31d38a229a0"
+        },
+        {
+          "path": "tests/test_decisions.py",
+          "bytes": 6616,
+          "sha256": "fff7690b1246b2c703e14b4e20f99240693d11de60185ec509b0a1865a7527a9"
+        },
+        {
+          "path": "tests/test_decisions_tui.py",
+          "bytes": 3934,
+          "sha256": "128adfaa01907f56a9810db82ce695c8532db0fe6773a0a4d3179972c4afbb85"
+        },
+        {
+          "path": "tests/test_eval.py",
+          "bytes": 5910,
+          "sha256": "b0d6a5e382c28e3e2f9a351c7c2caca633e665adcafd7435276c9a15a5639115"
+        },
+        {
+          "path": "tests/test_evidence.py",
+          "bytes": 11576,
+          "sha256": "73847d13e3f464cd4909caae9574da4aca2b1b9773799f03593fbed9c4ca4d5a"
+        },
+        {
+          "path": "tests/test_extract.py",
+          "bytes": 7563,
+          "sha256": "952f6bf67183955c0939356a7bfa4609bbf3a24aa71b3d91845b61ea58958ec9"
+        },
+        {
+          "path": "tests/test_home.py",
+          "bytes": 7553,
+          "sha256": "39707c11c31588c773be7cef08eb58bbb971756fe59f3960f70ac1b6396a4341"
+        },
+        {
+          "path": "tests/test_jev.py",
+          "bytes": 3918,
+          "sha256": "989522ed7bac3647cd7df8781112ff989999506bb5a758d45f78b2511de7dcd5"
+        },
+        {
+          "path": "tests/test_llm_client.py",
+          "bytes": 4546,
+          "sha256": "9c764f7c1add2757fa0d77b89155c4a6800ef0b1efbfc054eeb4f4b1729666df"
+        },
+        {
+          "path": "tests/test_market_scope.py",
+          "bytes": 1105,
+          "sha256": "72b61344a56965d153cd9f83beacc7249b5f62f2076f2da35d3b9c9a39b7c864"
+        },
+        {
+          "path": "tests/test_market_setup.py",
+          "bytes": 2820,
+          "sha256": "fe8c86c7474c582c65e573d5c9456e2183b766edb22d98b2b13e3be8a86b7ea3"
+        },
+        {
+          "path": "tests/test_openrouter_provider.py",
+          "bytes": 5835,
+          "sha256": "47bf7a3f77abf43f544a6e485597a1571bf9dd247575ceaf672c9942dbd71180"
+        },
+        {
+          "path": "tests/test_provider_setup.py",
+          "bytes": 13435,
+          "sha256": "d509fd415cf7767c96531ce34b403fdeeecc03374468d1901f5884bba94124f0"
+        },
+        {
+          "path": "tests/test_quotes.py",
+          "bytes": 5773,
+          "sha256": "93eb1f22dd486f448e44c2977050021ae7a9d52640896925cc277c75c5e236a1"
+        },
+        {
+          "path": "tests/test_reports.py",
+          "bytes": 12529,
+          "sha256": "c846a425e25dbf0dcb2b9881b7829d8c4e601a3bcfacfc48d0d772d221c05538"
+        },
+        {
+          "path": "tests/test_research.py",
+          "bytes": 26967,
+          "sha256": "2d09b3d542bf015a44fdab5665496190ecbe91072c578a0c3f9ebc859bfd93b5"
+        },
+        {
+          "path": "tests/test_review.py",
+          "bytes": 4802,
+          "sha256": "5dc29ee856c8ab2861ab3070680982e72cdad866f85891eb385beb40287e7692"
+        },
+        {
+          "path": "tests/test_router.py",
+          "bytes": 2452,
+          "sha256": "2807ae5c9fd298467184d471b03a23c2cdd8f5210b0b569a17e5ef5924826e7d"
+        },
+        {
+          "path": "tests/test_rss.py",
+          "bytes": 4383,
+          "sha256": "f1f6101dd236b6fc95098214533aa8d5e91f1dbe307ec2e3aab3ae7d27aa5329"
+        },
+        {
+          "path": "tests/test_scope.py",
+          "bytes": 3666,
+          "sha256": "871d09946d782cd9d405bb3311c39d16f197af8acfd25b42202462a468f61ba8"
+        },
+        {
+          "path": "tests/test_sec_edgar.py",
+          "bytes": 4658,
+          "sha256": "ef1ce108dc5154048007e0a1dc10e65bb9efc4aeeb4d10322d1bd0fb9c254982"
+        },
+        {
+          "path": "tests/test_sentiment.py",
+          "bytes": 8356,
+          "sha256": "46c6490e7ea64ef4d4660fb023b36d0cd9f8859461c04eb55e907ab0ba625357"
+        },
+        {
+          "path": "tests/test_services.py",
+          "bytes": 17233,
+          "sha256": "33d75534cad0bdc5e824f21f2e398ff7730c838dc88e981a32cfbce6dd234255"
+        },
+        {
+          "path": "tests/test_snapshots.py",
+          "bytes": 4122,
+          "sha256": "e0004997e18c64a91e9ffb67821b7b9ad09273261fb2ae857e1db731f23ad8e1"
+        },
+        {
+          "path": "tests/test_targets_inspector.py",
+          "bytes": 2787,
+          "sha256": "2a8c956ca6d09200e7671e477d0ad680335bf7a0f7e367d1af51018c90b0d667"
+        },
+        {
+          "path": "tests/test_theses.py",
+          "bytes": 30517,
+          "sha256": "81f7f15f43102693c8e5e13284b36af6e34afee45e3a7a00176ca27eb393f54d"
+        },
+        {
+          "path": "tests/test_thesis_health.py",
+          "bytes": 5682,
+          "sha256": "dbca47d6fe972c4215546309462b86add13c02cfd9b70bd5008fa800612e025f"
+        },
+        {
+          "path": "tests/test_thesis_summary.py",
+          "bytes": 4540,
+          "sha256": "2d4910a2408c5feeb9e7507245537e8ff40068d3664a3a8b1fdb82e2fb930211"
+        },
+        {
+          "path": "tests/test_tui.py",
+          "bytes": 53937,
+          "sha256": "ab8680ef61d1687a93cbb9d2d2f0366dce07cae8e74c93a715f8af2df2fe26c3"
+        },
+        {
+          "path": "tests/test_watch_targets.py",
+          "bytes": 11278,
+          "sha256": "500c198fac765c19a2a9fdd260b8de8e9327d380623b083fd22e3f80d7872c77"
+        },
+        {
+          "path": "tests/test_yfinance_calendar.py",
+          "bytes": 4415,
+          "sha256": "65a58da30bf12735d1f2a2eb6eec722daf820719cf084e481bd05596dbd190ff"
+        }
+      ]
+    }
+  ]
+}

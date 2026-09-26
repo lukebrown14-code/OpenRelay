@@ -123,13 +123,45 @@ export function launchSpec({ channel, root = defaultRoot(), repo, dataDir, env =
   const dir = path.resolve(dataDir || path.join(root, "data", channel))
   const filtering = env.OPENRELAY_FILTERING ?? "on"
   if (!["on", "off"].includes(filtering)) throw new Error("OPENRELAY_FILTERING must be on or off")
+  // Stage 5 v3 is enabled for the daily release; users can still opt out per launch.
+  // Development remains off unless explicitly enabled for testing.
+  const context = env.OPENRELAY_CONTEXT ?? (channel === "daily" ? "on" : "off")
+  if (!["on", "off"].includes(context)) throw new Error("OPENRELAY_CONTEXT must be on or off")
+  // Stage 6: memory and handoffs are independent switches; unset means off in every
+  // channel (stage6-plan §3).
+  const memory = env.OPENRELAY_MEMORY ?? "off"
+  if (!["on", "off"].includes(memory)) throw new Error("OPENRELAY_MEMORY must be on or off")
+  const handoff = env.OPENRELAY_HANDOFF ?? "off"
+  if (!["on", "off"].includes(handoff)) throw new Error("OPENRELAY_HANDOFF must be on or off")
   const previewSafe = env.OPENRELAY_PREVIEW_SAFE !== "off"
   if (channel === "daily" && !previewSafe) throw new Error("Legacy filtering is available only in the development channel")
-  const options = { telemetry: { enabled: true, dir }, filtering: { enabled: filtering === "on", previewSafe }, runtime: { channel, buildID } }
-  return { channel, buildID, entry, dataDir: dir, filtering, previewSafe,
-    env: { ...env, PWD: cwd, OPENRELAY_FILTERING: filtering, OPENRELAY_CANARY: "off",
+  const tuiEntry = path.join(path.dirname(entry), "tui.tsx")
+  const tui = env.OPENRELAY_TUI === "off" || !fs.existsSync(tuiEntry) ? undefined
+    : registerTuiIndicator({ dataDir: dir, entry: tuiEntry, channel, buildID, filtering: filtering === "on", previewSafe })
+  const options = { telemetry: { enabled: true, dir }, filtering: { enabled: filtering === "on", previewSafe }, context: { enabled: context === "on" }, memory: { enabled: memory === "on" }, handoff: { enabled: handoff === "on" }, runtime: { channel, buildID } }
+  return { channel, buildID, entry, dataDir: dir, filtering, previewSafe, context, memory, handoff, tui,
+    env: { ...env, PWD: cwd, OPENRELAY_FILTERING: filtering, OPENRELAY_CONTEXT: context, OPENRELAY_MEMORY: memory, OPENRELAY_HANDOFF: handoff, OPENRELAY_CANARY: "off",
       ...(channel === "daily" ? { OPENRELAY_DISCIPLINE: "off" } : {}),
+      ...(tui ? { OPENCODE_TUI_CONFIG: tui.config } : {}),
       OPENCODE_CONFIG_CONTENT: JSON.stringify({ ...inline, plugin: [...(inline.plugin ?? []), [pathToFileURL(entry).href, options]] }) } }
+}
+
+// The TUI footer indicator ("OpenRelay <channel> <buildID>" under the OpenCode version)
+// rides a generated tui.json via OPENCODE_TUI_CONFIG; missing/stale tui entries degrade
+// to a plain launch. Returns undefined when the indicator is not injected.
+function registerTuiIndicator({ channel, buildID, filtering, previewSafe, entry, dataDir }) {
+  try {
+    fs.mkdirSync(dataDir, { recursive: true })
+    const config = path.join(dataDir, "tui.json")
+    fs.writeFileSync(config, JSON.stringify({
+      $schema: "https://opencode.ai/tui.json",
+      plugin: [[pathToFileURL(entry).href, { channel, buildID, filtering, previewSafe }]],
+    }))
+    return { entry, config }
+  } catch (error) {
+    console.error(`OpenRelay: TUI indicator disabled (${error.message})`)
+    return undefined
+  }
 }
 
 export function sourceHash(repo) {
@@ -148,4 +180,3 @@ export function sourceHash(repo) {
   }
   return hash.digest("hex")
 }
-

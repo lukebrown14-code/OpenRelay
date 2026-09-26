@@ -1,0 +1,20 @@
+{
+ "schemaVersion": 1,
+ "taskID": "task-leaka",
+ "workflowID": "wf-leaka",
+ "project": {
+  "projectID": "p-holdout",
+  "worktreeID": "w-holdout",
+  "worktreeRealpath": "WORKTREE"
+ },
+ "originatingSession": "ses-la",
+ "continuationSessions": [],
+ "revision": 1,
+ "lifecycle": "active",
+ "telemetryTasks": [],
+ "handoffIDs": [
+  "ho-leaka"
+ ],
+ "createdAt": "2026-09-24T00:00:00.000Z",
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

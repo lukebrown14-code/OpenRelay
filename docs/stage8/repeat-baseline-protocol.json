@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "label": "stage8-v3-repeat-v1",
+  "purpose": "One fresh filtering-plus-v3 control run on the frozen Delta config task to assess whether its saved 669884-token result is representative of the three map observations. No map is injected.",
+  "model": "zai-coding-plan/glm-5.3",
+  "tasks": ["delta-config-writeback"],
+  "settings": { "filtering": "on", "context": "on", "memory": "off", "handoff": "off", "route": "off", "escalate": "off", "previewSafe": true, "premiumCalls": 0 },
+  "limits": { "runs": 1, "attemptsPerTask": 1, "timeoutMsPerTask": 480000, "recordedCodingInputPlusCacheReadTokens": 1100000, "reservePerTaskTokens": 1100000 },
+  "interpretation": "Compare one fresh control with the saved v3 run and three map runs descriptively. Do not release or infer map causality from this small, nonpaired sample."
+}

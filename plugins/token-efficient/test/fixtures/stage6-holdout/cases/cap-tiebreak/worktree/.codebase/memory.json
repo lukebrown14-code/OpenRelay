@@ -1,0 +1,52 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-holdout",
+ "notes": {
+  "n-a": {
+   "schemaVersion": 1,
+   "noteID": "n-a",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/a.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "__content": ""
+  },
+  "n-b": {
+   "schemaVersion": 1,
+   "noteID": "n-b",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/b.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "__content": ""
+  },
+  "n-c": {
+   "schemaVersion": 1,
+   "noteID": "n-c",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/c.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "__content": ""
+  }
+ },
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

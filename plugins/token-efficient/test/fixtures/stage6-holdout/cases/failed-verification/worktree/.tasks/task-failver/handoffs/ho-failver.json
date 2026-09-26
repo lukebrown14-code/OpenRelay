@@ -1,0 +1,38 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-failver",
+ "taskID": "task-failver",
+ "workflowID": "wf-failver",
+ "sourceSession": "ses-failver",
+ "direction": "workhorse->workhorse",
+ "objective": "Fix the CSV export encoding",
+ "constraints": [
+  {
+   "text": "preserve quoting",
+   "provenance": "tool-observed"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "csv byte-identical to fixture",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [
+  {
+   "command": "node verify.js",
+   "cwd": ".",
+   "exitStatus": 1,
+   "executedAt": "2026-09-24T00:00:00.000Z",
+   "sourceStateDigest": {
+    "capturedAt": "2026-09-24T00:00:00.000Z"
+   }
+  }
+ ],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

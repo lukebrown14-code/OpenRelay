@@ -1,0 +1,10 @@
+{
+ "resumeSession": "ses-cf",
+ "readHandoff": {
+  "taskID": "task-conflict",
+  "handoffID": "ho-conflict"
+ },
+ "requestPaths": [
+  "src/api.ts"
+ ]
+}

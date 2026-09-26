@@ -1,0 +1,10 @@
+{
+ "resumeSession": "ses-po",
+ "readHandoff": {
+  "taskID": "task-pathover",
+  "handoffID": "ho-pathover"
+ },
+ "requestPaths": [
+  "src/telemetry.ts"
+ ]
+}

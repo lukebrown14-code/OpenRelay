@@ -1,0 +1,5 @@
+{
+  "required": ["src/statusWidget.js"],
+  "optional": ["src/statusData.js"],
+  "notes": "The state machine in statusWidget.js never transitions to the failed state; the fix belongs there."
+}

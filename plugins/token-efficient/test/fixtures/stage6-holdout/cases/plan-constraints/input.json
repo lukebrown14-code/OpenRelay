@@ -1,0 +1,7 @@
+{
+ "resumeSession": "ses-plancons",
+ "readHandoff": {
+  "taskID": "task-plancons",
+  "handoffID": "ho-plancons"
+ }
+}

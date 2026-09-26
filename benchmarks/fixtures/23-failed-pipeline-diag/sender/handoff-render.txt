@@ -1,0 +1,32 @@
+# Handoff ho-20260924-010856-o1n8b
+
+- Task: task-23failedpipe (workflow wf-23failedpipe)
+- Direction: workhorse->workhorse
+- Source session: ses_sender
+- Created: 2026-09-24T01:08:56.794Z
+
+## Objective
+
+Fix the CSV pipeline totals drift: coerce qty to a number in src/pipeline/parse.js (parseRows).
+
+## Constraints
+
+- [tool-observed] Do NOT lowercase category keys — grouping is case-sensitive; that approach was tried and rejected
+- [tool-observed] Keep the exact failure in mind: FAIL: parseRows must coerce qty to a number
+
+## Accepted decisions
+
+- [user-approved] aggregate.js grouping stays case-sensitive and unchanged
+
+## Acceptance criteria
+
+- [tool-observed] node verify.js exits 0 (Fruit=7, fruit=5, Tools=2; qty is numeric)
+
+## Current work
+
+Root cause identified (string qty in parse.js); fix not yet applied.
+
+## Next steps
+
+- apply Number() coercion in parseRows
+- run node verify.js

@@ -1,0 +1,22 @@
+# Handoff ho-20260924-010856-bp8ze
+
+- Task: task-26controlnam (workflow wf-26controlnam)
+- Direction: workhorse->workhorse
+- Source session: ses_sender
+- Created: 2026-09-24T01:08:56.872Z
+
+## Objective
+
+Add the ':grin:' alias mapping to 'grinning' in src/emoji.js without breaking existing aliases.
+
+## Constraints
+
+- [user-approved] Existing aliases must keep working
+
+## Acceptance criteria
+
+- [user-approved] node verify.js exits 0
+
+## Relevant files
+
+- src/emoji.js (sha256 d5e8fcbd1742…)

@@ -1,0 +1,39 @@
+{
+ "startedAt": "2026-09-24T00:53:17.519Z",
+ "worktree": "/var/folders/4r/wqg5qgt13p3d5gq505rwfgkh0000gn/T/openrelay-s6-smoke-NmtN9Z",
+ "receiver": "ses_f2f1b55bcffeXb8q2McU9ut6mZ",
+ "model": {
+  "providerID": "zai-coding-plan",
+  "modelID": "glm-5.3-flash"
+ },
+ "events": [
+  {
+   "ts": "2026-09-24T00:50:41.756Z",
+   "type": "handoff.prepared",
+   "data": {
+    "handoffID": "ho-20260924-005041-wktpg",
+    "taskID": "task-20260924-005041-vo6wp",
+    "workflowID": "wf-20260924-005041-4mvqr",
+    "bytes": 514,
+    "relevantFiles": [
+     "src/auth.ts"
+    ],
+    "verifications": 0
+   }
+  },
+  {
+   "ts": "2026-09-24T00:53:17.481Z",
+   "type": "handoff.consumed",
+   "data": {
+    "handoffID": "ho-20260924-005041-wktpg",
+    "taskID": "task-20260924-005041-vo6wp",
+    "workflowID": "wf-20260924-005041-4mvqr",
+    "receiverSession": "ses_f2f1b55bcffeXb8q2McU9ut6mZ",
+    "model": "zai-coding-plan/glm-5.3-flash",
+    "agent": "build",
+    "bytes": 798
+   }
+  }
+ ],
+ "pass": true
+}

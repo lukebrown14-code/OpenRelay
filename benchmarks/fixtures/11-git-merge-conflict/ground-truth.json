@@ -1,0 +1,5 @@
+{
+  "required": ["settings.js"],
+  "optional": ["settings.test.js"],
+  "notes": "Both branches edit the same search block; resolution must keep main's timeout (250) and the feature's suggestions flag. Requires a committed merge."
+}

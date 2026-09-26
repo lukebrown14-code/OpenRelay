@@ -1,0 +1,52 @@
+[
+  {
+    "id": "failure-card",
+    "task": "A failed verification command sometimes loses the failing assertion in the short tool message even though the full log contains it. Find the code that assembles the failure summary.",
+    "required": ["plugins/token-efficient/lib/filtering/filter.ts"]
+  },
+  {
+    "id": "raw-session-boundary",
+    "task": "A recovery handle from one coding session appears usable to fetch another session's stored command output. Find the storage boundary that must enforce session isolation.",
+    "required": ["plugins/token-efficient/lib/filtering/raw-store.ts"]
+  },
+  {
+    "id": "model-resolution",
+    "task": "When the provider's available models change, the workhorse choice can land on a premium model. Find the model selection logic that interprets provider listings.",
+    "required": ["plugins/token-efficient/lib/controller/models.ts"]
+  },
+  {
+    "id": "escalation-threshold",
+    "task": "A task escalates after fewer failed verification cycles than configured. Find the threshold decision responsible for that transition.",
+    "required": ["plugins/token-efficient/lib/controller/escalate.ts"]
+  },
+  {
+    "id": "sidebar-build-id",
+    "task": "The terminal sidebar footer loses the current build identifier when a session changes. Find the code that renders the footer badge.",
+    "required": ["plugins/token-efficient/tui.tsx"]
+  },
+  {
+    "id": "registration-conflict",
+    "task": "The launcher refuses to start when another Relay plugin is already registered. Find the startup check for duplicate registrations.",
+    "required": ["scripts/relay-runtime.mjs"]
+  },
+  {
+    "id": "duplicate-usage",
+    "task": "Recorded input tokens increase twice for one assistant completion. Find the per-session accounting that consumes completed assistant messages.",
+    "required": ["plugins/token-efficient/telemetry/session-tracker.ts"]
+  },
+  {
+    "id": "packet-digest",
+    "task": "A benchmark reports a captured context packet as valid even though the saved text differs from its digest. Find the capture validation in the benchmark harness.",
+    "required": ["benchmarks/lib/measurement.mjs"]
+  },
+  {
+    "id": "pass-preview",
+    "task": "A passing tool command still floods the assistant with the complete raw output instead of a short success preview. Find the preview transformation.",
+    "required": ["plugins/token-efficient/lib/filtering/preview.ts"]
+  },
+  {
+    "id": "startup-toast",
+    "task": "The startup toast shows the wrong build label for the running Relay channel. Find the function that composes that toast.",
+    "required": ["plugins/token-efficient/lib/announce.ts"]
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "class": "git",
+  "category": "git",
+  "name": "11-git-merge-conflict",
+  "verifyTimeoutMs": 30000
+}

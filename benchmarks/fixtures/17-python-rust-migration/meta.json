@@ -1,0 +1,6 @@
+{
+  "class": "migration",
+  "category": "migration",
+  "name": "17-python-rust-migration",
+  "verifyTimeoutMs": 90000
+}

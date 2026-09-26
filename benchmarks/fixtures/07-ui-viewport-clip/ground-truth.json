@@ -1,0 +1,5 @@
+{
+  "required": ["styles.css"],
+  "optional": ["index.html", "src/app.js"],
+  "notes": "The clipping is caused by toolbar flex rules in styles.css; the fix is a wrap/stack change there."
+}

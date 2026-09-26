@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-curnote",
+ "taskID": "task-curnote",
+ "workflowID": "wf-curnote",
+ "sourceSession": "ses-cn",
+ "direction": "workhorse->workhorse",
+ "objective": "Harden session expiry",
+ "constraints": [
+  {
+   "text": "no schema migration",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "expiry test passes",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-restart",
+ "taskID": "task-restart",
+ "workflowID": "wf-restart",
+ "sourceSession": "ses-old",
+ "direction": "workhorse->workhorse",
+ "objective": "Continue the viewport fix",
+ "constraints": [
+  {
+   "text": "mobile breakpoints unchanged",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "verify.js exits 0",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

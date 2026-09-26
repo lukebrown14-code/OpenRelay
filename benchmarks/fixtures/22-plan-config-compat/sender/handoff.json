@@ -1,0 +1,59 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-20260924-010856-ch45a",
+ "taskID": "task-22planconfig",
+ "workflowID": "wf-22planconfig",
+ "sourceSession": "ses_sender",
+ "direction": "workhorse->workhorse",
+ "objective": "Implement the accepted config hot-reload plan (see PLAN.md): reloadConfig in src/config/loader.js, refresh() in src/render/panel.js.",
+ "constraints": [
+  {
+   "text": "formatV1 output must remain byte-identical, including the trailing #v1 line (dashboards grep for it)",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [
+  {
+   "text": "src/legacy/exporter.js stays untouched (deprecated)",
+   "provenance": "user-approved"
+  }
+ ],
+ "relevantFiles": [
+  {
+   "path": "src/config/loader.js",
+   "contentDigest": "1daec41d67b319e452a8fb59e9b9447d456e2c55af54869fc7b6d8996aeced7b",
+   "captured": {
+    "capturedAt": "2026-09-24T01:08:56.764Z"
+   },
+   "recovery": {
+    "excerpt": "import fs from \"node:fs\"\n\nconst DEFAULTS = { timezone: \"UTC\", panels: [], refreshSeconds: 60 }\n\nexport function loadConfig(path = \"windmill.config.json\") {\n  let user = {}\n  try {\n    user = JSON.parse(fs.readFileSync(path, \"utf8\"))\n  } catch {}\n  return { ...DEFAULTS, ...user }\n}\n\nexport function formatV1(cfg) {\n  // v1 wire format consumed by external dashboards. The trailing \"#v1\" line is\n  // load-bearing: monitoring greps for it. Do not change this output.\n  const keys = Object.keys(cfg).sort()\n  retur",
+    "truncated": true
+   }
+  },
+  {
+   "path": "src/render/panel.js",
+   "contentDigest": "fdea58bd395b53bca678109eb836ac49d271c09a18b36b65ebb42059221457c3",
+   "captured": {
+    "capturedAt": "2026-09-24T01:08:56.765Z"
+   },
+   "recovery": {
+    "excerpt": "import { loadConfig } from \"../config/loader.js\"\n\nlet current = null\n\nexport function init() {\n  current = loadConfig()\n  return current\n}\n\nexport function currentPanels() {\n  if (!current) init()\n  return current.panels\n}\n",
+    "truncated": false
+   }
+  }
+ ],
+ "nextSteps": [
+  "implement reloadConfig()",
+  "implement panel.refresh() wiring"
+ ],
+ "acceptanceCriteria": [
+  {
+   "text": "node verify.js exits 0",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T01:08:56.765Z"
+}

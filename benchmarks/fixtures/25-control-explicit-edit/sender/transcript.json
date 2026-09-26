@@ -1,0 +1,90 @@
+{
+ "info": {
+  "id": "ses_sender_synthetic_0001",
+  "slug": "sender-state",
+  "projectID": "global",
+  "directory": "__WORKSPACE__",
+  "path": "__WORKSPACE__",
+  "title": "slugify tweak",
+  "version": "1.18.32",
+  "cost": 0,
+  "tokens": {
+   "input": 0,
+   "output": 0,
+   "reasoning": 0,
+   "cache": {
+    "read": 0,
+    "write": 0
+   }
+  },
+  "time": {
+   "created": 1790211840000,
+   "updated": 1790211960000
+  }
+ },
+ "messages": [
+  {
+   "info": {
+    "role": "user",
+    "time": {
+     "created": 1790211900000
+    },
+    "agent": "build",
+    "model": {
+     "providerID": "zai-coding-plan",
+     "modelID": "glm-5.3"
+    },
+    "id": "msg_user_1790211900000",
+    "sessionID": "ses_sender_synthetic_0001"
+   },
+   "parts": [
+    {
+     "type": "text",
+     "text": "Quick change for later: slugify should use hyphens instead of underscores.",
+     "id": "prt_1790211900000",
+     "sessionID": "ses_sender_synthetic_0001",
+     "messageID": "msg_user_1790211900000"
+    }
+   ]
+  },
+  {
+   "info": {
+    "role": "assistant",
+    "time": {
+     "created": 1790211960000
+    },
+    "agent": "build",
+    "parentID": "msg_parent",
+    "mode": "build",
+    "path": {
+     "cwd": "__WORKSPACE__",
+     "root": "/"
+    },
+    "cost": 0,
+    "tokens": {
+     "total": 500,
+     "input": 450,
+     "output": 50,
+     "reasoning": 0,
+     "cache": {
+      "write": 0,
+      "read": 0
+     }
+    },
+    "modelID": "glm-5.3",
+    "providerID": "zai-coding-plan",
+    "id": "msg_assistant_1790211960000",
+    "sessionID": "ses_sender_synthetic_0001"
+   },
+   "parts": [
+    {
+     "type": "text",
+     "text": "Noted — one-line change in src/slugify.js whenever you want it applied.",
+     "id": "prt_1790211960000",
+     "sessionID": "ses_sender_synthetic_0001",
+     "messageID": "msg_assistant_1790211960000"
+    }
+   ]
+  }
+ ]
+}

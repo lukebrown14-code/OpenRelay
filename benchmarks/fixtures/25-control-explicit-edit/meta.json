@@ -1,0 +1,6 @@
+{
+ "name": "25-control-explicit-edit",
+ "class": "stage6",
+ "category": "stage6-control",
+ "verifyTimeoutMs": 30000
+}

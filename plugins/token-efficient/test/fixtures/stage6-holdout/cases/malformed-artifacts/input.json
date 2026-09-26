@@ -1,0 +1,6 @@
+{
+ "corruptIndex": true,
+ "requestPaths": [
+  "src/api.ts"
+ ]
+}

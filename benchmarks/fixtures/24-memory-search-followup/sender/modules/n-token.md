@@ -1,0 +1,1 @@
+Search tokens are lowercased at INDEX time in src/search/index.js; the query side must lowercase with the same tokenizer or lookups silently miss.

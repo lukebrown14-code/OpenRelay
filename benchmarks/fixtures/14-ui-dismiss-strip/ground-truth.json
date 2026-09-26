@@ -1,0 +1,9 @@
+{
+  "required": [
+    "src/interactions.js"
+  ],
+  "optional": [
+    "src/actions/promo.js",
+    "src/sections/topbar.js"
+  ]
+}

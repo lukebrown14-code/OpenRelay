@@ -1,5 +1,5 @@
 import type { Store, TaskState } from "../lib/store"
-import { newTaskID, nowISO } from "../lib/ids"
+import { newTaskID, newWorkflowID, nowISO } from "../lib/ids"
 import { modelKey, tier } from "../lib/classify"
 
 type AssistantInfo = {
@@ -30,8 +30,18 @@ export class SessionTracker {
   private ensure(sessionID: string): Tracked {
     let t = this.sessions.get(sessionID)
     if (t) return t
+    // Recovery: a session that already has a persisted task record (e.g. a
+    // continuation after restart) resumes it instead of minting a duplicate.
+    const restored = this.store.loadTaskForSession(sessionID)
+    if (restored) {
+      t = { task: restored, lastModel: "", processed: new Set(restored.processedMessages ?? []) }
+      this.sessions.set(sessionID, t)
+      this.store.event("task.restored", { workflowID: restored.workflowID }, sessionID, restored.taskID)
+      return t
+    }
     const task: TaskState = {
       taskID: newTaskID(),
+      workflowID: newWorkflowID(),
       sessionID,
       slug: this.store.slug,
       worktree: this.store.worktree,
@@ -52,11 +62,12 @@ export class SessionTracker {
       editTestCycles: 0,
       errors: [],
       outcome: { status: "running", idles: 0, lastErrorAt: null },
+      processedMessages: [],
     }
     t = { task, lastModel: "", processed: new Set() }
     this.sessions.set(sessionID, t)
     this.store.bindSession(sessionID, task.taskID)
-    this.store.event("task.created", { worktree: this.store.worktree }, sessionID, task.taskID)
+    this.store.event("task.created", { worktree: this.store.worktree, workflowID: task.workflowID }, sessionID, task.taskID)
     return t
   }
 
@@ -112,7 +123,6 @@ export class SessionTracker {
     if (t.processed.has(info.id)) return
     t.processed.add(info.id)
     if (t.processed.size > 500) t.processed = new Set(Array.from(t.processed).slice(-250))
-
     const key = modelKey(info.providerID, info.modelID)
     if (t.task.models.length === 0 || t.task.models[t.task.models.length - 1] !== key) {
       if (t.task.models.length > 0) {
@@ -123,6 +133,9 @@ export class SessionTracker {
     }
 
     const tk = info.tokens ?? {}
+    const usageAvailable = [tk.input, tk.output, tk.cache?.read].every((value) =>
+      typeof value === "number" && Number.isFinite(value) && value >= 0,
+    )
     const input = tk.input ?? 0
     const output = tk.output ?? 0
     const reasoning = tk.reasoning ?? 0
@@ -159,10 +172,12 @@ export class SessionTracker {
     this.store.event(
       "assistant.completed",
       {
+        messageID: info.id,
         model: key,
         tier: tr,
         agent: info.agent ?? info.mode,
-        tokens: { input, output, reasoning, cacheRead, cacheWrite },
+        usageAvailable,
+        tokens: usageAvailable ? { input, output, reasoning, cacheRead, cacheWrite } : null,
         cost,
         latencyMs,
         error: failed,
@@ -171,6 +186,7 @@ export class SessionTracker {
       t.task.taskID,
     )
     t.task.lastActivityAt = nowISO()
+    t.task.processedMessages = Array.from(t.processed).slice(-500)
     this.store.saveTask(t.task)
   }
 
@@ -232,6 +248,10 @@ export class SessionTracker {
 
   taskID(sessionID: string): string | undefined {
     return this.sessions.get(sessionID)?.task.taskID
+  }
+
+  taskState(sessionID: string): TaskState | undefined {
+    return this.sessions.get(sessionID)?.task
   }
 
   flush(): void {

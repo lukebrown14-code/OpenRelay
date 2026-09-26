@@ -1,0 +1,2 @@
+import {openOverlay} from './overlay.js'
+export function confirmDelete(){const panel=document.createElement('dialog'); panel.id='confirm-delete'; panel.innerHTML='<button data-action="cancel">Cancel</button><button data-action="confirm">Delete API key</button>'; openOverlay(panel); const close=()=>{panel.hidden=true; panel.remove()}; panel.querySelectorAll('button').forEach(b=>b.addEventListener('click',close)); return panel}

@@ -1,0 +1,1 @@
+Telemetry note: emitter is fire-and-forget.

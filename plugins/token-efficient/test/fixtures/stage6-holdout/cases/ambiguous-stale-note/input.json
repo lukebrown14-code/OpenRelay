@@ -1,0 +1,5 @@
+{
+ "requestPaths": [
+  "src/auth.ts"
+ ]
+}

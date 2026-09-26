@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "label": "stage8-discovery-v2",
+  "purpose": "Complete the three remaining fresh real-repository discovery tasks after v1 stopped at its preregistered token ceiling. Analyze alongside v1 with unchanged settings and round definition.",
+  "model": "zai-coding-plan/glm-5.3",
+  "tasks": [
+    "delta-config-writeback",
+    "or-memory-cap-order",
+    "delta-market-dependencies"
+  ],
+  "settings": {
+    "filtering": "on",
+    "context": "on",
+    "memory": "off",
+    "handoff": "off",
+    "route": "off",
+    "escalate": "off",
+    "previewSafe": true,
+    "premiumCalls": 0
+  },
+  "limits": {
+    "runs": 3,
+    "attemptsPerTask": 1,
+    "timeoutMsPerTask": 480000,
+    "recordedCodingInputPlusCacheReadTokens": 3600000,
+    "reservePerTaskTokens": 1200000
+  },
+  "entryGate": {
+    "minimumDistinctVerifiedTasksWithTwoNavigationOnlyRounds": 3,
+    "minimumMapAddressableRelationshipsAmongQualifiers": 2,
+    "roundDefinition": "Every tool in an assistant tool-use message before first edit is listing/search; source reads disqualify the round."
+  }
+}

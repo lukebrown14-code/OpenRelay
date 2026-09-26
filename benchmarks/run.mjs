@@ -12,6 +12,12 @@
 //   --agent     agent to use (default: build)
 //   --timeout   per-run timeout in seconds (default 300)
 //   --filtering tool-output filtering mode passed to the plugin via OPENRELAY_FILTERING (off|on, default off)
+//   --route     controller routing mode passed via OPENRELAY_ROUTE (off|auto|premium|glm, default off)
+//   --escalate  controller escalation mode passed via OPENRELAY_ESCALATE (on|off, default off)
+//   --context   Stage 5 context engine passed via OPENRELAY_CONTEXT (off|on, default off)
+//   --append    continue run numbering after the highest existing run-NN for each fixture
+//               (lets interleaved A/B pairs share one label per arm instead of overwriting)
+//   --capture-context  save the exact injected packet for synthetic benchmark runs
 //   --dry-run   skip opencode, validate harness mechanics only
 
 import { spawnSync, spawn } from "node:child_process"
@@ -19,6 +25,7 @@ import fs from "node:fs"
 import path from "node:path"
 import { fileURLToPath } from "node:url"
 import { defaultRoot, launchSpec } from "../scripts/relay-runtime.mjs"
+import { packetCaptureRecord, sessionContextEvents, verificationTiming } from "./lib/measurement.mjs"
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const FIXTURES_DIR = path.join(__dirname, "fixtures")
@@ -30,6 +37,8 @@ function parseArgs(argv) {
     const k = argv[i]
     if (k.startsWith("--")) {
       if (k === "--dry-run") args.dryRun = true
+      else if (k === "--append") args.append = true
+      else if (k === "--capture-context") args.captureContext = true
       else args[k.slice(2)] = argv[++i]
     }
   }
@@ -53,6 +62,12 @@ const timeoutSec = parseInt(args.timeout ?? "300", 10)
 const agent = args.agent ?? "build"
 const filtering = args.filtering ?? "off"
 if (filtering !== "off" && filtering !== "on") fail(`--filtering must be "off" or "on", got: ${filtering}`)
+const route = args.route ?? "off"
+if (route !== "off" && route !== "auto" && route !== "premium" && route !== "glm") fail(`--route must be "off", "auto", "premium", or "glm", got: ${route}`)
+const escalate = args.escalate ?? "off"
+if (escalate !== "on" && escalate !== "off") fail(`--escalate must be "on" or "off", got: ${escalate}`)
+const context = args.context ?? "off"
+if (context !== "on" && context !== "off") fail(`--context must be "on" or "off", got: ${context}`)
 
 const fixtures = args.fixture === "all"
   ? fs.readdirSync(FIXTURES_DIR).filter((d) => !d.startsWith("."))
@@ -61,9 +76,10 @@ for (const f of fixtures) {
   if (!fs.existsSync(path.join(FIXTURES_DIR, f))) fail(`unknown fixture: ${f}`)
 }
 
-function runOpencode(cwd, model, agentName, prompt, timeoutMs, filtering) {
+function runOpencode(cwd, model, agentName, prompt, timeoutMs, filtering, route, escalate, context, captureContext) {
   const spec = launchSpec({ channel: "benchmark", repo, dataDir: telemetryDir, cwd,
-    env: { ...process.env, OPENRELAY_FILTERING: filtering } })
+    env: { ...process.env, OPENRELAY_FILTERING: filtering, OPENRELAY_ROUTE: route, OPENRELAY_ESCALATE: escalate,
+      OPENRELAY_CONTEXT: context, OPENRELAY_CAPTURE_CONTEXT: captureContext ? "on" : "off" } })
   return new Promise((resolve) => {
     const child = spawn(
       "opencode",
@@ -92,14 +108,36 @@ function runOpencode(cwd, model, agentName, prompt, timeoutMs, filtering) {
 
 // Workspace prep: clone if the fixture is a git repo; otherwise copy the tree and
 // create a pinned baseline commit so post-run `git diff` measurements still work.
+// Harness-only artifacts (setup.mjs, ground-truth.json) are stripped before the
+// baseline commit so they never leak into the workspace or its history.
 function prepareWorkspace(fixturePath, workspace) {
+  const ARTIFACTS = ["setup.mjs", "ground-truth.json", "history.bundle"]
+  for (const artifact of ARTIFACTS) {
+    try {
+      fs.rmSync(path.join(workspace, artifact), { force: true })
+    } catch {}
+  }
   const isRepo = fs.existsSync(path.join(fixturePath, ".git"))
   if (isRepo) {
     const r = spawnSync("git", ["clone", "--quiet", fixturePath, workspace])
-    return { ok: r.status === 0, stderr: r.stderr?.toString() }
+    if (r.status !== 0) return { ok: false, stderr: r.stderr?.toString() }
+    for (const artifact of ARTIFACTS) {
+      const tracked = spawnSync("git", ["-C", workspace, "ls-files", "--error-unmatch", artifact], { stdio: "ignore" })
+      if (tracked.status === 0) {
+        const rm = spawnSync("git", ["-C", workspace, "rm", "-q", "-f", artifact])
+        const ci = spawnSync("git", ["-C", workspace, "-c", "user.email=bench@local", "-c", "user.name=bench", "commit", "-qm", `chore: remove ${artifact}`])
+        if (rm.status !== 0 || ci.status !== 0) return { ok: false, stderr: `artifact strip failed for ${artifact}` }
+      } else {
+        fs.rmSync(path.join(workspace, artifact), { force: true })
+      }
+    }
+    return { ok: true }
   }
   try {
     fs.cpSync(fixturePath, workspace, { recursive: true })
+    for (const artifact of ARTIFACTS) {
+      fs.rmSync(path.join(workspace, artifact), { force: true })
+    }
     const cmds = [
       ["init", "-q"],
       ["add", "-A"],
@@ -115,19 +153,67 @@ function prepareWorkspace(fixturePath, workspace) {
   }
 }
 
+// Fixture-level setup hook: runs the fixture's setup.mjs (scenario seeding for git
+// fixtures) against the prepared workspace, and strips harness-only artifacts
+// (setup.mjs, ground-truth.json) so the model can never read the scenario recipe or
+// the retrieval-eval answer key. Returns {ok, stderr}.
+function runSetupHook(fixturePath, workspace) {
+  for (const artifact of ["setup.mjs", "ground-truth.json", "history.bundle"]) {
+    try {
+      fs.rmSync(path.join(workspace, artifact), { force: true })
+    } catch {}
+  }
+  const setup = path.join(fixturePath, "setup.mjs")
+  if (!fs.existsSync(setup)) return { ok: true }
+  const r = spawnSync(process.execPath, [setup], { cwd: workspace, encoding: "utf8", timeout: 60000 })
+  if (r.status !== 0) return { ok: false, stderr: (r.stderr ?? r.stdout ?? "setup failed").toString() }
+  return { ok: true }
+}
+
+function fixtureMeta(fixture) {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(FIXTURES_DIR, fixture, "meta.json"), "utf8"))
+  } catch {
+    return {}
+  }
+}
+
+// With --append, continue after the highest existing run-NN so interleaved
+// invocations accumulate under one label instead of overwriting run-01.
+function firstRunIndex(label, fixture) {
+  if (!args.append) return 1
+  const dir = path.join(RESULTS_DIR, label, fixture)
+  let max = 0
+  try {
+    for (const name of fs.readdirSync(dir)) {
+      const m = name.match(/^run-(\d+)$/)
+      if (m && Number(m[1]) > max) max = Number(m[1])
+    }
+  } catch {}
+  return max + 1
+}
+
 async function main() {
   const summary = []
   for (const fixture of fixtures) {
     const taskMd = fs.readFileSync(path.join(FIXTURES_DIR, fixture, "TASK.md"), "utf8")
-    for (let i = 1; i <= runs; i++) {
+    const meta = fixtureMeta(fixture)
+    const verifyTimeoutMs = typeof meta.verifyTimeoutMs === "number" && meta.verifyTimeoutMs > 0 ? meta.verifyTimeoutMs : 30000
+    const startRun = firstRunIndex(args.label, fixture)
+    for (let i = startRun; i < startRun + runs; i++) {
       const runDir = path.join(RESULTS_DIR, args.label, fixture, `run-${String(i).padStart(2, "0")}`)
       fs.mkdirSync(runDir, { recursive: true })
       const workspace = path.join(runDir, "workspace")
       fs.rmSync(workspace, { recursive: true, force: true })
 
-      const clone = prepareWorkspace(path.join(FIXTURES_DIR, fixture), workspace)
+      const fixturePath = path.join(FIXTURES_DIR, fixture)
+      const clone = prepareWorkspace(fixturePath, workspace)
       if (!clone.ok) {
         fail(`workspace prep failed for ${fixture}: ${clone.stderr}`)
+      }
+      const setup = runSetupHook(fixturePath, workspace)
+      if (!setup.ok) {
+        fail(`fixture setup failed for ${fixture}: ${setup.stderr}`)
       }
 
       console.log(`[${args.label}] ${fixture} run ${i}/${runs} ...`)
@@ -138,7 +224,7 @@ async function main() {
       if (args.dryRun) {
         oc.code = 0
       } else {
-        oc = await runOpencode(workspace, args.model, agent, taskMd, timeoutSec * 1000, filtering)
+        oc = await runOpencode(workspace, args.model, agent, taskMd, timeoutSec * 1000, filtering, route, escalate, context, Boolean(args.captureContext))
       }
       const durationMs = Date.now() - startMs
       const endedAt = new Date().toISOString()
@@ -149,9 +235,17 @@ async function main() {
       const sessionMatch = oc.stdout.match(/"sessionID":"([^"]+)"/)
       const sessionID = sessionMatch ? sessionMatch[1] : null
 
-      const verify = spawnSync("node", ["verify.js"], { cwd: workspace, encoding: "utf8", timeout: 30000 })
+      const verifyStartMs = Date.now()
+      const verifyStartedAt = new Date(verifyStartMs).toISOString()
+      const verify = spawnSync("node", ["verify.js"], { cwd: workspace, encoding: "utf8", timeout: verifyTimeoutMs })
+      const verifyEndMs = Date.now()
+      const verifyEndedAt = new Date(verifyEndMs).toISOString()
       const verifyPass = verify.status === 0
+      const timing = verificationTiming(verify, startMs, verifyStartMs, verifyEndMs)
       const verifyTail = ((verify.stdout ?? "") + (verify.stderr ?? "")).trim().split("\n").slice(-5).join(" | ").slice(0, 400)
+      const contextEvents = args.captureContext && !args.dryRun ? sessionContextEvents(telemetryDir, sessionID) : []
+      const packetCapture = packetCaptureRecord({ context, enabled: Boolean(args.captureContext) && !args.dryRun,
+        sessionID, events: contextEvents, telemetryDir, runDir })
 
       const diffStat = spawnSync("git", ["-C", workspace, "diff", "--stat"], { encoding: "utf8" }).stdout.trim()
       const changed = spawnSync("git", ["-C", workspace, "status", "--porcelain"], { encoding: "utf8" }).stdout.trim()
@@ -165,15 +259,23 @@ async function main() {
         model: args.model,
         agent,
         filtering,
+        route,
+        escalate,
+        context,
+        fixtureMeta: meta,
         dryRun: Boolean(args.dryRun),
         startedAt,
         endedAt,
         durationMs,
+        verifyStartedAt,
+        verifyEndedAt,
+        ...timing,
         timedOut: oc.timedOut,
         opencodeExitCode: oc.code,
         sessionID,
         verifyPass,
         verifyTail,
+        packetCapture,
         diffStat,
         changedFiles: changed ? changed.split("\n").length : 0,
       }
@@ -186,8 +288,7 @@ async function main() {
   }
 
   const passes = summary.filter((r) => r.verifyPass).length
-  console.log(`\nsummary: ${passes}/${summary.length} verify PASS across ${fixtures.length} fixture(s)`)
+  console.log(`\nsummary: ${passes}/${summary.length} verify PASS across ${fixtures.length} fixture(s) (context=${context})`)
 }
 
 main().catch((e) => fail(e.stack))
-
