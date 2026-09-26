@@ -18,6 +18,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const RESULTS_DIR = path.join(__dirname, "results")
 const TELEMETRY_DIR = path.join(os.homedir(), ".local/share/opencode/token-efficient", "events")
 
+function fail(msg) { console.error(`error: ${msg}`); process.exit(1) }
+
 function loadRuns(label) {
   const dir = path.join(RESULTS_DIR, label)
   if (!fs.existsSync(dir)) throw new Error(`no results for label: ${label}`)
@@ -55,6 +57,22 @@ function loadTelemetry(dir = TELEMETRY_DIR, allowed = null) {
       if (!m) {
         m = {
           tokensIn: 0,
+          completedCalls: 0,
+          tokenCoverageValid: true,
+          completedMessageIDs: new Set(),
+          codingCompletedCalls: 0,
+          smallCompletedCalls: 0,
+          titleCompletedCalls: 0,
+          codingTokenCoverageValid: true,
+          smallTokenCoverageValid: true,
+          codingTokensIn: 0,
+          codingTokensOut: 0,
+          codingCacheRead: 0,
+          smallTokensIn: 0,
+          smallCacheRead: 0,
+          titleTokensIn: 0,
+          titleCacheRead: 0,
+          titleCalls: 0,
           tokensOut: 0,
           reasoning: 0,
           cacheRead: 0,
@@ -75,12 +93,48 @@ function loadTelemetry(dir = TELEMETRY_DIR, allowed = null) {
           filteredBytesAfter: 0,
           recoveries: 0,
           filteredReasons: new Set(),
+          premiumCalls: 0,
+          workhorseCalls: 0,
+          routedCalls: 0,
+          routedPremium: 0,
+          routedWorkhorse: 0,
+          escalations: 0,
+          smallCalls: 0,
+          contextPackets: 0,
+          contextBytes: 0,
+          contextPrepMs: 0,
         }
         bySession.set(e.session, m)
       }
       const d = e.data ?? {}
       switch (e.type) {
-        case "assistant.completed":
+        case "assistant.completed": {
+          if (typeof d.messageID === "string" && d.messageID) {
+            if (m.completedMessageIDs.has(d.messageID)) break
+            m.completedMessageIDs.add(d.messageID)
+          }
+          m.completedCalls += 1
+          const validUsage = d.usageAvailable !== false && ["input", "output", "cacheRead"]
+            .every(key => Number.isFinite(d.tokens?.[key]) && d.tokens[key] >= 0)
+          if (!validUsage) m.tokenCoverageValid = false
+          const isSmall = ["title", "summary", "compaction"].includes(d.agent)
+          if (isSmall) {
+            m.smallCompletedCalls += 1
+            if (!validUsage) m.smallTokenCoverageValid = false
+            m.smallTokensIn += d.tokens?.input ?? 0
+            m.smallCacheRead += d.tokens?.cacheRead ?? 0
+            if (d.agent === "title") {
+              m.titleCompletedCalls += 1
+              m.titleTokensIn += d.tokens?.input ?? 0
+              m.titleCacheRead += d.tokens?.cacheRead ?? 0
+            }
+          } else {
+            m.codingCompletedCalls += 1
+            if (!validUsage) m.codingTokenCoverageValid = false
+            m.codingTokensIn += d.tokens?.input ?? 0
+            m.codingCacheRead += d.tokens?.cacheRead ?? 0
+            m.codingTokensOut += d.tokens?.output ?? 0
+          }
           m.tokensIn += d.tokens?.input ?? 0
           m.tokensOut += d.tokens?.output ?? 0
           m.reasoning += d.tokens?.reasoning ?? 0
@@ -89,9 +143,19 @@ function loadTelemetry(dir = TELEMETRY_DIR, allowed = null) {
           m.cost += d.cost ?? 0
           if (d.model) m.models.add(d.model)
           if (d.error) m.errors += 1
+          if (d.tier === "premium") m.premiumCalls += 1
+          else if (d.tier === "workhorse") m.workhorseCalls += 1
           break
+        }
         case "llm.call":
           m.llmCalls += 1
+          if (d.small) m.smallCalls += 1
+          if (d.agent === "title") m.titleCalls += 1
+          break
+        case "context.packet_built":
+          m.contextPackets += 1
+          m.contextBytes += d.bytes ?? 0
+          m.contextPrepMs += d.prepMs ?? 0
           break
         case "tool.call":
           m.toolCalls += 1
@@ -131,6 +195,14 @@ function loadTelemetry(dir = TELEMETRY_DIR, allowed = null) {
           m.recoveries += 1
           if (!allowed || allowed.has(e.session)) filtering.recoveries += 1
           break
+        case "controller.routed":
+          m.routedCalls += 1
+          if (d.target === "premium") m.routedPremium += 1
+          else if (d.target === "workhorse") m.routedWorkhorse += 1
+          break
+        case "controller.escalated":
+          m.escalations += 1
+          break
       }
     }
   }
@@ -139,15 +211,26 @@ function loadTelemetry(dir = TELEMETRY_DIR, allowed = null) {
 
 function metricsFor(run, telemetry) {
   const t = run.sessionID ? telemetry.get(run.sessionID) : null
+  const codingAvailable = Boolean(t && t.codingCompletedCalls > 0 && t.codingCompletedCalls === t.llmCalls - t.smallCalls && t.codingTokenCoverageValid)
+  const smallAvailable = Boolean(t && t.smallCalls === t.smallCompletedCalls && t.smallTokenCoverageValid)
+  const allAvailable = Boolean(t && t.llmCalls > 0 && t.llmCalls === t.completedCalls && t.tokenCoverageValid && codingAvailable && smallAvailable)
+  const titleAvailable = Boolean(t && t.titleCalls === t.titleCompletedCalls && t.smallTokenCoverageValid)
   return {
-    verifyPass: run.verifyPass ? 1 : 0,
-    durationSec: Math.round(run.durationMs / 100) / 10,
-    tokensIn: t?.tokensIn ?? null,
-    tokensInPlusCache: t ? t.tokensIn + t.cacheRead : null,
-    tokensTotal: t ? t.tokensIn + t.cacheRead + t.tokensOut : null,
-    tokensOut: t?.tokensOut ?? null,
-    cacheRead: t?.cacheRead ?? null,
-    cost: t ? Math.round(t.cost * 1e6) / 1e6 : null,
+    verifyPass: typeof run.verifyPass === "boolean" ? Number(run.verifyPass) : null,
+    durationSec: Number.isFinite(run.durationMs) ? run.durationMs / 1000 : null,
+    verifyDurationSec: Number.isFinite(run.verifyDurationMs) ? run.verifyDurationMs / 1000 : null,
+    totalDurationSec: Number.isFinite(run.totalDurationMs) ? run.totalDurationMs / 1000 : null,
+    tokensIn: codingAvailable ? t.codingTokensIn : null,
+    tokensInPlusCache: codingAvailable ? t.codingTokensIn + t.codingCacheRead : null,
+    tokensTotal: codingAvailable ? t.codingTokensIn + t.codingCacheRead + t.codingTokensOut : null,
+    tokensOut: codingAvailable ? t.codingTokensOut : null,
+    cacheRead: codingAvailable ? t.codingCacheRead : null,
+    smallTokensInPlusCache: smallAvailable ? t.smallTokensIn + t.smallCacheRead : null,
+    titleTokensInPlusCache: titleAvailable ? t.titleTokensIn + t.titleCacheRead : null,
+    allCallsInPlusCache: allAvailable ? t.tokensIn + t.cacheRead : null,
+    usageCoverage: !t ? "unavailable" : allAvailable ? "complete" : "partial",
+    smallUsageCoverage: !t ? "unavailable" : smallAvailable ? "complete" : "partial",
+    cost: allAvailable ? Math.round(t.cost * 1e6) / 1e6 : null,
     llmCalls: t?.llmCalls ?? null,
     toolCalls: t?.toolCalls ?? null,
     filesRead: t ? t.filesRead.size : null,
@@ -162,6 +245,15 @@ function metricsFor(run, telemetry) {
     filteredRatio:
       t && t.filteredBytesBefore > 0 ? Math.round((t.filteredBytesAfter / t.filteredBytesBefore) * 1e4) / 1e4 : null,
     recoveries: t?.recoveries ?? null,
+    premiumCalls: t?.premiumCalls ?? null,
+    workhorseCalls: t?.workhorseCalls ?? null,
+    escalations: t?.escalations ?? null,
+    routedCalls: t?.routedCalls ?? null,
+    modelRounds: t ? t.llmCalls - t.smallCalls : null,
+    retriesFailed: t?.verificationsFailed ?? null,
+    contextPackets: t?.contextPackets ?? null,
+    contextBytes: t?.contextBytes ?? null,
+    contextPrepMs: t?.contextPrepMs ?? null,
     hasTelemetry: Boolean(t),
   }
 }
@@ -185,7 +277,7 @@ function aggregate(rows) {
   const agg = {}
   const keys = Object.keys(rows[0] ?? { verifyPass: 1 })
   for (const k of keys) {
-    if (k === "hasTelemetry") continue
+    if (k === "hasTelemetry" || k === "usageCoverage" || k === "smallUsageCoverage") continue
     const s = stats(rows.map((r) => r[k]))
     if (s) agg[k] = s
   }
@@ -210,8 +302,8 @@ function report(label, rows, runs) {
 }
 
 function compare(labelA, aggA, labelB, aggB) {
-  console.log(`\n=== A/A-NOISE CHECK: ${labelA} vs ${labelB} ===`)
-  console.log("metric\tdelta%\twithin noise?")
+  console.log(`\n=== DESCRIPTIVE SPREAD CHECK: ${labelA} vs ${labelB} (not a confidence bound) ===`)
+  console.log("metric\tsymmetric difference % (positive = A larger)\twithin CoV/5% heuristic?")
   for (const k of Object.keys(aggA)) {
     const a = aggA[k]
     const b = aggB[k]
@@ -223,8 +315,99 @@ function compare(labelA, aggA, labelB, aggB) {
   }
 }
 
-const KEY_METRICS = ["verifyPass", "llmCalls", "tokensIn", "tokensInPlusCache", "tokensTotal", "tokensOut", "durationSec", "filteredRatio", "filteredSavedBytes", "recoveries"]
+const KEY_METRICS = ["verifyPass", "llmCalls", "modelRounds", "tokensIn", "tokensInPlusCache", "smallTokensInPlusCache", "titleTokensInPlusCache", "allCallsInPlusCache", "tokensTotal", "tokensOut", "durationSec", "verifyDurationSec", "totalDurationSec", "retriesFailed", "contextPackets", "contextBytes", "contextPrepMs", "filteredRatio", "filteredSavedBytes", "recoveries", "premiumCalls", "workhorseCalls", "escalations"]
 const NOISY_FIXTURE = "05-noisy-test-log"
+
+function fixtureCategory(fixture) {
+  const n = parseInt(fixture, 10)
+  if (Number.isFinite(n)) {
+    if (n >= 6 && n <= 9) return "ui"
+    if (n >= 10 && n <= 13) return "git"
+    if (n >= 14) {
+      try {
+        const meta = JSON.parse(fs.readFileSync(path.join(__dirname, "fixtures", fixture, "meta.json"), "utf8"))
+        if (typeof meta.category === "string" && meta.category) return meta.category
+      } catch {}
+      return "extension"
+    }
+  }
+  return "legacy"
+}
+
+// Positive change means B uses more; positive savings means B uses less.
+export function baselineChangePct(a, b) {
+  return Number.isFinite(a) && Number.isFinite(b) && a > 0 ? 100 * (b - a) / a : null
+}
+
+export function savingsPct(a, b) {
+  const delta = baselineChangePct(a, b)
+  return delta === null ? null : delta === 0 ? 0 : -delta
+}
+
+// Require the same fixtures/repetitions and complete metric coverage. Never silently
+// discard a missing run or let an extension pilot alter the historical UI class.
+export function summarizeStage5(groupsA, groupsB, fixtures) {
+  const names = [...new Set(fixtures)].sort()
+  const issues = []
+  for (const f of names) {
+    const a = groupsA.get(f) ?? []
+    const b = groupsB.get(f) ?? []
+    if (!a.length || a.length !== b.length) issues.push(`${f}: unmatched repetitions (${a.length}/${b.length})`)
+  }
+  const a = names.flatMap(f => groupsA.get(f) ?? [])
+  const b = names.flatMap(f => groupsB.get(f) ?? [])
+  const matched = names.length > 0 && issues.length === 0
+  const metrics = {}
+  for (const key of ["verifyPass", "tokensInPlusCache", "modelRounds", "retriesFailed", "durationSec", "contextPackets"]) {
+    const total = rows => rows.length && rows.every(r => Number.isFinite(r[key]))
+      ? rows.reduce((sum, r) => sum + r[key], 0) : null
+    const sumA = total(a)
+    const sumB = total(b)
+    if (sumA === null || sumB === null) issues.push(`${key}: incomplete coverage`)
+    const meanA = sumA === null ? null : sumA / a.length
+    const meanB = sumB === null ? null : sumB / b.length
+    const available = matched && sumA !== null && sumB !== null
+    metrics[key] = {
+      sumA, sumB, meanA, meanB,
+      changePct: available ? baselineChangePct(sumA, sumB) : null,
+      savingsPct: available ? savingsPct(sumA, sumB) : null,
+      difference: available ? meanB - meanA : null,
+    }
+  }
+  return { fixtures: names, nA: a.length, nB: b.length, matched, issues, metrics }
+}
+
+// Stage 5 uses baseline-relative changes, never the symmetric spread diagnostic.
+function stage5Gate(labelA, labelB, groupsA, groupsB) {
+  console.log(`\n=== STAGE 5 GATE NUMBERS (${labelA} vs ${labelB}; human judgment, no auto verdict) ===`)
+  const fixtures = [...new Set([...groupsA.keys(), ...groupsB.keys()])].sort()
+  const cohort = f => parseInt(f, 10) >= 14 ? `extension/${fixtureCategory(f)}` : fixtureCategory(f)
+  const categories = [...new Set(fixtures.map(cohort))]
+  for (const cat of [...categories, "observed aggregate"]) {
+    const selected = cat === "observed aggregate" ? fixtures : fixtures.filter(f => cohort(f) === cat)
+    const summary = summarizeStage5(groupsA, groupsB, selected)
+    console.log(`\n--- ${cat} (A n=${summary.nA}, B n=${summary.nB}; not a whole-corpus claim) ---`)
+    for (const issue of summary.issues) console.log(`warning: ${issue}`)
+    for (const [key, m] of Object.entries(summary.metrics)) {
+      console.log(`${key}\tmeanA=${fmt(m.meanA)}\tmeanB=${fmt(m.meanB)}\tchange B/A %=${fmt(m.changePct)}\tdifference B-A=${fmt(m.difference)}`)
+    }
+    const savings = summary.metrics.tokensInPlusCache.savingsPct
+    console.log(`input+cacheRead savings: ${savings === null ? "n/a" : savings.toFixed(1) + "%"} (target >=25% beyond noise)`)
+    const completeTotal = (groups, key) => {
+      const rows = selected.flatMap(f => groups.get(f) ?? [])
+      return summary.matched && rows.length === summary.nA && rows.every(r => Number.isFinite(r[key]))
+        ? rows.reduce((sum, r) => sum + r[key], 0) : null
+    }
+    for (const [label, key] of [["all-call input+cacheRead savings", "allCallsInPlusCache"], ["complete task duration change", "totalDurationSec"]]) {
+      const a = completeTotal(groupsA, key)
+      const b = completeTotal(groupsB, key)
+      const delta = label.startsWith("all-call") ? savingsPct(a, b) : baselineChangePct(a, b)
+      console.log(`${label}: ${delta === null ? "unavailable" : delta.toFixed(1) + "%"}`)
+    }
+  }
+  console.log("Rounds gate: change <=+10%; retries: difference <=+0.25/task; latency: judgment above +15%.")
+  console.log("Small-agent token coverage and uncertainty require a trace audit; these numbers alone are not a PASS.")
+}
 
 function groupByFixture(runs, rows) {
   const groups = new Map()
@@ -247,12 +430,11 @@ function comparePerFixture(labelA, groupsA, labelB, groupsB) {
     const a = groupsA.get(f) ?? []
     const b = groupsB.get(f) ?? []
     console.log(`\n--- ${f} (A n=${a.length}, B n=${b.length}) ---`)
-    console.log("metric\tmeanA\tmeanB\tdelta%")
+    console.log("metric\tmeanA\tmeanB\tchange B/A % (negative = B lower)")
     for (const k of KEY_METRICS) {
       const ma = meanOf(a, k)
       const mb = meanOf(b, k)
-      let delta = null
-      if (ma !== null && mb !== null && ma + mb !== 0) delta = ((ma - mb) / ((ma + mb) / 2)) * 100
+      const delta = baselineChangePct(ma, mb)
       console.log(`${k}\t${fmt(ma === null ? null : Math.round(ma * 100) / 100)}\t${fmt(mb === null ? null : Math.round(mb * 100) / 100)}\t${delta === null ? "-" : delta.toFixed(1) + "%"}`)
     }
   }
@@ -278,6 +460,28 @@ function stage2Gate(labelA, labelB, groupsA, groupsB, filtering) {
   const passRate = (rows) => (rows.length ? rows.filter((r) => r.verifyPass).length / rows.length : null)
   console.log(
     `verify pass rate: ${labelA} ${passRate(a) === null ? "n/a" : Math.round(passRate(a) * 100) + "%"} vs ${labelB} ${passRate(b) === null ? "n/a" : Math.round(passRate(b) * 100) + "%"} (noisy fixture)`,
+  )
+}
+
+function stage4Gate(labelA, labelB, groupsA, groupsB) {
+  console.log(`\n=== STAGE 4 GATE NUMBERS (${labelA} vs ${labelB}; human judgment, no auto verdict) ===`)
+  const flatA = [...groupsA.values()].flat()
+  const flatB = [...groupsB.values()].flat()
+  for (const key of ["premiumCalls", "workhorseCalls", "escalations"]) {
+    const ma = meanOf(flatA, key)
+    const mb = meanOf(flatB, key)
+    console.log(
+      `mean ${key}: ${labelA}=${fmt(ma === null ? null : Math.round(ma * 100) / 100)} ${labelB}=${fmt(mb === null ? null : Math.round(mb * 100) / 100)} (aggregate across all fixtures)`,
+    )
+  }
+  const debugA = groupsA.get("04-difficult-debug") ?? []
+  const debugB = groupsB.get("04-difficult-debug") ?? []
+  console.log(
+    `04-difficult-debug escalation count (arm B): ${fmt(meanOf(debugB, "escalations") === null ? null : Math.round(meanOf(debugB, "escalations") * 100) / 100)}`,
+  )
+  const passRate = (rows) => (rows.length ? rows.filter((r) => r.verifyPass).length / rows.length : null)
+  console.log(
+    `verify pass rate (04-difficult-debug): ${labelA} ${passRate(debugA) === null ? "n/a" : Math.round(passRate(debugA) * 100) + "%"} vs ${labelB} ${passRate(debugB) === null ? "n/a" : Math.round(passRate(debugB) * 100) + "%"}`,
   )
 }
 
@@ -412,6 +616,8 @@ function main() {
     compare(labelA, aggA, labelB, aggB)
     comparePerFixture(labelA, groupsA, labelB, groupsB)
     stage2Gate(labelA, labelB, groupsA, groupsB, filtering)
+    stage4Gate(labelA, labelB, groupsA, groupsB)
+    stage5Gate(labelA, labelB, groupsA, groupsB)
   }
 
   writeAnalysis(labelA, labelB, groupsA, groupsB, aggA, aggB, filtering)
@@ -445,5 +651,4 @@ export function loadRunTelemetry(runs) {
 // Run only when executed directly, so tests can import the functions above.
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main()
 
-export { loadRuns, loadTelemetry, metricsFor, comparePerFixture, stage2Gate, writeAnalysis }
-
+export { loadRuns, loadTelemetry, metricsFor, comparePerFixture, stage5Gate, stage2Gate, stage4Gate, writeAnalysis }

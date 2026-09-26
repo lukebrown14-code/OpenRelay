@@ -1,0 +1,6 @@
+{
+  "class": "api",
+  "category": "api",
+  "name": "18-cross-file-api-change",
+  "verifyTimeoutMs": 30000
+}

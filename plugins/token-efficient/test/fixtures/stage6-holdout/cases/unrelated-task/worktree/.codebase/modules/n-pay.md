@@ -1,0 +1,1 @@
+Payments note: charges are idempotent by key.

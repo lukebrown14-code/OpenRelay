@@ -1,0 +1,6 @@
+{
+  "class": "debug",
+  "category": "debug",
+  "name": "15-debug-export-labels",
+  "verifyTimeoutMs": 30000
+}

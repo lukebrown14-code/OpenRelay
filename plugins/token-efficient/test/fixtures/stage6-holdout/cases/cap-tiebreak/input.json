@@ -1,0 +1,12 @@
+{
+ "resumeSession": "ses-ct",
+ "readHandoff": {
+  "taskID": "task-captie",
+  "handoffID": "ho-captie"
+ },
+ "requestPaths": [
+  "src/a.ts",
+  "src/b.ts",
+  "src/c.ts"
+ ]
+}

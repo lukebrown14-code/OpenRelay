@@ -1,0 +1,6 @@
+{
+ "name": "23-failed-pipeline-diag",
+ "class": "stage6",
+ "category": "stage6",
+ "verifyTimeoutMs": 30000
+}

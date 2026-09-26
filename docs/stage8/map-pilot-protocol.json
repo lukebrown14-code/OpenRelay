@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "label": "stage8-map-pilot-v1",
+  "purpose": "Bounded live feasibility check of a benchmark-only repository map against saved filtering-plus-v3 task baselines. No release decision from this one-run-per-task pilot.",
+  "model": "zai-coding-plan/glm-5.3",
+  "tasks": ["delta-config-writeback", "or-packet-path-identity", "delta-market-dependencies"],
+  "mapCodeSha256": "a7c4acdbec23002ec6899daede3fc6256efd018c53c4848143f41b03c2136528",
+  "map": { "budgetBytes": 2400, "maxFiles": 8 },
+  "settings": {
+    "filtering": "on",
+    "context": "on",
+    "memory": "off",
+    "handoff": "off",
+    "route": "off",
+    "escalate": "off",
+    "previewSafe": true,
+    "premiumCalls": 0
+  },
+  "baselines": {
+    "delta-config-writeback": { "tokens": 669884, "totalDurationMs": 332167, "verifyPass": true },
+    "or-packet-path-identity": { "tokens": 972026, "totalDurationMs": 301393, "verifyPass": true },
+    "delta-market-dependencies": { "tokens": 938570, "totalDurationMs": 342559, "verifyPass": true }
+  },
+  "limits": {
+    "runs": 3,
+    "attemptsPerTask": 1,
+    "timeoutMsPerTask": 480000,
+    "recordedCodingInputPlusCacheReadTokens": 3300000,
+    "reservePerTaskTokens": 1100000
+  },
+  "stopRules": {
+    "maxLatencyRatio": 1.05,
+    "maxTokenRatio": 1.0,
+    "stopOnAnyVerificationFailure": true
+  },
+  "interpretation": "For a run to continue the pilot it must pass independent verification, inject the hashed map, have complete coding usage, use zero premium, save some input-plus-cache-read tokens versus its saved baseline, and finish within 5% of baseline complete time. No release or general savings claim is allowed from these n=1 comparisons."
+}

@@ -1,0 +1,40 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-plancons",
+ "taskID": "task-plancons",
+ "workflowID": "wf-plancons",
+ "sourceSession": "ses-plancons",
+ "direction": "workhorse->workhorse",
+ "objective": "Split payments module into charge and refund paths",
+ "constraints": [
+  {
+   "text": "no new dependencies",
+   "provenance": "user-approved"
+  },
+  {
+   "text": "keep public API stable",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [
+  {
+   "path": "src/api.ts",
+   "contentDigest": "1597fb4158386a8c694831c198c19a0e1bec5cc46b5ce2fe7700f2c09d39e1af",
+   "captured": {
+    "capturedAt": "2026-09-24T00:00:00.000Z"
+   }
+  }
+ ],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "node verify.js passes",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

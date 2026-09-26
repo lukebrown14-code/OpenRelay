@@ -1,0 +1,32 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-partial",
+ "taskID": "task-partial",
+ "workflowID": "wf-partial",
+ "sourceSession": "ses-partial",
+ "direction": "workhorse->workhorse",
+ "objective": "Migrate CLI to v2 SDK",
+ "constraints": [
+  {
+   "text": "no behavior change",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [
+  "port serve command",
+  "port export command"
+ ],
+ "acceptanceCriteria": [
+  {
+   "text": "smoke suite green",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z",
+ "currentWork": "Ported three of five commands"
+}

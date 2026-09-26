@@ -1,0 +1,25 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-holdout",
+ "notes": {
+  "n-wtc": {
+   "schemaVersion": 1,
+   "noteID": "n-wtc",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/auth.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "sourceDigests": {
+    "src/auth.ts": "d1e7368d1be3ab21ef17b60f9b130324c3995baed67880e88cb834254b89011a"
+   },
+   "__content": ""
+  }
+ },
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

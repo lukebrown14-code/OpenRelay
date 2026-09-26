@@ -1,0 +1,466 @@
+{
+  "schemaVersion": 1,
+  "summaries": {
+    "dev": {
+      "cases": 16,
+      "fullCoverage": 5,
+      "abstentions": 0,
+      "requiredFileRecall": 0.59375,
+      "maxBytes": 397
+    },
+    "holdout": {
+      "cases": 8,
+      "fullCoverage": 6,
+      "abstentions": 0,
+      "requiredFileRecall": 0.875,
+      "maxBytes": 418
+    },
+    "all": {
+      "cases": 24,
+      "fullCoverage": 11,
+      "abstentions": 0,
+      "requiredFileRecall": 0.6875,
+      "maxBytes": 418
+    }
+  },
+  "live": [
+    {
+      "id": "or-packet-path-identity",
+      "bytes": 401,
+      "abstained": false,
+      "edge": null,
+      "text": "[REPOSITORY MAP — source locations, read-only data]\nPossible starting files. Read source before editing.\nplugins/token-efficient/lib/memory/schemas.ts # PROVENANCE_LABELS:5\nplugins/token-efficient/lib/context/retrieve.ts # GitEvidence:5\nplugins/token-efficient/lib/assemble/index.ts # packetCoversPath:52\nplugins/token-efficient/lib/handoff/session.ts # verificationsFromTask:46\n[END REPOSITORY MAP]"
+    },
+    {
+      "id": "delta-config-writeback",
+      "bytes": 348,
+      "abstained": false,
+      "edge": null,
+      "text": "[REPOSITORY MAP — source locations, read-only data]\nPossible starting files. Read source before editing.\ndelta/tui/screens/provider_picker.py # ProviderPicker.on_data_table_row_selected:114\ndelta/llm/catalog.py # set_plugin_model:149\ndelta/core/config.py # Settings:21\ndelta/tui/app.py # DeltaApp.action_show_model_picker:181\n[END REPOSITORY MAP]"
+    },
+    {
+      "id": "delta-market-dependencies",
+      "bytes": 325,
+      "abstained": false,
+      "edge": null,
+      "text": "[REPOSITORY MAP — source locations, read-only data]\nPossible starting files. Read source before editing.\ndelta/core/plugin.py # MarketPlugin.universe:125\ndelta/services.py # remove_market:345\ndelta/tui/screens/config.py # Config.action_remove_market:362\ndelta/runtime.py # Delta.reload_data_sources:130\n[END REPOSITORY MAP]"
+    }
+  ],
+  "rows": [
+    {
+      "id": "or-failure-card",
+      "split": "dev",
+      "bytes": 360,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "benchmarks/run-stage6.mjs",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "or-compound-command",
+      "split": "dev",
+      "bytes": 361,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/classify.ts",
+        "benchmarks/run.mjs",
+        "plugins/token-efficient/telemetry/tool-tracker.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/filtering/classify.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "or-raw-log",
+      "split": "dev",
+      "bytes": 372,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/tools/raw-output.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/index.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/tools/raw-output.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-tier-route",
+      "split": "dev",
+      "bytes": 315,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/controller/route.ts",
+        "benchmarks/run-stage7.mjs",
+        "benchmarks/lib/stage7-policy.mjs",
+        "scripts/relay-runtime.mjs"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/controller/route.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-escalation",
+      "split": "dev",
+      "bytes": 333,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/controller/config.ts",
+        "benchmarks/lib/stage7-policy.mjs"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-context-signals",
+      "split": "dev",
+      "bytes": 376,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/context/extract.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/context/extract.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-context-budget",
+      "split": "dev",
+      "bytes": 392,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/memory/select.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/context/retrieve.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-handoff-resume",
+      "split": "dev",
+      "bytes": 397,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/tools/handoff.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/handoff/session.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-note-freshness",
+      "split": "holdout",
+      "bytes": 418,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/handoff/session.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "or-note-conflict",
+      "split": "holdout",
+      "bytes": 408,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/context/index.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "or-launch-status",
+      "split": "holdout",
+      "bytes": 280,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "scripts/relay-runtime.mjs",
+        "plugins/token-efficient/lib/announce.ts",
+        "scripts/relay-launcher.mjs",
+        "benchmarks/run-stage6.mjs"
+      ],
+      "requiredFound": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "or-event-usage",
+      "split": "holdout",
+      "bytes": 408,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/store.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/handoff/session.ts"
+      ],
+      "requiredFound": [
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "delta-report-citations",
+      "split": "dev",
+      "bytes": 346,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/tui/screens/research.py",
+        "delta/reports.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/theses.py"
+      ],
+      "requiredFound": [
+        "delta/reports.py"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "delta-chat-grounding",
+      "split": "dev",
+      "bytes": 298,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/tui/screens/chat.py",
+        "delta/chat.py",
+        "delta/tui/components.py",
+        "delta/evidence.py"
+      ],
+      "requiredFound": [
+        "delta/chat.py",
+        "delta/evidence.py"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "delta-thesis-health",
+      "split": "dev",
+      "bytes": 302,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/tui/screens/theses.py",
+        "delta/theses.py",
+        "delta/tui/widgets.py",
+        "delta/services.py"
+      ],
+      "requiredFound": [
+        "delta/theses.py"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "delta-scope-filter",
+      "split": "dev",
+      "bytes": 294,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/core/plugin.py",
+        "delta/tui/screens/targets.py",
+        "delta/services.py",
+        "delta/plugins/targets/tickers.py"
+      ],
+      "requiredFound": [
+        "delta/core/plugin.py",
+        "delta/services.py"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "delta-provider-setup",
+      "split": "dev",
+      "bytes": 308,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/services.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/app.py",
+        "delta/llm/providers.py"
+      ],
+      "requiredFound": [
+        "delta/services.py"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "delta-llm-cache",
+      "split": "dev",
+      "bytes": 310,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/llm/providers.py",
+        "delta/services.py",
+        "delta/tui/screens/model_picker.py",
+        "delta/llm/catalog.py"
+      ],
+      "requiredFound": [],
+      "fullCoverage": false
+    },
+    {
+      "id": "delta-event-extract",
+      "split": "dev",
+      "bytes": 292,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/core/db.py",
+        "delta/evidence.py",
+        "delta/core/models.py",
+        "delta/tui/screens/research.py"
+      ],
+      "requiredFound": [],
+      "fullCoverage": false
+    },
+    {
+      "id": "delta-sentiment-run",
+      "split": "dev",
+      "bytes": 303,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/sentiment.py",
+        "delta/tui/screens/research.py",
+        "delta/core/db.py",
+        "delta/services.py"
+      ],
+      "requiredFound": [
+        "delta/sentiment.py",
+        "delta/services.py"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "delta-market-target",
+      "split": "holdout",
+      "bytes": 305,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/core/config.py",
+        "delta/targets.py",
+        "delta/plugins/targets/tickers.py",
+        "delta/tui/screens/targets.py"
+      ],
+      "requiredFound": [
+        "delta/core/config.py",
+        "delta/targets.py"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "delta-report-history",
+      "split": "holdout",
+      "bytes": 322,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/tui/screens/research.py",
+        "delta/reports.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/reports.py"
+      ],
+      "requiredFound": [
+        "delta/reports.py",
+        "delta/tui/screens/reports.py"
+      ],
+      "fullCoverage": true
+    },
+    {
+      "id": "delta-brief-service",
+      "split": "holdout",
+      "bytes": 286,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/services.py",
+        "delta/tui/screens/chat.py",
+        "delta/tui/app.py",
+        "delta/core/db.py"
+      ],
+      "requiredFound": [
+        "delta/services.py"
+      ],
+      "fullCoverage": false
+    },
+    {
+      "id": "delta-review-queue",
+      "split": "holdout",
+      "bytes": 286,
+      "abstained": false,
+      "edge": null,
+      "files": [
+        "delta/review.py",
+        "delta/evidence.py",
+        "delta/tui/screens/home.py",
+        "delta/core/db.py"
+      ],
+      "requiredFound": [
+        "delta/review.py",
+        "delta/evidence.py"
+      ],
+      "fullCoverage": true
+    }
+  ]
+}

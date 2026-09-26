@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-leakb",
+ "taskID": "task-leakb",
+ "workflowID": "wf-leakb",
+ "sourceSession": "ses-lb",
+ "direction": "workhorse->workhorse",
+ "objective": "Task B SECRET: credential rotation plan LEAK-CANARY",
+ "constraints": [
+  {
+   "text": "B: vault path only",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "B: no plaintext",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

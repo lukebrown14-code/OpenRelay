@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "label": "stage8-projection-pilot-v1",
+  "purpose": "One benchmark-only test replacing the full v3 packet with a map of v3-selected source paths. Compare with saved filtering-plus-v3 baseline, without releasing the mode.",
+  "model": "zai-coding-plan/glm-5.3",
+  "tasks": ["delta-config-writeback"],
+  "mapCodeSha256": "e895fd59cb2c29388da01bfbdb6b3c30f16c7df81f9fa5f5d2955de8c108c4d2",
+  "map": { "budgetBytes": 250, "maxFiles": 3 },
+  "offlineGate": { "decision": "build", "requiredFiles": ["delta/llm/catalog.py", "delta/core/config.py"], "maximumBytes": 250 },
+  "settings": { "filtering": "on", "context": "off", "memory": "off", "handoff": "off", "route": "off", "escalate": "off", "previewSafe": true, "premiumCalls": 0 },
+  "baselines": { "delta-config-writeback": { "tokens": 669884, "totalDurationMs": 332167, "verifyPass": true } },
+  "limits": { "runs": 1, "attemptsPerTask": 1, "timeoutMsPerTask": 480000, "recordedCodingInputPlusCacheReadTokens": 1100000, "reservePerTaskTokens": 1100000 },
+  "stopRules": { "maxLatencyRatio": 1.05, "maxTokenRatio": 1, "stopOnAnyVerificationFailure": true },
+  "interpretation": "Require independent PASS, complete coding telemetry, session-matched map proof, zero premium, some token saving, and complete time within 5% of the saved v3 baseline. A passing single comparison requires fresh paired confirmation before any release decision."
+}

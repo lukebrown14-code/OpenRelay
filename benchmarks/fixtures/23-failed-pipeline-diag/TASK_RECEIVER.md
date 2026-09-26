@@ -1,0 +1,1 @@
+Continue from where we left off: apply the correct fix (not the rejected approach), then run node verify.js.

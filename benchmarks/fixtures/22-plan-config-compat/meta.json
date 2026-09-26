@@ -1,0 +1,6 @@
+{
+ "name": "22-plan-config-compat",
+ "class": "stage6",
+ "category": "stage6",
+ "verifyTimeoutMs": 30000
+}

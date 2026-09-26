@@ -1,0 +1,47 @@
+:root {
+  --edge: #d8dbe0;
+  --ink: #23262b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  color: var(--ink);
+}
+
+.masthead {
+  border-bottom: 1px solid var(--edge);
+  padding: 12px 20px;
+}
+
+.masthead h1 {
+  font-size: 18px;
+  margin: 0 0 8px;
+}
+
+/* The filter toolbar. On phones the chips overflow and get cut off here. */
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: 8px;
+}
+
+.chip {
+  flex: 0 0 auto;
+  border: 1px solid var(--edge);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 13px;
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+.results {
+  padding: 16px 20px;
+}

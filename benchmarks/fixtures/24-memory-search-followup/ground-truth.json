@@ -1,0 +1,13 @@
+{
+ "required": [
+  "src/search/index.js"
+ ],
+ "optional": [
+  "src/search/rank.js"
+ ],
+ "mandatoryFacts": [
+  "consecutive token match",
+  "order respected",
+  "query lowercased like index"
+ ]
+}

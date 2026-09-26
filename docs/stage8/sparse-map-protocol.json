@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Test whether a small task-specific relationship hint can retain useful cross-file navigation while avoiding the broad map's repeated context cost. This is a benchmark-only experiment.",
+  "candidate": "One highest-scoring local import relationship, with at most one additional high-scoring independent file; abstain if no sufficiently relevant relationship exists.",
+  "offlineGate": {
+    "maximumBytes": 650,
+    "maximumFiles": 3,
+    "minimumFullFileCoverage24": 12,
+    "mustCoverLiveTask": "delta-config-writeback",
+    "minimumByteReductionVersusLiveBroadMap": 0.6,
+    "unsafePathCount": 0
+  },
+  "liveGate": {
+    "model": "zai-coding-plan/glm-5.3",
+    "taskOrder": ["delta-config-writeback", "or-packet-path-identity", "delta-market-dependencies"],
+    "attemptsPerTask": 1,
+    "maximumRecordedCodingInputPlusCacheReadTokens": 3300000,
+    "reservePerTaskTokens": 1100000,
+    "maximumLatencyRatioToSavedV3": 1.05,
+    "maximumTokenRatioToSavedV3": 1,
+    "requireIndependentVerifyPass": true,
+    "requireCompleteCodingUsage": true,
+    "maximumPremiumCalls": 0,
+    "stopAtFirstFailure": true
+  },
+  "interpretation": "Passing a one-run live comparison is only a feasibility signal; paired confirmation is required before a release claim. Failed offline gate means zero new model runs."
+}

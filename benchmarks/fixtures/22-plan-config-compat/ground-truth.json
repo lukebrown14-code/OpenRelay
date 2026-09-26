@@ -1,0 +1,12 @@
+{
+ "required": [
+  "src/config/loader.js",
+  "src/render/panel.js"
+ ],
+ "optional": [],
+ "mandatoryFacts": [
+  "#v1 line preserved",
+  "both modules touched",
+  "defaults merge kept"
+ ]
+}

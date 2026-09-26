@@ -1,0 +1,10 @@
+{
+  "required": [
+    "src/server/orderApi.js",
+    "src/ui/renderOrders.js",
+    "src/ui/actions.js"
+  ],
+  "optional": [
+    "src/data/orders.js"
+  ]
+}

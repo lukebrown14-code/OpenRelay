@@ -1,0 +1,43 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-20260924-010856-e41tl",
+ "taskID": "task-24memorysear",
+ "workflowID": "wf-24memorysear",
+ "sourceSession": "ses_sender",
+ "direction": "workhorse->workhorse",
+ "objective": "Add searchPhrase(index, phrase) to src/search/index.js: return doc ids whose tokens contain the phrase tokens consecutively and in order.",
+ "constraints": [
+  {
+   "text": "Regular search() semantics must not change; tokenize() lowercases at index time so the phrase must use the same tokenizer",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [
+  {
+   "path": "src/search/index.js",
+   "contentDigest": "d8877ad1429238c574cdeca96a423974f96a6db5984c051fc95c16644de9eb59",
+   "captured": {
+    "capturedAt": "2026-09-24T01:08:56.824Z"
+   },
+   "recovery": {
+    "excerpt": "function tokenize(text) {\n  return String(text).toLowerCase().match(/[a-z0-9]+/g) ?? []\n}\n\nexport function buildIndex(docs) {\n  // Tokens are lowercased at INDEX time — the query side must lowercase too.\n  const byToken = new Map()\n  const entries = []\n  for (const [id, text] of Object.entries(docs)) {\n    const tokens = tokenize(text)\n    entries.push({ id, tokens })\n    for (const tok of new Set(tokens)) {\n      if (!byToken.has(tok)) byToken.set(tok, new Set())\n      byToken.get(tok).add(id)\n    }\n  }\n",
+    "truncated": true
+   }
+  }
+ ],
+ "nextSteps": [
+  "implement searchPhrase()",
+  "run node verify.js"
+ ],
+ "acceptanceCriteria": [
+  {
+   "text": "node verify.js exits 0",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T01:08:56.824Z"
+}

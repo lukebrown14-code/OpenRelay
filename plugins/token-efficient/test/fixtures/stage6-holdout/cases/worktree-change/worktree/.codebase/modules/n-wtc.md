@@ -1,0 +1,1 @@
+Auth note: sessions live in the sqlite table.

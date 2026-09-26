@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-conca",
+ "taskID": "task-conca",
+ "workflowID": "wf-conca",
+ "sourceSession": "ses-a",
+ "direction": "workhorse->workhorse",
+ "objective": "Task A: fix telemetry emitter",
+ "constraints": [
+  {
+   "text": "stay under 1ms emit",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "bench shows no regression",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

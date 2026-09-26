@@ -1,0 +1,1 @@
+Ranking uses BM25 in src/search/rank.js — tune k1/b there if relevance needs work.

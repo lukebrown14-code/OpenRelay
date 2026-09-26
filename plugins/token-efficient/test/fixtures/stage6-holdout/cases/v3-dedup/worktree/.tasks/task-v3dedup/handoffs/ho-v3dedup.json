@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-v3dedup",
+ "taskID": "task-v3dedup",
+ "workflowID": "wf-v3dedup",
+ "sourceSession": "ses-dd",
+ "direction": "workhorse->workhorse",
+ "objective": "Add jitter to retries",
+ "constraints": [
+  {
+   "text": "keep helper signature",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "unit test green",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

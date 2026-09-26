@@ -1,0 +1,9 @@
+{
+  "required": [
+    "src/export/csv.js"
+  ],
+  "optional": [
+    "src/labels.js",
+    "src/table/cells.js"
+  ]
+}

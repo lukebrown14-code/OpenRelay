@@ -1,0 +1,11 @@
+{
+ "resumeSession": "ses-dd",
+ "readHandoff": {
+  "taskID": "task-v3dedup",
+  "handoffID": "ho-v3dedup"
+ },
+ "requestPaths": [
+  "src/retry.ts"
+ ],
+ "v3Packet": "[SOURCE EXCERPTS]\n// src/retry.ts:1-2 hash=abc source=probe\nexport function retry(fn) { return fn }\naaaaaa"
+}

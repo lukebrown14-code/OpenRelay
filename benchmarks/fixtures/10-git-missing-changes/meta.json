@@ -1,0 +1,6 @@
+{
+  "class": "git",
+  "category": "git",
+  "name": "10-git-missing-changes",
+  "verifyTimeoutMs": 30000
+}

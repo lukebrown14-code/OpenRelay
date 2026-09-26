@@ -1,0 +1,21 @@
+{
+ "schemaVersion": 1,
+ "taskID": "task-plancons",
+ "workflowID": "wf-plancons",
+ "project": {
+  "projectID": "p-holdout",
+  "worktreeID": "w-holdout",
+  "worktreeRealpath": "WORKTREE"
+ },
+ "originatingSession": "ses-plancons",
+ "continuationSessions": [],
+ "revision": 1,
+ "lifecycle": "active",
+ "telemetryTasks": [],
+ "handoffIDs": [
+  "ho-plancons"
+ ],
+ "createdAt": "2026-09-24T00:00:00.000Z",
+ "updatedAt": "2026-09-24T00:00:00.000Z",
+ "objectiveRef": "PLAN.md"
+}

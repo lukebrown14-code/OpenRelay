@@ -1,0 +1,9 @@
+{
+  "required": [
+    "src/web/dashboard.js",
+    "src/worker/handle.js"
+  ],
+  "optional": [
+    "src/shared/payments.js"
+  ]
+}

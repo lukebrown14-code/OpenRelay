@@ -1,0 +1,1211 @@
+{
+  "schemaVersion": 1,
+  "labelsSha256": "ded4f5ed46436d4987d252b8f13305164d96c1f9cc1f8260776ae3b8698e6c80",
+  "sourceTrees": {
+    "openrelay": "b86639221b00fcd1806a3976a47278b393666866f29ddeaedd3b14c6fe47cac8",
+    "delta": "0d4968677fad5b6a79e6903ae9c57c7f00299e628da7c71dc20cc5c1b4b5825d"
+  },
+  "graph": {
+    "openrelay": {
+      "files": 74,
+      "prepMs": 141
+    },
+    "delta": {
+      "files": 75,
+      "prepMs": 148
+    }
+  },
+  "summary": {
+    "dev": {
+      "cases": 16,
+      "requiredRefs": 32,
+      "mapFileRecall": 0.96875,
+      "lexicalFileRecall": 0.96875,
+      "mapSymbolRecall": 0.75,
+      "fullFileCoverage": 15,
+      "maxBytes": 2336,
+      "maxRenderMs": 10.957
+    },
+    "holdout": {
+      "cases": 8,
+      "requiredRefs": 16,
+      "mapFileRecall": 1,
+      "lexicalFileRecall": 1,
+      "mapSymbolRecall": 0.8125,
+      "fullFileCoverage": 8,
+      "maxBytes": 2231,
+      "maxRenderMs": 11.242
+    },
+    "all": {
+      "cases": 24,
+      "requiredRefs": 48,
+      "mapFileRecall": 0.9791666666666666,
+      "lexicalFileRecall": 0.9791666666666666,
+      "mapSymbolRecall": 0.7708333333333334,
+      "fullFileCoverage": 23,
+      "maxBytes": 2336,
+      "maxRenderMs": 11.242
+    }
+  },
+  "rows": [
+    {
+      "id": "or-failure-card",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/filtering/parsers.ts",
+          "symbol": "parseOutput"
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "symbol": "filterToolOutput"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "benchmarks/run-stage6.mjs",
+        "plugins/token-efficient/lib/store.ts",
+        "benchmarks/run.mjs",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "scripts/relay-runtime.mjs",
+        "plugins/token-efficient/lib/memory/paths.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "benchmarks/run-stage6.mjs",
+        "benchmarks/run.mjs",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "plugins/token-efficient/lib/canary.ts",
+        "plugins/token-efficient/lib/memory/paths.ts",
+        "benchmarks/gen-stage6-fixtures.mjs"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "mapSymbols": [],
+      "mapBytes": 1623,
+      "mapPrepMs": 10.759
+    },
+    {
+      "id": "or-compound-command",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/filtering/classify.ts",
+          "symbol": "classifyCommand"
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "symbol": "filterToolOutput"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/classify.ts",
+        "plugins/token-efficient/lib/filtering/config.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/raw-store.ts",
+        "plugins/token-efficient/lib/filtering/preview.ts",
+        "benchmarks/run.mjs",
+        "plugins/token-efficient/telemetry/tool-tracker.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/classify.ts",
+        "benchmarks/run.mjs",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "plugins/token-efficient/lib/filtering/config.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/raw-store.ts",
+        "plugins/token-efficient/tools/raw-output.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/filtering/classify.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/filtering/classify.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/filtering/classify.ts#classifyCommand",
+        "plugins/token-efficient/lib/filtering/filter.ts#filterToolOutput"
+      ],
+      "mapBytes": 1856,
+      "mapPrepMs": 8.796
+    },
+    {
+      "id": "or-raw-log",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/filtering/raw-store.ts",
+          "symbol": "loadRawOutput"
+        },
+        {
+          "file": "plugins/token-efficient/tools/raw-output.ts",
+          "symbol": "openrelayRawOutputTool"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/tools/raw-output.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/raw-store.ts",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "plugins/token-efficient/tools/handoff.ts",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/tools/raw-output.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/lib/filtering/raw-store.ts",
+        "plugins/token-efficient/tools/handoff.ts",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "benchmarks/audit-stage8.mjs",
+        "plugins/token-efficient/lib/memory/provenance.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/filtering/raw-store.ts",
+        "plugins/token-efficient/tools/raw-output.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/filtering/raw-store.ts",
+        "plugins/token-efficient/tools/raw-output.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/filtering/raw-store.ts#loadRawOutput",
+        "plugins/token-efficient/tools/raw-output.ts#openrelayRawOutputTool"
+      ],
+      "mapBytes": 2064,
+      "mapPrepMs": 8.787
+    },
+    {
+      "id": "or-tier-route",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/controller/route.ts",
+          "symbol": "route"
+        },
+        {
+          "file": "plugins/token-efficient/lib/controller/models.ts",
+          "symbol": "resolveModels"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/controller/route.ts",
+        "benchmarks/run-stage7.mjs",
+        "plugins/token-efficient/lib/controller/models.ts",
+        "benchmarks/lib/stage7-policy.mjs",
+        "plugins/token-efficient/lib/controller/escalate.ts",
+        "plugins/token-efficient/lib/classify.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "scripts/relay-runtime.mjs"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/controller/route.ts",
+        "benchmarks/run-stage7.mjs",
+        "plugins/token-efficient/lib/controller/models.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "benchmarks/lib/stage7-policy.mjs",
+        "plugins/token-efficient/lib/classify.ts",
+        "scripts/stage6-smoke.mjs",
+        "plugins/token-efficient/lib/controller/escalate.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/controller/route.ts",
+        "plugins/token-efficient/lib/controller/models.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/controller/route.ts",
+        "plugins/token-efficient/lib/controller/models.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/controller/models.ts#resolveModels"
+      ],
+      "mapBytes": 1514,
+      "mapPrepMs": 8.468
+    },
+    {
+      "id": "or-escalation",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/controller/checkpoint.ts",
+          "symbol": "isHighRisk"
+        },
+        {
+          "file": "plugins/token-efficient/lib/controller/escalate.ts",
+          "symbol": "shouldEscalate"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts",
+        "plugins/token-efficient/lib/controller/config.ts",
+        "plugins/token-efficient/index.ts",
+        "benchmarks/lib/stage7-policy.mjs",
+        "plugins/token-efficient/lib/controller/route.ts",
+        "plugins/token-efficient/lib/controller/escalate.ts",
+        "plugins/token-efficient/lib/controller/models.ts",
+        "benchmarks/run-stage7.mjs"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts",
+        "plugins/token-efficient/lib/controller/config.ts",
+        "benchmarks/lib/stage7-policy.mjs",
+        "plugins/token-efficient/lib/controller/escalate.ts",
+        "plugins/token-efficient/lib/controller/models.ts",
+        "plugins/token-efficient/lib/controller/route.ts",
+        "plugins/token-efficient/index.ts",
+        "benchmarks/run.mjs"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts",
+        "plugins/token-efficient/lib/controller/escalate.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts",
+        "plugins/token-efficient/lib/controller/escalate.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/controller/checkpoint.ts#isHighRisk",
+        "plugins/token-efficient/lib/controller/escalate.ts#shouldEscalate"
+      ],
+      "mapBytes": 1666,
+      "mapPrepMs": 8.434
+    },
+    {
+      "id": "or-context-signals",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/context/extract.ts",
+          "symbol": "extractSignals"
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/retrieve.ts",
+          "symbol": "probeEvidence"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/context/extract.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/context/config.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/context/packet.ts",
+        "plugins/token-efficient/lib/store.ts",
+        "plugins/token-efficient/lib/memory/select.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/context/extract.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/context/config.ts",
+        "benchmarks/coverage-v4.mjs",
+        "plugins/token-efficient/lib/memory/select.ts",
+        "benchmarks/lib/measurement.mjs"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/context/extract.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/context/extract.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/context/extract.ts#extractSignals",
+        "plugins/token-efficient/lib/context/retrieve.ts#probeEvidence"
+      ],
+      "mapBytes": 1921,
+      "mapPrepMs": 7.796
+    },
+    {
+      "id": "or-context-budget",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/context/retrieve.ts",
+          "symbol": "buildEvidence"
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/packet.ts",
+          "symbol": "buildPacket"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/context/packet.ts",
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/memory/provenance.ts",
+        "plugins/token-efficient/lib/context/config.ts",
+        "plugins/token-efficient/lib/assemble/budgets.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/context/packet.ts",
+        "plugins/token-efficient/lib/memory/select.ts",
+        "benchmarks/lib/measurement.mjs",
+        "benchmarks/lib/stage7-policy.mjs",
+        "plugins/token-efficient/lib/memory/provenance.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/context/packet.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/context/packet.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/context/packet.ts#buildPacket"
+      ],
+      "mapBytes": 2258,
+      "mapPrepMs": 7.519
+    },
+    {
+      "id": "or-handoff-resume",
+      "split": "dev",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/handoff/builder.ts",
+          "symbol": "buildHandoff"
+        },
+        {
+          "file": "plugins/token-efficient/lib/handoff/session.ts",
+          "symbol": "continueWithHandoff"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/handoff/builder.ts",
+        "plugins/token-efficient/tools/handoff.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/handoff/builder.ts",
+        "plugins/token-efficient/tools/handoff.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/handoff/builder.ts",
+        "plugins/token-efficient/lib/handoff/session.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/handoff/builder.ts",
+        "plugins/token-efficient/lib/handoff/session.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/handoff/builder.ts#buildHandoff",
+        "plugins/token-efficient/lib/handoff/session.ts#continueWithHandoff"
+      ],
+      "mapBytes": 2336,
+      "mapPrepMs": 7.794
+    },
+    {
+      "id": "or-note-freshness",
+      "split": "holdout",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/memory/provenance.ts",
+          "symbol": "noteStaleness"
+        },
+        {
+          "file": "plugins/token-efficient/lib/assemble/index.ts",
+          "symbol": "assembleAuxContext"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/memory/provenance.ts",
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/memory/identity.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/memory/provenance.ts",
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/scripts/stage6-holdout.ts",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/memory/provenance.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/memory/provenance.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/memory/provenance.ts#noteStaleness",
+        "plugins/token-efficient/lib/assemble/index.ts#assembleAuxContext"
+      ],
+      "mapBytes": 2117,
+      "mapPrepMs": 7.788
+    },
+    {
+      "id": "or-note-conflict",
+      "split": "holdout",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/lib/memory/select.ts",
+          "symbol": "selectNotes"
+        },
+        {
+          "file": "plugins/token-efficient/lib/assemble/index.ts",
+          "symbol": "assembleAuxContext"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/memory/paths.ts",
+        "plugins/token-efficient/lib/context/index.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/memory/schemas.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/lib/context/index.ts",
+        "plugins/token-efficient/lib/memory/paths.ts",
+        "benchmarks/run-stage6.mjs"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/lib/memory/select.ts#selectNotes",
+        "plugins/token-efficient/lib/assemble/index.ts#assembleAuxContext"
+      ],
+      "mapBytes": 2141,
+      "mapPrepMs": 7.991
+    },
+    {
+      "id": "or-launch-status",
+      "split": "holdout",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "scripts/relay-launcher.mjs",
+          "symbol": "launch"
+        },
+        {
+          "file": "scripts/relay-runtime.mjs",
+          "symbol": "launchSpec"
+        }
+      ],
+      "mapFiles": [
+        "scripts/relay-runtime.mjs",
+        "scripts/relay-launcher.mjs",
+        "plugins/token-efficient/lib/announce.ts",
+        "scripts/relay.mjs",
+        "benchmarks/run-stage6.mjs",
+        "scripts/release-daily.mjs",
+        "benchmarks/run-21-confirm.mjs",
+        "benchmarks/run-stage7.mjs"
+      ],
+      "lexicalFiles": [
+        "scripts/relay-runtime.mjs",
+        "plugins/token-efficient/lib/announce.ts",
+        "scripts/relay-launcher.mjs",
+        "benchmarks/audit-stage8.mjs",
+        "benchmarks/stage8-tasks.mjs",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "scripts/relay.mjs",
+        "plugins/token-efficient/lib/controller/models.ts"
+      ],
+      "mapRequired": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs"
+      ],
+      "lexicalRequired": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs"
+      ],
+      "mapSymbols": [
+        "scripts/relay-launcher.mjs#launch"
+      ],
+      "mapBytes": 1130,
+      "mapPrepMs": 7.64
+    },
+    {
+      "id": "or-event-usage",
+      "split": "holdout",
+      "repository": "openrelay",
+      "required": [
+        {
+          "file": "plugins/token-efficient/telemetry/session-tracker.ts",
+          "symbol": "SessionTracker"
+        },
+        {
+          "file": "plugins/token-efficient/lib/store.ts",
+          "symbol": "Store"
+        }
+      ],
+      "mapFiles": [
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/store.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "benchmarks/run-stage7.mjs",
+        "benchmarks/lib/measurement.mjs",
+        "plugins/token-efficient/lib/ids.ts"
+      ],
+      "lexicalFiles": [
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/memory/store.ts",
+        "benchmarks/run-stage7.mjs",
+        "plugins/token-efficient/lib/store.ts",
+        "benchmarks/lib/measurement.mjs",
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "plugins/token-efficient/lib/filtering/raw-store.ts"
+      ],
+      "mapRequired": [
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "lexicalRequired": [
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/lib/store.ts"
+      ],
+      "mapSymbols": [
+        "plugins/token-efficient/telemetry/session-tracker.ts#SessionTracker",
+        "plugins/token-efficient/lib/store.ts#Store"
+      ],
+      "mapBytes": 2231,
+      "mapPrepMs": 7.673
+    },
+    {
+      "id": "delta-report-citations",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/reports.py",
+          "symbol": "build_report"
+        },
+        {
+          "file": "delta/evidence.py",
+          "symbol": "evidence"
+        }
+      ],
+      "mapFiles": [
+        "delta/tui/screens/research.py",
+        "delta/reports.py",
+        "delta/tui/screens/theses.py",
+        "delta/tui/screens/decisions.py",
+        "delta/evidence.py",
+        "delta/tui/screens/chat.py",
+        "delta/tui/screens/research_state.py",
+        "delta/tui/screens/research_viewer.py"
+      ],
+      "lexicalFiles": [
+        "delta/tui/screens/research.py",
+        "delta/reports.py",
+        "delta/tui/screens/theses.py",
+        "delta/tui/screens/chat.py",
+        "delta/tui/screens/decisions.py",
+        "delta/evidence.py",
+        "delta/tui/screens/research_state.py",
+        "delta/llm/catalog.py"
+      ],
+      "mapRequired": [
+        "delta/reports.py",
+        "delta/evidence.py"
+      ],
+      "lexicalRequired": [
+        "delta/reports.py",
+        "delta/evidence.py"
+      ],
+      "mapSymbols": [
+        "delta/reports.py#build_report",
+        "delta/evidence.py#evidence"
+      ],
+      "mapBytes": 1689,
+      "mapPrepMs": 10.838
+    },
+    {
+      "id": "delta-chat-grounding",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/chat.py",
+          "symbol": "_verified"
+        },
+        {
+          "file": "delta/evidence.py",
+          "symbol": "evidence_by_ids"
+        }
+      ],
+      "mapFiles": [
+        "delta/tui/screens/chat.py",
+        "delta/chat.py",
+        "delta/evidence.py",
+        "delta/services.py",
+        "delta/tui/components.py",
+        "delta/tui/screens/research.py",
+        "delta/theses.py",
+        "delta/tui/app.py"
+      ],
+      "lexicalFiles": [
+        "delta/tui/screens/chat.py",
+        "delta/chat.py",
+        "delta/evidence.py",
+        "delta/tui/screens/research.py",
+        "delta/llm/eval.py",
+        "delta/theses.py",
+        "delta/tui/screens/targets.py",
+        "delta/services.py"
+      ],
+      "mapRequired": [
+        "delta/chat.py",
+        "delta/evidence.py"
+      ],
+      "lexicalRequired": [
+        "delta/chat.py",
+        "delta/evidence.py"
+      ],
+      "mapSymbols": [
+        "delta/chat.py#_verified",
+        "delta/evidence.py#evidence_by_ids"
+      ],
+      "mapBytes": 1810,
+      "mapPrepMs": 10.957
+    },
+    {
+      "id": "delta-thesis-health",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/theses.py",
+          "symbol": "set_accepted"
+        },
+        {
+          "file": "delta/thesis_health.py",
+          "symbol": "compute_health"
+        }
+      ],
+      "mapFiles": [
+        "delta/tui/screens/theses.py",
+        "delta/services.py",
+        "delta/theses.py",
+        "delta/thesis_health.py",
+        "delta/tui/widgets.py",
+        "delta/evidence.py",
+        "delta/thesis_summary.py",
+        "delta/tui/components.py"
+      ],
+      "lexicalFiles": [
+        "delta/tui/screens/theses.py",
+        "delta/services.py",
+        "delta/theses.py",
+        "delta/thesis_health.py",
+        "delta/tui/widgets.py",
+        "delta/evidence.py",
+        "delta/thesis_summary.py",
+        "delta/tui/components.py"
+      ],
+      "mapRequired": [
+        "delta/theses.py",
+        "delta/thesis_health.py"
+      ],
+      "lexicalRequired": [
+        "delta/theses.py",
+        "delta/thesis_health.py"
+      ],
+      "mapSymbols": [
+        "delta/thesis_health.py#compute_health"
+      ],
+      "mapBytes": 1882,
+      "mapPrepMs": 10.64
+    },
+    {
+      "id": "delta-scope-filter",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/core/plugin.py",
+          "symbol": "parse_scope"
+        },
+        {
+          "file": "delta/services.py",
+          "symbol": "ingest"
+        }
+      ],
+      "mapFiles": [
+        "delta/core/plugin.py",
+        "delta/tui/screens/chat.py",
+        "delta/tui/screens/targets.py",
+        "delta/services.py",
+        "delta/plugins/targets/tickers.py",
+        "delta/core/models.py",
+        "delta/plugins/data/yfinance.py",
+        "delta/runtime.py"
+      ],
+      "lexicalFiles": [
+        "delta/core/plugin.py",
+        "delta/tui/screens/chat.py",
+        "delta/services.py",
+        "delta/tui/screens/targets.py",
+        "delta/plugins/targets/tickers.py",
+        "delta/tui/screens/decisions.py",
+        "delta/tui/screens/market_setup.py",
+        "delta/core/db.py"
+      ],
+      "mapRequired": [
+        "delta/core/plugin.py",
+        "delta/services.py"
+      ],
+      "lexicalRequired": [
+        "delta/core/plugin.py",
+        "delta/services.py"
+      ],
+      "mapSymbols": [
+        "delta/core/plugin.py#parse_scope",
+        "delta/services.py#ingest"
+      ],
+      "mapBytes": 1672,
+      "mapPrepMs": 10.569
+    },
+    {
+      "id": "delta-provider-setup",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/core/plugin.py",
+          "symbol": "DataProviderSpec"
+        },
+        {
+          "file": "delta/services.py",
+          "symbol": "configure_data_provider"
+        }
+      ],
+      "mapFiles": [
+        "delta/services.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/screens/targets.py",
+        "delta/tui/screens/source_setup.py",
+        "delta/tui/screens/research.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/provider_picker.py",
+        "delta/tui/screens/chat.py"
+      ],
+      "lexicalFiles": [
+        "delta/services.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/screens/source_setup.py",
+        "delta/tui/screens/market_setup.py",
+        "delta/tui/screens/provider_picker.py",
+        "delta/tui/screens/targets.py",
+        "delta/tui/screens/research.py",
+        "delta/tui/app.py"
+      ],
+      "mapRequired": [
+        "delta/services.py"
+      ],
+      "lexicalRequired": [
+        "delta/services.py"
+      ],
+      "mapSymbols": [
+        "delta/services.py#configure_data_provider"
+      ],
+      "mapBytes": 1803,
+      "mapPrepMs": 10.648
+    },
+    {
+      "id": "delta-llm-cache",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/llm/client.py",
+          "symbol": "LLMClient"
+        },
+        {
+          "file": "delta/llm/cache.py",
+          "symbol": "lookup_cache"
+        }
+      ],
+      "mapFiles": [
+        "delta/llm/providers.py",
+        "delta/llm/cache.py",
+        "delta/llm/catalog.py",
+        "delta/llm/client.py",
+        "delta/services.py",
+        "delta/llm/jev.py",
+        "delta/tui/screens/model_picker.py",
+        "delta/llm/structured.py"
+      ],
+      "lexicalFiles": [
+        "delta/llm/providers.py",
+        "delta/llm/cache.py",
+        "delta/llm/catalog.py",
+        "delta/llm/jev.py",
+        "delta/llm/structured.py",
+        "delta/llm/client.py",
+        "delta/services.py",
+        "delta/tui/screens/model_picker.py"
+      ],
+      "mapRequired": [
+        "delta/llm/client.py",
+        "delta/llm/cache.py"
+      ],
+      "lexicalRequired": [
+        "delta/llm/client.py",
+        "delta/llm/cache.py"
+      ],
+      "mapSymbols": [
+        "delta/llm/cache.py#lookup_cache"
+      ],
+      "mapBytes": 1611,
+      "mapPrepMs": 10.684
+    },
+    {
+      "id": "delta-event-extract",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/extract.py",
+          "symbol": "extract_events"
+        },
+        {
+          "file": "delta/services.py",
+          "symbol": "extract"
+        }
+      ],
+      "mapFiles": [
+        "delta/core/db.py",
+        "delta/core/models.py",
+        "delta/evidence.py",
+        "delta/services.py",
+        "delta/extract.py",
+        "delta/brief.py",
+        "delta/tui/screens/research.py",
+        "delta/plugins/data/rss.py"
+      ],
+      "lexicalFiles": [
+        "delta/core/db.py",
+        "delta/core/models.py",
+        "delta/evidence.py",
+        "delta/services.py",
+        "delta/extract.py",
+        "delta/brief.py",
+        "delta/core/events.py",
+        "delta/llm/structured.py"
+      ],
+      "mapRequired": [
+        "delta/extract.py",
+        "delta/services.py"
+      ],
+      "lexicalRequired": [
+        "delta/extract.py",
+        "delta/services.py"
+      ],
+      "mapSymbols": [
+        "delta/extract.py#extract_events"
+      ],
+      "mapBytes": 1383,
+      "mapPrepMs": 10.58
+    },
+    {
+      "id": "delta-sentiment-run",
+      "split": "dev",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/sentiment.py",
+          "symbol": "classify_news"
+        },
+        {
+          "file": "delta/services.py",
+          "symbol": "classify_sentiment"
+        }
+      ],
+      "mapFiles": [
+        "delta/sentiment.py",
+        "delta/tui/screens/research.py",
+        "delta/services.py",
+        "delta/core/db.py",
+        "delta/evidence.py",
+        "delta/core/models.py",
+        "delta/brief.py",
+        "delta/quotes.py"
+      ],
+      "lexicalFiles": [
+        "delta/sentiment.py",
+        "delta/tui/screens/research.py",
+        "delta/services.py",
+        "delta/core/db.py",
+        "delta/evidence.py",
+        "delta/quotes.py",
+        "delta/brief.py",
+        "delta/core/models.py"
+      ],
+      "mapRequired": [
+        "delta/sentiment.py",
+        "delta/services.py"
+      ],
+      "lexicalRequired": [
+        "delta/sentiment.py",
+        "delta/services.py"
+      ],
+      "mapSymbols": [
+        "delta/sentiment.py#classify_news",
+        "delta/services.py#classify_sentiment"
+      ],
+      "mapBytes": 1360,
+      "mapPrepMs": 10.348
+    },
+    {
+      "id": "delta-market-target",
+      "split": "holdout",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/core/config.py",
+          "symbol": "build_config"
+        },
+        {
+          "file": "delta/targets.py",
+          "symbol": "target_from_spec"
+        }
+      ],
+      "mapFiles": [
+        "delta/core/config.py",
+        "delta/targets.py",
+        "delta/plugins/targets/tickers.py",
+        "delta/runtime.py",
+        "delta/services.py",
+        "delta/core/plugin.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/screens/targets.py"
+      ],
+      "lexicalFiles": [
+        "delta/core/config.py",
+        "delta/plugins/targets/tickers.py",
+        "delta/targets.py",
+        "delta/services.py",
+        "delta/runtime.py",
+        "delta/core/plugin.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/screens/targets.py"
+      ],
+      "mapRequired": [
+        "delta/core/config.py",
+        "delta/targets.py"
+      ],
+      "lexicalRequired": [
+        "delta/core/config.py",
+        "delta/targets.py"
+      ],
+      "mapSymbols": [
+        "delta/targets.py#target_from_spec"
+      ],
+      "mapBytes": 1801,
+      "mapPrepMs": 10.643
+    },
+    {
+      "id": "delta-report-history",
+      "split": "holdout",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/reports.py",
+          "symbol": "report_history"
+        },
+        {
+          "file": "delta/tui/screens/reports.py",
+          "symbol": "Reports"
+        }
+      ],
+      "mapFiles": [
+        "delta/tui/screens/research.py",
+        "delta/reports.py",
+        "delta/tui/screens/reports.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/targets.py",
+        "delta/tui/screens/research_viewer.py",
+        "delta/tui/screens/help.py"
+      ],
+      "lexicalFiles": [
+        "delta/tui/screens/research.py",
+        "delta/tui/screens/home.py",
+        "delta/reports.py",
+        "delta/tui/screens/targets.py",
+        "delta/tui/screens/help.py",
+        "delta/tui/screens/reports.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/config.py"
+      ],
+      "mapRequired": [
+        "delta/reports.py",
+        "delta/tui/screens/reports.py"
+      ],
+      "lexicalRequired": [
+        "delta/reports.py",
+        "delta/tui/screens/reports.py"
+      ],
+      "mapSymbols": [
+        "delta/tui/screens/reports.py#Reports"
+      ],
+      "mapBytes": 1738,
+      "mapPrepMs": 11.242
+    },
+    {
+      "id": "delta-brief-service",
+      "split": "holdout",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/brief.py",
+          "symbol": "build_brief"
+        },
+        {
+          "file": "delta/services.py",
+          "symbol": "brief_for"
+        }
+      ],
+      "mapFiles": [
+        "delta/services.py",
+        "delta/brief.py",
+        "delta/tui/screens/chat.py",
+        "delta/evidence.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/research.py",
+        "delta/tui/screens/targets.py",
+        "delta/core/db.py"
+      ],
+      "lexicalFiles": [
+        "delta/services.py",
+        "delta/brief.py",
+        "delta/tui/screens/chat.py",
+        "delta/evidence.py",
+        "delta/tui/app.py",
+        "delta/tui/screens/research.py",
+        "delta/tui/screens/targets.py",
+        "delta/tui/widgets.py"
+      ],
+      "mapRequired": [
+        "delta/brief.py",
+        "delta/services.py"
+      ],
+      "lexicalRequired": [
+        "delta/brief.py",
+        "delta/services.py"
+      ],
+      "mapSymbols": [
+        "delta/brief.py#build_brief",
+        "delta/services.py#brief_for"
+      ],
+      "mapBytes": 1689,
+      "mapPrepMs": 10.805
+    },
+    {
+      "id": "delta-review-queue",
+      "split": "holdout",
+      "repository": "delta",
+      "required": [
+        {
+          "file": "delta/review.py",
+          "symbol": "review_queue"
+        },
+        {
+          "file": "delta/evidence.py",
+          "symbol": "evidence"
+        }
+      ],
+      "mapFiles": [
+        "delta/review.py",
+        "delta/evidence.py",
+        "delta/theses.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/screens/research.py",
+        "delta/tui/screens/theses.py",
+        "delta/core/db.py",
+        "delta/tui/screens/chat.py"
+      ],
+      "lexicalFiles": [
+        "delta/review.py",
+        "delta/evidence.py",
+        "delta/theses.py",
+        "delta/tui/screens/theses.py",
+        "delta/tui/screens/home.py",
+        "delta/tui/screens/decisions.py",
+        "delta/tui/screens/research.py",
+        "delta/core/db.py"
+      ],
+      "mapRequired": [
+        "delta/review.py",
+        "delta/evidence.py"
+      ],
+      "lexicalRequired": [
+        "delta/review.py",
+        "delta/evidence.py"
+      ],
+      "mapSymbols": [
+        "delta/review.py#review_queue",
+        "delta/evidence.py#evidence"
+      ],
+      "mapBytes": 1722,
+      "mapPrepMs": 10.813
+    }
+  ]
+}

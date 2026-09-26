@@ -1,0 +1,5 @@
+{
+  "required": ["src/panels/systemPanel.js"],
+  "optional": ["index.html", "src/app.js"],
+  "notes": "The task names the System panel; its render function is the single file that must change. index.html and app.js establish panel mounting."
+}

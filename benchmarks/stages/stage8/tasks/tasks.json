@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "snapshotManifest": "docs/stage8/source-manifest.json",
+  "tasks": [
+    {
+      "id": "or-packet-path-identity",
+      "repository": "openrelay",
+      "language": "typescript",
+      "kind": "correctness",
+      "requiredFiles": ["plugins/token-efficient/lib/assemble/index.ts", "plugins/token-efficient/lib/context/packet.ts"],
+      "relationship": "The context packet renders excerpt paths; auxiliary assembly uses those paths to decide whether to suppress recovery excerpts and memory notes.",
+      "verifier": "verify/or-packet-path-identity.mjs"
+    },
+    {
+      "id": "or-memory-cap-order",
+      "repository": "openrelay",
+      "language": "typescript",
+      "kind": "correctness",
+      "requiredFiles": ["plugins/token-efficient/lib/memory/select.ts", "plugins/token-efficient/lib/assemble/index.ts"],
+      "relationship": "Auxiliary context assembly delegates note selection to the memory selector, whose consideration cap currently depends on index insertion order.",
+      "verifier": "verify/or-memory-cap-order.mjs"
+    },
+    {
+      "id": "delta-config-writeback",
+      "repository": "delta",
+      "language": "python",
+      "kind": "correctness",
+      "requiredFiles": ["delta/llm/catalog.py", "delta/core/config.py"],
+      "relationship": "Model-picker writeback helpers and the shared config writer must use the same active config path and mutation contract.",
+      "verifier": "verify/delta-config-writeback.py"
+    },
+    {
+      "id": "delta-market-dependencies",
+      "repository": "delta",
+      "language": "python",
+      "kind": "correctness",
+      "requiredFiles": ["delta/services.py", "delta/core/config.py", "delta/targets.py"],
+      "relationship": "Market removal checks target and plugin references, while the config builder also turns legacy universe entries into targets.",
+      "verifier": "verify/delta-market-dependencies.py"
+    }
+  ]
+}

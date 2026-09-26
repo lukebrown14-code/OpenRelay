@@ -1,0 +1,1 @@
+Add the alias ':grin:' mapping to 'grinning' in src/emoji.js, keep existing aliases working. Then run node verify.js.

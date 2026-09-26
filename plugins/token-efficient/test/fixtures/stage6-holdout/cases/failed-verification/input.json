@@ -1,0 +1,7 @@
+{
+ "resumeSession": "ses-failver",
+ "readHandoff": {
+  "taskID": "task-failver",
+  "handoffID": "ho-failver"
+ }
+}

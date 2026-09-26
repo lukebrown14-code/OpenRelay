@@ -1,0 +1,702 @@
+{
+  "prototypeHash": "b89188c9523107fcf5b2f710059df9beb424ba45822883fb8a4d94c35e0b6252",
+  "taskSpecHash": "fba8035463ee778cd363d12ec75d645178a29931131dc541bd9f173643a47da8",
+  "corpusManifestHash": "ea3ab087046ab8598508d691e40e4f18cd111d3e61bfd210366de1c41aad19e6",
+  "corpusSourcePaths": 146,
+  "summary": {
+    "taskCount": 10,
+    "topTwo": 5,
+    "topFour": 7,
+    "budget": 7,
+    "medianPrepMs": 18.904,
+    "gates": {
+      "topFourAndBudget": false,
+      "topTwo": false,
+      "noFileMapError": true,
+      "medianPrepMs": true
+    },
+    "advance": false
+  },
+  "rows": [
+    {
+      "id": "failure-card",
+      "required": [
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "requiredRanks": [
+        4
+      ],
+      "topTwoRecall": false,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "plugins/token-efficient/telemetry/tool-tracker.ts",
+          "score": 26.648,
+          "lexical": 26.648,
+          "neighborBonus": 0
+        },
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "score": 22.067,
+          "lexical": 22.067,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/index.ts",
+          "score": 21.361,
+          "lexical": 18.361,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "score": 20.08,
+          "lexical": 20.08,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "benchmarks/audit-stage5.mjs",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "candidateSourceBytes": [
+        4101,
+        13118,
+        12671,
+        8407
+      ],
+      "included": [
+        "plugins/token-efficient/telemetry/tool-tracker.ts",
+        "benchmarks/audit-stage5.mjs",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts"
+      ],
+      "excerptBytes": {
+        "plugins/token-efficient/telemetry/tool-tracker.ts": 3039,
+        "benchmarks/audit-stage5.mjs": 3035,
+        "plugins/token-efficient/index.ts": 2113,
+        "plugins/token-efficient/lib/filtering/filter.ts": 4
+      },
+      "totalExcerptBytes": 8191,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 46.813
+    },
+    {
+      "id": "raw-session-boundary",
+      "required": [
+        "plugins/token-efficient/lib/filtering/raw-store.ts"
+      ],
+      "requiredRanks": [
+        0
+      ],
+      "topTwoRecall": false,
+      "topFourRecall": false,
+      "budgetRecall": false,
+      "candidates": [
+        {
+          "file": "benchmarks/analyze.mjs",
+          "score": 20.413,
+          "lexical": 17.413,
+          "neighborBonus": 3
+        },
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "score": 19.857,
+          "lexical": 16.857,
+          "neighborBonus": 3
+        },
+        {
+          "file": "benchmarks/fixtures/19-repository-refactor/src/worker/handle.js",
+          "score": 14.822,
+          "lexical": 14.822,
+          "neighborBonus": 0
+        },
+        {
+          "file": "benchmarks/solutions/19-repository-refactor/src/worker/handle.js",
+          "score": 14.822,
+          "lexical": 14.822,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "benchmarks/analyze.mjs",
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/fixtures/19-repository-refactor/src/worker/handle.js",
+        "benchmarks/solutions/19-repository-refactor/src/worker/handle.js"
+      ],
+      "candidateSourceBytes": [
+        29542,
+        13118,
+        89,
+        138
+      ],
+      "included": [
+        "benchmarks/analyze.mjs",
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/fixtures/19-repository-refactor/src/worker/handle.js",
+        "benchmarks/solutions/19-repository-refactor/src/worker/handle.js"
+      ],
+      "excerptBytes": {
+        "benchmarks/analyze.mjs": 3053,
+        "benchmarks/audit-stage5.mjs": 3035,
+        "benchmarks/fixtures/19-repository-refactor/src/worker/handle.js": 96,
+        "benchmarks/solutions/19-repository-refactor/src/worker/handle.js": 148
+      },
+      "totalExcerptBytes": 6332,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 19.377
+    },
+    {
+      "id": "model-resolution",
+      "required": [
+        "plugins/token-efficient/lib/controller/models.ts"
+      ],
+      "requiredRanks": [
+        1
+      ],
+      "topTwoRecall": true,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "plugins/token-efficient/lib/controller/models.ts",
+          "score": 19.456,
+          "lexical": 16.456,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/index.ts",
+          "score": 16.132,
+          "lexical": 13.132,
+          "neighborBonus": 3
+        },
+        {
+          "file": "benchmarks/analyze.mjs",
+          "score": 15.258,
+          "lexical": 15.258,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/lib/classify.ts",
+          "score": 13.368,
+          "lexical": 10.368,
+          "neighborBonus": 3
+        }
+      ],
+      "candidateFiles": [
+        "plugins/token-efficient/lib/controller/models.ts",
+        "plugins/token-efficient/index.ts",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/lib/classify.ts"
+      ],
+      "candidateSourceBytes": [
+        1626,
+        12671,
+        29542,
+        610
+      ],
+      "included": [
+        "plugins/token-efficient/lib/controller/models.ts",
+        "plugins/token-efficient/index.ts",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/lib/classify.ts"
+      ],
+      "excerptBytes": {
+        "plugins/token-efficient/lib/controller/models.ts": 1842,
+        "plugins/token-efficient/index.ts": 2979,
+        "benchmarks/analyze.mjs": 3053,
+        "plugins/token-efficient/lib/classify.ts": 303
+      },
+      "totalExcerptBytes": 8177,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 21.349
+    },
+    {
+      "id": "escalation-threshold",
+      "required": [
+        "plugins/token-efficient/lib/controller/escalate.ts"
+      ],
+      "requiredRanks": [
+        1
+      ],
+      "topTwoRecall": true,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "plugins/token-efficient/lib/controller/escalate.ts",
+          "score": 23.971,
+          "lexical": 20.971,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/index.ts",
+          "score": 15.676,
+          "lexical": 12.676,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/lib/controller/route.ts",
+          "score": 10.973,
+          "lexical": 7.973,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/telemetry/session-tracker.ts",
+          "score": 10.021,
+          "lexical": 7.021,
+          "neighborBonus": 3
+        }
+      ],
+      "candidateFiles": [
+        "plugins/token-efficient/lib/controller/escalate.ts",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/controller/route.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts"
+      ],
+      "candidateSourceBytes": [
+        936,
+        12671,
+        2440,
+        8425
+      ],
+      "included": [
+        "plugins/token-efficient/lib/controller/escalate.ts",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/controller/route.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts"
+      ],
+      "excerptBytes": {
+        "plugins/token-efficient/lib/controller/escalate.ts": 1024,
+        "plugins/token-efficient/index.ts": 2979,
+        "plugins/token-efficient/lib/controller/route.ts": 2672,
+        "plugins/token-efficient/telemetry/session-tracker.ts": 1492
+      },
+      "totalExcerptBytes": 8167,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 18.964
+    },
+    {
+      "id": "sidebar-build-id",
+      "required": [
+        "plugins/token-efficient/tui.tsx"
+      ],
+      "requiredRanks": [
+        1
+      ],
+      "topTwoRecall": true,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "plugins/token-efficient/tui.tsx",
+          "score": 13.02,
+          "lexical": 13.02,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "score": 9.743,
+          "lexical": 9.743,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/parsers.ts",
+          "score": 7.996,
+          "lexical": 4.996,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/telemetry/session-tracker.ts",
+          "score": 7.931,
+          "lexical": 7.931,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "plugins/token-efficient/tui.tsx",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts"
+      ],
+      "candidateSourceBytes": [
+        3958,
+        8407,
+        12322,
+        8425
+      ],
+      "included": [
+        "plugins/token-efficient/tui.tsx",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/lib/filtering/parsers.ts",
+        "plugins/token-efficient/telemetry/session-tracker.ts"
+      ],
+      "excerptBytes": {
+        "plugins/token-efficient/tui.tsx": 3038,
+        "plugins/token-efficient/lib/filtering/filter.ts": 3047,
+        "plugins/token-efficient/lib/filtering/parsers.ts": 2100,
+        "plugins/token-efficient/telemetry/session-tracker.ts": 4
+      },
+      "totalExcerptBytes": 8189,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 18.849
+    },
+    {
+      "id": "registration-conflict",
+      "required": [
+        "scripts/relay-runtime.mjs"
+      ],
+      "requiredRanks": [
+        2
+      ],
+      "topTwoRecall": true,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "scripts/relay-launcher.mjs",
+          "score": 36.398,
+          "lexical": 33.398,
+          "neighborBonus": 3
+        },
+        {
+          "file": "scripts/relay-runtime.mjs",
+          "score": 27.848,
+          "lexical": 24.848,
+          "neighborBonus": 3
+        },
+        {
+          "file": "scripts/relay.mjs",
+          "score": 16.44,
+          "lexical": 13.44,
+          "neighborBonus": 3
+        },
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "score": 12.645,
+          "lexical": 12.645,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs",
+        "scripts/relay.mjs",
+        "benchmarks/audit-stage5.mjs"
+      ],
+      "candidateSourceBytes": [
+        2083,
+        8794,
+        292,
+        13118
+      ],
+      "included": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs",
+        "scripts/relay.mjs",
+        "benchmarks/audit-stage5.mjs"
+      ],
+      "excerptBytes": {
+        "scripts/relay-launcher.mjs": 2199,
+        "scripts/relay-runtime.mjs": 3022,
+        "scripts/relay.mjs": 311,
+        "benchmarks/audit-stage5.mjs": 2659
+      },
+      "totalExcerptBytes": 8191,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 18.959
+    },
+    {
+      "id": "duplicate-usage",
+      "required": [
+        "plugins/token-efficient/telemetry/session-tracker.ts"
+      ],
+      "requiredRanks": [
+        3
+      ],
+      "topTwoRecall": false,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "score": 29.603,
+          "lexical": 26.603,
+          "neighborBonus": 3
+        },
+        {
+          "file": "benchmarks/analyze.mjs",
+          "score": 26.177,
+          "lexical": 23.177,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/telemetry/session-tracker.ts",
+          "score": 24.306,
+          "lexical": 24.306,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/index.ts",
+          "score": 18.467,
+          "lexical": 15.467,
+          "neighborBonus": 3
+        }
+      ],
+      "candidateFiles": [
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/index.ts"
+      ],
+      "candidateSourceBytes": [
+        13118,
+        29542,
+        8425,
+        12671
+      ],
+      "included": [
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/telemetry/session-tracker.ts",
+        "plugins/token-efficient/index.ts"
+      ],
+      "excerptBytes": {
+        "benchmarks/audit-stage5.mjs": 3035,
+        "benchmarks/analyze.mjs": 3053,
+        "plugins/token-efficient/telemetry/session-tracker.ts": 2044,
+        "plugins/token-efficient/index.ts": 53
+      },
+      "totalExcerptBytes": 8185,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 17.306
+    },
+    {
+      "id": "packet-digest",
+      "required": [
+        "benchmarks/lib/measurement.mjs"
+      ],
+      "requiredRanks": [
+        0
+      ],
+      "topTwoRecall": false,
+      "topFourRecall": false,
+      "budgetRecall": false,
+      "candidates": [
+        {
+          "file": "plugins/token-efficient/lib/context/capture.ts",
+          "score": 26.104,
+          "lexical": 26.104,
+          "neighborBonus": 0
+        },
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "score": 25.052,
+          "lexical": 25.052,
+          "neighborBonus": 0
+        },
+        {
+          "file": "benchmarks/analyze.mjs",
+          "score": 20.258,
+          "lexical": 17.258,
+          "neighborBonus": 3
+        },
+        {
+          "file": "benchmarks/analyze-21.mjs",
+          "score": 18.857,
+          "lexical": 18.857,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "plugins/token-efficient/lib/context/capture.ts",
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/analyze.mjs",
+        "benchmarks/analyze-21.mjs"
+      ],
+      "candidateSourceBytes": [
+        996,
+        13118,
+        29542,
+        7330
+      ],
+      "included": [
+        "plugins/token-efficient/lib/context/capture.ts",
+        "benchmarks/audit-stage5.mjs",
+        "benchmarks/analyze.mjs",
+        "benchmarks/analyze-21.mjs"
+      ],
+      "excerptBytes": {
+        "plugins/token-efficient/lib/context/capture.ts": 1092,
+        "benchmarks/audit-stage5.mjs": 3035,
+        "benchmarks/analyze.mjs": 3053,
+        "benchmarks/analyze-21.mjs": 966
+      },
+      "totalExcerptBytes": 8146,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 18.014
+    },
+    {
+      "id": "pass-preview",
+      "required": [
+        "plugins/token-efficient/lib/filtering/preview.ts"
+      ],
+      "requiredRanks": [
+        2
+      ],
+      "topTwoRecall": true,
+      "topFourRecall": true,
+      "budgetRecall": true,
+      "candidates": [
+        {
+          "file": "plugins/token-efficient/tools/raw-output.ts",
+          "score": 28.445,
+          "lexical": 28.445,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/preview.ts",
+          "score": 18.561,
+          "lexical": 18.561,
+          "neighborBonus": 0
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "score": 18.534,
+          "lexical": 15.534,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/telemetry/tool-tracker.ts",
+          "score": 18.173,
+          "lexical": 18.173,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "plugins/token-efficient/tools/raw-output.ts",
+        "plugins/token-efficient/lib/filtering/preview.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/telemetry/tool-tracker.ts"
+      ],
+      "candidateSourceBytes": [
+        6108,
+        3738,
+        8407,
+        4101
+      ],
+      "included": [
+        "plugins/token-efficient/tools/raw-output.ts",
+        "plugins/token-efficient/lib/filtering/preview.ts",
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/telemetry/tool-tracker.ts"
+      ],
+      "excerptBytes": {
+        "plugins/token-efficient/tools/raw-output.ts": 3065,
+        "plugins/token-efficient/lib/filtering/preview.ts": 3041,
+        "plugins/token-efficient/lib/filtering/filter.ts": 2045,
+        "plugins/token-efficient/telemetry/tool-tracker.ts": 39
+      },
+      "totalExcerptBytes": 8190,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 16.572
+    },
+    {
+      "id": "startup-toast",
+      "required": [
+        "plugins/token-efficient/lib/announce.ts"
+      ],
+      "requiredRanks": [
+        0
+      ],
+      "topTwoRecall": false,
+      "topFourRecall": false,
+      "budgetRecall": false,
+      "candidates": [
+        {
+          "file": "scripts/relay-launcher.mjs",
+          "score": 21.937,
+          "lexical": 18.937,
+          "neighborBonus": 3
+        },
+        {
+          "file": "scripts/relay-runtime.mjs",
+          "score": 18.511,
+          "lexical": 15.511,
+          "neighborBonus": 3
+        },
+        {
+          "file": "scripts/relay.mjs",
+          "score": 15.884,
+          "lexical": 12.884,
+          "neighborBonus": 3
+        },
+        {
+          "file": "plugins/token-efficient/index.ts",
+          "score": 14.756,
+          "lexical": 14.756,
+          "neighborBonus": 0
+        }
+      ],
+      "candidateFiles": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs",
+        "scripts/relay.mjs",
+        "plugins/token-efficient/index.ts"
+      ],
+      "candidateSourceBytes": [
+        2083,
+        8794,
+        292,
+        12671
+      ],
+      "included": [
+        "scripts/relay-launcher.mjs",
+        "scripts/relay-runtime.mjs",
+        "scripts/relay.mjs",
+        "plugins/token-efficient/index.ts"
+      ],
+      "excerptBytes": {
+        "scripts/relay-launcher.mjs": 2199,
+        "scripts/relay-runtime.mjs": 3022,
+        "scripts/relay.mjs": 311,
+        "plugins/token-efficient/index.ts": 2654
+      },
+      "totalExcerptBytes": 8186,
+      "scanned": 118,
+      "listed": 118,
+      "truncated": false,
+      "bytesRead": 230867,
+      "prepMs": 16.789
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "required": [
+    "rust/src/main.rs"
+  ],
+  "optional": [
+    "python/orders/summary.py",
+    "python/orders/normalize.py",
+    "python/orders/pricing.py"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+ "handoffInput": {
+  "taskID": "task-none",
+  "workflowID": "wf-none",
+  "direction": "workhorse->workhorse",
+  "sourceSession": "ses-me",
+  "objective": "Ship the thing",
+  "constraints": [
+   {
+    "text": "fast",
+    "provenance": "user-approved"
+   }
+  ]
+ }
+}

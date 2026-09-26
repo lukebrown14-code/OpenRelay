@@ -20,7 +20,7 @@ export async function launch(channel, args, { root = defaultRoot(), env = proces
     if (args[0] === "attach" || args.some(a => a === "--attach" || a.startsWith("--attach="))) {
       throw new Error("Channel launchers start their own OpenCode process; attach does not select its plugin")
     }
-    console.error(`[OpenRelay ${channel}] ${spec.buildID}; filtering ${spec.filtering}; conservative preview ${spec.previewSafe ? "on" : "off"}`)
+    console.error(`[OpenRelay ${channel}] ${spec.buildID}; filtering ${spec.filtering}; conservative preview ${spec.previewSafe ? "on" : "off"}; context ${spec.context}; memory ${spec.memory}; handoff ${spec.handoff}`)
     const child = spawn(installation.opencode, args, { cwd, env: spec.env, stdio: "inherit" })
     for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) process.on(signal, () => child.kill(signal))
     child.on("error", e => { console.error(e.message); process.exitCode = 1 })

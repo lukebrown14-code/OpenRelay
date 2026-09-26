@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-captie",
+ "taskID": "task-captie",
+ "workflowID": "wf-captie",
+ "sourceSession": "ses-ct",
+ "direction": "workhorse->workhorse",
+ "objective": "Review module notes",
+ "constraints": [
+  {
+   "text": "none",
+   "provenance": "unknown"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "notes relevant",
+   "provenance": "unknown"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}
