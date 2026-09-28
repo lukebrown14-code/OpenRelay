@@ -23,12 +23,24 @@ export function slugFor(worktree: string): string {
   return `${clean}-${fnv1a(path.resolve(worktree)).slice(0, 6)}`
 }
 
-export function newTaskID(): string {
+function stampRand(prefix: string): string {
   const d = new Date()
   const p = (n: number) => String(n).padStart(2, "0")
   const stamp = `${d.getUTCFullYear()}${p(d.getUTCMonth() + 1)}${p(d.getUTCDate())}-${p(d.getUTCHours())}${p(d.getUTCMinutes())}${p(d.getUTCSeconds())}`
   const rand = Math.floor(Math.random() * 36 ** 5)
     .toString(36)
     .padStart(5, "0")
-  return `t-${stamp}-${rand}`
+  return `${prefix}-${stamp}-${rand}`
+}
+
+export function newTaskID(): string {
+  return stampRand("t")
+}
+
+export function newWorkflowID(): string {
+  return stampRand("wf")
+}
+
+export function newRecordID(prefix: string): string {
+  return stampRand(prefix)
 }

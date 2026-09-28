@@ -1,0 +1,6 @@
+{
+ "name": "26-control-named-module",
+ "class": "stage6",
+ "category": "stage6-control",
+ "verifyTimeoutMs": 30000
+}

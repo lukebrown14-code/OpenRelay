@@ -1,0 +1,1 @@
+Auth note: sessions live server-side in sqlite.

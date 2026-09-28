@@ -1,0 +1,5 @@
+{
+  "required": ["styles/cards.css", "src/render.js"],
+  "optional": ["index.html", "styles/tokens.css"],
+  "notes": "The modifier rule belongs in styles/cards.css and must be applied to the three metric cards in render.js."
+}

@@ -1,0 +1,40 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-20260924-010856-hqf7i",
+ "taskID": "task-25controlexp",
+ "workflowID": "wf-25controlexp",
+ "sourceSession": "ses_sender",
+ "direction": "workhorse->workhorse",
+ "objective": "Change slugify's separator from underscore to hyphen in src/slugify.js.",
+ "constraints": [
+  {
+   "text": "The separator is exactly the hyphen character '-'",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [
+  {
+   "path": "src/slugify.js",
+   "contentDigest": "ede014d62ebb0a090f3e68ff7b1ce559e1f43a7cc038103a57f8589283ce77a4",
+   "captured": {
+    "capturedAt": "2026-09-24T01:08:56.848Z"
+   },
+   "recovery": {
+    "excerpt": "export function slugify(text) {\n  return String(text).trim().replace(/\\s+/g, \"_\")\n}\n",
+    "truncated": false
+   }
+  }
+ ],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "node verify.js exits 0 (slugify('Hello World') === 'Hello-World')",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T01:08:56.848Z"
+}

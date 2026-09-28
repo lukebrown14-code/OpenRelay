@@ -1,0 +1,22 @@
+# Handoff ho-20260924-010856-hqf7i
+
+- Task: task-25controlexp (workflow wf-25controlexp)
+- Direction: workhorse->workhorse
+- Source session: ses_sender
+- Created: 2026-09-24T01:08:56.848Z
+
+## Objective
+
+Change slugify's separator from underscore to hyphen in src/slugify.js.
+
+## Constraints
+
+- [user-approved] The separator is exactly the hyphen character '-'
+
+## Acceptance criteria
+
+- [user-approved] node verify.js exits 0 (slugify('Hello World') === 'Hello-World')
+
+## Relevant files
+
+- src/slugify.js (sha256 ede014d62ebb…)

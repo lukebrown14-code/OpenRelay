@@ -1,0 +1,345 @@
+{
+  "labels": {
+    "A": "stage5-21-confirm-r2-a",
+    "B": "stage5-21-confirm-r2-b",
+    "AA": "stage5-21-confirm-r2-aa"
+  },
+  "rows": {
+    "A": [
+      {
+        "id": "stage5-21-confirm-r2-a/run-01",
+        "sessionID": "ses_f31cf6616ffe1WF3zyEZBLPPvx",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 74056,
+        "rounds": 6,
+        "retries": 0,
+        "totalDurationSec": 42.927,
+        "sessionDurationSec": 42.895,
+        "verifyDurationSec": 0.029,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      },
+      {
+        "id": "stage5-21-confirm-r2-a/run-02",
+        "sessionID": "ses_f31cbe48dffeNqaDq4BM1GjiSb",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 87365,
+        "rounds": 7,
+        "retries": 0,
+        "totalDurationSec": 38.902,
+        "sessionDurationSec": 38.871,
+        "verifyDurationSec": 0.028,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      },
+      {
+        "id": "stage5-21-confirm-r2-a/run-03",
+        "sessionID": "ses_f31cb4b3dffeOVNKXHUvbOghP9",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 87578,
+        "rounds": 7,
+        "retries": 0,
+        "totalDurationSec": 38.117,
+        "sessionDurationSec": 38.087,
+        "verifyDurationSec": 0.03,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      },
+      {
+        "id": "stage5-21-confirm-r2-a/run-04",
+        "sessionID": "ses_f31c93edaffeesznoK0YVWt3Gm",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 98699,
+        "rounds": 8,
+        "retries": 0,
+        "totalDurationSec": 35.909,
+        "sessionDurationSec": 35.879,
+        "verifyDurationSec": 0.029,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      },
+      {
+        "id": "stage5-21-confirm-r2-a/run-05",
+        "sessionID": "ses_f31c8b31dffev2errkealBnmp1",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 75483,
+        "rounds": 6,
+        "retries": 0,
+        "totalDurationSec": 32.772,
+        "sessionDurationSec": 32.744,
+        "verifyDurationSec": 0.027,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      }
+    ],
+    "B": [
+      {
+        "id": "stage5-21-confirm-r2-b/run-01",
+        "sessionID": "ses_f31ce957bffetexb7ooPzJSJO2",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 62292,
+        "rounds": 5,
+        "retries": 0,
+        "totalDurationSec": 42.138,
+        "sessionDurationSec": 42.107,
+        "verifyDurationSec": 0.031,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "captured",
+          "artifact": "context-packet.txt",
+          "sha256": "7d46860a920aaba0fc5b3dc0706f988afb538b88cf68b75f4a9b3edff0e8b640",
+          "bytes": 1148
+        },
+        "contextPrepMs": 28,
+        "contextPackets": 1
+      },
+      {
+        "id": "stage5-21-confirm-r2-b/run-02",
+        "sessionID": "ses_f31cc718cffeHpYWBGwRrRBUVI",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 61961,
+        "rounds": 5,
+        "retries": 0,
+        "totalDurationSec": 36.338,
+        "sessionDurationSec": 36.309,
+        "verifyDurationSec": 0.029,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "captured",
+          "artifact": "context-packet.txt",
+          "sha256": "7d46860a920aaba0fc5b3dc0706f988afb538b88cf68b75f4a9b3edff0e8b640",
+          "bytes": 1148
+        },
+        "contextPrepMs": 33,
+        "contextPackets": 1
+      },
+      {
+        "id": "stage5-21-confirm-r2-b/run-03",
+        "sessionID": "ses_f31cab646ffefYpTwzIB1FfJC5",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 64881,
+        "rounds": 5,
+        "retries": 0,
+        "totalDurationSec": 42.651,
+        "sessionDurationSec": 42.616,
+        "verifyDurationSec": 0.034,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "captured",
+          "artifact": "context-packet.txt",
+          "sha256": "7d46860a920aaba0fc5b3dc0706f988afb538b88cf68b75f4a9b3edff0e8b640",
+          "bytes": 1148
+        },
+        "contextPrepMs": 26,
+        "contextPackets": 1
+      },
+      {
+        "id": "stage5-21-confirm-r2-b/run-04",
+        "sessionID": "ses_f31ca0ee6ffe7LzEhwxxtecxCm",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 75958,
+        "rounds": 6,
+        "retries": 0,
+        "totalDurationSec": 52.967,
+        "sessionDurationSec": 52.934,
+        "verifyDurationSec": 0.031,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "captured",
+          "artifact": "context-packet.txt",
+          "sha256": "7d46860a920aaba0fc5b3dc0706f988afb538b88cf68b75f4a9b3edff0e8b640",
+          "bytes": 1148
+        },
+        "contextPrepMs": 29,
+        "contextPackets": 1
+      },
+      {
+        "id": "stage5-21-confirm-r2-b/run-05",
+        "sessionID": "ses_f31c83287ffen3ecObSdLmDbJh",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 62347,
+        "rounds": 5,
+        "retries": 0,
+        "totalDurationSec": 26.338,
+        "sessionDurationSec": 26.307,
+        "verifyDurationSec": 0.03,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "captured",
+          "artifact": "context-packet.txt",
+          "sha256": "7d46860a920aaba0fc5b3dc0706f988afb538b88cf68b75f4a9b3edff0e8b640",
+          "bytes": 1148
+        },
+        "contextPrepMs": 28,
+        "contextPackets": 1
+      }
+    ],
+    "AA": [
+      {
+        "id": "stage5-21-confirm-r2-aa/run-01",
+        "sessionID": "ses_f31cd0677ffeEMLoD2ynIZUsal",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 87786,
+        "rounds": 7,
+        "retries": 0,
+        "totalDurationSec": 37.857,
+        "sessionDurationSec": 37.816,
+        "verifyDurationSec": 0.039,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      },
+      {
+        "id": "stage5-21-confirm-r2-aa/run-02",
+        "sessionID": "ses_f31c7cabeffe2OwQAJ5Z4AGile",
+        "valid": true,
+        "issues": [],
+        "verifyPass": true,
+        "tokens": 84885,
+        "rounds": 7,
+        "retries": 0,
+        "totalDurationSec": 47.726,
+        "sessionDurationSec": 47.693,
+        "verifyDurationSec": 0.031,
+        "usageCoverage": "partial",
+        "titleTokens": null,
+        "packetCapture": {
+          "status": "context-off"
+        },
+        "contextPrepMs": 0,
+        "contextPackets": 0
+      }
+    ]
+  },
+  "verdict": {
+    "status": "INCONCLUSIVE",
+    "gates": {
+      "savings25": false,
+      "bootstrapPositive": true,
+      "beyondAADrift": true,
+      "retries": true,
+      "rounds": true
+    },
+    "tokenSavingsPct": 22.624361679754056,
+    "bootstrap": {
+      "samples": 3125,
+      "lowerPct": 18.236599903966287,
+      "upperPct": 26.51515320396357
+    },
+    "aaDriftPct": [
+      3.721575401542143,
+      0.2939640484804329
+    ],
+    "maxAbsAADriftPct": 3.721575401542143,
+    "roundsChangePct": -23.529411764705877,
+    "retriesChangePerTask": 0,
+    "durationChangePct": 6.258382946237817,
+    "latencyFlag": false,
+    "totals": {
+      "aTokens": 423181,
+      "bTokens": 327439
+    },
+    "pairs": [
+      {
+        "pair": 1,
+        "aTokens": 74056,
+        "bTokens": 62292,
+        "savingPct": 15.885276007345794,
+        "aDurationSec": 42.927,
+        "bDurationSec": 42.138
+      },
+      {
+        "pair": 2,
+        "aTokens": 87365,
+        "bTokens": 61961,
+        "savingPct": 29.078006066502603,
+        "aDurationSec": 38.902,
+        "bDurationSec": 36.338
+      },
+      {
+        "pair": 3,
+        "aTokens": 87578,
+        "bTokens": 64881,
+        "savingPct": 25.916326017949707,
+        "aDurationSec": 38.117,
+        "bDurationSec": 42.651
+      },
+      {
+        "pair": 4,
+        "aTokens": 98699,
+        "bTokens": 75958,
+        "savingPct": 23.040760291390995,
+        "aDurationSec": 35.909,
+        "bDurationSec": 52.967
+      },
+      {
+        "pair": 5,
+        "aTokens": 75483,
+        "bTokens": 62347,
+        "savingPct": 17.40259396155426,
+        "aDurationSec": 32.772,
+        "bDurationSec": 26.338
+      }
+    ]
+  },
+  "coverage": {
+    "coding": true,
+    "allCall": "unavailable: installed host omits title-call usage"
+  }
+}

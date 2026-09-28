@@ -1,0 +1,4971 @@
+{
+  "schemaVersion": 1,
+  "labels": [
+    "stage5-v3-a",
+    "stage5-v3-b",
+    "stage5-v3-aa"
+  ],
+  "errors": [],
+  "limitations": [
+    "One title llm.call per run has no assistant.completed/step_finish token record; totals cover recorded coding completions, not all requested inference.",
+    "durationMs covers the OpenCode subprocess including packet prep and in-session verification; excludes the independent post-run harness verification.",
+    "Telemetry stores packet file lists/bytes/decisions, not original packet text; missing exact content cannot be recovered from these artifacts.",
+    "Completion telemetry lacks message IDs; duplicate checks use exact events and output step IDs plus full token-vector multiset reconciliation."
+  ],
+  "summary": {
+    "runs": 36,
+    "verified": 36,
+    "reconciled": 36,
+    "unmeteredSmallCalls": 36,
+    "codingCompletions": 180,
+    "failedVerifyTools": 0,
+    "recordedPremiumCalls": 0,
+    "bSelectorMatches": 17
+  },
+  "rows": [
+    {
+      "label": "stage5-v3-a",
+      "fixture": "02-routine-bug",
+      "run": 1,
+      "sessionID": "ses_f32321a09ffev2FjrsovzmCwse",
+      "source": "benchmarks/results/stage5-v3-a/02-routine-bug/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "26f12a10090c41a65aaa438a14f826f2a9b33531dc1e99f725fd9d493a44447a",
+      "outputSha256": "26302f450ef66aeaa87a08daec8fb98b60e78a19498b97914ae162b6f1449f04",
+      "telemetrySources": [
+        {
+          "file": "workspace-76b3c3.jsonl",
+          "sha256": "0d3ca64b80a88f99d42d6918efc0905af9831d0fdc91dcbc4911756841d40534"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 23.11,
+        "tokensIn": 15862,
+        "tokensInPlusCache": 46902,
+        "tokensTotal": 47151,
+        "tokensOut": 249,
+        "cacheRead": 31040,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 15862,
+          "output": 249,
+          "reasoning": 39,
+          "cacheRead": 31040,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 15862,
+          "output": 249,
+          "reasoning": 39,
+          "cacheRead": 31040,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "412663b13be7cd3a77472a488afed4e3d449dc648236c57eca5d219e0c577240",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [],
+      "retrievedRequired": [],
+      "toolWallMs": 164,
+      "outsideToolMs": 22946
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "04-difficult-debug",
+      "run": 1,
+      "sessionID": "ses_f32317627ffeKLBKTzKzCSxvmv",
+      "source": "benchmarks/results/stage5-v3-a/04-difficult-debug/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "7b77986deb71eea22489b56a79ecf38dc21de8cda75849dcb03c99c9ec9dfceb",
+      "outputSha256": "3f6db4e07aa2b7e8dc961c88aba7e01b043b99f81938f0dc3ea4600a58d4cbc9",
+      "telemetrySources": [
+        {
+          "file": "workspace-c73e3f.jsonl",
+          "sha256": "ec1cffa1ceadf309b09acdcc63b7b52291dc29065571465eede98c90ee8299b6"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 25.279,
+        "tokensIn": 5564,
+        "tokensInPlusCache": 49212,
+        "tokensTotal": 49512,
+        "tokensOut": 300,
+        "cacheRead": 43648,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5564,
+          "output": 300,
+          "reasoning": 123,
+          "cacheRead": 43648,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5564,
+          "output": 300,
+          "reasoning": 123,
+          "cacheRead": 43648,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "567569e85e4db638fad5aef08ca7c22360f354d6ae57d83084297680c11ffa8d",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [],
+      "retrievedRequired": [],
+      "toolWallMs": 124,
+      "outsideToolMs": 25155
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "06-ui-status-indicator",
+      "run": 1,
+      "sessionID": "ses_f32401458ffeh5F0WadumjlRp2",
+      "source": "benchmarks/results/stage5-v3-a/06-ui-status-indicator/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "af25f05793de2a30bea8091ef16f5750524c412cd19928c68d4bd6dc24bf75d7",
+      "outputSha256": "cf1a69c493da5d04e0d83d59505bfd2b8bb74f6844c8fc2f77cd375a1eebfa15",
+      "telemetrySources": [
+        {
+          "file": "workspace-bc1c25.jsonl",
+          "sha256": "f2185fcf6aee52dce4077fa3b5701b9e7bb10253d7b14eee4067681cdfdb7429"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 47.02,
+        "tokensIn": 16871,
+        "tokensInPlusCache": 76839,
+        "tokensTotal": 77166,
+        "tokensOut": 327,
+        "cacheRead": 59968,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 7,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 16871,
+          "output": 327,
+          "reasoning": 27,
+          "cacheRead": 59968,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 16871,
+          "output": 327,
+          "reasoning": 27,
+          "cacheRead": 59968,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 830,
+      "outsideToolMs": 46190
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "06-ui-status-indicator",
+      "run": 2,
+      "sessionID": "ses_f323ecd70ffeqDLVWYsrUHl1Zv",
+      "source": "benchmarks/results/stage5-v3-a/06-ui-status-indicator/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "51910789646bab2c5a92af9e06d90614d3db16b758381bedbc90aa17709bedc4",
+      "outputSha256": "0855b8ca2b76203607471ae970e5527bdaf04787deca0dcc5cd01cbbe90941cc",
+      "telemetrySources": [
+        {
+          "file": "workspace-8fb162.jsonl",
+          "sha256": "ba11c6a0dd3ebad6b64c4dc3bf429b6a8192aeb825ee65ae9087fa244e419c6f"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 42.55,
+        "tokensIn": 10696,
+        "tokensInPlusCache": 80200,
+        "tokensTotal": 80663,
+        "tokensOut": 463,
+        "cacheRead": 69504,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 10,
+        "filesRead": 6,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 10696,
+          "output": 463,
+          "reasoning": 107,
+          "cacheRead": 69504,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 10696,
+          "output": 463,
+          "reasoning": 107,
+          "cacheRead": 69504,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 575,
+      "outsideToolMs": 41975
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "06-ui-status-indicator",
+      "run": 3,
+      "sessionID": "ses_f323dcb17ffe9Ffni1C0N3icVf",
+      "source": "benchmarks/results/stage5-v3-a/06-ui-status-indicator/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "eac42a28e46ef44cebaafd8f334197cf5bf97c336f20bd87bf7304844e8f0bed",
+      "outputSha256": "3169641abe37732fbf0495620ae1480616ba0cc82a0539585db8fc13f3f9fb59",
+      "telemetrySources": [
+        {
+          "file": "workspace-29a94f.jsonl",
+          "sha256": "b11a953a4b33b36c17b62addf51b04b6826a6bb7fc593144374c5e57fa5c1811"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 34.2,
+        "tokensIn": 6507,
+        "tokensInPlusCache": 87211,
+        "tokensTotal": 87705,
+        "tokensOut": 494,
+        "cacheRead": 80704,
+        "cost": 0,
+        "llmCalls": 8,
+        "toolCalls": 9,
+        "filesRead": 7,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 7,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 7,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 7,
+        "stepCount": 7,
+        "telemetry": {
+          "input": 6507,
+          "output": 494,
+          "reasoning": 59,
+          "cacheRead": 80704,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6507,
+          "output": 494,
+          "reasoning": 59,
+          "cacheRead": 80704,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 500,
+      "outsideToolMs": 33700
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "07-ui-viewport-clip",
+      "run": 1,
+      "sessionID": "ses_f323c683affeRQBTlxGpuNNu2n",
+      "source": "benchmarks/results/stage5-v3-a/07-ui-viewport-clip/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "f9fca59670feb7d6f093fbc9d8bccfdc2d8ba44a4d4a355b6ded3d50e3d182d2",
+      "outputSha256": "2b08a50e8c3e56c24f22b994374214b8cc0634d39e7387c3f8c70c9b79724a1f",
+      "telemetrySources": [
+        {
+          "file": "workspace-eed2fd.jsonl",
+          "sha256": "0f4db06157206151b8b9f3db9ccf5a77efad61c67b837e1c7f42557e6c4b3076"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 35.691,
+        "tokensIn": 6577,
+        "tokensInPlusCache": 76657,
+        "tokensTotal": 77076,
+        "tokensOut": 419,
+        "cacheRead": 70080,
+        "cost": 0,
+        "llmCalls": 7,
+        "toolCalls": 7,
+        "filesRead": 4,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 6,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 6,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 6,
+        "stepCount": 6,
+        "telemetry": {
+          "input": 6577,
+          "output": 419,
+          "reasoning": 317,
+          "cacheRead": 70080,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6577,
+          "output": 419,
+          "reasoning": 317,
+          "cacheRead": 70080,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "665f255de300b3417c4dffb150028b2ecda04840b1b3ca0c70865b48ec05dc06",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 2003,
+      "outsideToolMs": 33688
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "07-ui-viewport-clip",
+      "run": 2,
+      "sessionID": "ses_f323b5808ffePxNzTR5ly5E9JW",
+      "source": "benchmarks/results/stage5-v3-a/07-ui-viewport-clip/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "ef69cdd65c2a08059a9e90e1d0ae3408cc0d8facd20aec7c5025d537ab231f66",
+      "outputSha256": "7e74eb6b3c79935e357bc0c857fd7bbbae31b8845d277697c793e31461b627e1",
+      "telemetrySources": [
+        {
+          "file": "workspace-12c6cc.jsonl",
+          "sha256": "2acc4e18d85bf793d6805faba4d0872d9932fdf3b94ca06d3be2b3cd0fde7430"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 27.952,
+        "tokensIn": 6148,
+        "tokensInPlusCache": 63044,
+        "tokensTotal": 63428,
+        "tokensOut": 384,
+        "cacheRead": 56896,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 6,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 6148,
+          "output": 384,
+          "reasoning": 193,
+          "cacheRead": 56896,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6148,
+          "output": 384,
+          "reasoning": 193,
+          "cacheRead": 56896,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "665f255de300b3417c4dffb150028b2ecda04840b1b3ca0c70865b48ec05dc06",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 2295,
+      "outsideToolMs": 25657
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "07-ui-viewport-clip",
+      "run": 3,
+      "sessionID": "ses_f323a66f6ffeEwAU69zBPZe8VK",
+      "source": "benchmarks/results/stage5-v3-a/07-ui-viewport-clip/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "dd2dc74d51b10b1c0ee2a836e002d76ab5403972ad40ca663096113b88eba80b",
+      "outputSha256": "50e3d4e20f3d5b3920f642ce58050fa0d97a379699d13087c2977348f14c820a",
+      "telemetrySources": [
+        {
+          "file": "workspace-914c5c.jsonl",
+          "sha256": "07bf2966d568cb6f4d879e6c0c5b2d6dac2cded023a40853089702527eca2ed7"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 30.683,
+        "tokensIn": 5787,
+        "tokensInPlusCache": 62107,
+        "tokensTotal": 62518,
+        "tokensOut": 411,
+        "cacheRead": 56320,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 6,
+        "filesRead": 4,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 5787,
+          "output": 411,
+          "reasoning": 59,
+          "cacheRead": 56320,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5787,
+          "output": 411,
+          "reasoning": 59,
+          "cacheRead": 56320,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "665f255de300b3417c4dffb150028b2ecda04840b1b3ca0c70865b48ec05dc06",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 2259,
+      "outsideToolMs": 28424
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "08-ui-state-handling",
+      "run": 1,
+      "sessionID": "ses_f32397ca9ffebX2eciIsxu67zt",
+      "source": "benchmarks/results/stage5-v3-a/08-ui-state-handling/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "d4e74fcd6b47b080cc8b46fe7b941ddbc5cf2083f9b93e7cc741ad572ddf01df",
+      "outputSha256": "0bdef18d8c432572e9eac4de80dc56d230957a4133647fc7f65352bf2d1e3eea",
+      "telemetrySources": [
+        {
+          "file": "workspace-fe83ba.jsonl",
+          "sha256": "e75baa241a44594d44c38580ceaeccfff6a5955eefb088bfbd0cd69924db5001"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 21.157,
+        "tokensIn": 9829,
+        "tokensInPlusCache": 77541,
+        "tokensTotal": 77899,
+        "tokensOut": 358,
+        "cacheRead": 67712,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 7,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 9829,
+          "output": 358,
+          "reasoning": 130,
+          "cacheRead": 67712,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 9829,
+          "output": 358,
+          "reasoning": 130,
+          "cacheRead": 67712,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "3ee165889b77928523f3b25896b5b4c37e8df4e90f7d6ead561fa6c91d46a718",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 470,
+      "outsideToolMs": 20687
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "08-ui-state-handling",
+      "run": 2,
+      "sessionID": "ses_f3238ca93ffeUvbDZp0NZ7ITow",
+      "source": "benchmarks/results/stage5-v3-a/08-ui-state-handling/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "78b195822dc5c6362a6f3604bc714f82f43c012df35c6ba521885c6368fe6325",
+      "outputSha256": "c5aade1eee4ee24ea03e40291823c220f04faa00dd8c7e2a7669c0e638890569",
+      "telemetrySources": [
+        {
+          "file": "workspace-4985dc.jsonl",
+          "sha256": "e1303fdff5ada00ae4dfe9b1a12fafce9b3c5dbced10477953c216c377620432"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 23.81,
+        "tokensIn": 6096,
+        "tokensInPlusCache": 74832,
+        "tokensTotal": 75173,
+        "tokensOut": 341,
+        "cacheRead": 68736,
+        "cost": 0,
+        "llmCalls": 7,
+        "toolCalls": 7,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 6,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 6,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 6,
+        "stepCount": 6,
+        "telemetry": {
+          "input": 6096,
+          "output": 341,
+          "reasoning": 76,
+          "cacheRead": 68736,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6096,
+          "output": 341,
+          "reasoning": 76,
+          "cacheRead": 68736,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "3ee165889b77928523f3b25896b5b4c37e8df4e90f7d6ead561fa6c91d46a718",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 473,
+      "outsideToolMs": 23337
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "08-ui-state-handling",
+      "run": 3,
+      "sessionID": "ses_f3237d5f2ffemKkMEwY0nBBQ95",
+      "source": "benchmarks/results/stage5-v3-a/08-ui-state-handling/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "bbb4759a7fda6d49b9f3aeb16c3d18ccc4fa4caa08f27bde51006c51c6be9f3a",
+      "outputSha256": "142368bec05f477410a96128f0f24cacc956c1f5cfffefbcce88a172e2054ef3",
+      "telemetrySources": [
+        {
+          "file": "workspace-af8dee.jsonl",
+          "sha256": "60cd1015123f4ef91e49d60795bba081a04c8108ee238e607de0d820e7ca2aaa"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 35.748,
+        "tokensIn": 6605,
+        "tokensInPlusCache": 89677,
+        "tokensTotal": 90007,
+        "tokensOut": 330,
+        "cacheRead": 83072,
+        "cost": 0,
+        "llmCalls": 8,
+        "toolCalls": 7,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 7,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 7,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 7,
+        "stepCount": 7,
+        "telemetry": {
+          "input": 6605,
+          "output": 330,
+          "reasoning": 165,
+          "cacheRead": 83072,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6605,
+          "output": 330,
+          "reasoning": 165,
+          "cacheRead": 83072,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "3ee165889b77928523f3b25896b5b4c37e8df4e90f7d6ead561fa6c91d46a718",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 593,
+      "outsideToolMs": 35155
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "09-ui-shared-style",
+      "run": 1,
+      "sessionID": "ses_f3236e0eeffevIoAYa4497wct8",
+      "source": "benchmarks/results/stage5-v3-a/09-ui-shared-style/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "5ebfb8f64d4e2fb94e132e8abef98c3de2d676be300638b0fd772847f4330da3",
+      "outputSha256": "db4b9e9f28abbb3b7ed8e0aad831f1a32ac21ad4a602fec1d2b836f9f3cc6682",
+      "telemetrySources": [
+        {
+          "file": "workspace-fd2a22.jsonl",
+          "sha256": "349daa2dce230238e85f2654589a3b878a18637af093e6fb588261dc437223b8"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 27.514,
+        "tokensIn": 5616,
+        "tokensInPlusCache": 49456,
+        "tokensTotal": 49879,
+        "tokensOut": 423,
+        "cacheRead": 43840,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 6,
+        "filesRead": 3,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5616,
+          "output": 423,
+          "reasoning": 118,
+          "cacheRead": 43840,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5616,
+          "output": 423,
+          "reasoning": 118,
+          "cacheRead": 43840,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 10405,
+      "outsideToolMs": 17109
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "09-ui-shared-style",
+      "run": 2,
+      "sessionID": "ses_f323596d7ffeALi429OvamusqN",
+      "source": "benchmarks/results/stage5-v3-a/09-ui-shared-style/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "4e21ee9be389d7b6d6c7bd9aa63880ed33a50f9cfffa9fab6133045fa1b8a7f8",
+      "outputSha256": "99fb886eba85c317e5e19129abaa66011df90ca07cd299625bbb8ee69002b652",
+      "telemetrySources": [
+        {
+          "file": "workspace-709b96.jsonl",
+          "sha256": "f32fe625ba55f5da0431c72f76e47629097d3ab7e75cf123b48cddbf35043f46"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 31.575,
+        "tokensIn": 5611,
+        "tokensInPlusCache": 49451,
+        "tokensTotal": 49817,
+        "tokensOut": 366,
+        "cacheRead": 43840,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 6,
+        "filesRead": 3,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5611,
+          "output": 366,
+          "reasoning": 165,
+          "cacheRead": 43840,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5611,
+          "output": 366,
+          "reasoning": 165,
+          "cacheRead": 43840,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 10426,
+      "outsideToolMs": 21149
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "09-ui-shared-style",
+      "run": 3,
+      "sessionID": "ses_f3234195fffekzAc4tnoAxk7Cs",
+      "source": "benchmarks/results/stage5-v3-a/09-ui-shared-style/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "7bacc8307e102757756ac1db09fc6ffe1b46b25e998d68fddfca2ca51981874b",
+      "outputSha256": "50b8e44496881615b50ea7efce666154ab799e750917f1425c6f872da49ffb78",
+      "telemetrySources": [
+        {
+          "file": "workspace-13db5d.jsonl",
+          "sha256": "bc4dab8f00abc00303f94c7c3cbf05f0d707ce3496716765a8bbc35653f91ea2"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 33.698,
+        "tokensIn": 5547,
+        "tokensInPlusCache": 49259,
+        "tokensTotal": 49669,
+        "tokensOut": 410,
+        "cacheRead": 43712,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 6,
+        "filesRead": 3,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5547,
+          "output": 410,
+          "reasoning": 21,
+          "cacheRead": 43712,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5547,
+          "output": 410,
+          "reasoning": 21,
+          "cacheRead": 43712,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 10497,
+      "outsideToolMs": 23201
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "10-git-missing-changes",
+      "run": 1,
+      "sessionID": "ses_f3230c752ffeXAOf6O0XcZelGt",
+      "source": "benchmarks/results/stage5-v3-a/10-git-missing-changes/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "3a0bd9a306da62b79c32f37a58432107e68327dac596d119429e9b1b999cb3ad",
+      "outputSha256": "b67efbfef90838806d6f326483564429484f53a9bb01d4784efff1d212aedadd",
+      "telemetrySources": [
+        {
+          "file": "workspace-cbcbf5.jsonl",
+          "sha256": "f6150ba0327d28230ea1f5ec0f304a86746c62fa50053876fdd26220cc2a6baa"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 36.912,
+        "tokensIn": 5691,
+        "tokensInPlusCache": 60411,
+        "tokensTotal": 60748,
+        "tokensOut": 337,
+        "cacheRead": 54720,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 5,
+        "filesRead": 1,
+        "filesEdited": 0,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 5691,
+          "output": 337,
+          "reasoning": 460,
+          "cacheRead": 54720,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5691,
+          "output": 337,
+          "reasoning": 460,
+          "cacheRead": 54720,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "16fccf50e8d733e6c68f552f9913ec2ca43d4a5c9d581f03595e396bf34d9b1f",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "config.js",
+        "release-notes.md"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 545,
+      "outsideToolMs": 36367
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "19-repository-refactor",
+      "run": 1,
+      "sessionID": "ses_f322fb612ffeytxUUvFmL7wrch",
+      "source": "benchmarks/results/stage5-v3-a/19-repository-refactor/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "357caea3167c8cae4fb22e285bb929d48320291e9385981bdca7af8afe660d84",
+      "outputSha256": "2e3013c8743baa0548dff733fd7295189f82a7ce599243fb80f59e8c6ec9222e",
+      "telemetrySources": [
+        {
+          "file": "workspace-81129b.jsonl",
+          "sha256": "1fade52740991a7b9da82c66bd567b9ddc6f3a8669ffcf2c0311f3db211666ed"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 29.17,
+        "tokensIn": 6555,
+        "tokensInPlusCache": 88731,
+        "tokensTotal": 89390,
+        "tokensOut": 659,
+        "cacheRead": 82176,
+        "cost": 0,
+        "llmCalls": 8,
+        "toolCalls": 13,
+        "filesRead": 7,
+        "filesEdited": 3,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 7,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 7,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 7,
+        "stepCount": 7,
+        "telemetry": {
+          "input": 6555,
+          "output": 659,
+          "reasoning": 487,
+          "cacheRead": 82176,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6555,
+          "output": 659,
+          "reasoning": 487,
+          "cacheRead": 82176,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "37f5f2a6a6bf261ace6b54158c10dd156abfc9a6996b082f0e0b5748d33f23b4",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 282,
+      "outsideToolMs": 28888
+    },
+    {
+      "label": "stage5-v3-a",
+      "fixture": "21-dependency-upgrade",
+      "run": 1,
+      "sessionID": "ses_f322e7efdffe0lojfArnUgDvDz",
+      "source": "benchmarks/results/stage5-v3-a/21-dependency-upgrade/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-a",
+      "runSha256": "f7e2dc8253af08a03050c579bb92a2294c33644c9d73748cbd670d9cec344cf1",
+      "outputSha256": "337f55a59092d91cffb1d58ed1ef525736058062c9ceb44af5f5504c0a55050c",
+      "telemetrySources": [
+        {
+          "file": "workspace-8d4318.jsonl",
+          "sha256": "b56102c6d110f293a8a50eefe321225bdae9d8224d7bfc12fcf2ee4a5d2cfad6"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 57.077,
+        "tokensIn": 6642,
+        "tokensInPlusCache": 113138,
+        "tokensTotal": 114048,
+        "tokensOut": 910,
+        "cacheRead": 106496,
+        "cost": 0,
+        "llmCalls": 10,
+        "toolCalls": 16,
+        "filesRead": 14,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 9,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 9,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 9,
+        "stepCount": 9,
+        "telemetry": {
+          "input": 6642,
+          "output": 910,
+          "reasoning": 274,
+          "cacheRead": 106496,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6642,
+          "output": 910,
+          "reasoning": 274,
+          "cacheRead": 106496,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "a26a06c71075e3ba942af10f0b46cfcb8557bad151d9c0848abf2e05697628e8",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 448,
+      "outsideToolMs": 56629
+    },
+    {
+      "label": "stage5-v3-aa",
+      "fixture": "06-ui-status-indicator",
+      "run": 1,
+      "sessionID": "ses_f323cd8f4ffeOK75U9GRq3md8C",
+      "source": "benchmarks/results/stage5-v3-aa/06-ui-status-indicator/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-aa",
+      "runSha256": "62098bec0dbc084651c34e6e71c155dc2d85a4647792dc7b4a0d83c57ad1f38e",
+      "outputSha256": "47f3decf8cb596ef7502728b03dc71cc5021557c08ec02903f014f5c7693570e",
+      "telemetrySources": [
+        {
+          "file": "workspace-9e1a1a.jsonl",
+          "sha256": "fe8de5fb704e41f6a3b74ea44c2bc22215b1edec433919b2043f5a45adcbfce5"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 27.85,
+        "tokensIn": 10919,
+        "tokensInPlusCache": 80679,
+        "tokensTotal": 81117,
+        "tokensOut": 438,
+        "cacheRead": 69760,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 10,
+        "filesRead": 6,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 10919,
+          "output": 438,
+          "reasoning": 119,
+          "cacheRead": 69760,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 10919,
+          "output": 438,
+          "reasoning": 119,
+          "cacheRead": 69760,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 530,
+      "outsideToolMs": 27320
+    },
+    {
+      "label": "stage5-v3-aa",
+      "fixture": "09-ui-shared-style",
+      "run": 1,
+      "sessionID": "ses_f3232c4b7ffepb0NaQZ7wAH2zf",
+      "source": "benchmarks/results/stage5-v3-aa/09-ui-shared-style/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-aa",
+      "runSha256": "c7c17a6291e8c2283ebdd093d77b1974717cbd61bca7ab656b12b0115fffbd2e",
+      "outputSha256": "5d83b998d53fe5bdec5a2376087a07eb49063a51ad0542e64172142d274ce698",
+      "telemetrySources": [
+        {
+          "file": "workspace-0c1ebc.jsonl",
+          "sha256": "cec5c49d4e4e8291d97c902189b239acecf128a590f7e666272de54b9be00e9f"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "off",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 33.562,
+        "tokensIn": 6096,
+        "tokensInPlusCache": 63056,
+        "tokensTotal": 63468,
+        "tokensOut": 412,
+        "cacheRead": 56960,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 7,
+        "filesRead": 4,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 6096,
+          "output": 412,
+          "reasoning": 253,
+          "cacheRead": 56960,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6096,
+          "output": 412,
+          "reasoning": 253,
+          "cacheRead": 56960,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [],
+      "packets": [],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 10476,
+      "outsideToolMs": 23086
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "02-routine-bug",
+      "run": 1,
+      "sessionID": "ses_f3231bf4bffeq1qCojlPYB1Yvw",
+      "source": "benchmarks/results/stage5-v3-b/02-routine-bug/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "344103d9ac42cb55dcf3af6b50dec4bf5526d32034edf9a7a9ff2f362e51cc71",
+      "outputSha256": "e3b39a659d933e8f097682207d988f8d6a920cd232b7a3cb54d707faf004504d",
+      "telemetrySources": [
+        {
+          "file": "workspace-d4c01c.jsonl",
+          "sha256": "be9f750961cd9b59ddfc7a41c391395dce9be5a30f1f0beb86ad32f17a36b668"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 18.621,
+        "tokensIn": 4802,
+        "tokensInPlusCache": 46850,
+        "tokensTotal": 47079,
+        "tokensOut": 229,
+        "cacheRead": 42048,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 4802,
+          "output": 229,
+          "reasoning": 33,
+          "cacheRead": 42048,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 4802,
+          "output": 229,
+          "reasoning": 33,
+          "cacheRead": 42048,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "412663b13be7cd3a77472a488afed4e3d449dc648236c57eca5d219e0c577240",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "skip",
+          "reason": "explicit-single-target",
+          "named": [
+            "src/slugify.js"
+          ],
+          "candidates": [
+            "src/slugify.js"
+          ]
+        }
+      ],
+      "packets": [],
+      "requiredFiles": [],
+      "retrievedRequired": [],
+      "toolWallMs": 138,
+      "outsideToolMs": 18483
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "04-difficult-debug",
+      "run": 1,
+      "sessionID": "ses_f323112daffePkf32UWoBGrdl9",
+      "source": "benchmarks/results/stage5-v3-b/04-difficult-debug/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "fc6288cd17c5324ce5766e1f0cdb32f14c15d8ad978c0c56ff24fd2a515dc4e6",
+      "outputSha256": "8af9acd03789fd2c335f4e8ab5d988039d1d4cf84486eb6b04d06c923f2b628c",
+      "telemetrySources": [
+        {
+          "file": "workspace-993bf2.jsonl",
+          "sha256": "29b09eafc7496e7c90edd5f83e414b8006c9077acec3672250d7f5d41c965e6e"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 19.194,
+        "tokensIn": 5626,
+        "tokensInPlusCache": 49274,
+        "tokensTotal": 49579,
+        "tokensOut": 305,
+        "cacheRead": 43648,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5626,
+          "output": 305,
+          "reasoning": 156,
+          "cacheRead": 43648,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5626,
+          "output": 305,
+          "reasoning": 156,
+          "cacheRead": 43648,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "567569e85e4db638fad5aef08ca7c22360f354d6ae57d83084297680c11ffa8d",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "skip",
+          "reason": "explicit-single-target",
+          "named": [
+            "src/rate-limiter.js"
+          ],
+          "candidates": [
+            "src/rate-limiter.js"
+          ]
+        }
+      ],
+      "packets": [],
+      "requiredFiles": [],
+      "retrievedRequired": [],
+      "toolWallMs": 125,
+      "outsideToolMs": 19069
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "06-ui-status-indicator",
+      "run": 1,
+      "sessionID": "ses_f323f55ccffe1mFm2EIGl83g4E",
+      "source": "benchmarks/results/stage5-v3-b/06-ui-status-indicator/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "9de5774fd75a5f5f7fe1232b7abd20e9301611aa5e085d4913541f16139aee58",
+      "outputSha256": "342d5b6d8ce0c13a71fa98eace25cc9e576f68b6e515295e6876437259bf388c",
+      "telemetrySources": [
+        {
+          "file": "workspace-65a491.jsonl",
+          "sha256": "0f06ac21382dfe4452a31d30018592a73adea7df509869389fe65769fff77c24"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 33.103,
+        "tokensIn": 13859,
+        "tokensInPlusCache": 52835,
+        "tokensTotal": 53323,
+        "tokensOut": 488,
+        "cacheRead": 38976,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 6,
+        "filesRead": 3,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 2106,
+        "contextPrepMs": 49,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 13859,
+          "output": 488,
+          "reasoning": 345,
+          "cacheRead": 38976,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 13859,
+          "output": 488,
+          "reasoning": 345,
+          "cacheRead": 38976,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "styles.css",
+            "src/panels/billingPanel.js",
+            "src/panels/notificationsPanel.js",
+            "src/panels/systemPanel.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 2106,
+          "prepMs": 49,
+          "files": [
+            "styles.css",
+            "src/panels/billingPanel.js",
+            "src/panels/notificationsPanel.js",
+            "src/panels/systemPanel.js"
+          ],
+          "searchedPatterns": 5,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 1,
+            "quoted": 4,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [
+        "src/panels/systemPanel.js"
+      ],
+      "toolWallMs": 552,
+      "outsideToolMs": 32551
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "06-ui-status-indicator",
+      "run": 2,
+      "sessionID": "ses_f323e2003ffeg3mZ37f5pYtmG7",
+      "source": "benchmarks/results/stage5-v3-b/06-ui-status-indicator/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "16fde55cbdb518bc28688a65f2263e49ad2518825ae22078360e4b4072e6b907",
+      "outputSha256": "edaeb9ef18bc01a6d6704a82987de551a8cb9474207ef83dbbf0876262f7baf8",
+      "telemetrySources": [
+        {
+          "file": "workspace-3e1068.jsonl",
+          "sha256": "4fb3369bcb74153a570f50045aadbd5fdf1d0a058a1ff55a3da84c3d64f345f5"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 20.046,
+        "tokensIn": 5500,
+        "tokensInPlusCache": 49852,
+        "tokensTotal": 50142,
+        "tokensOut": 290,
+        "cacheRead": 44352,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 1,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 2106,
+        "contextPrepMs": 51,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5500,
+          "output": 290,
+          "reasoning": 43,
+          "cacheRead": 44352,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5500,
+          "output": 290,
+          "reasoning": 43,
+          "cacheRead": 44352,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "styles.css",
+            "src/panels/billingPanel.js",
+            "src/panels/notificationsPanel.js",
+            "src/panels/systemPanel.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 2106,
+          "prepMs": 51,
+          "files": [
+            "styles.css",
+            "src/panels/billingPanel.js",
+            "src/panels/notificationsPanel.js",
+            "src/panels/systemPanel.js"
+          ],
+          "searchedPatterns": 5,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 1,
+            "quoted": 4,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [
+        "src/panels/systemPanel.js"
+      ],
+      "toolWallMs": 538,
+      "outsideToolMs": 19508
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "06-ui-status-indicator",
+      "run": 3,
+      "sessionID": "ses_f323d3ef8ffeR8azUMVqS1rMDb",
+      "source": "benchmarks/results/stage5-v3-b/06-ui-status-indicator/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "ac5f7185744b83b537b289ba8dfb383599b1c93e1fd446114fc5a3f9716ab647",
+      "outputSha256": "2feb016e41948e4f3146f668c155ce183cdc1e7b242825e8a5a96c289e938025",
+      "telemetrySources": [
+        {
+          "file": "workspace-d171e4.jsonl",
+          "sha256": "29fdb69a396ff2b0d58cd7736423584019290f831523b990f2f39ce21c78cc9a"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 24.524,
+        "tokensIn": 6461,
+        "tokensInPlusCache": 65341,
+        "tokensTotal": 65699,
+        "tokensOut": 358,
+        "cacheRead": 58880,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 5,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 2106,
+        "contextPrepMs": 41,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 6461,
+          "output": 358,
+          "reasoning": 276,
+          "cacheRead": 58880,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6461,
+          "output": 358,
+          "reasoning": 276,
+          "cacheRead": 58880,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "11a538069ee787651fb0f8f5f491c37d9681aa545da667538330b11d95016d31",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "styles.css",
+            "src/panels/billingPanel.js",
+            "src/panels/notificationsPanel.js",
+            "src/panels/systemPanel.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 2106,
+          "prepMs": 41,
+          "files": [
+            "styles.css",
+            "src/panels/billingPanel.js",
+            "src/panels/notificationsPanel.js",
+            "src/panels/systemPanel.js"
+          ],
+          "searchedPatterns": 5,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 1,
+            "quoted": 4,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "retrievedRequired": [
+        "src/panels/systemPanel.js"
+      ],
+      "toolWallMs": 461,
+      "outsideToolMs": 24063
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "07-ui-viewport-clip",
+      "run": 1,
+      "sessionID": "ses_f323bd0f6ffeKaZRa5QSKWVUUI",
+      "source": "benchmarks/results/stage5-v3-b/07-ui-viewport-clip/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "2cc6319bf873d2cea0158ea36329d129aadaa145ac9726d5c0752387d9bbc017",
+      "outputSha256": "87297729cfed1a2a7a2b1c12d12f89f049bdb6692d2f52ad4cd440bbfad3e04b",
+      "telemetrySources": [
+        {
+          "file": "workspace-745288.jsonl",
+          "sha256": "c47ff9cbe00e03a3578ff6512a552e0aed37e3d564fd2f2e0d120af263f46094"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 29.954,
+        "tokensIn": 6334,
+        "tokensInPlusCache": 51966,
+        "tokensTotal": 52318,
+        "tokensOut": 352,
+        "cacheRead": 45632,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1633,
+        "contextPrepMs": 32,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 6334,
+          "output": 352,
+          "reasoning": 433,
+          "cacheRead": 45632,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6334,
+          "output": 352,
+          "reasoning": 433,
+          "cacheRead": 45632,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "665f255de300b3417c4dffb150028b2ecda04840b1b3ca0c70865b48ec05dc06",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "styles.css"
+          ],
+          "candidates": [
+            "index.html"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1633,
+          "prepMs": 32,
+          "files": [
+            "styles.css",
+            "index.html"
+          ],
+          "searchedPatterns": 3,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 2,
+            "quoted": 3,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "retrievedRequired": [
+        "styles.css"
+      ],
+      "toolWallMs": 2393,
+      "outsideToolMs": 27561
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "07-ui-viewport-clip",
+      "run": 2,
+      "sessionID": "ses_f323ae582ffe3d8mvEXsDOCKML",
+      "source": "benchmarks/results/stage5-v3-b/07-ui-viewport-clip/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "e52e33962ac6cda8d574db72fd95f22f02d714ba896fa0049ffedfeda34f3d66",
+      "outputSha256": "a6cb661f2151b35f664fc6fe6e0f1c1d285ee7421336bbdffda36375abd5528e",
+      "telemetrySources": [
+        {
+          "file": "workspace-367d5a.jsonl",
+          "sha256": "09a219b631005349a5563a6302567100bb3aac276296d53f5e6b2b354005010d"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 31.309,
+        "tokensIn": 5954,
+        "tokensInPlusCache": 51266,
+        "tokensTotal": 51587,
+        "tokensOut": 321,
+        "cacheRead": 45312,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 4,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1633,
+        "contextPrepMs": 57,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5954,
+          "output": 321,
+          "reasoning": 147,
+          "cacheRead": 45312,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5954,
+          "output": 321,
+          "reasoning": 147,
+          "cacheRead": 45312,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "665f255de300b3417c4dffb150028b2ecda04840b1b3ca0c70865b48ec05dc06",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "styles.css"
+          ],
+          "candidates": [
+            "index.html"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1633,
+          "prepMs": 57,
+          "files": [
+            "styles.css",
+            "index.html"
+          ],
+          "searchedPatterns": 3,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 2,
+            "quoted": 3,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "retrievedRequired": [
+        "styles.css"
+      ],
+      "toolWallMs": 2261,
+      "outsideToolMs": 29048
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "07-ui-viewport-clip",
+      "run": 3,
+      "sessionID": "ses_f3239eb83ffeRRCPkzArgnHkzT",
+      "source": "benchmarks/results/stage5-v3-b/07-ui-viewport-clip/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "a8beef235fe9e5471cfe13987fe5c548c3e298df7bc870e1e72e5f431f070872",
+      "outputSha256": "48e83bcba243e85cedd5025df85c6fac672dc5507b659182b762da6606a4f1d3",
+      "telemetrySources": [
+        {
+          "file": "workspace-9cc59e.jsonl",
+          "sha256": "0cb5ba79289f14d2b452a7ecdc471ef4c72f7c1a3f1635058e7dca65e6f9327a"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 26.485,
+        "tokensIn": 6421,
+        "tokensInPlusCache": 65621,
+        "tokensTotal": 66004,
+        "tokensOut": 383,
+        "cacheRead": 59200,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 5,
+        "filesRead": 3,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1633,
+        "contextPrepMs": 61,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 6421,
+          "output": 383,
+          "reasoning": 298,
+          "cacheRead": 59200,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6421,
+          "output": 383,
+          "reasoning": 298,
+          "cacheRead": 59200,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "665f255de300b3417c4dffb150028b2ecda04840b1b3ca0c70865b48ec05dc06",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "styles.css"
+          ],
+          "candidates": [
+            "index.html"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1633,
+          "prepMs": 61,
+          "files": [
+            "styles.css",
+            "index.html"
+          ],
+          "searchedPatterns": 3,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 2,
+            "quoted": 3,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "retrievedRequired": [
+        "styles.css"
+      ],
+      "toolWallMs": 1545,
+      "outsideToolMs": 24940
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "08-ui-state-handling",
+      "run": 1,
+      "sessionID": "ses_f32392406ffeaEl4NMkz0wezpu",
+      "source": "benchmarks/results/stage5-v3-b/08-ui-state-handling/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "7c8e98b2ead021e7d59312500934bf3e384f60726d7973b59030405b6b75d761",
+      "outputSha256": "aaa6b2218f93d1324c5c699ac3db6dbc84db39b236fe0c1151f399e2b893c39a",
+      "telemetrySources": [
+        {
+          "file": "workspace-d987d1.jsonl",
+          "sha256": "d75a3c3e84841e0cd2ebf3d4206e02a7a4d6f6980391a13817daa4c64b9234f4"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 21.504,
+        "tokensIn": 9623,
+        "tokensInPlusCache": 77655,
+        "tokensTotal": 77965,
+        "tokensOut": 310,
+        "cacheRead": 68032,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 5,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1039,
+        "contextPrepMs": 31,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 9623,
+          "output": 310,
+          "reasoning": 117,
+          "cacheRead": 68032,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 9623,
+          "output": 310,
+          "reasoning": 117,
+          "cacheRead": 68032,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "3ee165889b77928523f3b25896b5b4c37e8df4e90f7d6ead561fa6c91d46a718",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "src/statusWidget.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1039,
+          "prepMs": 31,
+          "files": [
+            "src/statusWidget.js"
+          ],
+          "searchedPatterns": 9,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 1,
+            "quoted": 7,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "retrievedRequired": [
+        "src/statusWidget.js"
+      ],
+      "toolWallMs": 391,
+      "outsideToolMs": 21113
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "08-ui-state-handling",
+      "run": 2,
+      "sessionID": "ses_f32386668ffe3U0u8n6ogoardG",
+      "source": "benchmarks/results/stage5-v3-b/08-ui-state-handling/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "6b8f499901a5f43a34fb670284cb3aea8e85e712bc142039a8120e02c0a9936b",
+      "outputSha256": "bd37f2a47b3a79c31ee7403c1c15d4c722f05709a025474c81c569becf5bc620",
+      "telemetrySources": [
+        {
+          "file": "workspace-9a3e0d.jsonl",
+          "sha256": "9e1b4546a53d75d3bda428c1b9099f174db8f0b6c2dd8331c3bb7cc7126ecacb"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 35.507,
+        "tokensIn": 5247,
+        "tokensInPlusCache": 48511,
+        "tokensTotal": 48766,
+        "tokensOut": 255,
+        "cacheRead": 43264,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 3,
+        "filesRead": 1,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1039,
+        "contextPrepMs": 30,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5247,
+          "output": 255,
+          "reasoning": 133,
+          "cacheRead": 43264,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5247,
+          "output": 255,
+          "reasoning": 133,
+          "cacheRead": 43264,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "3ee165889b77928523f3b25896b5b4c37e8df4e90f7d6ead561fa6c91d46a718",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "src/statusWidget.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1039,
+          "prepMs": 30,
+          "files": [
+            "src/statusWidget.js"
+          ],
+          "searchedPatterns": 9,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 1,
+            "quoted": 7,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "retrievedRequired": [
+        "src/statusWidget.js"
+      ],
+      "toolWallMs": 443,
+      "outsideToolMs": 35064
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "08-ui-state-handling",
+      "run": 3,
+      "sessionID": "ses_f3237434effeQlPozkv7w4MY0M",
+      "source": "benchmarks/results/stage5-v3-b/08-ui-state-handling/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "7e90066c150ae8b3f329105dd3b6fb0d03c2e1eb87d07937203974960fb33e9b",
+      "outputSha256": "43633b9d5e3fb3f22946994cd38b1406e63447b1a94cfa945fb77a3371dcdbbe",
+      "telemetrySources": [
+        {
+          "file": "workspace-7b5f49.jsonl",
+          "sha256": "1629d1dfc82398a113078dcff6616301eed6e73efa525f4a8fca75bee1c5032f"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 23.624,
+        "tokensIn": 5944,
+        "tokensInPlusCache": 62840,
+        "tokensTotal": 63178,
+        "tokensOut": 338,
+        "cacheRead": 56896,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 5,
+        "filesRead": 2,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1039,
+        "contextPrepMs": 30,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 5944,
+          "output": 338,
+          "reasoning": 87,
+          "cacheRead": 56896,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5944,
+          "output": 338,
+          "reasoning": 87,
+          "cacheRead": 56896,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "3ee165889b77928523f3b25896b5b4c37e8df4e90f7d6ead561fa6c91d46a718",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "src/statusWidget.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1039,
+          "prepMs": 30,
+          "files": [
+            "src/statusWidget.js"
+          ],
+          "searchedPatterns": 9,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 1,
+            "quoted": 7,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "retrievedRequired": [
+        "src/statusWidget.js"
+      ],
+      "toolWallMs": 447,
+      "outsideToolMs": 23177
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "09-ui-shared-style",
+      "run": 1,
+      "sessionID": "ses_f32364602ffe4v9OkuCqkpu755",
+      "source": "benchmarks/results/stage5-v3-b/09-ui-shared-style/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "76848ac79b5ba75491507e0618974e3fb7f551f4ed21ea1999c4f6b91aab726a",
+      "outputSha256": "c528e84c54184f2fcd37e3cc6afee2bafee1867395e4f46839f4484a14ba2197",
+      "telemetrySources": [
+        {
+          "file": "workspace-6b37c7.jsonl",
+          "sha256": "c08b3cb499552ed9031b798e3dc6e53be994dfdd090db060405536bfc94dc08a"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 33.233,
+        "tokensIn": 9805,
+        "tokensInPlusCache": 79117,
+        "tokensTotal": 79469,
+        "tokensOut": 352,
+        "cacheRead": 69312,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 6,
+        "filesRead": 2,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 2388,
+        "contextPrepMs": 33,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 9805,
+          "output": 352,
+          "reasoning": 380,
+          "cacheRead": 69312,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 9805,
+          "output": 352,
+          "reasoning": 380,
+          "cacheRead": 69312,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "styles/cards.css",
+            "src/render.js"
+          ],
+          "candidates": [
+            "index.html",
+            "src/render.js",
+            "styles/cards.css"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 2388,
+          "prepMs": 33,
+          "files": [
+            "styles/cards.css",
+            "src/render.js",
+            "index.html"
+          ],
+          "searchedPatterns": 10,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 3,
+            "quoted": 7,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "toolWallMs": 10716,
+      "outsideToolMs": 22517
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "09-ui-shared-style",
+      "run": 2,
+      "sessionID": "ses_f3234edd5ffedrCYnfeWitIciX",
+      "source": "benchmarks/results/stage5-v3-b/09-ui-shared-style/run-02",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "15dcce540978dd11b719039946b02316252a7ff1865adddac22a49012e6ad790",
+      "outputSha256": "df83cb6833faff3cf737b0e63e250a952d39fa1590de97acd11dec1cdb207b60",
+      "telemetrySources": [
+        {
+          "file": "workspace-09085b.jsonl",
+          "sha256": "62c7ad24612153ee363537ece2af4b22887880a2e3d3582f4337dcc6659d75c9"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 42.654,
+        "tokensIn": 5979,
+        "tokensInPlusCache": 51419,
+        "tokensTotal": 51750,
+        "tokensOut": 331,
+        "cacheRead": 45440,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 5,
+        "filesRead": 2,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 2388,
+        "contextPrepMs": 31,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 5979,
+          "output": 331,
+          "reasoning": 186,
+          "cacheRead": 45440,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5979,
+          "output": 331,
+          "reasoning": 186,
+          "cacheRead": 45440,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "styles/cards.css",
+            "src/render.js"
+          ],
+          "candidates": [
+            "index.html",
+            "src/render.js",
+            "styles/cards.css"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 2388,
+          "prepMs": 31,
+          "files": [
+            "styles/cards.css",
+            "src/render.js",
+            "index.html"
+          ],
+          "searchedPatterns": 10,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 3,
+            "quoted": 7,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "toolWallMs": 10518,
+      "outsideToolMs": 32136
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "09-ui-shared-style",
+      "run": 3,
+      "sessionID": "ses_f3233680cffeQChjriynVojSKH",
+      "source": "benchmarks/results/stage5-v3-b/09-ui-shared-style/run-03",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "541b11af152a665138d677290c334c20c178848d2cd70e43afc7e61783c7f411",
+      "outputSha256": "a0e828831809274879c4e6f74573cec1a50d9ade64d1e937f54bdd1af0eb0393",
+      "telemetrySources": [
+        {
+          "file": "workspace-be5aae.jsonl",
+          "sha256": "4f1e485da7d05f46274ce2399292a389a3791f0f7549e42354cc498a0e92dc77"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 29.836,
+        "tokensIn": 6559,
+        "tokensInPlusCache": 52895,
+        "tokensTotal": 53306,
+        "tokensOut": 411,
+        "cacheRead": 46336,
+        "cost": 0,
+        "llmCalls": 5,
+        "toolCalls": 6,
+        "filesRead": 3,
+        "filesEdited": 2,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 4,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 4,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 2388,
+        "contextPrepMs": 30,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 4,
+        "stepCount": 4,
+        "telemetry": {
+          "input": 6559,
+          "output": 411,
+          "reasoning": 350,
+          "cacheRead": 46336,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6559,
+          "output": 411,
+          "reasoning": 350,
+          "cacheRead": 46336,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "de0f1b7ec27acf75fee44cbd5f6ff2520c99a915c72a1a89394e716650f8454c",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "styles/cards.css",
+            "src/render.js"
+          ],
+          "candidates": [
+            "index.html",
+            "src/render.js",
+            "styles/cards.css"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 2388,
+          "prepMs": 30,
+          "files": [
+            "styles/cards.css",
+            "src/render.js",
+            "index.html"
+          ],
+          "searchedPatterns": 10,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 3,
+            "quoted": 7,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "retrievedRequired": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "toolWallMs": 10426,
+      "outsideToolMs": 19410
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "10-git-missing-changes",
+      "run": 1,
+      "sessionID": "ses_f323035beffebw3GE1LeaBxxl9",
+      "source": "benchmarks/results/stage5-v3-b/10-git-missing-changes/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "d3b72cd3ddded7048847bfcf516776730d16b2e9161f02c744fed3d5eec85c8f",
+      "outputSha256": "0286d2e403688b4fc927898ce21bcbe8acc3c43a8652e3c29bcc339d673af19e",
+      "telemetrySources": [
+        {
+          "file": "workspace-c3b4e9.jsonl",
+          "sha256": "3df054cc0f1b38fb6d538933e85a4acd424735bad1f0ab1c66e69bdaa3032831"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 32.574,
+        "tokensIn": 5675,
+        "tokensInPlusCache": 72555,
+        "tokensTotal": 72879,
+        "tokensOut": 324,
+        "cacheRead": 66880,
+        "cost": 0,
+        "llmCalls": 7,
+        "toolCalls": 6,
+        "filesRead": 1,
+        "filesEdited": 0,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 6,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 6,
+        "retriesFailed": 0,
+        "contextPackets": 0,
+        "contextBytes": 0,
+        "contextPrepMs": 0,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 6,
+        "stepCount": 6,
+        "telemetry": {
+          "input": 5675,
+          "output": 324,
+          "reasoning": 533,
+          "cacheRead": 66880,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 5675,
+          "output": 324,
+          "reasoning": 533,
+          "cacheRead": 66880,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "16fccf50e8d733e6c68f552f9913ec2ca43d4a5c9d581f03595e396bf34d9b1f",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "skip",
+          "reason": "git-intent"
+        }
+      ],
+      "packets": [],
+      "requiredFiles": [
+        "config.js",
+        "release-notes.md"
+      ],
+      "retrievedRequired": [],
+      "toolWallMs": 594,
+      "outsideToolMs": 31980
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "19-repository-refactor",
+      "run": 1,
+      "sessionID": "ses_f322f42a3ffebqHL2hVL2fwbI5",
+      "source": "benchmarks/results/stage5-v3-b/19-repository-refactor/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "390aa7e685cfb3f40537c0c7cffe6652d6031c1b15b59464ff92d92b4e5d183a",
+      "outputSha256": "ed3a584cb31db2338e32e2a509f8ae407e5ef8fd19862100ad2e4e2a238a551a",
+      "telemetrySources": [
+        {
+          "file": "workspace-cd565a.jsonl",
+          "sha256": "3636117345246883c0d443a944b1ef4c28169556ee746632f24995fba523528f"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 49.794,
+        "tokensIn": 13709,
+        "tokensInPlusCache": 76301,
+        "tokensTotal": 76965,
+        "tokensOut": 664,
+        "cacheRead": 62592,
+        "cost": 0,
+        "llmCalls": 7,
+        "toolCalls": 11,
+        "filesRead": 6,
+        "filesEdited": 3,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 6,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 6,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 601,
+        "contextPrepMs": 29,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 6,
+        "stepCount": 6,
+        "telemetry": {
+          "input": 13709,
+          "output": 664,
+          "reasoning": 822,
+          "cacheRead": 62592,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 13709,
+          "output": 664,
+          "reasoning": 822,
+          "cacheRead": 62592,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "37f5f2a6a6bf261ace6b54158c10dd156abfc9a6996b082f0e0b5748d33f23b4",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [],
+          "candidates": [
+            "src/web/dashboard.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 601,
+          "prepMs": 29,
+          "files": [
+            "src/web/dashboard.js"
+          ],
+          "searchedPatterns": 5,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 0,
+            "quoted": 5,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "retrievedRequired": [
+        "src/web/dashboard.js"
+      ],
+      "toolWallMs": 591,
+      "outsideToolMs": 49203
+    },
+    {
+      "label": "stage5-v3-b",
+      "fixture": "21-dependency-upgrade",
+      "run": 1,
+      "sessionID": "ses_f322d9fceffercYi8EGCbXQi3z",
+      "source": "benchmarks/results/stage5-v3-b/21-dependency-upgrade/run-01",
+      "telemetryDir": "/Users/luke/.local/share/openrelay/data/benchmarks/stage5-v3-b",
+      "runSha256": "132ee291899ec0842ee03b9ad4c94eac534bcc2467a397f54a46ab78c3bf6cb2",
+      "outputSha256": "40b808fae0df906fdfba46f477bd207e21ee498541c96ae6052b5c1bb38565b8",
+      "telemetrySources": [
+        {
+          "file": "workspace-60b2ef.jsonl",
+          "sha256": "a2ac65f6e9a752b5f2596997e6e0006e173f07c0636d2350622c132b9c4bb03d"
+        }
+      ],
+      "builds": [
+        "dev-e70596dac97b"
+      ],
+      "settings": {
+        "model": "zai-coding-plan/glm-5.3",
+        "filtering": "on",
+        "route": "off",
+        "escalate": "off",
+        "context": "on",
+        "agent": "build"
+      },
+      "metrics": {
+        "verifyPass": 1,
+        "durationSec": 43.578,
+        "tokensIn": 6308,
+        "tokensInPlusCache": 63012,
+        "tokensTotal": 63511,
+        "tokensOut": 499,
+        "cacheRead": 56704,
+        "cost": 0,
+        "llmCalls": 6,
+        "toolCalls": 8,
+        "filesRead": 5,
+        "filesEdited": 1,
+        "modelSwitches": 0,
+        "verifications": 0,
+        "errors": 0,
+        "filteredCalls": 0,
+        "filteredBytesBefore": 0,
+        "filteredBytesAfter": 0,
+        "filteredSavedBytes": 0,
+        "filteredRatio": null,
+        "recoveries": 0,
+        "premiumCalls": 0,
+        "workhorseCalls": 5,
+        "escalations": 0,
+        "routedCalls": 0,
+        "modelRounds": 5,
+        "retriesFailed": 0,
+        "contextPackets": 1,
+        "contextBytes": 1144,
+        "contextPrepMs": 29,
+        "hasTelemetry": true
+      },
+      "reconciliation": {
+        "matched": true,
+        "duplicates": {
+          "telemetryEvents": 0,
+          "outputSteps": 0
+        },
+        "completionCount": 5,
+        "stepCount": 5,
+        "telemetry": {
+          "input": 6308,
+          "output": 499,
+          "reasoning": 701,
+          "cacheRead": 56704,
+          "cacheWrite": 0
+        },
+        "output": {
+          "input": 6308,
+          "output": 499,
+          "reasoning": 701,
+          "cacheRead": 56704,
+          "cacheWrite": 0
+        }
+      },
+      "issues": [],
+      "unmeteredSmallCalls": 1,
+      "smallAgents": [
+        "title"
+      ],
+      "recordedPremiumCalls": 0,
+      "verificationTools": 1,
+      "failedVerifyTools": 0,
+      "unknownVerifyTools": 0,
+      "verifySha256": "a26a06c71075e3ba942af10f0b46cfcb8557bad151d9c0848abf2e05697628e8",
+      "verifyMatchesFixture": true,
+      "selectorMatched": true,
+      "decisions": [
+        {
+          "verdict": "build",
+          "reason": "new-candidates",
+          "named": [
+            "sdk/v1.js",
+            "sdk/v2.js"
+          ],
+          "candidates": [
+            "src/archive/demo.js",
+            "src/profileAdapter.js"
+          ]
+        }
+      ],
+      "packets": [
+        {
+          "bytes": 1144,
+          "prepMs": 29,
+          "files": [
+            "sdk/v1.js",
+            "sdk/v2.js",
+            "src/archive/demo.js",
+            "src/profileAdapter.js"
+          ],
+          "searchedPatterns": 2,
+          "omitted": 0,
+          "git": true,
+          "signals": {
+            "paths": 2,
+            "quoted": 2,
+            "errors": 0,
+            "gitIntent": false
+          }
+        }
+      ],
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "retrievedRequired": [
+        "src/profileAdapter.js"
+      ],
+      "toolWallMs": 359,
+      "outsideToolMs": 43219
+    }
+  ],
+  "comparisons": {
+    "02-routine-bug": {
+      "fixtures": [
+        "02-routine-bug"
+      ],
+      "nA": 1,
+      "nB": 1,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 1,
+          "sumB": 1,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 46902,
+          "sumB": 46850,
+          "meanA": 46902,
+          "meanB": 46850,
+          "changePct": -0.11086947251716345,
+          "savingsPct": 0.11086947251716345,
+          "difference": -52
+        },
+        "modelRounds": {
+          "sumA": 4,
+          "sumB": 4,
+          "meanA": 4,
+          "meanB": 4,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 23.11,
+          "sumB": 18.621,
+          "meanA": 23.11,
+          "meanB": 18.621,
+          "changePct": -19.424491562094335,
+          "savingsPct": 19.424491562094335,
+          "difference": -4.489000000000001
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        }
+      }
+    },
+    "04-difficult-debug": {
+      "fixtures": [
+        "04-difficult-debug"
+      ],
+      "nA": 1,
+      "nB": 1,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 1,
+          "sumB": 1,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 49212,
+          "sumB": 49274,
+          "meanA": 49212,
+          "meanB": 49274,
+          "changePct": 0.12598553198406892,
+          "savingsPct": -0.12598553198406892,
+          "difference": 62
+        },
+        "modelRounds": {
+          "sumA": 4,
+          "sumB": 4,
+          "meanA": 4,
+          "meanB": 4,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 25.279,
+          "sumB": 19.194,
+          "meanA": 25.279,
+          "meanB": 19.194,
+          "changePct": -24.071363582420194,
+          "savingsPct": 24.071363582420194,
+          "difference": -6.085000000000001
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        }
+      }
+    },
+    "06-ui-status-indicator": {
+      "fixtures": [
+        "06-ui-status-indicator"
+      ],
+      "nA": 3,
+      "nB": 3,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 3,
+          "sumB": 3,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 244250,
+          "sumB": 168028,
+          "meanA": 81416.66666666667,
+          "meanB": 56009.333333333336,
+          "changePct": -31.206550665301943,
+          "savingsPct": 31.206550665301943,
+          "difference": -25407.333333333336
+        },
+        "modelRounds": {
+          "sumA": 17,
+          "sumB": 13,
+          "meanA": 5.666666666666667,
+          "meanB": 4.333333333333333,
+          "changePct": -23.529411764705884,
+          "savingsPct": 23.529411764705884,
+          "difference": -1.333333333333334
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 123.77,
+          "sumB": 77.673,
+          "meanA": 41.25666666666667,
+          "meanB": 25.891000000000002,
+          "changePct": -37.244081764563305,
+          "savingsPct": 37.244081764563305,
+          "difference": -15.365666666666666
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 3,
+          "meanA": 0,
+          "meanB": 1,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 1
+        }
+      }
+    },
+    "07-ui-viewport-clip": {
+      "fixtures": [
+        "07-ui-viewport-clip"
+      ],
+      "nA": 3,
+      "nB": 3,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 3,
+          "sumB": 3,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 201808,
+          "sumB": 168853,
+          "meanA": 67269.33333333333,
+          "meanB": 56284.333333333336,
+          "changePct": -16.3298779037501,
+          "savingsPct": 16.3298779037501,
+          "difference": -10984.999999999993
+        },
+        "modelRounds": {
+          "sumA": 16,
+          "sumB": 13,
+          "meanA": 5.333333333333333,
+          "meanB": 4.333333333333333,
+          "changePct": -18.75,
+          "savingsPct": 18.75,
+          "difference": -1
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 94.326,
+          "sumB": 87.748,
+          "meanA": 31.441999999999997,
+          "meanB": 29.249333333333336,
+          "changePct": -6.973687000402846,
+          "savingsPct": 6.973687000402846,
+          "difference": -2.1926666666666605
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 3,
+          "meanA": 0,
+          "meanB": 1,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 1
+        }
+      }
+    },
+    "08-ui-state-handling": {
+      "fixtures": [
+        "08-ui-state-handling"
+      ],
+      "nA": 3,
+      "nB": 3,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 3,
+          "sumB": 3,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 242050,
+          "sumB": 189006,
+          "meanA": 80683.33333333333,
+          "meanB": 63002,
+          "changePct": -21.914480479239828,
+          "savingsPct": 21.914480479239828,
+          "difference": -17681.33333333333
+        },
+        "modelRounds": {
+          "sumA": 18,
+          "sumB": 14,
+          "meanA": 6,
+          "meanB": 4.666666666666667,
+          "changePct": -22.22222222222222,
+          "savingsPct": 22.22222222222222,
+          "difference": -1.333333333333333
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 80.715,
+          "sumB": 80.63499999999999,
+          "meanA": 26.905,
+          "meanB": 26.87833333333333,
+          "changePct": -0.09911416713127981,
+          "savingsPct": 0.09911416713127981,
+          "difference": -0.026666666666670835
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 3,
+          "meanA": 0,
+          "meanB": 1,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 1
+        }
+      }
+    },
+    "09-ui-shared-style": {
+      "fixtures": [
+        "09-ui-shared-style"
+      ],
+      "nA": 3,
+      "nB": 3,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 3,
+          "sumB": 3,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 148166,
+          "sumB": 183431,
+          "meanA": 49388.666666666664,
+          "meanB": 61143.666666666664,
+          "changePct": 23.80100697865907,
+          "savingsPct": -23.80100697865907,
+          "difference": 11755
+        },
+        "modelRounds": {
+          "sumA": 12,
+          "sumB": 13,
+          "meanA": 4,
+          "meanB": 4.333333333333333,
+          "changePct": 8.333333333333334,
+          "savingsPct": -8.333333333333334,
+          "difference": 0.33333333333333304
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 92.787,
+          "sumB": 105.723,
+          "meanA": 30.929000000000002,
+          "meanB": 35.241,
+          "changePct": 13.94160819942448,
+          "savingsPct": -13.94160819942448,
+          "difference": 4.311999999999998
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 3,
+          "meanA": 0,
+          "meanB": 1,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 1
+        }
+      }
+    },
+    "10-git-missing-changes": {
+      "fixtures": [
+        "10-git-missing-changes"
+      ],
+      "nA": 1,
+      "nB": 1,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 1,
+          "sumB": 1,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 60411,
+          "sumB": 72555,
+          "meanA": 60411,
+          "meanB": 72555,
+          "changePct": 20.102299250136564,
+          "savingsPct": -20.102299250136564,
+          "difference": 12144
+        },
+        "modelRounds": {
+          "sumA": 5,
+          "sumB": 6,
+          "meanA": 5,
+          "meanB": 6,
+          "changePct": 20,
+          "savingsPct": -20,
+          "difference": 1
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 36.912,
+          "sumB": 32.574,
+          "meanA": 36.912,
+          "meanB": 32.574,
+          "changePct": -11.752275682704814,
+          "savingsPct": 11.752275682704814,
+          "difference": -4.338000000000001
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        }
+      }
+    },
+    "19-repository-refactor": {
+      "fixtures": [
+        "19-repository-refactor"
+      ],
+      "nA": 1,
+      "nB": 1,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 1,
+          "sumB": 1,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 88731,
+          "sumB": 76301,
+          "meanA": 88731,
+          "meanB": 76301,
+          "changePct": -14.00863283407152,
+          "savingsPct": 14.00863283407152,
+          "difference": -12430
+        },
+        "modelRounds": {
+          "sumA": 7,
+          "sumB": 6,
+          "meanA": 7,
+          "meanB": 6,
+          "changePct": -14.285714285714286,
+          "savingsPct": 14.285714285714286,
+          "difference": -1
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 29.17,
+          "sumB": 49.794,
+          "meanA": 29.17,
+          "meanB": 49.794,
+          "changePct": 70.70277682550564,
+          "savingsPct": -70.70277682550564,
+          "difference": 20.623999999999995
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 1,
+          "meanA": 0,
+          "meanB": 1,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 1
+        }
+      }
+    },
+    "21-dependency-upgrade": {
+      "fixtures": [
+        "21-dependency-upgrade"
+      ],
+      "nA": 1,
+      "nB": 1,
+      "matched": true,
+      "issues": [],
+      "metrics": {
+        "verifyPass": {
+          "sumA": 1,
+          "sumB": 1,
+          "meanA": 1,
+          "meanB": 1,
+          "changePct": 0,
+          "savingsPct": 0,
+          "difference": 0
+        },
+        "tokensInPlusCache": {
+          "sumA": 113138,
+          "sumB": 63012,
+          "meanA": 113138,
+          "meanB": 63012,
+          "changePct": -44.30518481854019,
+          "savingsPct": 44.30518481854019,
+          "difference": -50126
+        },
+        "modelRounds": {
+          "sumA": 9,
+          "sumB": 5,
+          "meanA": 9,
+          "meanB": 5,
+          "changePct": -44.44444444444444,
+          "savingsPct": 44.44444444444444,
+          "difference": -4
+        },
+        "retriesFailed": {
+          "sumA": 0,
+          "sumB": 0,
+          "meanA": 0,
+          "meanB": 0,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 0
+        },
+        "durationSec": {
+          "sumA": 57.077,
+          "sumB": 43.578,
+          "meanA": 57.077,
+          "meanB": 43.578,
+          "changePct": -23.65050720955901,
+          "savingsPct": 23.65050720955901,
+          "difference": -13.498999999999995
+        },
+        "contextPackets": {
+          "sumA": 0,
+          "sumB": 1,
+          "meanA": 0,
+          "meanB": 1,
+          "changePct": null,
+          "savingsPct": null,
+          "difference": 1
+        }
+      }
+    }
+  },
+  "ui": {
+    "fixtures": [
+      "06-ui-status-indicator",
+      "07-ui-viewport-clip",
+      "08-ui-state-handling",
+      "09-ui-shared-style"
+    ],
+    "nA": 12,
+    "nB": 12,
+    "matched": true,
+    "issues": [],
+    "metrics": {
+      "verifyPass": {
+        "sumA": 12,
+        "sumB": 12,
+        "meanA": 1,
+        "meanB": 1,
+        "changePct": 0,
+        "savingsPct": 0,
+        "difference": 0
+      },
+      "tokensInPlusCache": {
+        "sumA": 836274,
+        "sumB": 709318,
+        "meanA": 69689.5,
+        "meanB": 59109.833333333336,
+        "changePct": -15.18114876224778,
+        "savingsPct": 15.18114876224778,
+        "difference": -10579.666666666664
+      },
+      "modelRounds": {
+        "sumA": 63,
+        "sumB": 53,
+        "meanA": 5.25,
+        "meanB": 4.416666666666667,
+        "changePct": -15.873015873015873,
+        "savingsPct": 15.873015873015873,
+        "difference": -0.833333333333333
+      },
+      "retriesFailed": {
+        "sumA": 0,
+        "sumB": 0,
+        "meanA": 0,
+        "meanB": 0,
+        "changePct": null,
+        "savingsPct": null,
+        "difference": 0
+      },
+      "durationSec": {
+        "sumA": 391.59799999999996,
+        "sumB": 351.779,
+        "meanA": 32.63316666666666,
+        "meanB": 29.314916666666665,
+        "changePct": -10.168335895484645,
+        "savingsPct": 10.168335895484645,
+        "difference": -3.3182499999999955
+      },
+      "contextPackets": {
+        "sumA": 0,
+        "sumB": 12,
+        "meanA": 0,
+        "meanB": 1,
+        "changePct": null,
+        "savingsPct": null,
+        "difference": 1
+      }
+    }
+  },
+  "observedAggregate": {
+    "fixtures": [
+      "02-routine-bug",
+      "04-difficult-debug",
+      "06-ui-status-indicator",
+      "07-ui-viewport-clip",
+      "08-ui-state-handling",
+      "09-ui-shared-style",
+      "10-git-missing-changes",
+      "19-repository-refactor",
+      "21-dependency-upgrade"
+    ],
+    "nA": 17,
+    "nB": 17,
+    "matched": true,
+    "issues": [],
+    "metrics": {
+      "verifyPass": {
+        "sumA": 17,
+        "sumB": 17,
+        "meanA": 1,
+        "meanB": 1,
+        "changePct": 0,
+        "savingsPct": 0,
+        "difference": 0
+      },
+      "tokensInPlusCache": {
+        "sumA": 1194668,
+        "sumB": 1017310,
+        "meanA": 70274.58823529411,
+        "meanB": 59841.76470588235,
+        "changePct": -14.845798163171693,
+        "savingsPct": 14.845798163171693,
+        "difference": -10432.823529411762
+      },
+      "modelRounds": {
+        "sumA": 92,
+        "sumB": 78,
+        "meanA": 5.411764705882353,
+        "meanB": 4.588235294117647,
+        "changePct": -15.217391304347826,
+        "savingsPct": 15.217391304347826,
+        "difference": -0.8235294117647065
+      },
+      "retriesFailed": {
+        "sumA": 0,
+        "sumB": 0,
+        "meanA": 0,
+        "meanB": 0,
+        "changePct": null,
+        "savingsPct": null,
+        "difference": 0
+      },
+      "durationSec": {
+        "sumA": 563.146,
+        "sumB": 515.54,
+        "meanA": 33.12623529411764,
+        "meanB": 30.325882352941175,
+        "changePct": -8.453580421418247,
+        "savingsPct": 8.453580421418247,
+        "difference": -2.8003529411764667
+      },
+      "contextPackets": {
+        "sumA": 0,
+        "sumB": 14,
+        "meanA": 0,
+        "meanB": 0.8235294117647058,
+        "changePct": null,
+        "savingsPct": null,
+        "difference": 0.8235294117647058
+      }
+    }
+  },
+  "aa": [
+    {
+      "fixture": "06-ui-status-indicator",
+      "baselineN": 3,
+      "baselineValues": [
+        76839,
+        80200,
+        87211
+      ],
+      "baselineMean": 81416.66666666667,
+      "extraRun": 80679,
+      "changePct": -0.9060388945752362,
+      "note": "One extra off run versus three-run off mean; descriptive observation, not a noise bound."
+    },
+    {
+      "fixture": "09-ui-shared-style",
+      "baselineN": 3,
+      "baselineValues": [
+        49456,
+        49451,
+        49259
+      ],
+      "baselineMean": 49388.666666666664,
+      "extraRun": 63056,
+      "changePct": 27.673015401644108,
+      "note": "One extra off run versus three-run off mean; descriptive observation, not a noise bound."
+    }
+  ]
+}

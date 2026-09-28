@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "label": "stage7-pilot-20260924",
+  "frozenAt": "2026-09-24",
+  "seed": 70024,
+  "models": {
+    "workhorse": "zai-coding-plan/glm-5.3",
+    "premium": "openai/gpt-5.5"
+  },
+  "limits": {
+    "workflows": 32,
+    "tokens": 3000000,
+    "premiumTokens": 1000000
+  },
+  "fixtures": {
+    "27-duration-format": "f04d90176b4f0262f8ffa41fd1fb140806a67dabbb141f53ea6eda502f5f091c",
+    "28-ledger-diagnosis": "3345ec50ca05d0b78e2fbb1142aa26f029ceb3de72e577cb79daf258047450c9",
+    "29-config-compat": "34882328e6082eaeb5d54b42ccdbb97e0cdd3894822dd1fa74493c193fa70800"
+  },
+  "schedule": [
+    {
+      "id": "m-g",
+      "phase": "mechanics",
+      "fixture": "27-duration-format",
+      "policy": "G",
+      "rep": 1
+    },
+    {
+      "id": "m-p",
+      "phase": "mechanics",
+      "fixture": "27-duration-format",
+      "policy": "P",
+      "rep": 1
+    },
+    {
+      "id": "m-e1",
+      "phase": "mechanics",
+      "fixture": "27-duration-format",
+      "policy": "E1",
+      "rep": 1
+    },
+    {
+      "id": "m-e2",
+      "phase": "mechanics",
+      "fixture": "27-duration-format",
+      "policy": "E2",
+      "rep": 1
+    },
+    {
+      "id": "27-e2-1",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "E2",
+      "rep": 1
+    },
+    {
+      "id": "28-e2-1",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "E2",
+      "rep": 1
+    },
+    {
+      "id": "29-e2-1",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "E2",
+      "rep": 1
+    },
+    {
+      "id": "29-e1-1",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "E1",
+      "rep": 1
+    },
+    {
+      "id": "27-p-1",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "P",
+      "rep": 1
+    },
+    {
+      "id": "29-p-1",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "P",
+      "rep": 1
+    },
+    {
+      "id": "29-g-1",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "G",
+      "rep": 1
+    },
+    {
+      "id": "27-e1-1",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "E1",
+      "rep": 1
+    },
+    {
+      "id": "28-e1-1",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "E1",
+      "rep": 1
+    },
+    {
+      "id": "27-g-1",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "G",
+      "rep": 1
+    },
+    {
+      "id": "28-p-1",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "P",
+      "rep": 1
+    },
+    {
+      "id": "28-g-1",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "G",
+      "rep": 1
+    },
+    {
+      "id": "28-e2-2",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "E2",
+      "rep": 2
+    },
+    {
+      "id": "27-g-2",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "G",
+      "rep": 2
+    },
+    {
+      "id": "28-e1-2",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "E1",
+      "rep": 2
+    },
+    {
+      "id": "27-p-2",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "P",
+      "rep": 2
+    },
+    {
+      "id": "29-e2-2",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "E2",
+      "rep": 2
+    },
+    {
+      "id": "29-e1-2",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "E1",
+      "rep": 2
+    },
+    {
+      "id": "27-e2-2",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "E2",
+      "rep": 2
+    },
+    {
+      "id": "27-e1-2",
+      "phase": "main",
+      "fixture": "27-duration-format",
+      "policy": "E1",
+      "rep": 2
+    },
+    {
+      "id": "28-g-2",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "G",
+      "rep": 2
+    },
+    {
+      "id": "29-p-2",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "P",
+      "rep": 2
+    },
+    {
+      "id": "28-p-2",
+      "phase": "main",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "P",
+      "rep": 2
+    },
+    {
+      "id": "29-g-2",
+      "phase": "main",
+      "fixture": "29-config-compat",
+      "policy": "G",
+      "rep": 2
+    },
+    {
+      "id": "28-g-aa",
+      "phase": "aa",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "G",
+      "rep": 1
+    },
+    {
+      "id": "29-g-aa",
+      "phase": "aa",
+      "fixture": "29-config-compat",
+      "policy": "G",
+      "rep": 1
+    },
+    {
+      "id": "28-p-aa",
+      "phase": "aa",
+      "fixture": "28-ledger-diagnosis",
+      "policy": "P",
+      "rep": 1
+    },
+    {
+      "id": "29-p-aa",
+      "phase": "aa",
+      "fixture": "29-config-compat",
+      "policy": "P",
+      "rep": 1
+    }
+  ]
+}

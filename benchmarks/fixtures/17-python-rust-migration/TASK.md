@@ -1,0 +1,3 @@
+# Task: Port the order summary CLI to Rust
+
+Replace the Python implementation of the order summary command with a Rust executable. The command reads tab-separated records from stdin: customer, item, quantity, unit price in cents. It prints one tab-separated summary per customer in first-seen order: normalized customer name, item count, total cents, tier. Match the existing Python behavior for whitespace, case, invalid records and tier boundaries. Keep the Python code as a readable specification; the Rust program must produce the matching output. Use only the Rust standard library so it builds offline. Do not edit verify.js. Run node verify.js.

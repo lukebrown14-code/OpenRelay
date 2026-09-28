@@ -1,0 +1,22 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-holdout",
+ "notes": {
+  "n-pay": {
+   "schemaVersion": 1,
+   "noteID": "n-pay",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/payments.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "__content": ""
+  }
+ },
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

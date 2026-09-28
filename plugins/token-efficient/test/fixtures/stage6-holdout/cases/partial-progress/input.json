@@ -1,0 +1,7 @@
+{
+ "resumeSession": "ses-partial",
+ "readHandoff": {
+  "taskID": "task-partial",
+  "handoffID": "ho-partial"
+ }
+}

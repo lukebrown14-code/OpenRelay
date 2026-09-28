@@ -1,0 +1,1 @@
+export function renderNotice(app) { const notice=document.createElement('section'); notice.id='notice-card'; notice.innerHTML='<span>Maintenance notice</span><button aria-label="Dismiss notice" data-action="dismiss-notice">×</button>'; app.append(notice) }

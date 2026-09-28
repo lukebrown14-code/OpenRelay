@@ -1,0 +1,9 @@
+{
+  "required": [
+    "src/ui/confirmDialog.js"
+  ],
+  "optional": [
+    "src/ui/overlay.js",
+    "src/ui/inviteDialog.js"
+  ]
+}

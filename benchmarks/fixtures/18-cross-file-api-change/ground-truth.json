@@ -1,0 +1,11 @@
+{
+  "required": [
+    "src/format/receipt.js",
+    "src/web/checkout.js",
+    "src/email/sendReceipt.js",
+    "src/mobile/receiptCard.js"
+  ],
+  "optional": [
+    "src/legacy/preview.js"
+  ]
+}

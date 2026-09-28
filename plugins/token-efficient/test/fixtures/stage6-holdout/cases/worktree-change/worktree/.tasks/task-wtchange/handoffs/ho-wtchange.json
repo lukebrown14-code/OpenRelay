@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-wtchange",
+ "taskID": "task-wtchange",
+ "workflowID": "wf-wtchange",
+ "sourceSession": "ses-wtc",
+ "direction": "workhorse->workhorse",
+ "objective": "Move sessions to redis",
+ "constraints": [
+  {
+   "text": "transparent to callers",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "login flow passes",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

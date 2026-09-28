@@ -1,61 +1,40 @@
-# Benchmarks (Stage 1: corpus + A/A calibration harness)
+# Benchmark lab
 
-Five fixtures (four Stage 1 classes + the Stage 2 `noisy` class) with objective
-acceptance criteria (each `verify.js` exits 0 only
-when the task is correctly completed; pristine fixtures always fail):
+The benchmark system compares harness variants on disposable task workspaces. Each fixture has an independent verifier; a passing verifier is the quality gate. Token usage and complete task time are reported separately. Read the stage protocol before running an experimental arm, and use fresh labels for new measurements.
 
-| Fixture | Class | Objective check |
-|---|---|---|
-| `fixtures/01-trivial-edit` | trivial/local | constant changed to 12 + summary string |
-| `fixtures/02-routine-bug` | routine bug | 7 slugify cases pass (lowercase bug) |
-| `fixtures/03-medium-feature` | medium feature | 7 behavioral checks on new `retry()` util (multi-file) |
-| `fixtures/04-difficult-debug` | difficult | 5 fake-clock checks on token bucket (fractional refill truncation bug) |
-| `fixtures/05-noisy-test-log` | noisy (Stage 2) | `npm test` emits a 3.6k-line seeded log with exactly one boundary failure; `verify.js` checks `formatBytes` unit boundaries |
-
-Reference solutions live in `solutions/` (outside the repos, so agents can't see them).
-Each fixture is a git repo with a pinned baseline commit; each run clones fresh.
-
-## Running
+## Shared workflow
 
 ```sh
-cd ~/.config/opencode/benchmarks
+# Typecheck and unit tests for the plugin
+bunx tsc -p plugins/token-efficient/tsconfig.json
+cd plugins/token-efficient && bun test ./test
 
-# one fixture, 3 runs, GLM workhorse:
-node run.mjs --fixture 02-routine-bug --runs 3 --model zai-coding-plan/glm-5.3-flash --label aa-glm-baseline
+# Validate fixture baselines and reference implementations without model calls
+node benchmarks/stages/stage5/validate-stage5.mjs
+node benchmarks/stages/stage6/validate-stage6.mjs
 
-# all fixtures:
-node run.mjs --fixture all --runs 3 --model zai-coding-plan/glm-5.3-flash --label aa-glm-baseline
-
-# Stage 2 filtering experiment (B group; A group omits the flag):
-node run.mjs --fixture 05-noisy-test-log --runs 3 --model zai-coding-plan/glm-5.3-flash --label s2-filter-on --filtering on
+# Run and compare common fixture benchmarks
+node benchmarks/run.mjs --fixture all --runs 3 \
+  --model <provider/model> --label <label>
+node benchmarks/analyze.mjs <labelA> [labelB]
 ```
 
-`--filtering off|on` (default `off`) sets `OPENRELAY_FILTERING` in the opencode
-child env and is recorded in each `run.json`.
+`run.mjs` creates fresh workspaces and records output, verifier result, timing, and usage. `analyze.mjs` joins telemetry by session ID. Use `--dry-run` to check harness mechanics without model calls. Model runs require an authenticated OpenCode provider and consume model usage.
 
-Each run: fresh clone → `opencode run -m <model> --auto --format json "<TASK.md>"` →
-`node verify.js` → record `run.json` (+ captured opencode output). `--auto` approves
-tool permissions headlessly — only safe because workspaces are disposable clones.
-`--dry-run` validates harness mechanics without calling models.
+## Experiment organization
 
-## A/A calibration
+- `fixtures/` and `solutions/` hold the numbered task corpus and reference solutions. Solutions stay outside model workspaces.
+- `stages/stage5/` contains context retrieval and measurement tools; `stages/stage6/` contains memory and handoff tools; `stages/stage7/` contains routing and escalation tools; `stages/stage8/` contains repository discovery and map experiments, including their task corpus and map prototype.
+- `pi/` is a separate harness integration experiment.
+- `lib/` contains shared benchmark utilities; `results/` contains benchmark records and generated snapshots.
+- The [experiment index](../docs/README.md) is the report and protocol index.
 
-Run the same config twice under different labels, then:
+Use `benchmarks/stages/<stage>/` for stage-specific tools. The shared runner and analyzer stay at the `benchmarks/` root.
 
-```sh
-node analyze.mjs aa-glm-baseline-1 aa-glm-baseline-1b
-```
+## Stage 5 context capture
 
-The analyzer joins each run to its telemetry via sessionID (plugin event stream in
-`~/.local/share/opencode/token-efficient/events/`), reports per-label aggregates
-(mean/sd/CoV) and flags per-metric deltas as within-noise / outside-noise.
-Decision rule (from the plan): differences inside the A/A noise floor are
-INCONCLUSIVE → do not add complexity.
+`run.mjs --capture-context` saves the exact context packet added by the system hook for synthetic benchmark runs. It records captured, skipped, unavailable, context-off, or disabled status after digest and size checks. See [measurement coverage](../docs/stage5/measurement-coverage.md).
 
-## Exit criteria (Stage 1)
+## Safe benchmark use
 
-- [x] repeated runs can be compared (run.json + telemetry join by sessionID)
-- [ ] metrics stable enough to identify meaningful changes — requires actual A/A runs
-- [x] success criteria objective for most benchmark tasks (5/5 fixtures have deterministic verify.js)
-
-(End of file - total 59 lines)
+The runner uses headless permission approval only inside disposable cloned workspaces. Never point an experimental runner at a working project. Every optimization needs independent verification and an explicit evidence verdict: PASS, FAIL, or INCONCLUSIVE. An inconclusive result does not justify added runtime complexity.

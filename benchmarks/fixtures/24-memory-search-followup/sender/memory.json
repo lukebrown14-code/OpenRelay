@@ -1,0 +1,41 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-fixture",
+ "notes": {
+  "n-token": {
+   "schemaVersion": 1,
+   "noteID": "n-token",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/search/index.js"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T01:04:00.000Z",
+   "validity": "current",
+   "sourceDigests": {
+    "src/search/index.js": "d8877ad1429238c574cdeca96a423974f96a6db5984c051fc95c16644de9eb59"
+   }
+  },
+  "n-ranking": {
+   "schemaVersion": 1,
+   "noteID": "n-ranking",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/search/rank.js"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T01:04:00.000Z",
+   "validity": "current",
+   "sourceDigests": {
+    "src/search/rank.js": "5e8bef717b7322d56b62b0974d151646dfecac0bf2c0a17497c5b1dfe9b5ddb6"
+   }
+  }
+ },
+ "updatedAt": "2026-09-24T01:04:00.000Z"
+}

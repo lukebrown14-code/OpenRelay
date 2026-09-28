@@ -1,0 +1,56 @@
+body {
+  font-family: system-ui, sans-serif;
+  background: #f4f5f7;
+  margin: 0;
+  padding: 16px;
+}
+
+#dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #d8dbe0;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eceef1;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.panel-header h2 {
+  font-size: 16px;
+  margin: 0;
+}
+
+.metric-list,
+.invoice-list,
+.event-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.metric,
+.invoice-row,
+.event-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.metric-value,
+.invoice-amount,
+.event-time {
+  color: #5a6069;
+}

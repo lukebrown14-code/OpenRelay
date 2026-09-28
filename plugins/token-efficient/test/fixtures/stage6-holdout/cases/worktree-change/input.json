@@ -1,0 +1,10 @@
+{
+ "resumeSession": "ses-wtc",
+ "readHandoff": {
+  "taskID": "task-wtchange",
+  "handoffID": "ho-wtchange"
+ },
+ "requestPaths": [
+  "src/auth.ts"
+ ]
+}

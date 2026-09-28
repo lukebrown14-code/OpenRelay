@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "label": "stage8-discovery-v1",
+  "purpose": "Observe pre-edit discovery on fresh real-repository tasks under filtering plus v3; no map arm.",
+  "model": "zai-coding-plan/glm-5.3",
+  "tasks": [
+    "or-packet-path-identity",
+    "delta-config-writeback",
+    "or-memory-cap-order",
+    "delta-market-dependencies"
+  ],
+  "settings": {
+    "filtering": "on",
+    "context": "on",
+    "memory": "off",
+    "handoff": "off",
+    "route": "off",
+    "escalate": "off",
+    "previewSafe": true,
+    "premiumCalls": 0
+  },
+  "limits": {
+    "runs": 4,
+    "attemptsPerTask": 1,
+    "timeoutMsPerTask": 480000,
+    "recordedCodingInputPlusCacheReadTokens": 1200000,
+    "reservePerTaskTokens": 300000
+  },
+  "entryGate": {
+    "minimumDistinctVerifiedTasksWithTwoNavigationOnlyRounds": 3,
+    "minimumMapAddressableRelationshipsAmongQualifiers": 2,
+    "roundDefinition": "Every tool in an assistant tool-use message before first edit is listing/search; source reads disqualify the round."
+  }
+}

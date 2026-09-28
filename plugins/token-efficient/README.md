@@ -1,4 +1,4 @@
-# token-efficient plugin (Stage 1: Baseline & Observability, Stage 2: Tool-Output Filtering)
+# token-efficient plugin (Telemetry, Filtering, Task Controller, Context Engine)
 
 Implements the Stage 1 telemetry foundation and Stage 2 deterministic tool-output filtering
 from `token-efficient-architecture.md` / `docs/stage2-tool-output-filtering.md`.
@@ -20,7 +20,32 @@ Options:
 - `filtering.previewSafe` (default false for compatibility) selects the conservative
   TAP-only preview; channel launchers set it true. Broader historical filtering is not
   enabled by the daily launcher.
-- `runtime.channel` / `runtime.buildID` label telemetry. Raw logs and cleanup follow
+- `controller.route` (`off|auto|premium|glm`, default **off**) — deterministic Task
+  Controller routing. `off` = no rewrite; `premium`/`glm` = force a tier; `auto` =
+  classifier (workhorse default, premium for `/plan|review|deep|chatgpt` or
+  complexity markers). Slash overrides (`/glm /chatgpt /plan /review /deep /auto`) win.
+- `controller.escalation.maxCycles` (default 3) — failed verifications before the
+  workhorse is escalated to premium via `session.promptAsync`. Escalation is opt-in
+  only: `OPENRELAY_ESCALATE=on` (default off).
+- `controller.checkpoint` (`enabled`, `patterns`) — keyword-driven high-risk flag for
+  `permission.ask`; off by default, telemetry-only in v1.
+- Env overrides `OPENRELAY_ROUTE` and `OPENRELAY_ESCALATE` win over config (used by the
+  benchmark runner). Model IDs are enumerated at runtime (`client.provider.list()`), never
+  hard-coded; `controller.premiumModel`/`controller.workhorseModel` (`provider/model`) are
+  explicit user overrides.
+- `OPENRELAY_CAPTURE_CONTEXT=on` stores exact packet text only when
+  `runtime.channel` is `benchmark`; the runner exposes this through
+  `--capture-context`. The packet is saved under `telemetry.dir/context-packets/`
+  and copied into the run directory after a hash check. See
+  `docs/stage5/measurement-coverage.md`.
+- `runtime.channel` / `runtime.buildID` label telemetry, the TUI startup toast
+  ("OpenRelay <channel> <buildID>", shown once per instance via `client.tui.showToast`;
+  silently skipped in headless mode), and the persistent sidebar-footer badge
+  (`tui.tsx`): a bordered "● OpenRelay <channel> / OpenCode <version> / <buildID>"
+  panel at the bottom of the right sidebar. It wins the `single_winner`
+  `sidebar_footer` slot by registering below the host's internal order 100, and is
+  injected per launch via `OPENCODE_TUI_CONFIG` (see `scripts/relay-runtime.mjs`).
+  Raw logs and cleanup follow
   `telemetry.dir` under its `raw/` subdirectory rather than sharing a fixed global store.
 - The plugin default stays off. The explicit project-trial launchers enable the
   conservative preview without claiming it has passed the revised efficiency gates.
@@ -49,7 +74,7 @@ One task record per session (subagent child sessions get their own), written to
 | Task/run IDs | sessionID ↔ taskID map, persisted in `state.json` |
 | Attempts | user messages per session (`chat.message` hook) |
 | LLM calls | per request (`chat.params`), tagged agent + small-model flag |
-| Tokens & cost | `input/output/reasoning/cacheRead/cacheWrite/cost` per completed assistant message |
+| Tokens & cost | `input/output/reasoning/cacheRead/cacheWrite/cost` per completed assistant message; `messageID` and `usageAvailable` mark deduplication and missing usage |
 | Per-model breakdown | `byModel` with tier classification (premium/workhorse/free) |
 | Model switches | consecutive assistant messages with different provider/model |
 | Latency | per assistant message (`time.created → time.completed`) |
@@ -67,7 +92,12 @@ Tier classification (`lib/classify.ts`): `openai` → premium, `zai/zhipu/glm` �
 Normalized JSONL: `{ts, v, type, slug, session, task, data}` with types:
 `task.created`, `user.message`, `llm.call`, `assistant.completed`, `model.switch`,
 `tool.call`, `file.read`, `file.edited`, `verification`, `message.error`,
-`session.error`, `task.idle`, `tool.filtered`, `tool.raw_recovered`.
+`session.error`, `task.idle`, `tool.filtered`, `tool.raw_recovered`,
+`controller.routed`, `controller.escalated`, `controller.checkpoint`.
+Benchmark packet capture adds `context.packet_captured` or
+`context.packet_capture_failed`. Title requests can lack a matching assistant
+completion on the installed OpenCode version; the analyzer marks all-call usage
+partial in that case.
 
 Telemetry never throws into the host: every hook body is defensive and failures are swallowed.
 
@@ -76,6 +106,7 @@ Telemetry never throws into the host: every hook body is defensive and failures 
 ```
 index.ts                      plugin entry (hooks wiring, filter hook, tool registration)
 lib/ids.ts                    task IDs, slugs, hashing
+lib/announce.ts               TUI identity toast payload
 lib/store.ts                  storage: event JSONL, task state files, session map
 lib/classify.ts               model tier classification
 lib/filtering/config.ts       filtering options/defaults, env override
@@ -83,6 +114,11 @@ lib/filtering/classify.ts     command classification → versioned filter reason
 lib/filtering/parsers.ts      per-family evidence extraction (versioned)
 lib/filtering/raw-store.ts    bounded session-scoped raw output storage
 lib/filtering/filter.ts       filter orchestrator (gates, stash, telemetry)
+lib/controller/config.ts      Task Controller options/defaults, env overrides
+lib/controller/models.ts      runtime premium/workhorse model resolution (no hard-coded IDs)
+lib/controller/route.ts       deterministic routing decision + slash overrides
+lib/controller/escalate.ts    failed-verification escalation threshold
+lib/controller/checkpoint.ts  keyword-driven high-risk flag (permission.ask)
 tools/raw-output.ts           openrelay_raw_output recovery tool
 telemetry/session-tracker.ts  per-session aggregation (tokens, switches, latency, outcomes)
 telemetry/tool-tracker.ts     tool metrics, files, verification detection

@@ -1,0 +1,8 @@
+{
+  "name": "fixture-14-ui-dismiss-strip",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "jsdom": "24.1.0"
+  }
+}

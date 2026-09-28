@@ -1,0 +1,28 @@
+{
+  "source": "docs/stage5/coverage-source-snapshot.tar.gz",
+  "protocol": "Frozen before first v4 validation run. Earlier coverage task lists are development data.",
+  "positive": [
+    {"id":"tap-yaml-fields","task":"A TAP failure card loses the expected and actual values nested under a YAML diagnostic block. Find the parser that consumes those diagnostics.","required":{"file":"plugins/token-efficient/lib/filtering/parsers.ts","anchor":"function tapYamlCard("}},
+    {"id":"typecheck-errors","task":"Compiler errors with a line and column are missing from the short failure evidence. Find the parser for typecheck output.","required":{"file":"plugins/token-efficient/lib/filtering/parsers.ts","anchor":"function parseTypecheck("}},
+    {"id":"safe-source-load","task":"A context source read follows a symbolic link and accidentally exposes a large or binary file. Find the file loading guard.","required":{"file":"plugins/token-efficient/lib/context/retrieve.ts","anchor":"function loadFile("}},
+    {"id":"controller-settings","task":"The routing mode from an environment setting is overridden by the configured controller option. Find where controller settings are resolved.","required":{"file":"plugins/token-efficient/lib/controller/config.ts","anchor":"export function resolveControllerConfig("}},
+    {"id":"context-settings","task":"A context packet limit set to zero unexpectedly replaces a safe default. Find the context configuration resolver.","required":{"file":"plugins/token-efficient/lib/context/config.ts","anchor":"export function resolveContextConfig("}},
+    {"id":"audit-token-join","task":"A benchmark audit double counts a completion when matching usage records to model steps. Find the token reconciliation logic.","required":{"file":"benchmarks/audit-stage5.mjs","anchor":"export function reconcileTokens("}},
+    {"id":"uncertainty-bootstrap","task":"The uncertainty interval for savings between paired runs looks wrong. Find the exact bootstrap implementation.","required":{"file":"benchmarks/analyze-21.mjs","anchor":"export function exactBootstrap("}},
+    {"id":"fixture-digest","task":"A confirmation run fails to detect that its fixture input changed. Find the digest calculation over the frozen fixture.","required":{"file":"benchmarks/run-21-confirm.mjs","anchor":"const fixtureHash = () =>"}},
+    {"id":"worktree-slug","task":"Two worktrees can share a display name and their local data directories collide. Find the slug construction using the resolved path.","required":{"file":"plugins/token-efficient/lib/ids.ts","anchor":"export function slugFor("}},
+    {"id":"receipt-cents","task":"The receipt label displays an order amount in cents instead of formatted currency. Find the receipt formatting implementation.","required":{"file":"benchmarks/fixtures/18-cross-file-api-change/src/format/receipt.js","anchor":"export function formatReceipt("}}
+  ],
+  "negative": [
+    {"id":"git-status","task":"Review the current Git status and tell me which changes are unstaged."},
+    {"id":"git-merge","task":"Resolve the active Git merge conflict and preserve both branches' changes."},
+    {"id":"exact-path","task":"Edit plugins/token-efficient/lib/ids.ts to change the worktree slug format."},
+    {"id":"exact-symbol","task":"Open resolveContextConfig in plugins/token-efficient/lib/context/config.ts and explain its defaults."},
+    {"id":"docs-summary","task":"Summarize the Stage 5 report for a project status meeting."},
+    {"id":"general-advice","task":"How should we prioritize reliability versus performance this month?"},
+    {"id":"new-feature","task":"Create a new calendar view for upcoming meetings with a month selector."},
+    {"id":"write-tests","task":"Add tests for the new authorization behavior once requirements are agreed."},
+    {"id":"empty","task":"Please help."},
+    {"id":"external-info","task":"Find the latest release notes for the package manager and summarize changes."}
+  ]
+}

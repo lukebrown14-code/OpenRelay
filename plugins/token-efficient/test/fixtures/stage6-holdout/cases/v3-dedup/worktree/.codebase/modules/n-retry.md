@@ -1,0 +1,1 @@
+The retry helper wraps one-shot calls.

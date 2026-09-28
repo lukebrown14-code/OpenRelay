@@ -1,0 +1,10 @@
+{
+  "required": [
+    "src/profileAdapter.js"
+  ],
+  "optional": [
+    "src/web/profile.js",
+    "src/admin/user.js",
+    "sdk/v2.js"
+  ]
+}

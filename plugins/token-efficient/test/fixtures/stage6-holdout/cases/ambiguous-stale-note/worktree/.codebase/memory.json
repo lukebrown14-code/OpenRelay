@@ -1,0 +1,22 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-holdout",
+ "notes": {
+  "n-old": {
+   "schemaVersion": 1,
+   "noteID": "n-old",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/auth.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "stale",
+   "__content": ""
+  }
+ },
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

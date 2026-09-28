@@ -1,0 +1,5 @@
+node_modules/
+results/
+__pycache__/
+*.pyc
+rust/target/

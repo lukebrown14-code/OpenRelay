@@ -1,0 +1,32 @@
+# Handoff ho-20260924-010856-ch45a
+
+- Task: task-22planconfig (workflow wf-22planconfig)
+- Direction: workhorse->workhorse
+- Source session: ses_sender
+- Created: 2026-09-24T01:08:56.765Z
+
+## Objective
+
+Implement the accepted config hot-reload plan (see PLAN.md): reloadConfig in src/config/loader.js, refresh() in src/render/panel.js.
+
+## Constraints
+
+- [user-approved] formatV1 output must remain byte-identical, including the trailing #v1 line (dashboards grep for it)
+
+## Accepted decisions
+
+- [user-approved] src/legacy/exporter.js stays untouched (deprecated)
+
+## Acceptance criteria
+
+- [user-approved] node verify.js exits 0
+
+## Relevant files
+
+- src/config/loader.js (sha256 1daec41d67b3…)
+- src/render/panel.js (sha256 fdea58bd395b…)
+
+## Next steps
+
+- implement reloadConfig()
+- implement panel.refresh() wiring

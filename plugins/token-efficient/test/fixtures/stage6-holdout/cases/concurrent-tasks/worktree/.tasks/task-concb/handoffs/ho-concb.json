@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-concb",
+ "taskID": "task-concb",
+ "workflowID": "wf-concb",
+ "sourceSession": "ses-b",
+ "direction": "workhorse->workhorse",
+ "objective": "Task B SECRET: rotate payment credentials",
+ "constraints": [
+  {
+   "text": "B constraint: vault only",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "B criteria: zero plaintext",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

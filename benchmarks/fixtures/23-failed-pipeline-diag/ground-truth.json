@@ -1,0 +1,13 @@
+{
+ "required": [
+  "src/pipeline/parse.js"
+ ],
+ "optional": [
+  "src/pipeline/aggregate.js"
+ ],
+ "mandatoryFacts": [
+  "exact failure quoted",
+  "rejected approach not reused",
+  "case-sensitive grouping intact"
+ ]
+}

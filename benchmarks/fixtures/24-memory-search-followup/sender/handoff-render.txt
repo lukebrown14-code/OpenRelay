@@ -1,0 +1,27 @@
+# Handoff ho-20260924-010856-e41tl
+
+- Task: task-24memorysear (workflow wf-24memorysear)
+- Direction: workhorse->workhorse
+- Source session: ses_sender
+- Created: 2026-09-24T01:08:56.824Z
+
+## Objective
+
+Add searchPhrase(index, phrase) to src/search/index.js: return doc ids whose tokens contain the phrase tokens consecutively and in order.
+
+## Constraints
+
+- [user-approved] Regular search() semantics must not change; tokenize() lowercases at index time so the phrase must use the same tokenizer
+
+## Acceptance criteria
+
+- [user-approved] node verify.js exits 0
+
+## Relevant files
+
+- src/search/index.js (sha256 d8877ad14292…)
+
+## Next steps
+
+- implement searchPhrase()
+- run node verify.js

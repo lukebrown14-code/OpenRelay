@@ -1,0 +1,8 @@
+{
+  "timezone": "UTC",
+  "panels": [
+    "cpu",
+    "mem"
+  ],
+  "refreshSeconds": 30
+}

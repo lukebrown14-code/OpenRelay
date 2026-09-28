@@ -5,6 +5,7 @@ import { fnv1a, slugFor } from "./ids"
 
 export type TaskState = {
   taskID: string
+  workflowID?: string
   sessionID: string
   slug: string
   worktree: string
@@ -27,6 +28,8 @@ export type TaskState = {
   editTestCycles: number
   errors: Array<{ at: string; message: string }>
   outcome: { status: "running" | "idle" | "error"; idles: number; lastErrorAt: string | null }
+  // Persisted so a restored session does not double-count completed-message usage.
+  processedMessages?: string[]
 }
 
 const MAX_LIST = 200
@@ -110,6 +113,25 @@ export class Store {
       fs.writeFileSync(tmp, JSON.stringify(map))
       fs.renameSync(tmp, file)
     } catch {}
+  }
+
+  // Restore path for continuing sessions: the session→task map survives restarts,
+  // so a re-appearing session reuses its existing task record instead of minting a
+  // new one. Returns null when this session has no bound task in this worktree.
+  loadTaskForSession(sessionID: string): TaskState | null {
+    try {
+      const file = this.sessionMapPath()
+      const map = JSON.parse(fs.readFileSync(file, "utf8"))
+      const entry = (map.sessions as Record<string, { task?: unknown; slug?: unknown }> | undefined)?.[sessionID]
+      if (!entry || typeof entry.task !== "string") return null
+      if (entry.slug !== this.slug) return null
+      const raw = fs.readFileSync(this.taskPath(entry.task), "utf8")
+      const task = JSON.parse(raw) as TaskState
+      if (typeof task.taskID !== "string" || task.taskID !== entry.task) return null
+      return task
+    } catch {
+      return null
+    }
   }
 
   noteFile(list: string[], file: string | undefined): boolean {

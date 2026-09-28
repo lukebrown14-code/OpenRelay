@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-pathover",
+ "taskID": "task-pathover",
+ "workflowID": "wf-pathover",
+ "sourceSession": "ses-po",
+ "direction": "workhorse->workhorse",
+ "objective": "Buffer telemetry emissions",
+ "constraints": [
+  {
+   "text": "no data loss",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "emit test passes",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

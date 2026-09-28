@@ -1,0 +1,1892 @@
+{
+  "schemaVersion": 2,
+  "method": "Navigation-only round = every tool is glob/grep, directory read, or a listing/search command, before the first edit. Source and verifier reads disqualify a round. This counts observed behavior only.",
+  "summary": {
+    "runs": 51,
+    "v3Runs": 29,
+    "qualifyingRuns": 3,
+    "qualifyingDistinctFixtures": [
+      "delta-config-writeback",
+      "delta-market-dependencies",
+      "or-packet-path-identity"
+    ],
+    "malformedRuns": 0,
+    "verifiedRuns": 50,
+    "auditHashChecks": 34,
+    "auditHashMismatches": 0,
+    "nativeQualifyingFixtures": [
+      "06-ui-status-indicator",
+      "08-ui-state-handling",
+      "21-dependency-upgrade"
+    ],
+    "v3RequiredFileOpportunities": 24,
+    "v3RequiredFileReadBeforeEdit": 18
+  },
+  "rows": [
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "02-routine-bug",
+      "run": 1,
+      "sessionID": "ses_f32321a09ffev2FjrsovzmCwse",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/slugify.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": [],
+      "runSha256": "26f12a10090c41a65aaa438a14f826f2a9b33531dc1e99f725fd9d493a44447a",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "26302f450ef66aeaa87a08daec8fb98b60e78a19498b97914ae162b6f1449f04"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "04-difficult-debug",
+      "run": 1,
+      "sessionID": "ses_f32317627ffeKLBKTzKzCSxvmv",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/rate-limiter.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": [],
+      "runSha256": "7b77986deb71eea22489b56a79ecf38dc21de8cda75849dcb03c99c9ec9dfceb",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "3f6db4e07aa2b7e8dc961c88aba7e01b043b99f81938f0dc3ea4600a58d4cbc9"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "06-ui-status-indicator",
+      "run": 1,
+      "sessionID": "ses_f32401458ffeh5F0WadumjlRp2",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/app.js",
+        "src/panels/systemPanel.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/panels/systemPanel.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "af25f05793de2a30bea8091ef16f5750524c412cd19928c68d4bd6dc24bf75d7",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "cf1a69c493da5d04e0d83d59505bfd2b8bb74f6844c8fc2f77cd375a1eebfa15"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "06-ui-status-indicator",
+      "run": 2,
+      "sessionID": "ses_f323ecd70ffeqDLVWYsrUHl1Zv",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 5,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "index.html",
+        "src/app.js",
+        "src/panels/billingPanel.js",
+        "src/panels/notificationsPanel.js",
+        "src/panels/systemPanel.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/panels/systemPanel.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "51910789646bab2c5a92af9e06d90614d3db16b758381bedbc90aa17709bedc4",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "0855b8ca2b76203607471ae970e5527bdaf04787deca0dcc5cd01cbbe90941cc"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "06-ui-status-indicator",
+      "run": 3,
+      "sessionID": "ses_f323dcb17ffe9Ffni1C0N3icVf",
+      "verifyPass": true,
+      "rounds": 6,
+      "firstEditRound": 5,
+      "navigationOnlyRounds": [
+        1,
+        3
+      ],
+      "navigationTools": 3,
+      "sourceReads": 3,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/panels/billingPanel.js",
+        "src/panels/notificationsPanel.js",
+        "src/panels/systemPanel.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/panels/systemPanel.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "eac42a28e46ef44cebaafd8f334197cf5bf97c336f20bd87bf7304844e8f0bed",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "3169641abe37732fbf0495620ae1480616ba0cc82a0539585db8fc13f3f9fb59"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "07-ui-viewport-clip",
+      "run": 1,
+      "sessionID": "ses_f323c683affeRQBTlxGpuNNu2n",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": 4,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 1,
+      "sourceReads": 3,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "index.html",
+        "src/app.js",
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles.css"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "f9fca59670feb7d6f093fbc9d8bccfdc2d8ba44a4d4a355b6ded3d50e3d182d2",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "2b08a50e8c3e56c24f22b994374214b8cc0634d39e7387c3f8c70c9b79724a1f"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "07-ui-viewport-clip",
+      "run": 2,
+      "sessionID": "ses_f323b5808ffePxNzTR5ly5E9JW",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "index.html",
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles.css"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "ef69cdd65c2a08059a9e90e1d0ae3408cc0d8facd20aec7c5025d537ab231f66",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "7e74eb6b3c79935e357bc0c857fd7bbbae31b8845d277697c793e31461b627e1"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "07-ui-viewport-clip",
+      "run": 3,
+      "sessionID": "ses_f323a66f6ffeEwAU69zBPZe8VK",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "index.html",
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles.css"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "dd2dc74d51b10b1c0ee2a836e002d76ab5403972ad40ca663096113b88eba80b",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "50e3d4e20f3d5b3920f642ce58050fa0d97a379699d13087c2977348f14c820a"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "08-ui-state-handling",
+      "run": 1,
+      "sessionID": "ses_f32397ca9ffebX2eciIsxu67zt",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/statusData.js",
+        "src/statusWidget.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/statusWidget.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "d4e74fcd6b47b080cc8b46fe7b941ddbc5cf2083f9b93e7cc741ad572ddf01df",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "0bdef18d8c432572e9eac4de80dc56d230957a4133647fc7f65352bf2d1e3eea"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "08-ui-state-handling",
+      "run": 2,
+      "sessionID": "ses_f3238ca93ffeUvbDZp0NZ7ITow",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": 4,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/statusData.js",
+        "src/statusWidget.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/statusWidget.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "78b195822dc5c6362a6f3604bc714f82f43c012df35c6ba521885c6368fe6325",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "c5aade1eee4ee24ea03e40291823c220f04faa00dd8c7e2a7669c0e638890569"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "08-ui-state-handling",
+      "run": 3,
+      "sessionID": "ses_f3237d5f2ffemKkMEwY0nBBQ95",
+      "verifyPass": true,
+      "rounds": 6,
+      "firstEditRound": 5,
+      "navigationOnlyRounds": [
+        1,
+        3
+      ],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/StatusWidget.js",
+        "src/statusWidget.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/statusWidget.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "bbb4759a7fda6d49b9f3aeb16c3d18ccc4fa4caa08f27bde51006c51c6be9f3a",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "142368bec05f477410a96128f0f24cacc956c1f5cfffefbcce88a172e2054ef3"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "09-ui-shared-style",
+      "run": 1,
+      "sessionID": "ses_f3236e0eeffevIoAYa4497wct8",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/render.js",
+        "styles/cards.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "5ebfb8f64d4e2fb94e132e8abef98c3de2d676be300638b0fd772847f4330da3",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "db4b9e9f28abbb3b7ed8e0aad831f1a32ac21ad4a602fec1d2b836f9f3cc6682"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "09-ui-shared-style",
+      "run": 2,
+      "sessionID": "ses_f323596d7ffeALi429OvamusqN",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/render.js",
+        "styles/cards.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "4e21ee9be389d7b6d6c7bd9aa63880ed33a50f9cfffa9fab6133045fa1b8a7f8",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "99fb886eba85c317e5e19129abaa66011df90ca07cd299625bbb8ee69002b652"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "09-ui-shared-style",
+      "run": 3,
+      "sessionID": "ses_f3234195fffekzAc4tnoAxk7Cs",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/render.js",
+        "styles/cards.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "7bacc8307e102757756ac1db09fc6ffe1b46b25e998d68fddfca2ca51981874b",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "50b8e44496881615b50ea7efce666154ab799e750917f1425c6f872da49ffb78"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "10-git-missing-changes",
+      "run": 1,
+      "sessionID": "ses_f3230c752ffeXAOf6O0XcZelGt",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": null,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "config.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "config.js",
+        "release-notes.md"
+      ],
+      "requiredReadBeforeEdit": [
+        "config.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "3a0bd9a306da62b79c32f37a58432107e68327dac596d119429e9b1b999cb3ad",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "b67efbfef90838806d6f326483564429484f53a9bb01d4784efff1d212aedadd"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "19-repository-refactor",
+      "run": 1,
+      "sessionID": "ses_f322fb612ffeytxUUvFmL7wrch",
+      "verifyPass": true,
+      "rounds": 6,
+      "firstEditRound": 5,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 4,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/archive/rollout.js",
+        "src/shared/payments.js",
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "357caea3167c8cae4fb22e285bb929d48320291e9385981bdca7af8afe660d84",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "2e3013c8743baa0548dff733fd7295189f82a7ce599243fb80f59e8c6ec9222e"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-a",
+      "arm": "native",
+      "fixture": "21-dependency-upgrade",
+      "run": 1,
+      "sessionID": "ses_f322e7efdffe0lojfArnUgDvDz",
+      "verifyPass": true,
+      "rounds": 8,
+      "firstEditRound": 7,
+      "navigationOnlyRounds": [
+        1,
+        3
+      ],
+      "navigationTools": 4,
+      "sourceReads": 7,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "meta.json",
+        "sdk/v1.js",
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/archive/demo.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "f7e2dc8253af08a03050c579bb92a2294c33644c9d73748cbd670d9cec344cf1",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "337f55a59092d91cffb1d58ed1ef525736058062c9ceb44af5f5504c0a55050c"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "02-routine-bug",
+      "run": 1,
+      "sessionID": "ses_f3231bf4bffeq1qCojlPYB1Yvw",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/slugify.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": [],
+      "runSha256": "344103d9ac42cb55dcf3af6b50dec4bf5526d32034edf9a7a9ff2f362e51cc71",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "e3b39a659d933e8f097682207d988f8d6a920cd232b7a3cb54d707faf004504d"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "04-difficult-debug",
+      "run": 1,
+      "sessionID": "ses_f323112daffePkf32UWoBGrdl9",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/rate-limiter.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": [],
+      "runSha256": "fc6288cd17c5324ce5766e1f0cdb32f14c15d8ad978c0c56ff24fd2a515dc4e6",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "8af9acd03789fd2c335f4e8ab5d988039d1d4cf84486eb6b04d06c923f2b628c"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "06-ui-status-indicator",
+      "run": 1,
+      "sessionID": "ses_f323f55ccffe1mFm2EIGl83g4E",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/panels/systemPanel.js",
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/panels/systemPanel.js"
+      ],
+      "packetRequiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "runSha256": "9de5774fd75a5f5f7fe1232b7abd20e9301611aa5e085d4913541f16139aee58",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "342d5b6d8ce0c13a71fa98eace25cc9e576f68b6e515295e6876437259bf388c"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "06-ui-status-indicator",
+      "run": 2,
+      "sessionID": "ses_f323e2003ffeg3mZ37f5pYtmG7",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/panels/systemPanel.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/panels/systemPanel.js"
+      ],
+      "packetRequiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "runSha256": "16fde55cbdb518bc28688a65f2263e49ad2518825ae22078360e4b4072e6b907",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "edaeb9ef18bc01a6d6704a82987de551a8cb9474207ef83dbbf0876262f7baf8"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "06-ui-status-indicator",
+      "run": 3,
+      "sessionID": "ses_f323d3ef8ffeR8azUMVqS1rMDb",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/panels/billingPanel.js",
+        "src/panels/systemPanel.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/panels/systemPanel.js"
+      ],
+      "packetRequiredFiles": [
+        "src/panels/systemPanel.js"
+      ],
+      "runSha256": "ac5f7185744b83b537b289ba8dfb383599b1c93e1fd446114fc5a3f9716ab647",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "2feb016e41948e4f3146f668c155ce183cdc1e7b242825e8a5a96c289e938025"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "07-ui-viewport-clip",
+      "run": 1,
+      "sessionID": "ses_f323bd0f6ffeKaZRa5QSKWVUUI",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles.css"
+      ],
+      "packetRequiredFiles": [
+        "styles.css"
+      ],
+      "runSha256": "2cc6319bf873d2cea0158ea36329d129aadaa145ac9726d5c0752387d9bbc017",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "87297729cfed1a2a7a2b1c12d12f89f049bdb6692d2f52ad4cd440bbfad3e04b"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "07-ui-viewport-clip",
+      "run": 2,
+      "sessionID": "ses_f323ae582ffe3d8mvEXsDOCKML",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles.css"
+      ],
+      "packetRequiredFiles": [
+        "styles.css"
+      ],
+      "runSha256": "e52e33962ac6cda8d574db72fd95f22f02d714ba896fa0049ffedfeda34f3d66",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "a6cb661f2151b35f664fc6fe6e0f1c1d285ee7421336bbdffda36375abd5528e"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "07-ui-viewport-clip",
+      "run": 3,
+      "sessionID": "ses_f3239eb83ffeRRCPkzArgnHkzT",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "index.html",
+        "styles.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles.css"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles.css"
+      ],
+      "packetRequiredFiles": [
+        "styles.css"
+      ],
+      "runSha256": "a8beef235fe9e5471cfe13987fe5c548c3e298df7bc870e1e72e5f431f070872",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "48e83bcba243e85cedd5025df85c6fac672dc5507b659182b762da6606a4f1d3"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "08-ui-state-handling",
+      "run": 1,
+      "sessionID": "ses_f32392406ffeaEl4NMkz0wezpu",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/statusWidget.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/statusWidget.js"
+      ],
+      "packetRequiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "runSha256": "7c8e98b2ead021e7d59312500934bf3e384f60726d7973b59030405b6b75d761",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "aaa6b2218f93d1324c5c699ac3db6dbc84db39b236fe0c1151f399e2b893c39a"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "08-ui-state-handling",
+      "run": 2,
+      "sessionID": "ses_f32386668ffe3U0u8n6ogoardG",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/statusWidget.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/statusWidget.js"
+      ],
+      "packetRequiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "runSha256": "6b8f499901a5f43a34fb670284cb3aea8e85e712bc142039a8120e02c0a9936b",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "bd37f2a47b3a79c31ee7403c1c15d4c722f05709a025474c81c569becf5bc620"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "08-ui-state-handling",
+      "run": 3,
+      "sessionID": "ses_f3237434effeQlPozkv7w4MY0M",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/statusWidget.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/statusWidget.js"
+      ],
+      "packetRequiredFiles": [
+        "src/statusWidget.js"
+      ],
+      "runSha256": "7e90066c150ae8b3f329105dd3b6fb0d03c2e1eb87d07937203974960fb33e9b",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "43633b9d5e3fb3f22946994cd38b1406e63447b1a94cfa945fb77a3371dcdbbe"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "09-ui-shared-style",
+      "run": 1,
+      "sessionID": "ses_f32364602ffe4v9OkuCqkpu755",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "index.html"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "runSha256": "76848ac79b5ba75491507e0618974e3fb7f551f4ed21ea1999c4f6b91aab726a",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "c528e84c54184f2fcd37e3cc6afee2bafee1867395e4f46839f4484a14ba2197"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "09-ui-shared-style",
+      "run": 2,
+      "sessionID": "ses_f3234edd5ffedrCYnfeWitIciX",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "styles/cards.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles/cards.css"
+      ],
+      "packetRequiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "runSha256": "15dcce540978dd11b719039946b02316252a7ff1865adddac22a49012e6ad790",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "df83cb6833faff3cf737b0e63e250a952d39fa1590de97acd11dec1cdb207b60"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "09-ui-shared-style",
+      "run": 3,
+      "sessionID": "ses_f3233680cffeQChjriynVojSKH",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/render.js",
+        "styles/cards.css"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "packetRequiredFiles": [
+        "styles/cards.css",
+        "src/render.js"
+      ],
+      "runSha256": "541b11af152a665138d677290c334c20c178848d2cd70e43afc7e61783c7f411",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "a0e828831809274879c4e6f74573cec1a50d9ade64d1e937f54bdd1af0eb0393"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "10-git-missing-changes",
+      "run": 1,
+      "sessionID": "ses_f323035beffebw3GE1LeaBxxl9",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": null,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "config.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "config.js",
+        "release-notes.md"
+      ],
+      "requiredReadBeforeEdit": [
+        "config.js"
+      ],
+      "packetRequiredFiles": [],
+      "runSha256": "d3b72cd3ddded7048847bfcf516776730d16b2e9161f02c744fed3d5eec85c8f",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "0286d2e403688b4fc927898ce21bcbe8acc3c43a8652e3c29bcc339d673af19e"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "19-repository-refactor",
+      "run": 1,
+      "sessionID": "ses_f322f42a3ffebqHL2hVL2fwbI5",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 4,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/archive/rollout.js",
+        "src/shared/payments.js",
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/web/dashboard.js",
+        "src/worker/handle.js"
+      ],
+      "packetRequiredFiles": [
+        "src/web/dashboard.js"
+      ],
+      "runSha256": "390aa7e685cfb3f40537c0c7cffe6652d6031c1b15b59464ff92d92b4e5d183a",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "ed3a584cb31db2338e32e2a509f8ae407e5ef8fd19862100ad2e4e2a238a551a"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-v3-b",
+      "arm": "v3",
+      "fixture": "21-dependency-upgrade",
+      "run": 1,
+      "sessionID": "ses_f322d9fceffercYi8EGCbXQi3z",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 1,
+      "sourceReads": 3,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/admin/user.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "runSha256": "132ee291899ec0842ee03b9ad4c94eac534bcc2467a397f54a46ab78c3bf6cb2",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "40b808fae0df906fdfba46f477bd207e21ee498541c96ae6052b5c1bb38565b8"
+        }
+      ],
+      "auditHashMatch": true
+    },
+    {
+      "label": "stage5-21-confirm-r2-a",
+      "arm": "native",
+      "fixture": "21-dependency-upgrade",
+      "run": 1,
+      "sessionID": "ses_f31cf6616ffe1WF3zyEZBLPPvx",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": 4,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 6,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "sdk/v1.js",
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/archive/demo.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "fc0578f333795150f898bf66dcac2fb962a997bf26769b14c026ea4711f59940",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "be14f5a3596abfd2160e5d6ad985b6cf0781a24249d2c4659ba08ebe28c82226"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-a",
+      "arm": "native",
+      "fixture": "21-dependency-upgrade",
+      "run": 2,
+      "sessionID": "ses_f31cbe48dffeNqaDq4BM1GjiSb",
+      "verifyPass": true,
+      "rounds": 6,
+      "firstEditRound": 5,
+      "navigationOnlyRounds": [
+        1,
+        2
+      ],
+      "navigationTools": 2,
+      "sourceReads": 6,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "sdk/v1.js",
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/archive/demo.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "52625922b4670dca21d226f2247252eb6fd87b5ff3b53e9364074d536a222e3d",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "336ad80f187fb6ba14f210450369e13fc6fdfdab380b259d2a431e19094334f2"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-a",
+      "arm": "native",
+      "fixture": "21-dependency-upgrade",
+      "run": 3,
+      "sessionID": "ses_f31cb4b3dffeOVNKXHUvbOghP9",
+      "verifyPass": true,
+      "rounds": 6,
+      "firstEditRound": 5,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 6,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "sdk/v1.js",
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/archive/demo.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "70c7a35ec8fe46af490d3b407c8af522763b49a1b6b98f999f89243eaf4f32ed",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "a5673475bc32ddfb02f6c3243ef9441829a83f4fea6fbc76ed41b28e5f1e702f"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-a",
+      "arm": "native",
+      "fixture": "21-dependency-upgrade",
+      "run": 4,
+      "sessionID": "ses_f31c93edaffeesznoK0YVWt3Gm",
+      "verifyPass": true,
+      "rounds": 7,
+      "firstEditRound": 6,
+      "navigationOnlyRounds": [
+        2
+      ],
+      "navigationTools": 2,
+      "sourceReads": 6,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "sdk/v1.js",
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/archive/demo.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "16e6445de8943944b1582e89a2e8ec9de647cb7a3c62de0d9da5892f276c4ee7",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "48c146371268226d94ba59daf9434f6590b76eb32ecd278f35206e7ce35efd9f"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-a",
+      "arm": "native",
+      "fixture": "21-dependency-upgrade",
+      "run": 5,
+      "sessionID": "ses_f31c8b31dffev2errkealBnmp1",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": 4,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 6,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "sdk/v1.js",
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/archive/demo.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "21ac748379feb1385d26518016d13bbaa36696042d0d293bc1cc8c16f86eb53d",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "b79cab22bc3f6072cb8908de04968e54fcee91ba748b8ab24b02b7d709257825"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-b",
+      "arm": "v3",
+      "fixture": "21-dependency-upgrade",
+      "run": 1,
+      "sessionID": "ses_f31ce957bffetexb7ooPzJSJO2",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [
+        1
+      ],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/admin/user.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": null,
+      "runSha256": "6f4399636ca970cf6454f843c1420bfe1535fa70b6d9a5a1615dd604db41b278",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "23bb31a26aae2cb91222dac28a52a16ef3b2b61172a32dfeeb0df874f7dd461e"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-b",
+      "arm": "v3",
+      "fixture": "21-dependency-upgrade",
+      "run": 2,
+      "sessionID": "ses_f31cc718cffeHpYWBGwRrRBUVI",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 3,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/admin/user.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "4b6a42e0e8bada8a18cc6af100c66f0c041e1a55b52f158179c835157cedfca7",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "4b768192c74077cd9c1e5cace4627ef52146eeec71e27ed560975b3feca36580"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-b",
+      "arm": "v3",
+      "fixture": "21-dependency-upgrade",
+      "run": 3,
+      "sessionID": "ses_f31cab646ffefYpTwzIB1FfJC5",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 4,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "sdk/v2.js",
+        "src/admin/user.js",
+        "src/profileAdapter.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [
+        "src/profileAdapter.js"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "d73ea3709220618a67312722062373c0b11ffca1ce55aa506d6edaf1a3458627",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "03fb6808d5a75b62a0334b506b3fe8e96f6682577bd18e3c187b4cd28160cdc4"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-b",
+      "arm": "v3",
+      "fixture": "21-dependency-upgrade",
+      "run": 4,
+      "sessionID": "ses_f31ca0ee6ffe7LzEhwxxtecxCm",
+      "verifyPass": true,
+      "rounds": 5,
+      "firstEditRound": 4,
+      "navigationOnlyRounds": [],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/admin/user.js",
+        "src/web/profile.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": null,
+      "runSha256": "cc95f900e1b971df366bc2899f8523bfca8625f631c96643c0be4354a0c752ca",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "45b258f4b9d1a513b2e1fe4136b32b6d02eccaeb8edce8486d3cd4c694da57a6"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage5-21-confirm-r2-b",
+      "arm": "v3",
+      "fixture": "21-dependency-upgrade",
+      "run": 5,
+      "sessionID": "ses_f31c83287ffen3ecObSdLmDbJh",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 0,
+      "repeatedSourceReads": 0,
+      "filesRead": [],
+      "malformed": 0,
+      "requiredFiles": [
+        "src/profileAdapter.js"
+      ],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": null,
+      "runSha256": "3d1db04d86d5e881df04bc78a46205d4a8517373e88ab6d979c516f556f3569c",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "4e538788f9ec71ddd640b1be86f28b543f2de82b89e5d71174b2def69924dbc3"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage7-pilot-20260924",
+      "arm": "v3",
+      "fixture": "27-duration-format",
+      "run": 1,
+      "sessionID": "ses_f2e340ce9ffelUUtm0LwIiKvbL",
+      "verifyPass": true,
+      "rounds": 3,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 0,
+      "sourceReads": 1,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/duration.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": null,
+      "runSha256": "23f9f9ac702136c5d916be8efa2cf6140bf232df23f58b084743371186578861",
+      "outputSha256": [
+        {
+          "file": "turn-1.jsonl",
+          "sha256": "e2f8ececd8aecb98c95c17abeaa77b2dca9711cba3d70f371956f6743672a66d"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage7-pilot-20260924",
+      "arm": "v3",
+      "fixture": "28-ledger-diagnosis",
+      "run": 1,
+      "sessionID": "ses_f2e330350ffe1OmGUIZo5IvHqp",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 3,
+      "navigationOnlyRounds": [],
+      "navigationTools": 1,
+      "sourceReads": 3,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/normalize.js",
+        "src/parse.js",
+        "src/summary.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": null,
+      "runSha256": "ee16b3d2828e94515ba304e5629028707568bab394f39ab771a708e91575e7f9",
+      "outputSha256": [
+        {
+          "file": "turn-1.jsonl",
+          "sha256": "3eccb6d8d711899e370f49a35c0b1f94b8ff4fb858d28fca20e8f0ff27b6af11"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage7-pilot-20260924",
+      "arm": "v3",
+      "fixture": "29-config-compat",
+      "run": 1,
+      "sessionID": "ses_f2e37361fffeOm69GaMH8piChe",
+      "verifyPass": true,
+      "rounds": 4,
+      "firstEditRound": 2,
+      "navigationOnlyRounds": [],
+      "navigationTools": 2,
+      "sourceReads": 2,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "src/client/create.js",
+        "src/config/load.js"
+      ],
+      "malformed": 0,
+      "requiredFiles": [],
+      "requiredReadBeforeEdit": [],
+      "packetRequiredFiles": null,
+      "runSha256": "600c04cb90a86cfd477cca8ffc3d82fdb65f08fd9e8b98bbe073d4a198791fc2",
+      "outputSha256": [
+        {
+          "file": "turn-1.jsonl",
+          "sha256": "dbc1d87a360a29d4323ca2e836386e85ee9d97b1effebb46f86746ffa250eca0"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage8-discovery-v1",
+      "arm": "v3",
+      "fixture": "or-packet-path-identity",
+      "run": 1,
+      "sessionID": "ses_f2e083c7bffeaZJLqtR5rie2eP",
+      "verifyPass": true,
+      "usageComplete": true,
+      "tokens": 972026,
+      "totalDurationMs": 301393,
+      "rounds": 23,
+      "firstEditRound": 11,
+      "navigationOnlyRounds": [
+        1,
+        3,
+        8
+      ],
+      "navigationTools": 8,
+      "sourceReads": 10,
+      "repeatedSourceReads": 2,
+      "filesRead": [
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/context/packet.ts",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "plugins/token-efficient/lib/handoff/builder.ts",
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "plugins/token-efficient/scripts/stage6-holdout.ts",
+        "plugins/token-efficient/test/assemble.test.ts",
+        "plugins/token-efficient/test/context.test.ts"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/context/packet.ts"
+      ],
+      "requiredReadBeforeEdit": [
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/context/packet.ts"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "2af982aa39f03007e87111a13c4c3480dd690bbd35aaec0c3201ac7b6a2832c0",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "3723c1e15f3497d5de8451b5ef53009e74fa2f805e84fbd6077e42e9e86e2549"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage8-discovery-v2",
+      "arm": "v3",
+      "fixture": "delta-config-writeback",
+      "run": 1,
+      "sessionID": "ses_f2e0188e4ffedv8p27mhib6Jba",
+      "verifyPass": true,
+      "usageComplete": true,
+      "tokens": 669884,
+      "totalDurationMs": 332167,
+      "rounds": 23,
+      "firstEditRound": 12,
+      "navigationOnlyRounds": [
+        2,
+        4,
+        6,
+        7,
+        9,
+        11
+      ],
+      "navigationTools": 9,
+      "sourceReads": 6,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "delta/core/config.py",
+        "delta/llm/catalog.py",
+        "delta/services.py",
+        "tests/test_catalog.py",
+        "tests/test_data_sources.py",
+        "tests/test_provider_setup.py"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "delta/llm/catalog.py",
+        "delta/core/config.py"
+      ],
+      "requiredReadBeforeEdit": [
+        "delta/llm/catalog.py",
+        "delta/core/config.py"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "d7624a956720dc19337d48f4cfa299f3499d3640b5c92ad28d62c6b7e2d30298",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "d3efc1c76fb4c17c7a0a5ef5faf5e84ded91a3ea8180f6c64233d7f1d3dc9c3c"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage8-discovery-v2",
+      "arm": "v3",
+      "fixture": "delta-market-dependencies",
+      "run": 1,
+      "sessionID": "ses_f2d30d58dffeuRpjAa0JY5vGuu",
+      "verifyPass": true,
+      "usageComplete": true,
+      "tokens": 938570,
+      "totalDurationMs": 342559,
+      "rounds": 21,
+      "firstEditRound": 14,
+      "navigationOnlyRounds": [
+        2,
+        5
+      ],
+      "navigationTools": 6,
+      "sourceReads": 12,
+      "repeatedSourceReads": 1,
+      "filesRead": [
+        "PROJECT_SPEC.md",
+        "delta/core/config.py",
+        "delta/core/plugin.py",
+        "delta/plugins/data/yfinance.py",
+        "delta/runtime.py",
+        "delta/services.py",
+        "delta/targets.py",
+        "delta/tui/screens/config.py",
+        "tests/test_data_sources.py",
+        "tests/test_scope.py",
+        "tests/test_services.py"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "delta/services.py",
+        "delta/core/config.py",
+        "delta/targets.py"
+      ],
+      "requiredReadBeforeEdit": [
+        "delta/services.py",
+        "delta/core/config.py",
+        "delta/targets.py"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "dbce6b78aa32ac15fe0b90a8508dbba64ecc207a76c74b0ba7dc119110483d50",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "26e9717f9c96ba09b0ac6acef98f7cf77af47d25608d9790a5dcc3a179cc3668"
+        }
+      ],
+      "auditHashMatch": null
+    },
+    {
+      "label": "stage8-discovery-v2",
+      "arm": "v3",
+      "fixture": "or-memory-cap-order",
+      "run": 1,
+      "sessionID": "ses_f2dfc0513ffebn8BrPaUJgg3M5",
+      "verifyPass": false,
+      "usageComplete": false,
+      "tokens": 155609,
+      "totalDurationMs": 1093878,
+      "rounds": 7,
+      "firstEditRound": null,
+      "navigationOnlyRounds": [
+        3
+      ],
+      "navigationTools": 5,
+      "sourceReads": 8,
+      "repeatedSourceReads": 0,
+      "filesRead": [
+        "plugins/token-efficient/lib/assemble/budgets.ts",
+        "plugins/token-efficient/lib/assemble/index.ts",
+        "plugins/token-efficient/lib/handoff/session.ts",
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/memory/types.ts",
+        "plugins/token-efficient/scripts/score-stage6-holdout.ts",
+        "plugins/token-efficient/test/assemble.test.ts",
+        "plugins/token-efficient/test/handoff-session.test.ts"
+      ],
+      "malformed": 0,
+      "requiredFiles": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "requiredReadBeforeEdit": [
+        "plugins/token-efficient/lib/memory/select.ts",
+        "plugins/token-efficient/lib/assemble/index.ts"
+      ],
+      "packetRequiredFiles": null,
+      "runSha256": "89c0777c7acf55b16bff47f7880e42ba025f3671d7c43c83bf324cc88f39625d",
+      "outputSha256": [
+        {
+          "file": "opencode-output.jsonl",
+          "sha256": "5fb5bccc7a0ab3eeb78656d834ba0882407822311ca60c58c0baf21c04a7fc10"
+        }
+      ],
+      "auditHashMatch": null
+    }
+  ]
+}

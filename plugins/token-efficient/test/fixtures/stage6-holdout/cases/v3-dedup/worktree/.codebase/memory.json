@@ -1,0 +1,25 @@
+{
+ "schemaVersion": 1,
+ "projectID": "p-holdout",
+ "notes": {
+  "n-retry": {
+   "schemaVersion": 1,
+   "noteID": "n-retry",
+   "scope": "module",
+   "refs": {
+    "paths": [
+     "src/retry.ts"
+    ],
+    "symbols": []
+   },
+   "authorKind": "user",
+   "lastValidatedAt": "2026-09-24T00:00:00.000Z",
+   "validity": "current",
+   "sourceDigests": {
+    "src/retry.ts": "37be0531a828124aaa3bda8bf83a70f95a4fa1eac85cb0fe562ac851d2ab74e3"
+   },
+   "__content": ""
+  }
+ },
+ "updatedAt": "2026-09-24T00:00:00.000Z"
+}

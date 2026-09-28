@@ -1,0 +1,7 @@
+{
+ "required": [
+  "src/emoji.js"
+ ],
+ "optional": [],
+ "mandatoryFacts": []
+}

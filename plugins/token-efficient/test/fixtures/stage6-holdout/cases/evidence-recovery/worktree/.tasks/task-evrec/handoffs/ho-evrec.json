@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-evrec",
+ "taskID": "task-evrec",
+ "workflowID": "wf-evrec",
+ "sourceSession": "ses-er",
+ "direction": "workhorse->workhorse",
+ "objective": "Document the retry helper",
+ "constraints": [
+  {
+   "text": "excerpt only",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "digest matches file",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

@@ -1,0 +1,5 @@
+{
+  "required": ["config.js", "release-notes.md"],
+  "optional": ["src/app.js"],
+  "notes": "The fix requires finding the rate-limit commit on release/2.1 (git branch/log evidence) and bringing it into main. config.js and release-notes.md carry the conflicting claims."
+}

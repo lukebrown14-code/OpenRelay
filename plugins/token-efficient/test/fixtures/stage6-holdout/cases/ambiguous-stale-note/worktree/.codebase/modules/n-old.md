@@ -1,0 +1,1 @@
+Old auth note: sessions live in cookies.

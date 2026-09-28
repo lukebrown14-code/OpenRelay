@@ -1,0 +1,1410 @@
+[
+  {
+    "fixture": "01-trivial-edit",
+    "candidates": [
+      {
+        "file": "src/theme.js",
+        "score": 3.466,
+        "lexical": 3.466,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 1,
+    "listed": 1,
+    "truncated": false,
+    "bytesRead": 104,
+    "query": [
+      "change",
+      "card",
+      "radiu",
+      "theme",
+      "check",
+      "work",
+      "print",
+      "pass"
+    ],
+    "required": null,
+    "requiredFound": null,
+    "fullRecall": null
+  },
+  {
+    "fixture": "02-routine-bug",
+    "candidates": [
+      {
+        "file": "src/slugify.js",
+        "score": 4.159,
+        "lexical": 4.159,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 1,
+    "listed": 1,
+    "truncated": false,
+    "bytesRead": 155,
+    "query": [
+      "slugify",
+      "broken",
+      "lowercase",
+      "output",
+      "case",
+      "fail",
+      "every",
+      "passe",
+      "trim",
+      "input",
+      "remove",
+      "apostrophe",
+      "collapse",
+      "non",
+      "alphanumeric",
+      "character",
+      "single",
+      "result",
+      "leading",
+      "trailing",
+      "dashe",
+      "modify",
+      "check",
+      "work",
+      "print",
+      "pass"
+    ],
+    "required": null,
+    "requiredFound": null,
+    "fullRecall": null
+  },
+  {
+    "fixture": "03-medium-feature",
+    "candidates": [],
+    "scanned": 0,
+    "listed": 0,
+    "truncated": false,
+    "bytesRead": 0,
+    "query": [
+      "retry",
+      "utility",
+      "option",
+      "export",
+      "index",
+      "requirement",
+      "attempt",
+      "delay",
+      "call",
+      "which",
+      "may",
+      "async",
+      "time",
+      "resolve",
+      "first",
+      "successful",
+      "result",
+      "resolved",
+      "promise",
+      "fail",
+      "reject",
+      "last",
+      "error",
+      "wait",
+      "millisecond",
+      "between",
+      "final",
+      "failure",
+      "default",
+      "check",
+      "work",
+      "pass"
+    ],
+    "required": null,
+    "requiredFound": null,
+    "fullRecall": null
+  },
+  {
+    "fixture": "04-difficult-debug",
+    "candidates": [
+      {
+        "file": "src/rate-limiter.js",
+        "score": 9.011,
+        "lexical": 9.011,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 1,
+    "listed": 1,
+    "truncated": false,
+    "bytesRead": 569,
+    "query": [
+      "rate",
+      "limiter",
+      "implement",
+      "token",
+      "bucket",
+      "used",
+      "gateway",
+      "user",
+      "report",
+      "intermittent",
+      "429",
+      "sometime",
+      "refuse",
+      "take",
+      "even",
+      "though",
+      "enough",
+      "time",
+      "passed",
+      "regenerate",
+      "reproduce",
+      "problem",
+      "deterministically",
+      "fake",
+      "clock",
+      "diagnose",
+      "refill",
+      "logic",
+      "check",
+      "pass",
+      "accumulate",
+      "fractional",
+      "across",
+      "short",
+      "interval",
+      "truncation",
+      "fail",
+      "available",
+      "succeed",
+      "threshold",
+      "never",
+      "exceed",
+      "capacity",
+      "change",
+      "public",
+      "try",
+      "modify",
+      "work",
+      "print"
+    ],
+    "required": null,
+    "requiredFound": null,
+    "fullRecall": null
+  },
+  {
+    "fixture": "05-noisy-test-log",
+    "candidates": [
+      {
+        "file": "src/format.js",
+        "score": 13.863,
+        "lexical": 13.863,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 1,
+    "listed": 1,
+    "truncated": false,
+    "bytesRead": 579,
+    "query": [
+      "format",
+      "byte",
+      "one",
+      "case",
+      "suite",
+      "failing",
+      "intentionally",
+      "verbose",
+      "output",
+      "identify",
+      "exactly",
+      "which",
+      "input",
+      "broken",
+      "what",
+      "expected",
+      "result",
+      "npm",
+      "directly",
+      "pipe",
+      "grep",
+      "truncate",
+      "find",
+      "then",
+      "every",
+      "passe",
+      "rule",
+      "unit",
+      "1024",
+      "binary",
+      "prefixe",
+      "scaled",
+      "value",
+      "decimal",
+      "place",
+      "trailing",
+      "stripped",
+      "non",
+      "finite",
+      "negative",
+      "throw",
+      "range",
+      "error",
+      "modify",
+      "package",
+      "json",
+      "print",
+      "pass"
+    ],
+    "required": null,
+    "requiredFound": null,
+    "fullRecall": null
+  },
+  {
+    "fixture": "06-ui-status-indicator",
+    "candidates": [
+      {
+        "file": "src/panels/billingPanel.js",
+        "score": 13.712,
+        "lexical": 13.712,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/panels/notificationsPanel.js",
+        "score": 12.208,
+        "lexical": 12.208,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/panels/systemPanel.js",
+        "score": 11.663,
+        "lexical": 11.663,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/app.js",
+        "score": 10.23,
+        "lexical": 7.23,
+        "neighborBonus": 3
+      }
+    ],
+    "scanned": 6,
+    "listed": 6,
+    "truncated": false,
+    "bytesRead": 5108,
+    "query": [
+      "statu",
+      "badge",
+      "system",
+      "panel",
+      "dashboard",
+      "render",
+      "three",
+      "billing",
+      "notification",
+      "op",
+      "want",
+      "header",
+      "requirement",
+      "inside",
+      "element",
+      "span",
+      "class",
+      "data",
+      "rendered",
+      "own",
+      "function",
+      "appear",
+      "whenever",
+      "remain",
+      "exactly",
+      "they",
+      "modify",
+      "check",
+      "work",
+      "print",
+      "pass"
+    ],
+    "required": [
+      "src/panels/systemPanel.js"
+    ],
+    "requiredFound": [
+      "src/panels/systemPanel.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "07-ui-viewport-clip",
+    "candidates": [
+      {
+        "file": "styles.css",
+        "score": 16.954,
+        "lexical": 16.954,
+        "neighborBonus": 0
+      },
+      {
+        "file": "index.html",
+        "score": 6.377,
+        "lexical": 6.377,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/app.js",
+        "score": 3.081,
+        "lexical": 3.081,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 3,
+    "listed": 3,
+    "truncated": false,
+    "bytesRead": 1654,
+    "query": [
+      "toolbar",
+      "clipping",
+      "narrow",
+      "viewport",
+      "product",
+      "page",
+      "filter",
+      "get",
+      "clipped",
+      "phone",
+      "width",
+      "chip",
+      "off",
+      "right",
+      "edge",
+      "cut",
+      "hide",
+      "overflow",
+      "requirement",
+      "small",
+      "480px",
+      "every",
+      "fully",
+      "visible",
+      "wrap",
+      "onto",
+      "additional",
+      "row",
+      "inside",
+      "instead",
+      "being",
+      "desktop",
+      "1200px",
+      "fit",
+      "single",
+      "style",
+      "css",
+      "themselve",
+      "order",
+      "change",
+      "modify",
+      "check",
+      "work",
+      "print",
+      "pass",
+      "open",
+      "headless",
+      "chromium",
+      "two",
+      "size"
+    ],
+    "required": [
+      "styles.css"
+    ],
+    "requiredFound": [
+      "styles.css"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "08-ui-state-handling",
+    "candidates": [
+      {
+        "file": "src/statusWidget.js",
+        "score": 18.596,
+        "lexical": 18.596,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/statusData.js",
+        "score": 6.238,
+        "lexical": 6.238,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 2,
+    "listed": 2,
+    "truncated": false,
+    "bytesRead": 1919,
+    "query": [
+      "show",
+      "error",
+      "state",
+      "when",
+      "statu",
+      "loading",
+      "fail",
+      "widget",
+      "render",
+      "three",
+      "block",
+      "data",
+      "report",
+      "but",
+      "currently",
+      "spin",
+      "forever",
+      "fetch",
+      "reject",
+      "never",
+      "goe",
+      "away",
+      "shown",
+      "requirement",
+      "load",
+      "leave",
+      "failed",
+      "message",
+      "text",
+      "hide",
+      "success",
+      "path",
+      "working",
+      "exactly",
+      "today",
+      "next",
+      "successful",
+      "failure",
+      "clear",
+      "modify",
+      "check",
+      "work",
+      "print",
+      "pass"
+    ],
+    "required": [
+      "src/statusWidget.js"
+    ],
+    "requiredFound": [
+      "src/statusWidget.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "09-ui-shared-style",
+    "candidates": [
+      {
+        "file": "styles/cards.css",
+        "score": 14.067,
+        "lexical": 14.067,
+        "neighborBonus": 0
+      },
+      {
+        "file": "index.html",
+        "score": 8.744,
+        "lexical": 8.744,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/render.js",
+        "score": 7.831,
+        "lexical": 7.831,
+        "neighborBonus": 0
+      },
+      {
+        "file": "styles/tokens.css",
+        "score": 5.559,
+        "lexical": 5.559,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 4,
+    "listed": 4,
+    "truncated": false,
+    "bytesRead": 1722,
+    "query": [
+      "compact",
+      "variant",
+      "shared",
+      "metric",
+      "card",
+      "three",
+      "statu",
+      "page",
+      "too",
+      "tall",
+      "summary",
+      "strip",
+      "introduce",
+      "apply",
+      "requirement",
+      "style",
+      "css",
+      "modifier",
+      "reduce",
+      "padding",
+      "8px",
+      "hide",
+      "description",
+      "desc",
+      "inside",
+      "rendered",
+      "render",
+      "footer",
+      "note",
+      "receive",
+      "modify",
+      "check",
+      "work",
+      "print",
+      "pass",
+      "load",
+      "jsdom",
+      "inspect",
+      "computed"
+    ],
+    "required": [
+      "styles/cards.css",
+      "src/render.js"
+    ],
+    "requiredFound": [
+      "styles/cards.css",
+      "src/render.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "10-git-missing-changes",
+    "candidates": [
+      {
+        "file": "config.js",
+        "score": 7.248,
+        "lexical": 5.075,
+        "neighborBonus": 2.173
+      },
+      {
+        "file": "src/app.js",
+        "score": 7.112,
+        "lexical": 4.828,
+        "neighborBonus": 2.284
+      }
+    ],
+    "scanned": 2,
+    "listed": 2,
+    "truncated": false,
+    "bytesRead": 237,
+    "query": [
+      "launch",
+      "rate",
+      "limit",
+      "never",
+      "made",
+      "main",
+      "release",
+      "note",
+      "say",
+      "raised",
+      "but",
+      "deploy",
+      "enforce",
+      "old",
+      "somewhere",
+      "repository",
+      "history",
+      "actual",
+      "config",
+      "change",
+      "exist",
+      "reached",
+      "requirement",
+      "work",
+      "bring",
+      "missing",
+      "wherever",
+      "live",
+      "merge",
+      "cherry",
+      "pick",
+      "original",
+      "commit",
+      "afterward",
+      "set",
+      "500",
+      "app",
+      "report",
+      "ancestor",
+      "rewrite",
+      "delete",
+      "branch",
+      "modify",
+      "check",
+      "print",
+      "pass"
+    ],
+    "required": [
+      "config.js",
+      "release-notes.md"
+    ],
+    "requiredFound": [
+      "config.js"
+    ],
+    "fullRecall": false
+  },
+  {
+    "fixture": "11-git-merge-conflict",
+    "candidates": [
+      {
+        "file": "settings.js",
+        "score": 4.852,
+        "lexical": 4.852,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 1,
+    "listed": 1,
+    "truncated": false,
+    "bytesRead": 65,
+    "query": [
+      "merge",
+      "search",
+      "suggestion",
+      "feature",
+      "main",
+      "branch",
+      "need",
+      "land",
+      "branche",
+      "changed",
+      "block",
+      "setting",
+      "will",
+      "conflict",
+      "requirement",
+      "resolve",
+      "final",
+      "intended",
+      "change",
+      "timeout",
+      "stay",
+      "production",
+      "value",
+      "250",
+      "true",
+      "flag",
+      "present",
+      "committed",
+      "clean",
+      "working",
+      "tree",
+      "marker",
+      "left",
+      "over",
+      "acceptable",
+      "pass",
+      "modify",
+      "check",
+      "work",
+      "print"
+    ],
+    "required": [
+      "settings.js"
+    ],
+    "requiredFound": [
+      "settings.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "12-git-recover-commit",
+    "candidates": [],
+    "scanned": 0,
+    "listed": 0,
+    "truncated": false,
+    "bytesRead": 0,
+    "query": [
+      "recover",
+      "lost",
+      "runbook",
+      "commit",
+      "yesterday",
+      "teammate",
+      "committed",
+      "doc",
+      "incident",
+      "repository",
+      "but",
+      "branch",
+      "reset",
+      "afterward",
+      "disappeared",
+      "working",
+      "tree",
+      "itself",
+      "somewhere",
+      "requirement",
+      "find",
+      "original",
+      "onto",
+      "main",
+      "keeping",
+      "message",
+      "exact",
+      "content",
+      "merge",
+      "cherry",
+      "pick",
+      "rewrite",
+      "hand",
+      "modify",
+      "check",
+      "work",
+      "print",
+      "pass"
+    ],
+    "required": [
+      "docs/runbook.md"
+    ],
+    "requiredFound": [],
+    "fullRecall": false
+  },
+  {
+    "fixture": "13-git-separate-work",
+    "candidates": [
+      {
+        "file": "src/api.js",
+        "score": 4.852,
+        "lexical": 4.852,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 1,
+    "listed": 1,
+    "truncated": false,
+    "bytesRead": 159,
+    "query": [
+      "retry",
+      "fetch",
+      "user",
+      "touching",
+      "teammate",
+      "work",
+      "fetche",
+      "but",
+      "fail",
+      "hard",
+      "transient",
+      "error",
+      "requirement",
+      "backoff",
+      "most",
+      "attempt",
+      "retrying",
+      "network",
+      "http",
+      "failure",
+      "brief",
+      "exponential",
+      "starting",
+      "10m",
+      "then",
+      "20m",
+      "return",
+      "parsed",
+      "json",
+      "success",
+      "throw",
+      "last",
+      "when",
+      "working",
+      "tree",
+      "contain",
+      "progress",
+      "change",
+      "modified",
+      "config",
+      "yaml",
+      "uncommitted",
+      "wip",
+      "experiment",
+      "untracked",
+      "note",
+      "idea",
+      "leave",
+      "them",
+      "exactly",
+      "they",
+      "commit",
+      "stage",
+      "revert",
+      "edit",
+      "modify",
+      "check",
+      "print",
+      "pass"
+    ],
+    "required": [
+      "src/api.js"
+    ],
+    "requiredFound": [
+      "src/api.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "14-ui-dismiss-strip",
+    "candidates": [
+      {
+        "file": "src/sections/notice.js",
+        "score": 9.217,
+        "lexical": 9.217,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/interactions.js",
+        "score": 7.986,
+        "lexical": 7.986,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/actions/promo.js",
+        "score": 7.513,
+        "lexical": 4.513,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/sections/topbar.js",
+        "score": 6.482,
+        "lexical": 6.482,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 6,
+    "listed": 6,
+    "truncated": false,
+    "bytesRead": 1866,
+    "query": [
+      "promotion",
+      "dismiss",
+      "button",
+      "broken",
+      "dashboard",
+      "strip",
+      "nothing",
+      "notice",
+      "card",
+      "work",
+      "action",
+      "through",
+      "event",
+      "routing",
+      "dismissal",
+      "survive",
+      "render",
+      "statistic",
+      "unchanged",
+      "edit"
+    ],
+    "required": [
+      "src/interactions.js"
+    ],
+    "requiredFound": [
+      "src/interactions.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "15-debug-export-labels",
+    "candidates": [
+      {
+        "file": "src/export/csv.js",
+        "score": 11.398,
+        "lexical": 11.398,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/table/cells.js",
+        "score": 10.469,
+        "lexical": 10.469,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/labels.js",
+        "score": 8.051,
+        "lexical": 5.051,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/data/orders.js",
+        "score": 6.373,
+        "lexical": 6.373,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 5,
+    "listed": 5,
+    "truncated": false,
+    "bytesRead": 947,
+    "query": [
+      "csv",
+      "export",
+      "show",
+      "raw",
+      "order",
+      "table",
+      "readable",
+      "label",
+      "but",
+      "priority",
+      "every",
+      "statu",
+      "region",
+      "quoting",
+      "edit"
+    ],
+    "required": [
+      "src/export/csv.js"
+    ],
+    "requiredFound": [
+      "src/export/csv.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "16-ui-overlay-leak",
+    "candidates": [
+      {
+        "file": "src/ui/confirmDialog.js",
+        "score": 15.29,
+        "lexical": 13.074,
+        "neighborBonus": 2.216
+      },
+      {
+        "file": "src/ui/inviteDialog.js",
+        "score": 10.063,
+        "lexical": 10.063,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/main.js",
+        "score": 7.924,
+        "lexical": 4.924,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/ui/overlay.js",
+        "score": 4.504,
+        "lexical": 1.504,
+        "neighborBonus": 3
+      }
+    ],
+    "scanned": 6,
+    "listed": 6,
+    "truncated": false,
+    "bytesRead": 1355,
+    "query": [
+      "confirmation",
+      "leave",
+      "page",
+      "dimmed",
+      "closing",
+      "delete",
+      "key",
+      "either",
+      "button",
+      "dark",
+      "backdrop",
+      "stay",
+      "reopening",
+      "dialog",
+      "stack",
+      "more",
+      "confirm",
+      "lifecycle",
+      "preserving",
+      "invite",
+      "tooltip",
+      "behavior",
+      "edit"
+    ],
+    "required": [
+      "src/ui/confirmDialog.js"
+    ],
+    "requiredFound": [
+      "src/ui/confirmDialog.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "17-python-rust-migration",
+    "candidates": [
+      {
+        "file": "python/orders/summary.py",
+        "score": 18.266,
+        "lexical": 18.266,
+        "neighborBonus": 0
+      },
+      {
+        "file": "rust/src/main.rs",
+        "score": 13.137,
+        "lexical": 13.137,
+        "neighborBonus": 0
+      },
+      {
+        "file": "python/orders/normalize.py",
+        "score": 6.807,
+        "lexical": 6.807,
+        "neighborBonus": 0
+      },
+      {
+        "file": "python/orders/pricing.py",
+        "score": 6.807,
+        "lexical": 6.807,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 6,
+    "listed": 6,
+    "truncated": false,
+    "bytesRead": 1186,
+    "query": [
+      "port",
+      "order",
+      "summary",
+      "cli",
+      "rust",
+      "replace",
+      "python",
+      "implementation",
+      "command",
+      "executable",
+      "read",
+      "tab",
+      "separated",
+      "record",
+      "stdin",
+      "customer",
+      "item",
+      "quantity",
+      "unit",
+      "price",
+      "cent",
+      "print",
+      "one",
+      "per",
+      "first",
+      "seen",
+      "normalized",
+      "name",
+      "count",
+      "total",
+      "tier",
+      "match",
+      "behavior",
+      "whitespace",
+      "case",
+      "invalid",
+      "boundary",
+      "readable",
+      "specification",
+      "program",
+      "produce",
+      "matching",
+      "output",
+      "standard",
+      "library",
+      "build",
+      "offline",
+      "edit"
+    ],
+    "required": [
+      "rust/src/main.rs"
+    ],
+    "requiredFound": [
+      "rust/src/main.rs"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "18-cross-file-api-change",
+    "candidates": [
+      {
+        "file": "src/email/sendReceipt.js",
+        "score": 13.23,
+        "lexical": 10.423,
+        "neighborBonus": 2.807
+      },
+      {
+        "file": "src/format/receipt.js",
+        "score": 9.238,
+        "lexical": 6.238,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/mobile/receiptCard.js",
+        "score": 6.966,
+        "lexical": 4.159,
+        "neighborBonus": 2.807
+      },
+      {
+        "file": "src/web/checkout.js",
+        "score": 4.887,
+        "lexical": 2.079,
+        "neighborBonus": 2.807
+      }
+    ],
+    "scanned": 4,
+    "listed": 4,
+    "truncated": false,
+    "bytesRead": 618,
+    "query": [
+      "required",
+      "locale",
+      "rendered",
+      "receipt",
+      "total",
+      "need",
+      "email",
+      "view",
+      "format",
+      "currency",
+      "correctly",
+      "shared",
+      "formatter",
+      "live",
+      "caller",
+      "use",
+      "234",
+      "include",
+      "customer",
+      "order",
+      "preview",
+      "exist",
+      "but",
+      "longer",
+      "called",
+      "edit"
+    ],
+    "required": [
+      "src/format/receipt.js",
+      "src/web/checkout.js",
+      "src/email/sendReceipt.js",
+      "src/mobile/receiptCard.js"
+    ],
+    "requiredFound": [
+      "src/format/receipt.js",
+      "src/web/checkout.js",
+      "src/email/sendReceipt.js",
+      "src/mobile/receiptCard.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "19-repository-refactor",
+    "candidates": [
+      {
+        "file": "src/shared/payments.js",
+        "score": 9.766,
+        "lexical": 9.766,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/worker/handle.js",
+        "score": 7.727,
+        "lexical": 7.727,
+        "neighborBonus": 0
+      },
+      {
+        "file": "src/web/dashboard.js",
+        "score": 4.775,
+        "lexical": 4.775,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 3,
+    "listed": 3,
+    "truncated": false,
+    "bytesRead": 289,
+    "query": [
+      "consolidate",
+      "feature",
+      "flag",
+      "decision",
+      "worker",
+      "entry",
+      "point",
+      "decide",
+      "whether",
+      "audit",
+      "enabled",
+      "disagree",
+      "string",
+      "value",
+      "introduce",
+      "one",
+      "shared",
+      "function",
+      "live",
+      "true",
+      "case",
+      "insensitive",
+      "enable",
+      "false",
+      "off",
+      "null",
+      "missing",
+      "disable",
+      "view",
+      "expose",
+      "boolean",
+      "return",
+      "unrelated",
+      "payment",
+      "archived",
+      "rollout",
+      "unchanged",
+      "edit"
+    ],
+    "required": [
+      "src/web/dashboard.js",
+      "src/worker/handle.js"
+    ],
+    "requiredFound": [
+      "src/web/dashboard.js",
+      "src/worker/handle.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "20-frontend-backend-feature",
+    "candidates": [
+      {
+        "file": "src/server/orderApi.js",
+        "score": 12.847,
+        "lexical": 9.847,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/data/orders.js",
+        "score": 10.711,
+        "lexical": 7.711,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/ui/renderOrders.js",
+        "score": 6.957,
+        "lexical": 4.025,
+        "neighborBonus": 2.932
+      },
+      {
+        "file": "src/ui/actions.js",
+        "score": 6.515,
+        "lexical": 6.515,
+        "neighborBonus": 0
+      }
+    ],
+    "scanned": 4,
+    "listed": 4,
+    "truncated": false,
+    "bytesRead": 817,
+    "query": [
+      "order",
+      "cancellation",
+      "dashboard",
+      "cancelled",
+      "pending",
+      "cancel",
+      "control",
+      "row",
+      "clicking",
+      "call",
+      "shipped",
+      "offer",
+      "server",
+      "reject",
+      "unknown",
+      "other",
+      "use",
+      "data",
+      "action",
+      "dispatcher",
+      "edit"
+    ],
+    "required": [
+      "src/server/orderApi.js",
+      "src/ui/renderOrders.js",
+      "src/ui/actions.js"
+    ],
+    "requiredFound": [
+      "src/server/orderApi.js",
+      "src/ui/renderOrders.js",
+      "src/ui/actions.js"
+    ],
+    "fullRecall": true
+  },
+  {
+    "fixture": "21-dependency-upgrade",
+    "candidates": [
+      {
+        "file": "src/profileAdapter.js",
+        "score": 11.74,
+        "lexical": 8.74,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/admin/user.js",
+        "score": 11.071,
+        "lexical": 8.071,
+        "neighborBonus": 3
+      },
+      {
+        "file": "src/web/profile.js",
+        "score": 8.991,
+        "lexical": 5.991,
+        "neighborBonus": 3
+      },
+      {
+        "file": "sdk/v1.js",
+        "score": 8.927,
+        "lexical": 5.927,
+        "neighborBonus": 3
+      }
+    ],
+    "scanned": 5,
+    "listed": 5,
+    "truncated": false,
+    "bytesRead": 772,
+    "query": [
+      "migrate",
+      "router",
+      "adapter",
+      "sdk",
+      "bundled",
+      "moved",
+      "callback",
+      "based",
+      "promise",
+      "application",
+      "caller",
+      "profile",
+      "loading",
+      "error",
+      "handling",
+      "behave",
+      "remove",
+      "live",
+      "import",
+      "admin",
+      "page",
+      "use",
+      "well",
+      "archived",
+      "demo",
+      "edit"
+    ],
+    "required": [
+      "src/profileAdapter.js"
+    ],
+    "requiredFound": [
+      "src/profileAdapter.js"
+    ],
+    "fullRecall": true
+  }
+]

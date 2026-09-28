@@ -16,6 +16,7 @@ declare module "bun:test" {
     toBeLessThanOrEqual(expected: number): void
     toHaveLength(length: number): void
     toBeInstanceOf(ctor: unknown): void
+    toBeTypeOf(type: string): void
     toThrow(expected?: unknown): void
     unreachable(message?: string): never
   }

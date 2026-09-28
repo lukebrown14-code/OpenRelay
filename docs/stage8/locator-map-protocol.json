@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Second offline candidate after the sparse edge failed: a compact locator list using the four highest-ranked source files and one task-matching symbol per file. Do not show graph neighbors.",
+  "offlineGate": {
+    "maximumBytes": 650,
+    "maximumFiles": 4,
+    "minimumFullFileCoverage24": 16,
+    "mustIncludeInLiveTask": ["delta/llm/catalog.py", "delta/core/config.py"],
+    "minimumByteReductionVersusLiveBroadMap": 0.6,
+    "unsafePathCount": 0
+  },
+  "liveGate": {
+    "model": "zai-coding-plan/glm-5.3",
+    "taskOrder": ["delta-config-writeback", "or-packet-path-identity", "delta-market-dependencies"],
+    "attemptsPerTask": 1,
+    "maximumRecordedCodingInputPlusCacheReadTokens": 3300000,
+    "reservePerTaskTokens": 1100000,
+    "maximumLatencyRatioToSavedV3": 1.05,
+    "maximumTokenRatioToSavedV3": 1,
+    "requireIndependentVerifyPass": true,
+    "requireCompleteCodingUsage": true,
+    "maximumPremiumCalls": 0,
+    "stopAtFirstFailure": true
+  },
+  "interpretation": "A passing n=1 live comparison only justifies a paired confirmation, not release."
+}

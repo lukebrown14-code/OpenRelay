@@ -1,0 +1,6 @@
+{
+  "class": "upgrade",
+  "category": "upgrade",
+  "name": "21-dependency-upgrade",
+  "verifyTimeoutMs": 30000
+}

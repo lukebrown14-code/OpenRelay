@@ -1,0 +1,12 @@
+{
+ "resumeSession": "ses-er",
+ "readHandoff": {
+  "taskID": "task-evrec",
+  "handoffID": "ho-evrec"
+ },
+ "augmentHandoff": {
+  "relevantFiles": [
+   "src/retry.ts"
+  ]
+ }
+}

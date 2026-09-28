@@ -1,0 +1,354 @@
+{
+ "frozenAt": "2026-09-24T00:00:00.000Z",
+ "hashAlgo": "sha256",
+ "cases": [
+  {
+   "id": "plan-constraints",
+   "class": "positive",
+   "category": "accepted-plan-constraints",
+   "treeHash": "7792525536e8bdc3ac355a4bbfca6ef60d79f2bce5cec4e3e6bd7c6a480469e0",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Split payments module into charge and refund paths",
+     "[user-approved] no new dependencies",
+     "[user-approved] keep public API stable",
+     "node verify.js passes",
+     "src/api.ts"
+    ],
+    "mustNotContain": [],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "failed-verification",
+   "class": "positive",
+   "category": "failed-verification-details",
+   "treeHash": "7a6ebd365d5ffcb2bc21e235afa236a1de3e302b3ab62dfaba9b2895fc91ba2f",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "node verify.js",
+     "exit 1 (current failure)",
+     "csv byte-identical to fixture"
+    ],
+    "mustNotContain": [],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "partial-progress",
+   "class": "positive",
+   "category": "partial-progress",
+   "treeHash": "332d9fb9f4c01b058f55a443a23decafae6e63b89f972d2ae4c47fff37ab3c18",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Ported three of five commands",
+     "port serve command",
+     "port export command"
+    ],
+    "mustNotContain": [],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "restart-recovery",
+   "class": "positive",
+   "category": "restart-recovery",
+   "treeHash": "e72f79379a0ff376699b9b2db7959cfa93d977ff0a5d389f7423fb1a202f5512",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Continue the viewport fix",
+     "mobile breakpoints unchanged"
+    ],
+    "mustNotContain": [],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "concurrent-tasks",
+   "class": "positive",
+   "category": "concurrent-tasks",
+   "treeHash": "9cd171f5694e074d4e07617c7ef37c2a90b25b8036aa3661db13fe77a4799d5b",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Task A: fix telemetry emitter"
+    ],
+    "mustNotContain": [
+     "rotate payment credentials",
+     "vault only",
+     "zero plaintext"
+    ],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "worktree-change",
+   "class": "positive",
+   "category": "worktree-changes",
+   "treeHash": "5c6b0b8fe14d24f14b14aaa4cd4378d938403f9cb1de04bfbbbbf88519fc74b3",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Move sessions to redis"
+    ],
+    "mustNotContain": [
+     "sessions live in the sqlite table"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "stale-digest"
+    ]
+   }
+  },
+  {
+   "id": "current-referenced-note",
+   "class": "positive",
+   "category": "current-note-selected",
+   "treeHash": "d74cad8f759fb311e53c2cd6209e999544151ef88a26956ed44bdf3de74ef762",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Harden session expiry",
+     "sessions live server-side in sqlite"
+    ],
+    "mustNotContain": [],
+    "memorySelected": [
+     "n-auth"
+    ]
+   }
+  },
+  {
+   "id": "v3-dedup",
+   "class": "positive",
+   "category": "duplicate-suppression",
+   "treeHash": "5e8c5a98da375db30f6826950b69a04a3ec1f11f1d725c07dc0b3b1fcdd12a8a",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Add jitter to retries"
+    ],
+    "mustNotContain": [
+     "The retry helper wraps one-shot calls"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "covered-by-packet"
+    ]
+   }
+  },
+  {
+   "id": "path-overlap",
+   "class": "positive",
+   "category": "path-overlap-selection",
+   "treeHash": "2f7cbc57f8e1b859dc845acf67192b37bb7674c29656d1cfaf9f144e5721989a",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "emitter is fire-and-forget"
+    ],
+    "mustNotContain": [
+     "charges are idempotent by key"
+    ],
+    "memorySelected": [
+     "n-tel"
+    ]
+   }
+  },
+  {
+   "id": "cap-tiebreak",
+   "class": "positive",
+   "category": "selection-cap",
+   "treeHash": "e633bf3b568e22b8a9ecad0b3b8c2d1c7b2201936ecd0a5156846c805673a81c",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Note A content.",
+     "Note B content."
+    ],
+    "mustNotContain": [
+     "Note C content."
+    ],
+    "memorySelected": [
+     "n-a",
+     "n-b"
+    ],
+    "omissionReasons": [
+     "cap"
+    ]
+   }
+  },
+  {
+   "id": "evidence-recovery",
+   "class": "positive",
+   "category": "evidence-recovery",
+   "treeHash": "8bb85a68e70b43a1782ead85de9c8e2dca84964cc77dbb2f299e39b929a299ef",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "src/retry.ts",
+     "export function retry(fn)"
+    ],
+    "mustNotContain": [],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "conflict-handoff-usable",
+   "class": "positive",
+   "category": "conflict-abstention",
+   "treeHash": "a94a2cafa53ce2a7aea5062b08ef4c2706e49f6f3e1845e00a9c1a14fa80caa1",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Make retry count configurable"
+    ],
+    "mustNotContain": [
+     "retries default to three",
+     "retries default to five"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "conflict"
+    ]
+   }
+  },
+  {
+   "id": "missing-evidence",
+   "class": "negative",
+   "category": "missing-evidence",
+   "treeHash": "567b3373c66edf4ba188d84409cd7a65744ad676df33cf51d13b12d9c4bea0a7",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "missing-mandatory",
+    "mustContain": [],
+    "mustNotContain": [
+     "Ship the thing"
+    ],
+    "memorySelected": null
+   }
+  },
+  {
+   "id": "oversized-handoff",
+   "class": "negative",
+   "category": "oversized-diffs",
+   "treeHash": "567b3373c66edf4ba188d84409cd7a65744ad676df33cf51d13b12d9c4bea0a7",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "mandatory-exceeds-budget",
+    "mustContain": [],
+    "mustNotContain": [
+     "TINY-CRITERIA-MUST-NOT-APPEAR"
+    ],
+    "memorySelected": null
+   }
+  },
+  {
+   "id": "oversized-note",
+   "class": "negative",
+   "category": "oversized-diffs",
+   "treeHash": "45a33a9b6b1e2ac6816071e78582b4f4ade9f19be4499ad02afcc0d6f1219753",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "nothing-to-assemble",
+    "mustContain": [],
+    "mustNotContain": [
+     "OVERSIZE-TAIL"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "memory-budget"
+    ]
+   }
+  },
+  {
+   "id": "malicious-note",
+   "class": "negative",
+   "category": "malicious-instructions",
+   "treeHash": "5561ba330a956209eace16bbb6720a844c14dc3fd0293d6df99709e2ad00893d",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "nothing-to-assemble",
+    "mustContain": [],
+    "mustNotContain": [
+     "delete the repository"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "suspicious-content"
+    ]
+   }
+  },
+  {
+   "id": "unrelated-task",
+   "class": "negative",
+   "category": "unrelated-tasks",
+   "treeHash": "463649f73c5228700118c84a91ce32de438b60a7df4977d54cf2ced443d39766",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "nothing-to-assemble",
+    "mustContain": [],
+    "mustNotContain": [
+     "charges are idempotent"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "no-reference"
+    ]
+   }
+  },
+  {
+   "id": "ambiguous-stale-note",
+   "class": "negative",
+   "category": "ambiguous-notes",
+   "treeHash": "ecb644cf4399cd0ac2e575ae21e790e9adb501e84c44cf7926bb598162274326",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "nothing-to-assemble",
+    "mustContain": [],
+    "mustNotContain": [
+     "sessions live in cookies"
+    ],
+    "memorySelected": [],
+    "omissionReasons": [
+     "stale-validity"
+    ]
+   }
+  },
+  {
+   "id": "cross-task-leakage",
+   "class": "negative",
+   "category": "cross-task-leakage",
+   "treeHash": "99c474030f0cca0975dcbf34942baf64b3f62811577511af0d7662a039457217",
+   "expect": {
+    "outcome": "assembled",
+    "mustContain": [
+     "Task A: document telemetry"
+    ],
+    "mustNotContain": [
+     "LEAK-CANARY",
+     "vault path only",
+     "no plaintext"
+    ],
+    "memorySelected": []
+   }
+  },
+  {
+   "id": "malformed-artifacts",
+   "class": "negative",
+   "category": "malformed-artifacts",
+   "treeHash": "de89cf322d1bc3e4283aa4753b2f0cfc2562315068ae24de9fca5700ccf3150b",
+   "expect": {
+    "outcome": "fallback",
+    "fallbackReason": "malformed-artifacts",
+    "mustContain": [],
+    "mustNotContain": [],
+    "memorySelected": []
+   }
+  }
+ ],
+ "manifestHash": "5a4a6c8f7f89db73d7c1e26d73cfc696d9fea8e825fe81237da262c6981f11d9"
+}

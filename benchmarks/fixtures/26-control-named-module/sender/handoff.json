@@ -1,0 +1,40 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-20260924-010856-bp8ze",
+ "taskID": "task-26controlnam",
+ "workflowID": "wf-26controlnam",
+ "sourceSession": "ses_sender",
+ "direction": "workhorse->workhorse",
+ "objective": "Add the ':grin:' alias mapping to 'grinning' in src/emoji.js without breaking existing aliases.",
+ "constraints": [
+  {
+   "text": "Existing aliases must keep working",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [
+  {
+   "path": "src/emoji.js",
+   "contentDigest": "d5e8fcbd17426612eb8dfe41d1ef072f6e377ef0b8c9416da0bbacc58bc8d63b",
+   "captured": {
+    "capturedAt": "2026-09-24T01:08:56.872Z"
+   },
+   "recovery": {
+    "excerpt": "const ALIASES = {\n  \":)\": \"slightly_smiling_face\",\n  \":wink:\": \"winking_face\",\n}\n\nexport function lookup(alias) {\n  return ALIASES[alias] ?? null\n}\n",
+    "truncated": false
+   }
+  }
+ ],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "node verify.js exits 0",
+   "provenance": "user-approved"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T01:08:56.872Z"
+}

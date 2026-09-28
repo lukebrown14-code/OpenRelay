@@ -1,0 +1,1 @@
+In src/slugify.js change the separator from underscore to hyphen (slugify('Hello World') must return 'Hello-World'). Then run node verify.js.

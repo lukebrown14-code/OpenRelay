@@ -1,0 +1,28 @@
+{
+ "schemaVersion": 1,
+ "handoffID": "ho-leaka",
+ "taskID": "task-leaka",
+ "workflowID": "wf-leaka",
+ "sourceSession": "ses-la",
+ "direction": "workhorse->workhorse",
+ "objective": "Task A: document telemetry",
+ "constraints": [
+  {
+   "text": "public info only",
+   "provenance": "user-approved"
+  }
+ ],
+ "decisions": [],
+ "relevantFiles": [],
+ "nextSteps": [],
+ "acceptanceCriteria": [
+  {
+   "text": "docs build",
+   "provenance": "tool-observed"
+  }
+ ],
+ "unresolvedQuestions": [],
+ "verifications": [],
+ "evidenceRefs": [],
+ "createdAt": "2026-09-24T00:00:00.000Z"
+}

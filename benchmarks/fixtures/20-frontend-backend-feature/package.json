@@ -1,0 +1,8 @@
+{
+  "name": "fixture-20-frontend-backend-feature",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "jsdom": "24.1.0"
+  }
+}

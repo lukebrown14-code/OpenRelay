@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "label": "stage8-locator5-pilot-v1",
+  "purpose": "Bounded benchmark-only live feasibility check of the five-file locator map against saved filtering-plus-v3 task baselines. No release decision from one run per task.",
+  "model": "zai-coding-plan/glm-5.3",
+  "tasks": ["delta-config-writeback", "or-packet-path-identity", "delta-market-dependencies"],
+  "mapCodeSha256": "c6463cb5670939104ed63df4c95cac13b8b970c4c097931ead0472d279af7dd1",
+  "map": { "budgetBytes": 650, "maxFiles": 5 },
+  "offlineGate": { "minimumFullFileCoverage24": 20, "requiredLiveFiles": ["delta/llm/catalog.py", "delta/core/config.py"], "maximumBytes": 650 },
+  "settings": {
+    "filtering": "on", "context": "on", "memory": "off", "handoff": "off", "route": "off", "escalate": "off", "previewSafe": true, "premiumCalls": 0
+  },
+  "baselines": {
+    "delta-config-writeback": { "tokens": 669884, "totalDurationMs": 332167, "verifyPass": true },
+    "or-packet-path-identity": { "tokens": 972026, "totalDurationMs": 301393, "verifyPass": true },
+    "delta-market-dependencies": { "tokens": 938570, "totalDurationMs": 342559, "verifyPass": true }
+  },
+  "limits": { "runs": 3, "attemptsPerTask": 1, "timeoutMsPerTask": 480000, "recordedCodingInputPlusCacheReadTokens": 3300000, "reservePerTaskTokens": 1100000 },
+  "stopRules": { "maxLatencyRatio": 1.05, "maxTokenRatio": 1, "stopOnAnyVerificationFailure": true },
+  "interpretation": "Require independent verification, complete coding usage, session-matched injection proof, zero premium, some recorded-token saving, and complete latency within 5% of saved v3 to continue. A passing n=1 comparison is only a feasibility signal; fresh paired confirmation is required before release."
+}

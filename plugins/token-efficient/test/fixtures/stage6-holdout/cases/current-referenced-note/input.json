@@ -1,0 +1,10 @@
+{
+ "resumeSession": "ses-cn",
+ "readHandoff": {
+  "taskID": "task-curnote",
+  "handoffID": "ho-curnote"
+ },
+ "taskRefs": [
+  "n-auth"
+ ]
+}

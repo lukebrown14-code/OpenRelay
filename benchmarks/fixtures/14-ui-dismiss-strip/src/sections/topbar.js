@@ -1,0 +1,1 @@
+export function renderTopbar(app) { const strip=document.createElement('section'); strip.id='promo-strip'; strip.innerHTML='<span>Promotion ends Friday</span><button aria-label="Dismiss promotion" data-action="dismiss-promo">×</button>'; app.append(strip) }

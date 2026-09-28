@@ -1,0 +1,5 @@
+{
+  "required": ["docs/runbook.md"],
+  "optional": [],
+  "notes": "The lost commit lives only in the local reflog; recovery requires reflog/fsck inspection. setup.mjs creates and then resets the commit."
+}

@@ -1,0 +1,8 @@
+{
+  "name": "fixture-08-ui-state-handling",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "jsdom": "24.1.0"
+  }
+}

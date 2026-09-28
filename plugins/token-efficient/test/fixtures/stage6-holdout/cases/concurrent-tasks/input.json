@@ -1,0 +1,7 @@
+{
+ "resumeSession": "ses-a",
+ "readHandoff": {
+  "taskID": "task-conca",
+  "handoffID": "ho-conca"
+ }
+}

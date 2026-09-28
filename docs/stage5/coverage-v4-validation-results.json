@@ -1,0 +1,588 @@
+{
+  "sourceSha256": "f6456eac3bb5ae4c0ab30bc838ce2f0dceafbcd7d39e3155e9b1b55e9cca6b99",
+  "validationSha256": "b91785a3d1379f30cfc4e6820c3f0f4789390fa8506bbe27572a4c40372699cf",
+  "codeSha256": "9723f81b69f4db0664559dd076fec98d4c32231cc0c1bb2f04b28687dfb95175",
+  "positive": [
+    {
+      "id": "tap-yaml-fields",
+      "anchor": 106,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": true,
+        "bytes": 621,
+        "prepMs": 57.486
+      },
+      "evidence": {
+        "built": true,
+        "covered": true,
+        "bytes": 3757,
+        "prepMs": 65.489
+      },
+      "ranked": [
+        {
+          "file": "plugins/token-efficient/lib/filtering/parsers.ts",
+          "symbol": "tapYamlCard",
+          "score": 69.47636723146508
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "symbol": "cardLines",
+          "score": 31.083644957401006
+        },
+        {
+          "file": "benchmarks/fixtures/09-ui-shared-style/src/render.js",
+          "symbol": "buildCard",
+          "score": 22.11198009988112
+        },
+        {
+          "file": "benchmarks/fixtures/18-cross-file-api-change/src/mobile/receiptCard.js",
+          "symbol": "receiptCard",
+          "score": 19.460328913607647
+        }
+      ]
+    },
+    {
+      "id": "typecheck-errors",
+      "anchor": 278,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": false,
+        "bytes": 636,
+        "prepMs": 60.125
+      },
+      "evidence": {
+        "built": true,
+        "covered": false,
+        "bytes": 4017,
+        "prepMs": 57.353
+      },
+      "ranked": [
+        {
+          "file": "plugins/token-efficient/lib/filtering/parsers.ts",
+          "symbol": "parseOutput",
+          "score": 46.642022132213924
+        },
+        {
+          "file": "plugins/token-efficient/lib/filtering/filter.ts",
+          "symbol": "buildFailureView",
+          "score": 38.07554729014848
+        },
+        {
+          "file": "plugins/token-efficient/tools/raw-output.ts",
+          "symbol": "openrelayRawOutputTool",
+          "score": 27.896471518930227
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/retrieve.ts",
+          "symbol": "buildEvidence",
+          "score": 25.433430831607687
+        }
+      ]
+    },
+    {
+      "id": "safe-source-load",
+      "anchor": 170,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": true,
+        "bytes": 580,
+        "prepMs": 58.601
+      },
+      "evidence": {
+        "built": true,
+        "covered": true,
+        "bytes": 3997,
+        "prepMs": 54.931
+      },
+      "ranked": [
+        {
+          "file": "plugins/token-efficient/lib/context/retrieve.ts",
+          "symbol": "loadFile",
+          "score": 29.253953614923354
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/index.ts",
+          "symbol": "ContextEngine",
+          "score": 21.250004420831665
+        },
+        {
+          "file": "benchmarks/lib/measurement.mjs",
+          "symbol": "sessionContextEvents",
+          "score": 21.07027475656348
+        },
+        {
+          "file": "benchmarks/analyze.mjs",
+          "symbol": "loadTelemetry",
+          "score": 20.82210947078695
+        }
+      ]
+    },
+    {
+      "id": "controller-settings",
+      "anchor": 54,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": false,
+        "bytes": 641,
+        "prepMs": 49.011
+      },
+      "evidence": {
+        "built": true,
+        "covered": false,
+        "bytes": 2149,
+        "prepMs": 51.745
+      },
+      "ranked": [
+        {
+          "file": "plugins/token-efficient/lib/controller/config.ts",
+          "symbol": "ControllerOptions",
+          "score": 48.72529887979742
+        },
+        {
+          "file": "plugins/token-efficient/index.ts",
+          "symbol": "TokenEfficientOptions",
+          "score": 26.42859876809657
+        },
+        {
+          "file": "plugins/token-efficient/lib/controller/route.ts",
+          "symbol": "route",
+          "score": 23.32277633776985
+        },
+        {
+          "file": "benchmarks/fixtures/11-git-merge-conflict/settings.js",
+          "symbol": "settings",
+          "score": 22.200674337761626
+        }
+      ]
+    },
+    {
+      "id": "context-settings",
+      "anchor": 34,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": false,
+        "bytes": 628,
+        "prepMs": 51.771
+      },
+      "evidence": {
+        "built": true,
+        "covered": false,
+        "bytes": 3974,
+        "prepMs": 51.914
+      },
+      "ranked": [
+        {
+          "file": "plugins/token-efficient/lib/context/config.ts",
+          "symbol": "DEFAULT_CONTEXT",
+          "score": 32.552763457344895
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/index.ts",
+          "symbol": "ContextEngine",
+          "score": 28.248271005018214
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/packet.ts",
+          "symbol": "buildPacket",
+          "score": 26.871530248880838
+        },
+        {
+          "file": "plugins/token-efficient/lib/context/capture.ts",
+          "symbol": "captureBenchmarkPacket",
+          "score": 24.782757711127893
+        }
+      ]
+    },
+    {
+      "id": "audit-token-join",
+      "anchor": 29,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": false,
+        "bytes": 551,
+        "prepMs": 61.791
+      },
+      "evidence": {
+        "built": true,
+        "covered": false,
+        "bytes": 3416,
+        "prepMs": 66.783
+      },
+      "ranked": [
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "symbol": "auditStage5",
+          "score": 59.98485812436379
+        },
+        {
+          "file": "plugins/token-efficient/tools/raw-output.ts",
+          "symbol": "matchCount",
+          "score": 27.88057063200051
+        },
+        {
+          "file": "benchmarks/run.mjs",
+          "symbol": "record",
+          "score": 24.762654762320075
+        },
+        {
+          "file": "plugins/token-efficient/lib/controller/models.ts",
+          "symbol": "ModelRef",
+          "score": 23.193537942596002
+        }
+      ]
+    },
+    {
+      "id": "uncertainty-bootstrap",
+      "anchor": 16,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": true,
+        "bytes": 426,
+        "prepMs": 39.979
+      },
+      "evidence": {
+        "built": true,
+        "covered": true,
+        "bytes": 1277,
+        "prepMs": 39.307
+      },
+      "ranked": [
+        {
+          "file": "benchmarks/analyze-21.mjs",
+          "symbol": "exactBootstrap",
+          "score": 51.01207694932016
+        },
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "symbol": "runs",
+          "score": 19.475783122139973
+        },
+        {
+          "file": "benchmarks/analyze.mjs",
+          "symbol": "runs",
+          "score": 18.821758718558964
+        },
+        {
+          "file": "benchmarks/run.mjs",
+          "symbol": "runs",
+          "score": 13.880568888465998
+        }
+      ]
+    },
+    {
+      "id": "fixture-digest",
+      "anchor": 14,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": false,
+        "bytes": 527,
+        "prepMs": 47.477
+      },
+      "evidence": {
+        "built": true,
+        "covered": false,
+        "bytes": 952,
+        "prepMs": 53.429
+      },
+      "ranked": [
+        {
+          "file": "benchmarks/run-21-confirm.mjs",
+          "symbol": "frozen",
+          "score": 30.20216793360074
+        },
+        {
+          "file": "benchmarks/audit-stage5.mjs",
+          "symbol": "failedVerifyTools",
+          "score": 20.17043729949438
+        },
+        {
+          "file": "benchmarks/analyze.mjs",
+          "symbol": "fail",
+          "score": 19.372653096042534
+        },
+        {
+          "file": "benchmarks/analyze-21.mjs",
+          "symbol": "fixture",
+          "score": 18.917619061020204
+        }
+      ]
+    },
+    {
+      "id": "worktree-slug",
+      "anchor": 16,
+      "top": 2,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": true,
+        "bytes": 524,
+        "prepMs": 52.043
+      },
+      "evidence": {
+        "built": true,
+        "covered": true,
+        "bytes": 3416,
+        "prepMs": 49.785
+      },
+      "ranked": [
+        {
+          "file": "plugins/token-efficient/lib/store.ts",
+          "symbol": "Store",
+          "score": 25.069958273935757
+        },
+        {
+          "file": "plugins/token-efficient/lib/ids.ts",
+          "symbol": "slugFor",
+          "score": 23.82339768352724
+        },
+        {
+          "file": "plugins/token-efficient/tui.tsx",
+          "symbol": "path_",
+          "score": 23.515970727182797
+        },
+        {
+          "file": "scripts/relay-runtime.mjs",
+          "symbol": "defaultRoot",
+          "score": 21.11423793177616
+        }
+      ]
+    },
+    {
+      "id": "receipt-cents",
+      "anchor": 2,
+      "top": 1,
+      "top2": true,
+      "top4": true,
+      "navigation": {
+        "built": true,
+        "covered": true,
+        "bytes": 738,
+        "prepMs": 34.726
+      },
+      "evidence": {
+        "built": true,
+        "covered": true,
+        "bytes": 1081,
+        "prepMs": 36.82
+      },
+      "ranked": [
+        {
+          "file": "benchmarks/fixtures/18-cross-file-api-change/src/format/receipt.js",
+          "symbol": "formatReceipt",
+          "score": 49.47872168495758
+        },
+        {
+          "file": "benchmarks/fixtures/18-cross-file-api-change/src/mobile/receiptCard.js",
+          "symbol": "receiptCard",
+          "score": 30.41183455263051
+        },
+        {
+          "file": "benchmarks/fixtures/18-cross-file-api-change/src/email/sendReceipt.js",
+          "symbol": "receiptEmail",
+          "score": 30.314986681861203
+        },
+        {
+          "file": "benchmarks/fixtures/15-debug-export-labels/src/data/orders.js",
+          "symbol": "orders",
+          "score": 21.86282742284877
+        }
+      ]
+    }
+  ],
+  "negative": [
+    {
+      "id": "git-status",
+      "v3": {
+        "verdict": "skip",
+        "reason": "git-intent"
+      },
+      "eligible": false,
+      "navigationBuilt": false,
+      "evidenceBuilt": false
+    },
+    {
+      "id": "git-merge",
+      "v3": {
+        "verdict": "skip",
+        "reason": "git-intent"
+      },
+      "eligible": false,
+      "navigationBuilt": false,
+      "evidenceBuilt": false
+    },
+    {
+      "id": "exact-path",
+      "v3": {
+        "verdict": "skip",
+        "reason": "explicit-single-target"
+      },
+      "eligible": false,
+      "navigationBuilt": false,
+      "evidenceBuilt": false
+    },
+    {
+      "id": "exact-symbol",
+      "v3": {
+        "verdict": "skip",
+        "reason": "explicit-single-target"
+      },
+      "eligible": false,
+      "navigationBuilt": false,
+      "evidenceBuilt": false
+    },
+    {
+      "id": "docs-summary",
+      "v3": {
+        "verdict": "skip",
+        "reason": "redundant-candidates"
+      },
+      "eligible": true,
+      "navigationBuilt": true,
+      "evidenceBuilt": true,
+      "navigationFiles": [
+        "benchmarks/fixtures/08-ui-state-handling/src/statusData.js",
+        "benchmarks/fixtures/08-ui-state-handling/src/statusWidget.js",
+        "benchmarks/make-coverage-snapshot.mjs",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/lib/context/retrieve.ts",
+        "scripts/relay-launcher.mjs"
+      ],
+      "evidenceFiles": [
+        "benchmarks/fixtures/08-ui-state-handling/src/statusData.js",
+        "benchmarks/fixtures/08-ui-state-handling/src/statusWidget.js",
+        "benchmarks/make-coverage-snapshot.mjs",
+        "benchmarks/analyze.mjs"
+      ]
+    },
+    {
+      "id": "general-advice",
+      "v3": {
+        "verdict": "skip",
+        "reason": "redundant-candidates"
+      },
+      "eligible": true,
+      "navigationBuilt": false,
+      "evidenceBuilt": false,
+      "navigationFiles": [],
+      "evidenceFiles": []
+    },
+    {
+      "id": "new-feature",
+      "v3": {
+        "verdict": "skip",
+        "reason": "redundant-candidates"
+      },
+      "eligible": true,
+      "navigationBuilt": true,
+      "evidenceBuilt": true,
+      "navigationFiles": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/tui.tsx",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/filtering/preview.ts",
+        "benchmarks/fixtures/08-ui-state-handling/src/statusWidget.js",
+        "benchmarks/fixtures/20-frontend-backend-feature/src/server/orderApi.js"
+      ],
+      "evidenceFiles": [
+        "plugins/token-efficient/lib/filtering/filter.ts",
+        "plugins/token-efficient/tui.tsx",
+        "plugins/token-efficient/index.ts",
+        "plugins/token-efficient/lib/filtering/preview.ts"
+      ]
+    },
+    {
+      "id": "write-tests",
+      "v3": {
+        "verdict": "skip",
+        "reason": "redundant-candidates"
+      },
+      "eligible": true,
+      "navigationBuilt": false,
+      "evidenceBuilt": false,
+      "navigationFiles": [],
+      "evidenceFiles": []
+    },
+    {
+      "id": "empty",
+      "v3": {
+        "verdict": "skip",
+        "reason": "redundant-candidates"
+      },
+      "eligible": true,
+      "navigationBuilt": false,
+      "evidenceBuilt": false,
+      "navigationFiles": [],
+      "evidenceFiles": []
+    },
+    {
+      "id": "external-info",
+      "v3": {
+        "verdict": "skip",
+        "reason": "redundant-candidates"
+      },
+      "eligible": true,
+      "navigationBuilt": true,
+      "evidenceBuilt": true,
+      "navigationFiles": [
+        "scripts/relay-runtime.mjs",
+        "benchmarks/run-21-confirm.mjs",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/lib/store.ts",
+        "benchmarks/analyze-21.mjs",
+        "benchmarks/audit-stage5.mjs"
+      ],
+      "evidenceFiles": [
+        "scripts/relay-runtime.mjs",
+        "benchmarks/run-21-confirm.mjs",
+        "benchmarks/analyze.mjs",
+        "plugins/token-efficient/lib/store.ts"
+      ]
+    }
+  ],
+  "summary": {
+    "top2": 10,
+    "top4": 10,
+    "navigation": {
+      "builds": 10,
+      "blocks": 5,
+      "falseBuilds": 3,
+      "medianPrepMs": 52.043,
+      "sizeSafe": true,
+      "pass": false
+    },
+    "evidence": {
+      "builds": 10,
+      "blocks": 5,
+      "falseBuilds": 3,
+      "medianPrepMs": 53.429,
+      "sizeSafe": true,
+      "pass": false
+    },
+    "pass": false
+  }
+}

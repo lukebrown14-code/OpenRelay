@@ -1,0 +1,6 @@
+{
+  "class": "refactor",
+  "category": "refactor",
+  "name": "19-repository-refactor",
+  "verifyTimeoutMs": 30000
+}
