@@ -26,3 +26,7 @@ OpenRelay tests ways to reduce coding-agent token use and task time while preser
 - [Pi experiment plan](pi-testing-plan.md) · [results](pi-testing-results.md)
 
 `docs/project-trials.md` is a reconstructed log of the Stage 1–3 trials. The stage reports linked above are the primary experiment record.
+
+## Raw benchmark results
+
+`benchmarks/results/` is gitignored. A slimmed, path-redacted archive (169 MB; excludes `node_modules`, `.venv` and the Delta snapshot; `/Users/luke` replaced with `~`) is attached to the [archive-2026-11-10 release](https://github.com/lukebrown14-code/OpenRelay/releases/tag/archive-2026-11-10). Redaction means file hashes recorded in some `run.json` files will not match the archived copies.
