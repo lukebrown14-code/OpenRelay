@@ -19,8 +19,8 @@ GLM Coding Plan = workhorse; ChatGPT subscription (OAuth, never API/PAYG) = prem
 - `docs/` — plans + stage reports. `stage0-capability-matrix.md` was lost in the 2026-09-22
   repo wipe; a surviving copy lives at `~/.config/opencode/stage0-capability-matrix.md`
   (authoritative for which OpenCode hooks exist).
-- `docs/README.md` — current experiment and report index; `docs/project-trials.md` is a wipe
-  placeholder and is not authoritative.
+- `docs/README.md` — current experiment and report index; `docs/project-trials.md` is a
+  reconstructed log of Stage 1–3 trials (figures from surviving `analysis-*.json`).
 
 ## Commands
 
@@ -192,4 +192,4 @@ bun scripts/relay.mjs [daily] [--relay-status]          # dev-channel CLI (daily
   16 workflows, 1,585,522 recorded coding input+cacheRead, 438,519 premium.
   Experimental runner/policy/fixtures are under `benchmarks/`; report is
   `docs/stage7/pilot-results.md`. Daily routing/escalation remain unchanged.
-- `README.md` and `docs/project-trials.md` are "LOST in 2026-09-22 wipe" placeholders — do not trust them.
+- `README.md` and `docs/project-trials.md` were rebuilt after the 2026-09-22 wipe; treat stage reports under `docs/` as the primary record.

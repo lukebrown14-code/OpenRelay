@@ -25,4 +25,4 @@ OpenRelay tests ways to reduce coding-agent token use and task time while preser
 - [Stage 8 repository discovery](stage8/stage8-plan.md)
 - [Pi experiment plan](pi-testing-plan.md) · [results](pi-testing-results.md)
 
-The legacy `docs/project-trials.md` file is a wipe placeholder. Use the stage reports linked above as the experiment record.
+`docs/project-trials.md` is a reconstructed log of the Stage 1–3 trials. The stage reports linked above are the primary experiment record.
