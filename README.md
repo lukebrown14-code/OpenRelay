@@ -4,6 +4,8 @@ OpenRelay is an experiment lab for making AI coding harnesses use fewer tokens a
 
 Possible future names include **HarnessBench**, **RelayLab**, **TokenLab**, and **Efficient Harness**. OpenRelay remains the name of the project and runtime today.
 
+> **Status: archived (2026-11-10).** Experiments through Stage 8 and the Pi test are complete; no further work is planned. Only filtering, Stage 5 v3 context (daily channel) and deterministic GLM-first routing shipped. Everything else is off or was not integrated. Raw benchmark results (gitignored) are attached to the [archive-2026-11-10 release](https://github.com/lukebrown14-code/OpenRelay/releases/tag/archive-2026-11-10) as a slimmed, path-redacted tarball.
+
 ## What the evidence says so far
 
 | Experiment | Finding | Current status |
@@ -13,9 +15,11 @@ Possible future names include **HarnessBench**, **RelayLab**, **TokenLab**, and 
 | Stage 3 output discipline | Failed or inconclusive; the discipline code was removed and filtering was revalidated separately. | No discipline feature. |
 | Stage 4 task controller | Deterministic GLM-first routing preserved quality with zero premium calls in the 15-run arm; escalation was not exercised. | Partial pass; automatic escalation remains unvalidated. |
 | Stage 5 context retrieval | The audited UI-class comparison saved 15.2% of recorded coding input plus cache-read tokens; the preregistered 25% gate was not met. Fixture 21 saved 22.6% across five pairs, while complete task time rose 6.3%. | A limited daily rollout is enabled; results remain inconclusive and latency should be monitored. |
+| Stage 5 coverage retrieval (v1, v2, v4) | Offline ranking found the right file but missed the required code span (5/10 vs ≥8 gate for v4) and over-built packets on negative controls (3/10 vs ≤1). | Failed offline gates; not integrated, no live pilot. |
 | Stage 6 memory and handoffs | All 29 retained pilot runs passed verification, but handoff results varied by task and selected memory did not show a benefit. | Both features remain off. |
 | Stage 7 premium escalation | All scored tasks passed before escalation was needed. Escalation arms were slower than premium-first, so the futility stop fired. | No routing change; automatic escalation remains unvalidated. |
 | Stage 8 repository maps | The offline map found 47/48 required files, matching lexical ranking. In the one live comparison it used 39.3% more recorded tokens and took 26.8% longer. | Not integrated; the pilot stopped. |
+| Pi harness filtering and context | One canary completed and the filter fired as designed, but the workspace sat inside the repo and exposed the verifier, so the run is invalid. | Stopped; no valid token comparison. |
 
 These results are bounded observations, not general performance guarantees. Independent verification is the quality gate; token use and complete task time are measured separately. Some historical measurements omit title-call usage, and several live comparisons have small samples. Read the linked reports before drawing broader conclusions.
 
